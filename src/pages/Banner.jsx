@@ -1,0 +1,2876 @@
+
+
+import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
+import { FaShoppingBag, FaBars, FaTimes } from "react-icons/fa";
+import { useCart } from "../context/CartContext";
+import { HiMenu, HiX } from "react-icons/hi";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+// import "./mycss.css"
+import Header3 from "./Header3";
+import Header from "./Header";
+
+
+const Banner = ({ cartCount = 1 }) => {
+  const [menuOpen, setMenuOpen] = useState(false); // mobile menu
+  const [categories, setCategories] = useState([]);
+  const { cartItems } = useCart();
+
+  // const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const totalItems = cartItems.length;
+
+  const { user, dispatch } = useContext(AuthContext);
+  const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+    localStorage.removeItem("user");
+    navigate("/");
+  };
+  // useEffect(() => {
+  //   const fetchCategories = async () => {
+  //     try {
+  //       const res = await axios.get(
+  //         `${process.env.REACT_APP_API_URL}/api/db/categories`
+  //       );
+  //       setCategories(res.data);
+  //     } catch (err) {
+  //       console.error("Error fetching categories:", err);
+  //     }
+  //   };
+  //   fetchCategories();
+  // }, []);
+useEffect(() => {
+  const fetchCategories = async () => {
+    try {
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/db/categories`
+      );
+
+      // Only top-level categories (no parent)
+      const topLevelCategories = res.data.filter(
+        (cat) => !cat.parent
+      );
+
+      setCategories(topLevelCategories);
+    } catch (err) {
+      console.error("Error fetching categories:", err);
+    }
+  };
+
+  fetchCategories();
+}, []);
+
+  return (
+
+   <div id='page' class="hfeed page-wrapper  "  >
+          <h1 class="bwp-title hide"><a href="index.html" rel="home">Papzi</a></h1>
+  {/* <header id='bwp-header' class="bwp-header header-v1">
+              <div class="header-mobile">
+    <div class="container">
+      <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3 header-left">
+          <div class="navbar-header">
+            <button type="button" id="show-megamenu"  class="navbar-toggle">
+              <span>Menu</span>
+            </button>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6 header-center ">
+              <div class="wpbingoLogo">
+      <a  href="index.html">
+                  <img  src="wp-content/uploads/2022/01/logo-white.png" alt="Papzi"/>
+              </a>
+    </div> 
+          </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 col-3 header-right">
+                              <div class="papzi-topcart dropdown">
+            <div class="dropdown mini-cart top-cart">
+  <div class="remove-cart-shadow"></div>
+  <a class="dropdown-toggle cart-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <div class="icons-cart"><i class="icon-Cart"></i><span class="cart-count">0</span></div>
+  </a>
+  <div class="dropdown-menu cart-popup">
+  <div class="remove-cart">
+    <a class="dropdown-toggle cart-remove" data-toggle="dropdown" data-hover="dropdown" data-delay="0" href="#" title="View your shopping cart">
+      Close<i class="icon_close"></i>
+    </a>
+  </div>
+  <div class="top-total-cart">Shopping Cart(0)</div>
+  <div class="cart-icon-big"></div>
+<ul class="cart_list product_list_widget ">
+      <li class="empty">
+      <span>No products in the cart.</span>
+      <a class="go-shop" href="shop/index.html">GO TO SHOP			<i aria-hidden="true" class="arrow_right"></i></a>
+    </li>
+  </ul>
+  </div>
+</div>					</div>
+                  </div>
+              </div>
+    </div>
+        <div class="header-mobile-fixed">
+      <div class="shop-page">
+        <a href="shop/index.html"><i class="wpb-icon-shop"></i></a>
+      </div>
+      <div class="my-account">
+        <div class="login-header">
+          <a href="my-account/index.html"><i class="wpb-icon-user"></i></a>
+        </div>
+      </div>		
+
+            <div class="search-box">
+        <div class="search-toggle"><i class="wpb-icon-magnifying-glass"></i></div>
+      </div>
+      
+            <div class="wishlist-box">
+        <a href="wishlist/index.html"><i class="wpb-icon-heart"></i></a>
+      </div>
+          </div>
+      </div>
+      <div class="header-desktop">
+            <div class='header-wrapper' data-sticky_header="0">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 header-left">
+                  <div class="wpbingoLogo">
+      <a  href="index.html">
+                  <img  src="wp-content/uploads/2022/01/logo-white.png" alt="Papzi"/>
+              </a>
+    </div> 
+                <div class="phone hidden-xs">
+                <a href="tel:934595876">934595876</a>
+              </div>
+            </div>
+            <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12 header-right">
+              <div class="wpbingo-menu-mobile header-menu">
+                <div class="header-menu-bg">
+                  <div class="wpbingo-menu-wrapper">
+      <div class="megamenu">
+        <nav class="navbar-default">
+          <div  class="bwp-navigation primary-navigation navbar-mega" data-text_close = "Close">
+            <div class="float-menu">
+<nav id="main-navigation" class="std-menu clearfix">
+<div class="menu-main-menu-container"><ul id="menu-main-menu" class="menu"><li  class="level-0 menu-item-27659      menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-9601 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children  std-menu      " ><a href="index.html"><span class="menu-item-text">Home</span></a>
+<ul class="sub-menu">
+  <li  class="level-1 menu-item-32910      menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-9601 current_page_item  std-menu      " ><a href="index.html">Home 1</a></li>
+  <li  class="level-1 menu-item-32911      menu-item menu-item-type-post_type menu-item-object-page  std-menu      " ><a href="home-2/index.html">Home 2</a></li>
+  <li  class="level-1 menu-item-32912      menu-item menu-item-type-post_type menu-item-object-page  std-menu      " ><a href="home-3/index.html">Home 3</a></li>
+  <li  class="level-1 menu-item-32913      menu-item menu-item-type-post_type menu-item-object-page  std-menu      " ><a href="home-4/index.html">Home 4</a></li>
+  <li  class="level-1 menu-item-32914      menu-item menu-item-type-post_type menu-item-object-page  std-menu      " ><a href="home-5/index.html">Home 5</a></li>
+  <li  class="level-1 menu-item-32915      menu-item menu-item-type-post_type menu-item-object-page  std-menu      " ><a href="home-6/index.html">Home 6</a></li>
+  <li  class="level-1 menu-item-32916      menu-item menu-item-type-post_type menu-item-object-page  std-menu      " ><a href="home-7/index.html">Home 7</a></li>
+  <li  class="level-1 menu-item-32917      menu-item menu-item-type-post_type menu-item-object-page  std-menu      " ><a href="home-8/index.html">Home 8</a></li>
+  <li  class="level-1 menu-item-34971      menu-item menu-item-type-post_type menu-item-object-page  std-menu      " ><a href="home-9/index.html">Home 9</a></li>
+  <li  class="level-1 menu-item-34970      menu-item menu-item-type-post_type menu-item-object-page  std-menu      " ><a href="home-10/index.html">Home 10</a></li>
+</ul>
+</li>
+<li  class="level-0 menu-item-2985  menu-item-has-children    menu-item menu-item-type-post_type menu-item-object-page  mega-menu mega-menu-fullwidth-width     " ><a href="shop/index.html"><span class="menu-item-text">Shop</span></a><div class="sub-menu">		<div data-elementor-type="wp-post" data-elementor-id="9121" class="elementor elementor-9121">
+            <section class="elementor-section elementor-top-section elementor-element elementor-element-31faec0 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="31faec0" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-6232c7b" data-id="6232c7b" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <section class="elementor-section elementor-inner-section elementor-element elementor-element-ee8295e content-megamenu elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ee8295e" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-fca6470 wpb-col-sm-100" data-id="fca6470" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-c7ba056 title elementor-widget elementor-widget-heading" data-id="c7ba056" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Shop style</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-5fa2b7b elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="5fa2b7b" data-element_type="widget" data-widget_type="icon-list.default">
+        <div class="elementor-widget-container">
+              <ul class="elementor-icon-list-items">
+              <li class="elementor-icon-list-item">
+                      <a href="shop/index68fa.html?show-subcategories=hide&amp;show_page_title_bg=true">
+
+                      <span class="elementor-icon-list-text">Shop Standard</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/index1178.html?category_style=filter_sideout&amp;shop-layout=full&amp;product_col_large=4">
+
+                      <span class="elementor-icon-list-text">Shop Full <span class="hot">hot</span></span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="product-category/butter-mix/index1f51.html?show_page_title_bg=show&amp;header-overlay=show">
+
+                      <span class="elementor-icon-list-text">Shop Header Overlay</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/indexfddf.html?category_style=only_categories">
+
+                      <span class="elementor-icon-list-text">Shop Only Categories</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/index3369.html?style-subcategories=icon_categories">
+
+                      <span class="elementor-icon-list-text">Shop Icon Categories <span class="hot">hot</span></span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/index.html">
+
+                      <span class="elementor-icon-list-text">Shop Image Categories</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="product-category/burgers/index.html">
+
+                      <span class="elementor-icon-list-text">Shop Sub Categories</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/index5758.html?style-subcategories=shop_mini_categories">
+
+                      <span class="elementor-icon-list-text">Shop  Mini Categories</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/indexaf48.html?category-view-mode=list">
+
+                      <span class="elementor-icon-list-text">Shop List</span>
+                      </a>
+                  </li>
+            </ul>
+            </div>
+        </div>
+          </div>
+    </div>
+        <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-984c9de wpb-col-sm-100" data-id="984c9de" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-07e9ae5 title elementor-widget elementor-widget-heading" data-id="07e9ae5" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Filter Layout</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-9bc3f0e elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="9bc3f0e" data-element_type="widget" data-widget_type="icon-list.default">
+        <div class="elementor-widget-container">
+              <ul class="elementor-icon-list-items">
+              <li class="elementor-icon-list-item">
+                      <a href="shop/index.html">
+
+                      <span class="elementor-icon-list-text">Sidebar</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/index9b51.html?category_style=filter_sideout">
+
+                      <span class="elementor-icon-list-text">Filter Side Out <span class="hot">hot</span></span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/index74e4.html?category_style=filter_dropdown">
+
+                      <span class="elementor-icon-list-text">Filter Dropdown</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/indexbe32.html?category_style=filter_ontop">
+
+                      <span class="elementor-icon-list-text">Filter On Top</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/indexcc57.html?category_style=filter_drawer">
+
+                      <span class="elementor-icon-list-text">Filter Drawer</span>
+                      </a>
+                  </li>
+            </ul>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-2c216b2 title elementor-widget elementor-widget-heading" data-id="2c216b2" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Shop loader</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-daea313 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="daea313" data-element_type="widget" data-widget_type="icon-list.default">
+        <div class="elementor-widget-container">
+              <ul class="elementor-icon-list-items">
+              <li class="elementor-icon-list-item">
+                      <a href="shop/indexb677.html?shop_paging=shop-pagination">
+
+                      <span class="elementor-icon-list-text">Shop Pagination</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/indexce49.html?shop_paging=shop-infinity">
+
+                      <span class="elementor-icon-list-text">Shop Infinity <span class="hot">hot</span></span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/index0eb4.html?shop_paging=shop-loadmore">
+
+                      <span class="elementor-icon-list-text">Shop Load More</span>
+                      </a>
+                  </li>
+            </ul>
+            </div>
+        </div>
+          </div>
+    </div>
+        <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-cf68191 wpb-col-sm-100" data-id="cf68191" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-22efdac title elementor-widget elementor-widget-heading" data-id="22efdac" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Hover style</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-cb8fada elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="cb8fada" data-element_type="widget" data-widget_type="icon-list.default">
+        <div class="elementor-widget-container">
+              <ul class="elementor-icon-list-items">
+              <li class="elementor-icon-list-item">
+                      <a href="shop/index23ba.html?layout_shop=1">
+
+                      <span class="elementor-icon-list-text">Hover Style 1</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/index32b5.html?layout_shop=2">
+
+                      <span class="elementor-icon-list-text">Hover Style 2</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/index22aa.html?layout_shop=3">
+
+                      <span class="elementor-icon-list-text">Hover Style 3</span>
+                      </a>
+                  </li>
+            </ul>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-b0f0b5b title elementor-widget elementor-widget-heading" data-id="b0f0b5b" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Woo Pages</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-5c8e7c3 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="5c8e7c3" data-element_type="widget" data-widget_type="icon-list.default">
+        <div class="elementor-widget-container">
+              <ul class="elementor-icon-list-items">
+              <li class="elementor-icon-list-item">
+                      <a href="order-tracking/index.html">
+
+                      <span class="elementor-icon-list-text">Order Tracking</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="my-account/index.html">
+
+                      <span class="elementor-icon-list-text">Login</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="wishlist/index.html">
+
+                      <span class="elementor-icon-list-text">Wishlist</span>
+                      </a>
+                  </li>
+            </ul>
+            </div>
+        </div>
+          </div>
+    </div>
+        <div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-8d30036 wpb-col-sm-100" data-id="8d30036" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-25718ba title elementor-widget elementor-widget-heading" data-id="25718ba" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Mini cart</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-5059be5 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="5059be5" data-element_type="widget" data-widget_type="icon-list.default">
+        <div class="elementor-widget-container">
+              <ul class="elementor-icon-list-items">
+              <li class="elementor-icon-list-item">
+                      <a href="index3361.html?cart-layout=popup">
+
+                      <span class="elementor-icon-list-text">Side Out Light <span class="hot">hot</span></span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="indexed9f.html?cart-layout=popup&amp;cart-style=dark">
+
+                      <span class="elementor-icon-list-text">Side Out Dark</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="index.html">
+
+                      <span class="elementor-icon-list-text">Dropdown</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="cart/index.html">
+
+                      <span class="elementor-icon-list-text">Cart Page</span>
+                      </a>
+                  </li>
+            </ul>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-24868fd title elementor-widget elementor-widget-heading" data-id="24868fd" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Checkout Style</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-b0627e9 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="b0627e9" data-element_type="widget" data-widget_type="icon-list.default">
+        <div class="elementor-widget-container">
+              <ul class="elementor-icon-list-items">
+              <li class="elementor-icon-list-item">
+                      <a href="checkout/index.html">
+
+                      <span class="elementor-icon-list-text">Checkout Classic</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="checkout/indexb7a3.html?checkout_page_style=checkout-page-style-2">
+
+                      <span class="elementor-icon-list-text">Checkout Mordern<span class="hot">hot</span></span>
+                      </a>
+                  </li>
+            </ul>
+            </div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+          </div>
+    </div>
+          </div>
+    </section>
+        </div>
+    </div></li>
+<li  class="level-0 menu-item-17678  menu-item-has-children    menu-item menu-item-type-post_type menu-item-object-product  mega-menu mega-menu-fullwidth-width     " ><a href="shop/smoothie-drinks/index.html"><span class="menu-item-text">Product</span></a><div class="sub-menu">		<div data-elementor-type="wp-post" data-elementor-id="16554" class="elementor elementor-16554">
+            <section class="elementor-section elementor-top-section elementor-element elementor-element-7f4de8c elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="7f4de8c" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-09b0239" data-id="09b0239" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <section class="elementor-section elementor-inner-section elementor-element elementor-element-9a0cbdd content-megamenu elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9a0cbdd" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-8327fba wpb-col-sm-100" data-id="8327fba" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-f952e43 title elementor-widget elementor-widget-heading" data-id="f952e43" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Product featured</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-cc927f6 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="cc927f6" data-element_type="widget" data-widget_type="icon-list.default">
+        <div class="elementor-widget-container">
+              <ul class="elementor-icon-list-items">
+              <li class="elementor-icon-list-item">
+                      <a href="shop/american-burgers/indexe5c8.html?show-sticky-cart=true">
+
+                      <span class="elementor-icon-list-text">Sticky ATC <span class="hot">hot</span></span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/sleek-iron-clock/index.html">
+
+                      <span class="elementor-icon-list-text">Video Inner</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/sleek-iron-clock/index64ae.html?video-style=popup">
+
+                      <span class="elementor-icon-list-text">Video Popup</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/banana-leaf/index.html">
+
+                      <span class="elementor-icon-list-text">360 Degree <span class="hot">hot</span></span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/mare-e-monti/index.html">
+
+                      <span class="elementor-icon-list-text">Countdown</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/flowerpot-pendant-light-vp1/index.html">
+
+                      <span class="elementor-icon-list-text">Frequently Bought Together <span class="hot">hot</span></span>
+                      </a>
+                  </li>
+            </ul>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-fa4c0ce title elementor-widget elementor-widget-heading" data-id="fa4c0ce" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Description Style</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-6212303 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6212303" data-element_type="widget" data-widget_type="icon-list.default">
+        <div class="elementor-widget-container">
+              <ul class="elementor-icon-list-items">
+              <li class="elementor-icon-list-item">
+                      <a href="shop/combo-salad/index9125.html?description-style=tab">
+
+                      <span class="elementor-icon-list-text">Description Tab</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/combo-salad/index423b.html?description-style=accordion">
+
+                      <span class="elementor-icon-list-text">Description Accordion</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/combo-salad/index8f75.html?description-style=full-content">
+
+                      <span class="elementor-icon-list-text">Description Full Content</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/combo-salad/index3b4a.html?description-style=vertical">
+
+                      <span class="elementor-icon-list-text">Description Vertical</span>
+                      </a>
+                  </li>
+            </ul>
+            </div>
+        </div>
+          </div>
+    </div>
+        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-d0f661d wpb-col-sm-100" data-id="d0f661d" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-50398ef title elementor-widget elementor-widget-heading" data-id="50398ef" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Product Type</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-1147422 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="1147422" data-element_type="widget" data-widget_type="icon-list.default">
+        <div class="elementor-widget-container">
+              <ul class="elementor-icon-list-items">
+              <li class="elementor-icon-list-item">
+                      <a href="shop/cheddar-fries/index.html">
+
+                      <span class="elementor-icon-list-text">Simple Product</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/mare-e-monti/index.html">
+
+                      <span class="elementor-icon-list-text">Group Product</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/pizza-za-salad/index.html">
+
+                      <span class="elementor-icon-list-text">Variable Size Product</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/margarita/index.html">
+
+                      <span class="elementor-icon-list-text">Variable Color Product</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/combo-salad/index.html">
+
+                      <span class="elementor-icon-list-text">Out of stock</span>
+                      </a>
+                  </li>
+            </ul>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-f09354e title elementor-widget elementor-widget-heading" data-id="f09354e" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">zoom effect</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-878dea8 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="878dea8" data-element_type="widget" data-widget_type="icon-list.default">
+        <div class="elementor-widget-container">
+              <ul class="elementor-icon-list-items">
+              <li class="elementor-icon-list-item">
+                      <a href="shop/cheesecake/index.html">
+
+                      <span class="elementor-icon-list-text">Autozoom</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/cheesecake/index3446.html?zoom-type=lens">
+
+                      <span class="elementor-icon-list-text">Lens zoom</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/cheesecake/indexd838.html?zoom-type=window">
+
+                      <span class="elementor-icon-list-text">Magic zoom</span>
+                      </a>
+                  </li>
+            </ul>
+            </div>
+        </div>
+          </div>
+    </div>
+        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-4608bc5 wpb-col-sm-100" data-id="4608bc5" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-892a8ce title elementor-widget elementor-widget-heading" data-id="892a8ce" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Product Gallery</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-b994746 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="b994746" data-element_type="widget" data-widget_type="icon-list.default">
+        <div class="elementor-widget-container">
+              <ul class="elementor-icon-list-items">
+              <li class="elementor-icon-list-item">
+                      <a href="shop/spiced-coffee/index5900.html?layout-thumbs=scroll">
+
+                      <span class="elementor-icon-list-text">Scroll</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/heated-affair/index4188.html?position-thumbs=left">
+
+                      <span class="elementor-icon-list-text">Left Thumbnail</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/heated-affair/index2540.html?position-thumbs=right">
+
+                      <span class="elementor-icon-list-text">Right Thumbnail</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/heated-affair/indexab48.html?position-thumbs=bottom">
+
+                      <span class="elementor-icon-list-text">Bottom Thumbnail</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/heated-affair/index0048.html?position-thumbs=outsite">
+
+                      <span class="elementor-icon-list-text">Outside Thumbnail</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/smoothie-drinks/index1633.html?layout-thumbs=grid">
+
+                      <span class="elementor-icon-list-text">Gird Style <span class="hot">hot</span></span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/smoothie-drinks/indexd3a4.html?layout-thumbs=one_column">
+
+                      <span class="elementor-icon-list-text">One Column</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/cheddar-fries/index10d4.html?layout-thumbs=slider">
+
+                      <span class="elementor-icon-list-text">Slider <span class="hot">hot</span></span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="shop/cheddar-fries/index05eb.html?layout-thumbs=lagre_gallery">
+
+                      <span class="elementor-icon-list-text">Lagre Gallery</span>
+                      </a>
+                  </li>
+            </ul>
+            </div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+          </div>
+    </div>
+          </div>
+    </section>
+        </div>
+    </div></li>
+<li  class="level-0 menu-item-28093  menu-item-has-children    menu-item menu-item-type-post_type menu-item-object-page  mega-menu mega-menu-fullwidth-width     " ><a href="blog/index.html"><span class="menu-item-text">Blog</span></a><div class="sub-menu">		<div data-elementor-type="wp-post" data-elementor-id="12246" class="elementor elementor-12246">
+            <section class="elementor-section elementor-top-section elementor-element elementor-element-9c716f3 content-megamenu elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="9c716f3" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-7c9b2cc wpb-col-sm-100" data-id="7c9b2cc" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-1d51edf title elementor-widget elementor-widget-heading" data-id="1d51edf" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Blog layout</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-2127bd1 elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="2127bd1" data-element_type="widget" data-widget_type="icon-list.default">
+        <div class="elementor-widget-container">
+              <ul class="elementor-icon-list-items">
+              <li class="elementor-icon-list-item">
+                      <a href="category/home-decor/index.html">
+
+                      <span class="elementor-icon-list-text">Blog Left Sidebar</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="category/life-style/indexb1e3.html?sidebar_blog=right">
+
+                      <span class="elementor-icon-list-text">Blog Right Sidebar</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="category/furniture/index8c9d.html?sidebar_blog=full">
+
+                      <span class="elementor-icon-list-text">Blog Without Sidebar</span>
+                      </a>
+                  </li>
+            </ul>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-e80e801 title elementor-widget elementor-widget-heading" data-id="e80e801" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Blog style</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-87c32ba elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="87c32ba" data-element_type="widget" data-widget_type="icon-list.default">
+        <div class="elementor-widget-container">
+              <ul class="elementor-icon-list-items">
+              <li class="elementor-icon-list-item">
+                      <a href="category/furniture/indexcb45.html?layout_blog=list">
+
+                      <span class="elementor-icon-list-text">Blog List</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="category/dining-kitchen/indexfc45.html?sidebar_blog=full&amp;layout_blog=grid">
+
+                      <span class="elementor-icon-list-text">Blog Grid</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="category/home-decor/index8930.html?layout_blog=modern">
+
+                      <span class="elementor-icon-list-text">Blog Modern</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="category/home-decor/index.html">
+
+                      <span class="elementor-icon-list-text">Blog Standar</span>
+                      </a>
+                  </li>
+            </ul>
+            </div>
+        </div>
+          </div>
+    </div>
+        <div class="elementor-column elementor-col-25 elementor-top-column elementor-element elementor-element-bed6ceb wpb-col-sm-100" data-id="bed6ceb" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-ede3f90 title elementor-widget elementor-widget-heading" data-id="ede3f90" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Blog format</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-d89068c elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="d89068c" data-element_type="widget" data-widget_type="icon-list.default">
+        <div class="elementor-widget-container">
+              <ul class="elementor-icon-list-items">
+              <li class="elementor-icon-list-item">
+                      <a href="2017/04/17/post-format-gallery-blogs/index.html">
+
+                      <span class="elementor-icon-list-text">Post format gallery</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="2017/04/17/post-format-video-blogs/index.html">
+
+                      <span class="elementor-icon-list-text">Post format video</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="2017/04/17/post-format-audio-blogs/index.html">
+
+                      <span class="elementor-icon-list-text">Post format audio</span>
+                      </a>
+                  </li>
+            </ul>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-30acf83 title elementor-widget elementor-widget-heading" data-id="30acf83" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Post layout</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-3f0745a elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="3f0745a" data-element_type="widget" data-widget_type="icon-list.default">
+        <div class="elementor-widget-container">
+              <ul class="elementor-icon-list-items">
+              <li class="elementor-icon-list-item">
+                      <a href="2018/05/30/easy-fixes-for-home-decor/index.html">
+
+                      <span class="elementor-icon-list-text">Sidebar</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="2018/05/30/easy-fixes-for-home-decor/index8c71.html?post-single-layout=one_column">
+
+                      <span class="elementor-icon-list-text">One Column</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="2018/05/30/how-to-make-your-home-a-showplace/indexf7ca.html?post-single-layout=prallax_image">
+
+                      <span class="elementor-icon-list-text">Prallax Image</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="2018/05/30/easy-fixes-for-home-decor/index859f.html?post-single-layout=simple_title">
+
+                      <span class="elementor-icon-list-text">Simple Title</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item">
+                      <a href="2018/05/30/how-to-make-your-home-a-showplace/index6ff9.html?post-single-layout=sticky_title">
+
+                      <span class="elementor-icon-list-text">Sticky Title</span>
+                      </a>
+                  </li>
+            </ul>
+            </div>
+        </div>
+          </div>
+    </div>
+        <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-06777b8 wpb-col-sm-100 hidden-sm hidden-xs" data-id="06777b8" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-45f87c2 title elementor-widget elementor-widget-heading" data-id="45f87c2" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Recent Post</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-38b1f54 elementor-widget elementor-widget-bwp_recent_post" data-id="38b1f54" data-element_type="widget" data-widget_type="bwp_recent_post.default">
+        <div class="elementor-widget-container">
+          <div class="bwp-recent-post blog-menu">
+ <div class="block">
+    <div class="block_content">
+   <div id="recent_post_6967077631770709775" class="row">
+
+            <div  class="post-grid col-lg-12 col-md-12 col-sm-12 col-xs-12 post-3976 post type-post status-publish format-standard has-post-thumbnail hentry category-furniture category-home-decor category-office tag-beauty tag-ear-care">
+          <div class="item">
+            <a class="post-thumbnail" href="2018/05/30/easy-fixes-for-home-decor/index.html" aria-hidden="true">
+            <img fetchpriority="high" width="720" height="484" src="wp-content/uploads/2018/05/Blog-1-720x484.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="Simple Mills Almond Flour" decoding="async" />						</a>
+            <div class="post-content">
+              <h2 class="entry-title"><a href="2018/05/30/easy-fixes-for-home-decor/index.html">Simple Mills Almond Flour</a></h2>
+              <div class="day-cmt">
+                <span class="entry-date"><time class="entry-date" datetime="2018-05-30T04:42:28+00:00">May 30, 2018</time></span>								<div class="comments-link">
+                  <a href="#respond" >
+                                                                  4<span> Comments</span>																														</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+            <div  class="post-grid col-lg-12 col-md-12 col-sm-12 col-xs-12 post-3974 post type-post status-publish format-image has-post-thumbnail hentry category-furniture category-home-decor category-life-style tag-baby-needs post_format-post-format-image">
+          <div class="item">
+            <a class="post-thumbnail" href="2018/05/30/how-to-make-your-home-a-showplace/index.html" aria-hidden="true">
+            <img width="720" height="484" src="wp-content/uploads/2018/05/Blog-2-720x484.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="King Arthur 00 Pizza Flour" decoding="async" />						</a>
+            <div class="post-content">
+              <h2 class="entry-title"><a href="2018/05/30/how-to-make-your-home-a-showplace/index.html">King Arthur 00 Pizza Flour</a></h2>
+              <div class="day-cmt">
+                <span class="entry-date"><time class="entry-date" datetime="2018-05-30T04:40:39+00:00">May 30, 2018</time></span>								<div class="comments-link">
+                  <a href="#respond" >
+                                                                  1<span> Comment</span>																														</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+            <div  class="post-grid col-lg-12 col-md-12 col-sm-12 col-xs-12 post-3971 post type-post status-publish format-image has-post-thumbnail hentry category-furniture category-home-decor category-office tag-electric tag-fashion post_format-post-format-image">
+          <div class="item">
+            <a class="post-thumbnail" href="2018/05/30/stunning-furniture-with-aesthetic-appeal/index.html" aria-hidden="true">
+            <img width="720" height="484" src="wp-content/uploads/2018/05/Blog-3-720x484.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="Chebe Bread Pizza Crust Mix" decoding="async" />						</a>
+            <div class="post-content">
+              <h2 class="entry-title"><a href="2018/05/30/stunning-furniture-with-aesthetic-appeal/index.html">Chebe Bread Pizza Crust Mix</a></h2>
+              <div class="day-cmt">
+                <span class="entry-date"><time class="entry-date" datetime="2018-05-30T04:33:26+00:00">May 30, 2018</time></span>								<div class="comments-link">
+                  <a href="#respond" >
+                                                                  1<span> Comment</span>																														</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+             </div>
+  </div>
+ </div>
+</div>
+        </div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        </div>
+    </div></li>
+<li  class="level-0 menu-item-12288      menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children  std-menu      " ><a href="#"><span class="menu-item-text">Page</span></a>
+<ul class="sub-menu">
+  <li  class="level-1 menu-item-10694      menu-item menu-item-type-post_type menu-item-object-page  std-menu      " ><a href="about-us/index.html">About Us</a></li>
+  <li  class="level-1 menu-item-26868      menu-item menu-item-type-custom menu-item-object-custom  std-menu      " ><a href="contact/indexd68e.html?show_page_title_bg=true">Contact</a></li>
+  <li  class="level-1 menu-item-14475      menu-item menu-item-type-post_type menu-item-object-page  std-menu      " ><a href="faq/index.html">Faq</a></li>
+  <li  class="level-1 menu-item-12290      menu-item menu-item-type-custom menu-item-object-custom  std-menu      " ><a href="404.html">Page 404</a></li>
+</ul>
+</li>
+</ul></div></nav>
+
+</div>
+
+          </div>
+        </nav> 
+      </div>       
+    </div>								</div>
+              </div>
+              <div class="header-page-link">
+          
+                                  <div class="search-box">
+                    <div class="search-toggle"><i class="icon-Search"></i></div>
+                  </div>
+                                  
+                <div class="login-header">
+                                      <a class="active-login" href="#" ><i class="icon-Login"></i></a>
+                          <div class="form-login-register">
+      <div class="box-form-login">
+        <div class="active-login"></div>
+        <div class="box-content">
+          <div class="form-login active">
+            <form id="login_ajax" method="post" class="login">
+              <h2>Sign in</h2>
+              <p class="status"></p>
+              <div class="content">
+                                <div class="username">
+                  <input type="text" required="required" class="input-text" name="username" id="username" placeholder="Your name" />
+                </div>
+                <div class="password">
+                  <input class="input-text" required="required" type="password" name="password" id="password" placeholder="Password" />
+                </div>
+                <div class="rememberme-lost">
+                  <div class="rememberme">
+                    <input name="rememberme" type="checkbox" id="rememberme" value="forever" />
+                    <label for="rememberme" class="inline">Remember me</label>
+                  </div>
+                  <div class="lost_password">
+                    <a href="my-account/lost-password/index.html">Lost your password?</a>
+                  </div>
+                </div>
+                <div class="button-login">
+                  <input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="9576f6aae3" /><input type="hidden" name="_wp_http_referer" value="/" />									<input type="submit" class="button" name="login" value="Login" /> 
+                </div>
+                <div class="button-next-reregister" >Create An Account</div>
+              </div>
+              <input type="hidden" id="security" name="security" value="d1c79b0312" /><input type="hidden" name="_wp_http_referer" value="/" />						</form>
+          </div>
+          <div class="form-register">
+            <form method="post" class="register">
+              <h2>REGISTER</h2>
+              <div class="content">
+                                                <div class="email">
+                  <input type="email" class="input-text" placeholder="Email" name="email" id="reg_email" value="" />
+                </div>
+                                  <div class="password">
+                    <input type="password" class="input-text"  placeholder="Password" name="password" id="reg_password" />
+                  </div>
+                        
+                <div style={{left: "-999em", position: "absolute"}}><label for="trap">Anti-spam</label><input type="text" name="email_2" id="trap" tabindex="-1" /></div>
+                <wc-order-attribution-inputs></wc-order-attribution-inputs><div class="woocommerce-privacy-policy-text"></div>																<div class="button-register">
+                  <input type="hidden" id="woocommerce-register-nonce" name="woocommerce-register-nonce" value="30a81377c0" /><input type="hidden" name="_wp_http_referer" value="/" />									<input type="submit" class="button" name="register" value="Register" />
+                </div>
+                                <div class="button-next-login" >Already has an account</div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+                                    </div>
+                                <div class="wishlist-box">
+                  <a href="wishlist/index.html"><i class="icon-Heart"></i></a>
+                  <span class="count-wishlist">1</span>
+                </div>
+                                                <div class="papzi-topcart dropdown light">
+                  <div class="dropdown mini-cart top-cart">
+  <div class="remove-cart-shadow"></div>
+  <a class="dropdown-toggle cart-icon" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <div class="icons-cart"><i class="icon-Cart"></i><span class="cart-count">0</span></div>
+  </a>
+  <div class="dropdown-menu cart-popup">
+  <div class="remove-cart">
+    <a class="dropdown-toggle cart-remove" data-toggle="dropdown" data-hover="dropdown" data-delay="0" href="#" title="View your shopping cart">
+      Close<i class="icon_close"></i>
+    </a>
+  </div>
+  <div class="top-total-cart">Shopping Cart(0)</div>
+  <div class="cart-icon-big"></div>
+<ul class="cart_list product_list_widget ">
+      <li class="empty">
+      <span>No products in the cart.</span>
+      <a class="go-shop" href="shop/index.html">GO TO SHOP			<i aria-hidden="true" class="arrow_right"></i></a>
+    </li>
+  </ul>
+  </div>
+</div>								</div>
+                              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          </div>
+  </header>
+   */}
+  
+  <Header />
+  <div id="bwp-main" class="bwp-main">
+            <div data-bg_default ="https://papzi.wpbingosite.com/wp-content/uploads/2022/02/Image-9-1.jpg" class="page-title bwp-title"  style={{backgroundImage:"url(wp-content/uploads/2022/02/Image-9-1.jpg);"}}>
+        <div class="container" >	
+                    <div class="content-title-heading">
+    <span class="back-to-shop">Shop</span>
+    <h1 class="text-title-heading">
+      Home 1		</h1>
+  </div>
+                  <div id="breadcrumb" class="breadcrumb"><div class="bwp-breadcrumb"><a href="index.html">Home</a> <span class="delimiter"></span> <span class="current">Home 1</span> </div></div>			
+                        </div>
+      </div>
+      <div id="main-content" class="main-content">
+  <div id="primary" class="content-area container">
+    <div id="content" class="site-content" role="main">
+      <article id="post-9601" class="post-9601 page type-page status-publish hentry">
+    <div class="entry-content clearfix">
+        <div data-elementor-type="wp-page" data-elementor-id="9601" class="elementor elementor-9601">
+            <section class="elementor-section elementor-top-section elementor-element elementor-element-ef67a94 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="ef67a94" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-25e5744" data-id="25e5744" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-c9d814a elementor-widget elementor-widget-slider_revolution" data-id="c9d814a" data-element_type="widget" data-widget_type="slider_revolution.default">
+        <div class="elementor-widget-container">
+          
+    <div class="wp-block-themepunch-revslider">
+  <p class="rs-p-wp-fix"></p>
+      <rs-module-wrap id="rev_slider_134_1_wrapper" data-source="gallery">
+        <rs-module id="rev_slider_134_1"  data-version="6.5.18">
+          <rs-slides>
+            <rs-slide style={{position: "absolute;"}} data-key="rs-576" data-title="Slide" data-thumb="//papzi.wpbingosite.com/wp-content/uploads/2022/01/slider-1-50x100.jpg" data-anim="f:center;" data-in="o:0;sx:1.1;sy:1.1;m:true;row:30;col:30;" data-out="a:false;" data-alttrans="boxfade,boxslide">
+              <img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" title="slider-1" width="1920" height="915" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/slider-1.jpg" data-parallax="off" data-no-retina />
+<rs-group
+                id="slider-134-slide-576-layer-16" 
+                data-type="group"
+                data-rsp_ch="on"
+                data-xy="x:r;xo:280px,149px,111px,81px;yo:345px,320px,240px,223px;"
+                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
+                data-dim="w:120px,64px,48px,50px;h:120px,64px,48px,50px;"
+                data-border="bor:50%,50%,50%,50%;"
+                data-frame_0="sX:0.9;sY:0.9;"
+                data-frame_1="e:power2.inOut;sp:2000;"
+                data-frame_999="o:0;st:w;sA:9000;"
+                data-loop_0="rY:-40;"
+                data-loop_999="rY:40;sp:3000;e:sine.inOut;yyr:t;"
+                style={{zIndex:"18;", backgroundColor:"#00a950;"}}
+              ><rs-layer
+                  id="slider-134-slide-576-layer-17" 
+                  data-type="text"
+                  data-rsp_ch="on"
+                  data-xy="xo:16px,8px,6px,13px;yo:26px,13px,9px,14px;"
+                  data-text="w:normal;s:18,9,6,10;l:32,17,12,7;a:center;"
+                  data-dim="w:89.2031px,47px,35px,21px;"
+                  data-frame_0="o:1;"
+                  data-frame_0_chars="d:5;o:0;rX:90deg;oZ:-50;"
+                  data-frame_1="sp:1750;"
+                  data-frame_1_chars="e:power4.inOut;d:10;oZ:-50;"
+                  data-frame_999="o:0;st:w;"
+                  style={{zIndex:"16;", fontFamily:"'Comfortaa';"}}
+                >Only 
+                </rs-layer>
+
+            <rs-layer
+                  id="slider-134-slide-576-layer-18" 
+                  data-type="text"
+                  data-rsp_ch="on"
+                  data-xy="xo:19px,10px,7px,7px;yo:53px,28px,21px,24px;"
+                  data-text="w:normal;s:34,18,13,12;l:40,21,15,16;fw:700;a:center;"
+                  data-dim="w:89.2031px,47px,35px,37px;"
+                  data-frame_0="x:0,0,0,0px;y:0,0,0,0px;o:1;"
+                  data-frame_0_chars="d:5;x:0,0,0,0px;y:-100%;o:0;rZ:35deg;"
+                  data-frame_0_mask="u:t;x:0,0,0,0px;y:0,0,0,0px;"
+                  data-frame_1="x:0,0,0,0px;y:0,0,0,0px;sp:1200;"
+                  data-frame_1_chars="e:power4.inOut;d:10;x:0,0,0,0px;y:0,0,0,0px;rZ:0deg;"
+                  data-frame_1_mask="u:t;x:0,0,0,0px;y:0,0,0,0px;"
+                  data-frame_999="o:0;st:w;"
+                      style={{zIndex:"17;", fontFamily:"'Montserrat';"}}
+                >$12.9 
+                </rs-layer>
+              </rs-group>
+
+            <rs-layer
+                id="slider-134-slide-576-layer-0" 
+                data-type="image"
+                data-rsp_ch="on"
+                data-xy="x:r;xo:166px,71px,-17px,0;yo:198px,206px,154px,202px;"
+                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
+                data-dim="w:747px,398px,298px,250px;h:588px,313px,234px,158px;"
+                data-frame_0="sX:0.9;sY:0.9;"
+                data-frame_1="x:-1px,0px,0px,0px;y:-2px,-1px,0px,0px;st:500;sp:1200;"
+                data-frame_999="o:0;st:w;"
+                    style={{zIndex:"9;", fontFamily:"'Comfortaa';"}}
+              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="fries" class="tp-rs-img rs-lazyload" width="747" height="588" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/02/fries.png" data-no-retina /> 
+              </rs-layer>
+
+            <rs-layer
+                id="slider-134-slide-576-layer-1" 
+                data-type="text"
+                data-rsp_ch="on"
+                data-xy="xo:315px,100px,25px,23px;yo:538px,427px,280px,258px;"
+                data-text="w:normal;s:18,18,18,13;l:25,22,22,18;"
+                data-vbility="t,t,t,f"
+                data-frame_0="x:50,26,19,11;"
+                data-frame_1="st:500;sp:800;"
+                data-frame_999="o:0;st:w;"
+                      style={{zIndex:"13;", fontFamily:"'Comfortaa';"}}
+              >Buy any 2 large pizzas and get a 1.5L Pepsi Free  
+              </rs-layer>
+
+            <rs-layer
+                id="slider-134-slide-576-layer-2" 
+                data-type="image"
+                data-rsp_ch="on"
+                data-xy="xo:315px,168px,126px,78px;y:b;yo:-2px,-1px,0,0;"
+                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
+                data-dim="w:870px,464px,348px,217px;h:129px,68px,51px,31px;"
+                data-frame_999="o:0;st:w;"
+            style={{zIndex:"14;", fontFamily:"'Comfortaa';"}}
+              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="layer-2" class="tp-rs-img rs-lazyload" width="870" height="129" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/layer-2.png" data-no-retina />  
+              </rs-layer>
+
+              <rs-layer
+                id="slider-134-slide-576-layer-4" 
+                data-type="text"
+                data-rsp_ch="on"
+                data-xy="xo:496px,207px,106px,87px;yo:371px,297px,167px,161px;"
+                data-text="w:normal;s:80,50,40,40;l:80,85,75,60;fw:800;"
+                data-frame_0="x:50,26,19,11;"
+                data-frame_1="st:300;sp:700;"
+                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
+                data-frame_999_mask="u:t;"
+              style={{zIndex:"11;", fontFamily:"'Comfortaa';"}}
+              >Hungry <br />
+ 
+              </rs-layer>
+
+            <rs-layer
+                id="slider-134-slide-576-layer-5" 
+                data-type="image"
+                data-rsp_ch="on"
+                data-xy="x:r;xo:0,0,-80px,0;yo:266px,238px,178px,202px;"
+                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
+                data-dim="w:842px,449px,336px,250px;h:508px,270px,202px,158px;"
+                data-frame_0="o:1;"
+                data-frame_0_chars="d:5;x:ran(-250|250);y:ran(-150|150);sX:ran(0|1.5);sY:ran(0|1.5);rX:ran(-90|90);rY:ran(-90|90);rZ:ran(-90|90);"
+                data-frame_1="e:power4.inOut;st:500;sp:1500;"
+                data-frame_1_chars="dir:random;d:10;"
+                data-frame_999="o:0;st:w;"
+            style={{zIndex:"8;", fontFamily:"'Comfortaa';"}}
+              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="Layer-5" class="tp-rs-img rs-lazyload" width="842" height="508" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/Layer-5.png" data-no-retina /> 
+              </rs-layer>
+
+            <rs-layer
+                id="slider-134-slide-576-layer-6" 
+                class="button-slider rev-btn"
+                data-type="button"
+                data-rsp_ch="on"
+                data-xy="xo:315px,100px,25px,20px;yo:595px,479px,318px,279px;"
+                data-text="w:normal;s:14,14,12,11;l:50,45,45,40;ls:0px,0px,0px,3px;fw:700;"
+                data-dim="minh:0px,none,none,none;"
+                data-padding="r:44,40,30,25;l:44,40,30,25;"
+                data-border="bos:solid;boc:#ffffff;bow:1px,1px,1px,1px;bor:25px,25px,25px,25px;"
+                data-frame_0="x:50,26,19,11;"
+                data-frame_1="st:600;sp:800;"
+                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
+                data-frame_999_mask="u:t;"
+                data-frame_hover="c:#fff;bgc:#ffb219;boc:transparent;bor:25px,25px,25px,25px;bos:solid;bow:1px,1px,1px,1px;"
+                  style={{zIndex:"12;", fontFamily:"'Comfortaa';"}}
+              >ORDER NOW 
+              </rs-layer>
+
+              <rs-layer
+                id="slider-134-slide-576-layer-7" 
+                data-type="text"
+                data-rsp_ch="on"
+                data-xy="xo:315px,100px,25px,20px;yo:454px,349px,212px,199px;"
+                data-text="w:normal;s:80,50,40,40;l:80,85,75,60;fw:800;"
+                data-frame_0="x:50,26,19,11;"
+                data-frame_1="st:300;sp:700;"
+                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
+                data-frame_999_mask="u:t;"
+      style={{zIndex:"10", fontFamily:"'Comfortaa';"}}
+              >For More<br />
+ 
+              </rs-layer>
+
+            <rs-layer
+                id="slider-134-slide-576-layer-8" 
+                class="new"
+                data-type="text"
+                data-color="#272727"
+                data-rsp_ch="on"
+                data-xy="xo:315px,102px,32px,22px;yo:360px,316px,189px,175px;"
+                data-text="w:normal;s:43,22,16,16;l:80,42,31,29;a:center;"
+                data-dim="w:180px,96px,72px,60px;h:80px,42px,31px,30px;"
+                data-padding="r:15,8,6,4;l:15,8,6,4;"
+                data-frame_0="x:50,26,19,11;"
+                data-frame_1="st:300;sp:700;"
+                data-frame_999="x:-50,-26,-19,-11;o:0;st:w;sp:1000;"
+                style={{zIndex:"15", fontFamily:"'Comfortaa';"}}
+              >New 
+              </rs-layer>
+            </rs-slide>
+            <rs-slide style={{position: "absolute;"}} data-key="rs-718" data-title="Slide" data-thumb="//papzi.wpbingosite.com/wp-content/uploads/2022/01/slider-1-50x100.jpg" data-in="o:1;y:(-100%);col:5;" data-out="a:false;" data-alttrans="boxfade,boxslide">
+              <img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" title="slider-1" width="1920" height="915" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/slider-1.jpg" data-parallax="off" data-no-retina />
+
+              <rs-group
+                id="slider-134-slide-718-layer-16" 
+                data-type="group"
+                data-rsp_ch="on"
+                data-xy="x:r;xo:257px,187px,140px,62px;yo:394px,320px,240px,223px;"
+                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
+                data-dim="w:120px,64px,48px,50px;h:120px,64px,48px,50px;"
+                data-border="bor:50%,50%,50%,50%;"
+                data-frame_0="sX:0.9;sY:0.9;"
+                data-frame_1="e:power2.inOut;sp:2000;"
+                data-frame_999="o:0;st:w;sA:9000;"
+                data-loop_0="rY:-40;"
+                data-loop_999="rY:40;sp:3000;e:sine.inOut;yyr:t;"
+      style={{zIndex:"18;", fontFamily:"'Comfortaa';"}}
+              >
+              <rs-layer
+                  id="slider-134-slide-718-layer-17" 
+                  data-type="text"
+                  data-color="#f1252b"
+                  data-rsp_ch="on"
+                  data-xy="xo:16px,8px,6px,13px;yo:26px,13px,9px,14px;"
+                  data-text="w:normal;s:18,9,6,10;l:32,17,12,7;a:center;"
+                  data-dim="w:89.2031px,47px,35px,21px;"
+                  data-frame_0="o:1;"
+                  data-frame_0_chars="d:5;o:0;rX:90deg;oZ:-50;"
+                  data-frame_1="sp:1750;"
+                  data-frame_1_chars="e:power4.inOut;d:10;oZ:-50;"
+                  data-frame_999="o:0;st:w;"
+                  style={{zIndex:"16;", fontFamily:"'Comfortaa';"}}
+                >Offer 
+                </rs-layer>
+
+              <rs-layer
+                  id="slider-134-slide-718-layer-18" 
+                  data-type="text"
+                  data-color="#f1252b"
+                  data-rsp_ch="on"
+                  data-xy="xo:19px,10px,7px,7px;yo:53px,28px,21px,24px;"
+                  data-text="w:normal;s:34,18,13,12;l:40,21,15,16;fw:700;a:center;"
+                  data-dim="w:89.2031px,47px,35px,37px;"
+                  data-frame_0="x:0,0,0,0px;y:0,0,0,0px;o:1;"
+                  data-frame_0_chars="d:5;x:0,0,0,0px;y:-100%;o:0;rZ:35deg;"
+                  data-frame_0_mask="u:t;x:0,0,0,0px;y:0,0,0,0px;"
+                  data-frame_1="x:0,0,0,0px;y:0,0,0,0px;sp:1200;"
+                  data-frame_1_chars="e:power4.inOut;d:10;x:0,0,0,0px;y:0,0,0,0px;rZ:0deg;"
+                  data-frame_1_mask="u:t;x:0,0,0,0px;y:0,0,0,0px;"
+                  data-frame_999="o:0;st:w;"
+                    style={{zIndex:"17;", fontFamily:"'Comfortaa';"}}
+                >$14.9 
+                </rs-layer>
+              </rs-group>
+
+            <rs-layer
+                id="slider-134-slide-718-layer-0" 
+                data-type="image"
+                data-rsp_ch="on"
+                data-xy="x:r;xo:226px,138px,19px,0;yo:185px,238px,178px,143px;"
+                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
+                data-dim="w:630px,336px,252px,250px;h:732px,390px,292px,290px;"
+                data-frame_0="sX:0.9;sY:0.9;"
+                data-frame_1="st:500;sp:1200;"
+                data-frame_999="o:0;st:w;"
+                style={{zIndex:"9", fontFamily:"'Comfortaa';"}}
+              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="Layer-3" class="tp-rs-img rs-lazyload" width="630" height="732" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/Layer-3.png" data-no-retina /> 
+              </rs-layer>
+
+              <rs-layer
+                id="slider-134-slide-718-layer-1" 
+                data-type="text"
+                data-rsp_ch="on"
+                data-xy="xo:315px,100px,25px,23px;yo:538px,427px,280px,258px;"
+                data-text="w:normal;s:18,18,18,13;l:25,23,22,18;"
+                data-vbility="t,t,t,f"
+                data-frame_0="x:50,26,19,11;"
+                data-frame_1="y:1px,0px,0px,0px;st:500;sp:900;"
+                data-frame_999="o:0;st:w;"
+                    style={{zIndex:"13", fontFamily:"'Comfortaa';"}}
+              >Buy any 2 large pizzas and get a 1.5L Pepsi Free  
+              </rs-layer>
+
+              <rs-layer
+                id="slider-134-slide-718-layer-2" 
+                data-type="image"
+                data-rsp_ch="on"
+                data-xy="xo:315px,168px,126px,78px;y:b;yo:-2px,-1px,0,0;"
+                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
+                data-dim="w:542px,289px,216px,135px;h:175px,93px,69px,43px;"
+                data-frame_999="o:0;st:w;"
+              style={{zIndex:"14", fontFamily:"'Comfortaa';"}}
+              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="Layer-4" class="tp-rs-img rs-lazyload" width="542" height="175" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/Layer-4.png" data-no-retina /> 
+              </rs-layer>
+
+              <rs-layer
+                id="slider-134-slide-718-layer-3" 
+                data-type="image"
+                data-rsp_ch="on"
+                data-xy="x:l,r,r,r;xo:1151px,0,-100px,0;yo:264px,276px,199px,201px;"
+                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
+                data-dim="w:842px,449px,336px,250px;h:508px,270px,202px,151px;"
+                data-frame_999="o:0;st:w;"
+        style={{zIndex:"8;", fontFamily:"'Comfortaa';"}}
+              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="Layer-5" class="tp-rs-img rs-lazyload" width="842" height="508" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/Layer-5.png" data-no-retina /> 
+              </rs-layer>
+
+            <rs-layer
+                id="slider-134-slide-718-layer-4" 
+                data-type="text"
+                data-rsp_ch="on"
+                data-xy="xo:496px,207px,106px,87px;yo:371px,294px,167px,161px;"
+                data-text="w:normal;s:80,50,40,40;l:80,85,75,60;fw:800;"
+                data-frame_0="o:1;"
+                data-frame_0_chars="d:5;x:105%;o:1;rY:45deg;rZ:90deg;"
+                data-frame_0_mask="u:t;"
+                data-frame_1="st:300;sp:800;"
+                data-frame_1_chars="e:power4.inOut;d:10;rZ:0deg;"
+                data-frame_1_mask="u:t;"
+                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
+                data-frame_999_mask="u:t;"
+                      style={{zIndex:"11;", fontFamily:"'Comfortaa';"}}
+              >Guess your  <br />
+ 
+              </rs-layer>
+
+              <rs-layer
+                id="slider-134-slide-718-layer-6" 
+                class="button-slider rev-btn"
+                data-type="button"
+                data-rsp_ch="on"
+                data-xy="xo:315px,100px,25px,20px;yo:595px,479px,318px,279px;"
+                data-text="w:normal;s:14,11,12,11;l:50,45,45,40;ls:0px,3px,0px,3px;fw:700;"
+                data-dim="minh:0px,none,none,none;"
+                data-padding="r:44,40,30,25;l:44,40,30,25;"
+                data-border="bos:solid;boc:#ffffff;bow:1px,1px,1px,1px;bor:25px,25px,25px,25px;"
+                data-frame_0="x:right;skX:-85;"
+                data-frame_1="st:600;sp:800;"
+                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
+                data-frame_999_mask="u:t;"
+                data-frame_hover="c:#fff;bgc:#ffb219;boc:transparent;bor:25px,25px,25px,25px;bos:solid;bow:1px,1px,1px,1px;"
+            style={{zIndex:"12;", fontFamily:"'Comfortaa';"}}
+              >ORDER NOW 
+              </rs-layer>
+
+              <rs-layer
+                id="slider-134-slide-718-layer-7" 
+                data-type="text"
+                data-rsp_ch="on"
+                data-xy="xo:315px,100px,25px,20px;yo:454px,349px,212px,199px;"
+                data-text="w:normal;s:80,50,40,40;l:80,85,75,60;fw:800;"
+                data-frame_0="o:1;"
+                data-frame_0_chars="d:5;x:105%;o:1;rY:45deg;rZ:90deg;"
+                data-frame_0_mask="u:t;"
+                data-frame_1="st:300;sp:800;"
+                data-frame_1_chars="e:power4.inOut;d:10;rZ:0deg;"
+                data-frame_1_mask="u:t;"
+                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
+                data-frame_999_mask="u:t;"
+          style={{zIndex:"10;", fontFamily:"'Comfortaa';"}}
+              > favourite African food <br />
+ 
+              </rs-layer>
+
+              <rs-layer
+                id="slider-134-slide-718-layer-8" 
+                class="new"
+                data-type="text"
+                data-color="#272727"
+                data-rsp_ch="on"
+                data-xy="xo:315px,102px,32px,22px;yo:360px,312px,189px,175px;"
+                data-text="w:normal;s:43,22,16,16;l:80,42,31,29;a:center;"
+                data-dim="w:180px,96px,72px,60px;h:80px,42px,31px,30px;"
+                data-padding="r:15,8,6,4;l:15,8,6,4;"
+                data-frame_0="o:1;"
+                data-frame_0_chars="d:5;x:105%;o:1;rY:45deg;rZ:90deg;"
+                data-frame_0_mask="u:t;"
+                data-frame_1="sp:1200;"
+                data-frame_1_chars="e:power4.inOut;d:10;rZ:0deg;"
+                data-frame_1_mask="u:t;"
+                data-frame_999="o:0;st:w;"
+      style={{zIndex:"15;", fontFamily:"'Comfortaa';"}}
+              >New 
+              </rs-layer>
+          </rs-slide>
+            <rs-slide style={{position: "absolute;"}} data-key="rs-720" data-title="Slide" data-thumb="//papzi.wpbingosite.com/wp-content/uploads/2022/01/slider-1-50x100.jpg" data-anim="f:slidebased;" data-in="o:1;x:(100%);m:true;row:5;" data-out="a:false;" data-alttrans="boxfade,boxslide">
+              <img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" title="slider-1" width="1920" height="915" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/slider-1.jpg" data-parallax="off" data-no-retina />
+
+            <rs-group
+                id="slider-134-slide-720-layer-16" 
+                data-type="group"
+                data-rsp_ch="on"
+                data-xy="x:r;xo:280px,209px,137px,69px;yo:355px,320px,240px,208px;"
+                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
+                data-dim="w:120px,64px,48px,50px;h:120px,64px,48px,50px;"
+                data-border="bor:50%,50%,50%,50%;"
+                data-frame_0="sX:0.9;sY:0.9;"
+                data-frame_1="e:power2.inOut;sp:2000;"
+                data-frame_999="o:0;st:w;sA:9000;"
+                data-loop_0="rY:-40;"
+                data-loop_999="rY:40;sp:3000;e:sine.inOut;yyr:t;"
+                  style={{zIndex:"18;", fontFamily:"'Comfortaa';"}}
+              ><rs-layer
+                  id="slider-134-slide-720-layer-17" 
+                  data-type="text"
+                  data-rsp_ch="on"
+                  data-xy="xo:16px,8px,6px,13px;yo:26px,13px,9px,14px;"
+                  data-text="w:normal;s:18,9,6,10;l:32,17,12,7;a:center;"
+                  data-dim="w:89.2031px,47px,35px,21px;"
+                  data-frame_0="o:1;"
+                  data-frame_0_chars="d:5;o:0;rX:90deg;oZ:-50;"
+                  data-frame_1="sp:1750;"
+                  data-frame_1_chars="e:power4.inOut;d:10;oZ:-50;"
+                  data-frame_999="o:0;st:w;"
+                      style={{zIndex:"16;", fontFamily:"'Comfortaa';"}}
+                >Offer 
+                </rs-layer>
+
+                <rs-layer
+                  id="slider-134-slide-720-layer-18" 
+                  data-type="text"
+                  data-rsp_ch="on"
+                  data-xy="xo:19px,10px,7px,7px;yo:53px,28px,21px,24px;"
+                  data-text="w:normal;s:34,18,13,12;l:40,21,15,16;fw:700;a:center;"
+                  data-dim="w:89.2031px,47px,35px,37px;"
+                  data-frame_0="x:0,0,0,0px;y:0,0,0,0px;o:1;"
+                  data-frame_0_chars="d:5;x:0,0,0,0px;y:-100%;o:0;rZ:35deg;"
+                  data-frame_0_mask="u:t;x:0,0,0,0px;y:0,0,0,0px;"
+                  data-frame_1="x:0,0,0,0px;y:0,0,0,0px;sp:1200;"
+                  data-frame_1_chars="e:power4.inOut;d:10;x:0,0,0,0px;y:0,0,0,0px;rZ:0deg;"
+                  data-frame_1_mask="u:t;x:0,0,0,0px;y:0,0,0,0px;"
+                  data-frame_999="o:0;st:w;"
+                  style={{zIndex:"17;", fontFamily:"'Comfortaa';"}}
+                >$14.9 
+                </rs-layer>
+            </rs-group>
+
+              <rs-layer
+                id="slider-134-slide-720-layer-0" 
+                data-type="image"
+                data-rsp_ch="on"
+                data-xy="x:r;xo:152px,110px,-8px,76px;yo:238px,238px,178px,167px;"
+                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
+                data-dim="w:914px,487px,365px,250px;h:526px,280px,210px,144px;"
+                data-frame_0="sX:0.9;sY:0.9;"
+                data-frame_1="st:500;sp:1200;"
+                data-frame_999="o:0;st:w;"
+            style={{zIndex:"9;", fontFamily:"'Comfortaa';"}}
+              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="Layer-7" class="tp-rs-img rs-lazyload" width="914" height="526" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/Layer-7.png" data-no-retina /> 
+              </rs-layer>
+              <rs-layer
+                id="slider-134-slide-720-layer-1" 
+                data-type="text"
+                data-rsp_ch="on"
+                data-xy="xo:315px,100px,25px,23px;yo:538px,427px,281px,258px;"
+                data-text="w:normal;s:18,18,18,13;l:25,23,22,18;"
+                data-vbility="t,t,t,f"
+                data-frame_0="x:50,26,19,11;"
+                data-frame_1="st:500;sp:800;"
+                data-frame_999="o:0;st:w;"
+                    style={{zIndex:"13;", fontFamily:"'Comfortaa';"}}
+              >Buy any 2 pizzas and get a 1.5L Pepsi 
+              </rs-layer>
+
+            <rs-layer
+                id="slider-134-slide-720-layer-2" 
+                data-type="image"
+                data-rsp_ch="on"
+                data-xy="xo:315px,168px,126px,78px;y:b;yo:-2px,-1px,0,0;"
+                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
+                data-dim="w:602px,321px,240px,150px;h:110px,58px,43px,26px;"
+                data-frame_999="o:0;st:w;"
+                  style={{zIndex:"14;", fontFamily:"'Comfortaa';"}}
+              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="Layer-6" class="tp-rs-img rs-lazyload" width="602" height="110" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/Layer-6.png" data-no-retina /> 
+              </rs-layer>
+
+              <rs-layer
+                id="slider-134-slide-720-layer-3" 
+                data-type="image"
+                data-rsp_ch="on"
+                data-xy="x:l,r,r,r;xo:1151px,0,-100px,0;yo:264px,225px,171px,184px;"
+                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
+                data-dim="w:842px,449px,336px,250px;h:508px,270px,202px,151px;"
+                data-frame_999="o:0;st:w;"
+      style={{zIndex:"8;", fontFamily:"'Comfortaa';"}}
+              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="Layer-5" class="tp-rs-img rs-lazyload" width="842" height="508" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/Layer-5.png" data-no-retina /> 
+              </rs-layer>
+              <rs-layer
+                id="slider-134-slide-720-layer-4" 
+                data-type="text"
+                data-rsp_ch="on"
+                data-xy="xo:496px,207px,106px,87px;yo:371px,294px,167px,161px;"
+                data-text="w:normal;s:80,50,40,40;l:80,85,75,60;fw:800;"
+                data-frame_0="o:1;"
+                data-frame_0_chars="d:5;x:105%;o:1;rY:45deg;rZ:90deg;"
+                data-frame_0_mask="u:t;"
+                data-frame_1="st:300;sp:800;"
+                data-frame_1_chars="e:power4.inOut;d:10;rZ:0deg;"
+                data-frame_1_mask="u:t;"
+                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
+                data-frame_999_mask="u:t;"
+      style={{zIndex:"11;", fontFamily:"'Comfortaa';"}}
+              >       combo <br />
+ 
+              </rs-layer>
+
+            <rs-layer
+                id="slider-134-slide-720-layer-6" 
+                class="button-slider rev-btn"
+                data-type="button"
+                data-rsp_ch="on"
+                data-xy="xo:315px,100px,25px,20px;yo:595px,479px,318px,279px;"
+                data-text="w:normal;s:14,11,11,11;l:50,45,40,40;ls:0px,0px,0px,3px;fw:700;"
+                data-dim="minh:0px,none,none,none;"
+                data-padding="r:44,40,40,25;l:44,40,40,25;"
+                data-border="bos:solid;boc:#ffffff;bow:1px,1px,1px,1px;bor:25px,25px,25px,25px;"
+                data-frame_0="x:-100%;skX:45;"
+                data-frame_1="st:600;sp:800;"
+                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
+                data-frame_999_mask="u:t;"
+                data-frame_hover="c:#fff;bgc:#ffb219;boc:transparent;bor:25px,25px,25px,25px;bos:solid;bow:1px,1px,1px,1px;"
+                style={{zIndex:"12;", fontFamily:"'Comfortaa';"}}
+              >ORDER NOW 
+              </rs-layer>
+
+              <rs-layer
+                id="slider-134-slide-720-layer-7" 
+                data-type="text"
+                data-rsp_ch="on"
+                data-xy="xo:315px,100px,25px,20px;yo:454px,349px,212px,199px;"
+                data-text="w:normal;s:80,50,40,40;l:80,85,75,60;fw:800;"
+                data-frame_0="o:1;"
+                data-frame_0_chars="d:5;x:105%;o:1;rY:45deg;rZ:90deg;"
+                data-frame_0_mask="u:t;"
+                data-frame_1="st:300;sp:800;"
+                data-frame_1_chars="e:power4.inOut;d:10;rZ:0deg;"
+                data-frame_1_mask="u:t;"
+                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
+                data-frame_999_mask="u:t;"
+                    style={{zIndex:"10;", fontFamily:"'Comfortaa';"}}
+              > fastfood 
+              </rs-layer>
+
+              <rs-layer
+                id="slider-134-slide-720-layer-8" 
+                class="new"
+                data-type="text"
+                data-color="#272727"
+                data-rsp_ch="on"
+                data-xy="xo:315px,102px,32px,22px;yo:360px,312px,189px,175px;"
+                data-text="w:normal;s:43,22,16,16;l:80,42,31,29;a:center;"
+                data-dim="w:180px,96px,72px,60px;h:80px,42px,31px,30px;"
+                data-padding="r:15,8,6,4;l:15,8,6,4;"
+                data-frame_0="o:1;"
+                data-frame_0_chars="d:5;x:105%;o:1;rY:45deg;rZ:90deg;"
+                data-frame_0_mask="u:t;"
+                data-frame_1="sp:1200;"
+                data-frame_1_chars="e:power4.inOut;d:10;rZ:0deg;"
+                data-frame_1_mask="u:t;"
+                data-frame_999="o:0;st:w;"
+          style={{zIndex:"15;", fontFamily:"'Comfortaa';"}}
+              >New 
+              </rs-layer>
+          </rs-slide>
+          </rs-slides>
+        </rs-module>
+  
+      </rs-module-wrap>
+  
+</div>
+
+            </div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        <section class="elementor-section elementor-top-section elementor-element elementor-element-c2c9c9f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c2c9c9f" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d1b49d2" data-id="d1b49d2" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <section class="elementor-section elementor-inner-section elementor-element elementor-element-163ac40 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="163ac40" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-9dcf62b" data-id="9dcf62b" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-1da782c elementor-widget elementor-widget-bwp_product_categories" data-id="1da782c" data-element_type="widget" data-widget_type="bwp_product_categories.default">
+        <div class="elementor-widget-container">
+          <div id="category_slide_17566747381770709775" class="bwp-woo-categories slider">
+      <div class="content-category slick-carousel" data-dots="0" data-slidesToScroll="true" data-nav="1" data-columns4="1" data-columns3="2" data-columns2="3" data-columns1="4" data-columns1440="5" data-columns="6">
+                          <div class="item item-product-cat">	
+                      <div class="item-product-cat-content">
+                              <a href="product-category/burgers/index.html">
+                  <div class="item-image">
+                                          <img decoding="async" src="wp-content/uploads/2022/01/Image-2.jpg" alt="burgers" />
+                                      </div>
+                </a>
+                                          
+                            <div class="product-cat-content-info">
+                                <h2 class="item-title">
+                  <a href="product-category/burgers/index.html">Burgers</a>
+                </h2>
+                                              </div>
+            </div>
+           
+            </div>
+                      
+                          <div class="item item-product-cat">	
+                      <div class="item-product-cat-content">
+                              <a href="product-category/combo-offer/index.html">
+                  <div class="item-image">
+                                          <img decoding="async" src="wp-content/uploads/2022/01/Image-3.jpg" alt="combo-offer" />
+                                      </div>
+                </a>
+                                          
+                            <div class="product-cat-content-info">
+                                <h2 class="item-title">
+                  <a href="product-category/combo-offer/index.html">Combo Offer</a>
+                </h2>
+                                              </div>
+            </div>
+           
+            </div>
+                      
+                          <div class="item item-product-cat">	
+                      <div class="item-product-cat-content">
+                              <a href="product-category/kids-menu/index.html">
+                  <div class="item-image">
+                                          <img decoding="async" src="wp-content/uploads/2022/01/Image-4.jpg" alt="kids-menu" />
+                                      </div>
+                </a>
+                                          
+                            <div class="product-cat-content-info">
+                                <h2 class="item-title">
+                  <a href="product-category/kids-menu/index.html">Kids Menu</a>
+                </h2>
+                                              </div>
+            </div>
+           
+            </div>
+                      
+                          <div class="item item-product-cat">	
+                      <div class="item-product-cat-content">
+                              <a href="product-category/pizza-menu/index.html">
+                  <div class="item-image">
+                                          <img decoding="async" src="wp-content/uploads/2022/01/Image-6.jpg" alt="pizza-menu" />
+                                      </div>
+                </a>
+                                          
+                            <div class="product-cat-content-info">
+                                <h2 class="item-title">
+                  <a href="product-category/pizza-menu/index.html">Pizza Menu</a>
+                </h2>
+                                              </div>
+            </div>
+           
+            </div>
+                      
+                          <div class="item item-product-cat">	
+                      <div class="item-product-cat-content">
+                              <a href="product-category/sandwich/index.html">
+                  <div class="item-image">
+                                          <img decoding="async" src="wp-content/uploads/2022/01/Image-5.jpg" alt="sandwich" />
+                                      </div>
+                </a>
+                                          
+                            <div class="product-cat-content-info">
+                                <h2 class="item-title">
+                  <a href="product-category/sandwich/index.html">Sandwich</a>
+                </h2>
+                                              </div>
+            </div>
+           
+            </div>
+                      
+                          <div class="item item-product-cat">	
+                      <div class="item-product-cat-content">
+                              <a href="product-category/sauces/index.html">
+                  <div class="item-image">
+                                          <img decoding="async" src="wp-content/uploads/2022/01/Image-1.jpg" alt="sauces" />
+                                      </div>
+                </a>
+                                          
+                            <div class="product-cat-content-info">
+                                <h2 class="item-title">
+                  <a href="product-category/sauces/index.html">Sauces</a>
+                </h2>
+                                              </div>
+            </div>
+           
+            </div>
+                      
+                          <div class="item item-product-cat">	
+                      <div class="item-product-cat-content">
+                              <a href="product-category/starbucks/index.html">
+                  <div class="item-image">
+                                          <img decoding="async" src="wp-content/uploads/2022/01/Image-3.jpg" alt="starbucks" />
+                                      </div>
+                </a>
+                                          
+                            <div class="product-cat-content-info">
+                                <h2 class="item-title">
+                  <a href="product-category/starbucks/index.html">Starbucks</a>
+                </h2>
+                                              </div>
+            </div>
+           
+            </div>
+                      
+      </div>
+</div>				</div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        <section class="elementor-section elementor-inner-section elementor-element elementor-element-5eec500 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5eec500" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-605b04a" data-id="605b04a" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-f44e559 elementor-widget elementor-widget-bwp_image" data-id="f44e559" data-element_type="widget" data-widget_type="bwp_image.default">
+        <div class="elementor-widget-container">
+          <div class="bwp-widget-banner layout-6">
+    
+  <div class="bg-banner">
+    <div class="banner-wrapper banners">
+      <div class="bwp-image ">
+                  <a href="#"><img decoding="async" src="wp-content/uploads/2021/12/banner-2.jpg" alt="Banner Image" /></a>
+              </div>
+      <div class="banner-wrapper-infor">
+        <div class="info">
+          <div class="content">
+                          <a class= "link-title" href="#"><h3 class="title-banner">Big Burger <br />Premium</h3></a>
+                                      <div class="bwp-image-subtitle">
+                            
+                  Everything you order  <br />will be quickly <br /> delivered to your  door.							
+                              </div>	
+                                    <div class="bwp-image-description">
+                          
+                $10.00						
+                          </div>	
+                                  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+        </div>
+        </div>
+          </div>
+    </div>
+        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-e0e5dce" data-id="e0e5dce" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-a2a5656 elementor-widget elementor-widget-bwp_image" data-id="a2a5656" data-element_type="widget" data-widget_type="bwp_image.default">
+        <div class="elementor-widget-container">
+          <div class="bwp-widget-banner layout-6">
+    
+  <div class="bg-banner">
+    <div class="banner-wrapper banners">
+      <div class="bwp-image ">
+                  <a href="#"><img decoding="async" src="wp-content/uploads/2021/12/banner-1.jpg" alt="Banner Image" /></a>
+              </div>
+      <div class="banner-wrapper-infor">
+        <div class="info">
+          <div class="content">
+                          <a class= "link-title" href="#"><h3 class="title-banner">BBQ <br /> Chicken</h3></a>
+                                      <div class="bwp-image-subtitle">
+                            
+                  Everything you order  <br />will be quickly <br /> delivered to your  door.							
+                              </div>	
+                                    <div class="bwp-image-description">
+                          
+                $15.00						
+                          </div>	
+                                  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+        </div>
+        </div>
+          </div>
+    </div>
+        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-3bc9b6f" data-id="3bc9b6f" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-9237a81 elementor-widget elementor-widget-bwp_image" data-id="9237a81" data-element_type="widget" data-widget_type="bwp_image.default">
+        <div class="elementor-widget-container">
+          <div class="bwp-widget-banner layout-6">
+    
+  <div class="bg-banner">
+    <div class="banner-wrapper banners">
+      <div class="bwp-image ">
+                  <a href="#"><img decoding="async" src="wp-content/uploads/2021/12/banner-3.jpg" alt="Banner Image" /></a>
+              </div>
+      <div class="banner-wrapper-infor">
+        <div class="info">
+          <div class="content">
+                          <a class= "link-title" href="#"><h3 class="title-banner">Combo <br /> Kids</h3></a>
+                                      <div class="bwp-image-subtitle">
+                            
+                  Everything you order  <br />will be quickly <br /> delivered to your  door.							
+                              </div>	
+                                    <div class="bwp-image-description">
+                          
+                $16.00						
+                          </div>	
+                                  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+        </div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        <section class="elementor-section elementor-inner-section elementor-element elementor-element-c8db585 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c8db585" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-645c144" data-id="645c144" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-8a163a4 elementor-widget elementor-widget-bwp_image" data-id="8a163a4" data-element_type="widget" data-widget_type="bwp_image.default">
+        <div class="elementor-widget-container">
+          <div class="bwp-widget-banner layout-7">
+    
+  <div class="bg-banner">
+    <div class="banner-wrapper banners">
+      <div class="bwp-image ">
+                  <a href="#"><img decoding="async" src="wp-content/uploads/2021/12/banner-6.jpg" alt="Banner Image" /></a>
+              </div>
+      <div class="banner-wrapper-infor">
+        <div class="info">
+          <div class="content">
+                          <a class= "link-title" href="#"><h3 class="title-banner">Drinks<br />  offer</h3></a>
+                                      <div class="bwp-image-subtitle">
+                            
+                  Buy any 2 large pizzas <br />and get a 1.5L Pepsi Free 							
+                              </div>	
+                                                  <a class="button" href="#">ORDER NOW</a>						
+                      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+        </div>
+        </div>
+          </div>
+    </div>
+        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-a597ac9" data-id="a597ac9" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-d0652df elementor-widget elementor-widget-bwp_image" data-id="d0652df" data-element_type="widget" data-widget_type="bwp_image.default">
+        <div class="elementor-widget-container">
+          <div class="bwp-widget-banner layout-6">
+    
+  <div class="bg-banner">
+    <div class="banner-wrapper banners">
+      <div class="bwp-image ">
+                  <a href="#"><img decoding="async" src="wp-content/uploads/2021/12/banner-7.jpg" alt="Banner Image" /></a>
+              </div>
+      <div class="banner-wrapper-infor">
+        <div class="info">
+          <div class="content">
+                          <a class= "link-title" href="#"><h3 class="title-banner">combo  <br />pizza</h3></a>
+                                      <div class="bwp-image-subtitle">
+                            
+                  Buy any 2 large pizzas <br />and get a 1.5L Pepsi Free 							
+                              </div>	
+                                                  <a class="button" href="#">free shipping</a>						
+                      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+        </div>
+        </div>
+          </div>
+    </div>
+        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-7370ae0" data-id="7370ae0" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-5cd727f elementor-widget elementor-widget-bwp_image" data-id="5cd727f" data-element_type="widget" data-widget_type="bwp_image.default">
+        <div class="elementor-widget-container">
+          <div class="bwp-widget-banner layout-6">
+    
+  <div class="bg-banner">
+    <div class="banner-wrapper banners">
+      <div class="bwp-image ">
+                  <a href="#"><img decoding="async" src="wp-content/uploads/2021/12/banner-8.jpg" alt="Banner Image" /></a>
+              </div>
+      <div class="banner-wrapper-infor">
+        <div class="info">
+          <div class="content">
+                          <a class= "link-title" href="#"><h3 class="title-banner">explore <br /> food</h3></a>
+                                      <div class="bwp-image-subtitle">
+                            
+                  Order Your Favouriate<br />  Food to day							
+                              </div>	
+                                                  <a class="button" href="#">view more</a>						
+                      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+        </div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+          </div>
+    </div>
+          </div>
+    </section>
+        <section class="elementor-section elementor-top-section elementor-element elementor-element-d5adbdf elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="d5adbdf" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-735a6f9" data-id="735a6f9" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-c948921 box-shadow elementor-widget elementor-widget-heading" data-id="c948921" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Tasty & Crunchy</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-92e8d3f elementor-widget elementor-widget-heading" data-id="92e8d3f" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Favorite Menu</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-0a7d681 elementor-widget elementor-widget-text-editor" data-id="0a7d681" data-element_type="widget" data-widget_type="text-editor.default">
+        <div class="elementor-widget-container">
+                  Inspired by recipes and creations of world’s best chefs								</div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        <section class="elementor-section elementor-top-section elementor-element elementor-element-3635312 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3635312" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-2c38ecd" data-id="2c38ecd" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-0e0a922 elementor-widget elementor-widget-bwp_product_list" data-id="0e0a922" data-element_type="widget" data-widget_type="bwp_product_list.default">
+        <div class="elementor-widget-container">
+            <div id="bwp_toprated_7689113691770709775" class="bwp_product_list slider no-title">
+        <div class="list-product">
+      <div class="product-content">
+        <div class="content-product-list">	
+          <div class="slider products-list grid slick-carousel" data-slidesToScroll="true" data-dots="false"  data-nav="0" data-columns4="2" data-columns3="2" data-columns2="2" data-columns1="3" data-columns1440="4" data-columns="4">	
+                                    <div class="item-product">
+                          <div class="items">
+                                  <div class="products-entry content-product1 clearfix product-wapper">
+  <div class="products-thumb">
+      <div class='product-lable'>
+                  <div class="vgwc-label vgwc-featured hot">Hot</div>						
+          <div class="onsale">-48%</div>			</div>
+<div class="product-thumb-hover"><a href="shop/smoothie-drinks/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-21-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-26-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16541" data-id="16541" data-product_name="Smoothie drinks" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-21-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+      <span class="product-quickview"><a href="#" data-product_id="16541" class="quickview quickview-button quickview-16541" >Quick View <i class="icon-Search"></i></a></span>		</div>
+      </div>
+  <div class="products-content">
+    <div class="contents">
+      <h3 class="product-title"><a href="shop/smoothie-drinks/index.html">Smoothie drinks</a></h3>
+      
+  <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>13.00</bdi></span> &ndash; <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>67.00</bdi></span></span>
+      <div class="btn-atc">
+        <a rel="nofollow" href="shop/smoothie-drinks/index.html" data-quantity="1" data-product_id="16541" data-product_sku="D2300-3-2-3" class="button product_type_variable add_to_cart_button">Select options</a>			</div>
+    </div>
+  </div>
+</div>															</div>
+                                                <div class="items">
+                                  <div class="products-entry content-product1 clearfix product-wapper">
+  <div class="products-thumb">
+      <div class='product-lable'>
+                  <div class="vgwc-label vgwc-featured hot">Hot</div>						
+      </div>
+<div class="product-thumb-hover"><a href="shop/sleek-iron-clock/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-26-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-15-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16536" data-id="16536" data-product_name="Sleek Iron Clock" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-26-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+      <span class="product-quickview"><a href="#" data-product_id="16536" class="quickview quickview-button quickview-16536" >Quick View <i class="icon-Search"></i></a></span>		</div>
+      </div>
+  <div class="products-content">
+    <div class="contents">
+      <h3 class="product-title"><a href="shop/sleek-iron-clock/index.html">Sleek Iron Clock</a></h3>
+      
+  <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>50.00</bdi></span> &ndash; <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>90.00</bdi></span></span>
+      <div class="btn-atc">
+        <a rel="nofollow" href="shop/sleek-iron-clock/index.html" data-quantity="1" data-product_id="16536" data-product_sku="D2300-3-2-2" class="button product_type_variable add_to_cart_button">Select options</a>			</div>
+    </div>
+  </div>
+</div>															</div>
+             
+              </div>
+                                                <div class="item-product">
+                          <div class="items">
+                                  <div class="products-entry content-product1 clearfix product-wapper">
+  <div class="products-thumb">
+      <div class='product-lable'>
+                  <div class="vgwc-label vgwc-featured hot">Hot</div>						
+      </div>
+<div class="product-thumb-hover"><a href="shop/bbq-fries/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-5-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-13-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16508" data-id="16508" data-product_name="BBQ Fries" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-5-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+      <span class="product-quickview"><a href="#" data-product_id="16508" class="quickview quickview-button quickview-16508" >Quick View <i class="icon-Search"></i></a></span>		</div>
+      </div>
+  <div class="products-content">
+    <div class="contents">
+      <h3 class="product-title"><a href="shop/bbq-fries/index.html">BBQ Fries</a></h3>
+      
+  <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>1,200.00</bdi></span></span>
+      <div class="btn-atc">
+        <a rel="nofollow" href="#" data-quantity="1" data-product_id="16508" data-product_sku="D2300" class="button product_type_external read_more">Buy product</a>			</div>
+    </div>
+  </div>
+</div>															</div>
+                                                <div class="items">
+                                  <div class="products-entry content-product1 clearfix product-wapper">
+  <div class="products-thumb">
+      <div class='product-lable'>
+                  <div class="vgwc-label vgwc-featured hot">Hot</div>						
+      </div>
+<div class="product-thumb-hover"><a href="shop/alsatian/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-19-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-24-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16320" data-id="16320" data-product_name="Alsatian" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-19-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+      <span class="product-quickview"><a href="#" data-product_id="16320" class="quickview quickview-button quickview-16320" >Quick View <i class="icon-Search"></i></a></span>		</div>
+      </div>
+  <div class="products-content">
+    <div class="contents">
+      <h3 class="product-title"><a href="shop/alsatian/index.html">Alsatian</a></h3>
+      
+  <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>75.00</bdi></span></span>
+      <div class="btn-atc">
+        <a rel="nofollow" href="index694c.html?add-to-cart=16320" data-quantity="1" data-product_id="16320" data-product_sku="D1118" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>			</div>
+    </div>
+  </div>
+</div>															</div>
+             
+              </div>
+                                                <div class="item-product">
+                          <div class="items">
+                                  <div class="products-entry content-product1 clearfix product-wapper">
+  <div class="products-thumb">
+      <div class='product-lable'>
+                
+          <div class="onsale">-50%</div>			</div>
+<div class="product-thumb-hover"><a href="shop/cheddar-fries/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-11-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-13-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-10448" data-id="10448" data-product_name="Cheddar Fries" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-11-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+      <span class="product-quickview"><a href="#" data-product_id="10448" class="quickview quickview-button quickview-10448" >Quick View <i class="icon-Search"></i></a></span>		</div>
+          <div class="product-stock">    
+        <span class="stock">Out Of Stock</span>
+      </div>
+      </div>
+  <div class="products-content">
+    <div class="contents">
+      <h3 class="product-title"><a href="shop/cheddar-fries/index.html">Cheddar Fries</a></h3>
+      
+  <span class="price"><del aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>20.00</bdi></span></del> <span class="screen-reader-text">Original price was: &#036;20.00.</span><ins aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>10.00</bdi></span></ins><span class="screen-reader-text">Current price is: &#036;10.00.</span></span>
+      <div class="btn-atc">
+        <a rel="nofollow" href="shop/cheddar-fries/index.html" data-quantity="1" data-product_id="10448" data-product_sku="U2006" class="button product_type_simple read_more ajax_add_to_cart">Read more</a>			</div>
+    </div>
+  </div>
+</div>															</div>
+                                                <div class="items">
+                                  <div class="products-entry content-product1 clearfix product-wapper">
+  <div class="products-thumb">
+      <div class='product-lable'>
+                  <div class="vgwc-label vgwc-featured hot">Hot</div>						
+      </div>
+<div class="product-thumb-hover"><a href="shop/banana-leaf/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-22-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2018/10/1-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-1061" data-id="1061" data-product_name="Banana Leaf" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-22-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+      <span class="product-quickview"><a href="#" data-product_id="1061" class="quickview quickview-button quickview-1061" >Quick View <i class="icon-Search"></i></a></span>		</div>
+      </div>
+  <div class="products-content">
+    <div class="contents">
+      <h3 class="product-title"><a href="shop/banana-leaf/index.html">Banana Leaf</a></h3>
+      
+  <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>100.00</bdi></span></span>
+      <div class="btn-atc">
+        <a rel="nofollow" href="indexfecd.html?add-to-cart=1061" data-quantity="1" data-product_id="1061" data-product_sku="" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>			</div>
+    </div>
+  </div>
+</div>															</div>
+             
+              </div>
+                                                <div class="item-product">
+                          <div class="items">
+                                  <div class="products-entry content-product1 clearfix product-wapper">
+  <div class="products-thumb">
+      <div class='product-lable'>
+                  <div class="vgwc-label vgwc-featured hot">Hot</div>						
+      </div>
+<div class="product-thumb-hover"><a href="shop/mare-e-monti/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-24-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-25-600x600.jpg" class="hover-image back" alt="" /></a></div>	<div class="countdown">
+    <div class="item-countdown">
+      <div class="product-countdown"  
+        data-day="d"
+        data-hour="h"
+        data-min="m"
+        data-sec="s"
+        data-date="1775951999"  
+        data-sttime="1712275200" 
+        data-cdtime="1775951999"
+        data-id="item_countdown_1237929261770709775">
+      </div>
+    </div>
+  </div>
+      <button class="woosw-btn woosw-btn-3989" data-id="3989" data-product_name="Mare e Monti" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-24-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+      <span class="product-quickview"><a href="#" data-product_id="3989" class="quickview quickview-button quickview-3989" >Quick View <i class="icon-Search"></i></a></span>		</div>
+      </div>
+  <div class="products-content">
+    <div class="contents">
+      <h3 class="product-title"><a href="shop/mare-e-monti/index.html">Mare e Monti</a></h3>
+      
+  <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>22.00</bdi></span> &ndash; <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>400.00</bdi></span></span>
+      <div class="btn-atc">
+        <a rel="nofollow" href="shop/mare-e-monti/index.html" data-quantity="1" data-product_id="3989" data-product_sku="VN00189" class="button product_type_grouped read_more">View products</a>			</div>
+    </div>
+  </div>
+</div>															</div>
+                                                <div class="items">
+                                  <div class="products-entry content-product1 clearfix product-wapper">
+  <div class="products-thumb">
+      <div class='product-lable'>
+                
+      </div>
+<div class="product-thumb-hover"><a href="shop/burger-king/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-3-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-27-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16588" data-id="16588" data-product_name="Burger King" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-3-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+      <span class="product-quickview"><a href="#" data-product_id="16588" class="quickview quickview-button quickview-16588" >Quick View <i class="icon-Search"></i></a></span>		</div>
+      </div>
+  <div class="products-content">
+    <div class="contents">
+      <h3 class="product-title"><a href="shop/burger-king/index.html">Burger King</a></h3>
+      
+  <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>99.00</bdi></span></span>
+      <div class="btn-atc">
+        <a rel="nofollow" href="index4446.html?add-to-cart=16588" data-quantity="1" data-product_id="16588" data-product_sku="D2409" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>			</div>
+    </div>
+  </div>
+</div>															</div>
+             
+              </div>
+                                                <div class="item-product">
+                          <div class="items">
+                                  <div class="products-entry content-product1 clearfix product-wapper">
+  <div class="products-thumb">
+      <div class='product-lable'>
+                
+      </div>
+<div class="product-thumb-hover"><a href="shop/florentine/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-11-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-6-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16521" data-id="16521" data-product_name="Florentine" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-11-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+      <span class="product-quickview"><a href="#" data-product_id="16521" class="quickview quickview-button quickview-16521" >Quick View <i class="icon-Search"></i></a></span>		</div>
+      </div>
+  <div class="products-content">
+    <div class="contents">
+      <h3 class="product-title"><a href="shop/florentine/index.html">Florentine</a></h3>
+      
+  <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>120.00</bdi></span></span>
+      <div class="btn-atc">
+        <a rel="nofollow" href="indexd1f8.html?add-to-cart=16521" data-quantity="1" data-product_id="16521" data-product_sku="D2300-3-1" class="button product_type_simple add_to_cart_button ajax_add_to_cart">Add to cart</a>			</div>
+    </div>
+  </div>
+</div>															</div>
+             
+              </div>
+                                </div>
+          <div class="content-button">
+                        <div class="btn-all">
+              <a href="shop/index.html">all products</a>
+            </div>
+                      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+          </div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        <section class="elementor-section elementor-top-section elementor-element elementor-element-98061fd elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="98061fd" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7a8f819" data-id="7a8f819" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-4daa5b5 head elementor-widget elementor-widget-heading" data-id="4daa5b5" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Combo Salad  <br />with special price</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-f1122ba head-1 elementor-widget elementor-widget-text-editor" data-id="f1122ba" data-element_type="widget" data-widget_type="text-editor.default">
+        <div class="elementor-widget-container">
+                  Buy any 2 large pizzas and get a 1.5L Pepsi Free								</div>
+        </div>
+        <div class="elementor-element elementor-element-dba27e8 elementor-align-center elementor-widget elementor-widget-button" data-id="dba27e8" data-element_type="widget" data-widget_type="button.default">
+        <div class="elementor-widget-container">
+                  <div class="elementor-button-wrapper">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="shop/index.html">
+            <span class="elementor-button-content-wrapper">
+                  <span class="elementor-button-text">ORDER NOW</span>
+          </span>
+          </a>
+        </div>
+                </div>
+        </div>
+        <div class="elementor-element elementor-element-3f3aa8d head-2 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-heading" data-id="3f3aa8d" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Only<br /><span>$21.9</span></h2>				</div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        <section class="elementor-section elementor-top-section elementor-element elementor-element-f43a49c elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="f43a49c" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-93c0316" data-id="93c0316" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-edc46bb elementor-widget elementor-widget-image" data-id="edc46bb" data-element_type="widget" data-widget_type="image.default">
+        <div class="elementor-widget-container">
+                              <img loading="lazy" decoding="async" width="1920" height="50" src="wp-content/uploads/2022/01/back-41.png" class="attachment-full size-full wp-image-36824" alt="" />															</div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        <section class="elementor-section elementor-top-section elementor-element elementor-element-2501a37 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="2501a37" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-879cb3e" data-id="879cb3e" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-a76bdfc elementor-widget elementor-widget-bwp_testimonial" data-id="a76bdfc" data-element_type="widget" data-widget_type="bwp_testimonial.default">
+        <div class="elementor-widget-container">
+          <div class="bwp-testimonial layout1">
+  <div class="block">
+    <div class="testimonial-title">
+          </div>
+  <div class="block_content">
+    <div id="testimonial_11533055691770709775" class="slick-carousel " data-slidesToScroll="true" data-nav="1" data-dots="0" data-columns4="1" data-columns3="1" data-columns2="1" data-columns1="1" data-columns="1">
+                                <div class="testimonial-content">
+                  <div class="item">
+            <div class="testimonial-item">
+              <div class="testimonial-icon">
+                <span aria-hidden="true" class="icon-quotes"></span>
+              </div>
+              <div class="testimonial-customer-position"><p class="post-excerpt">&#8220;Thanks guys, keep up the good work! It&#8217;s exactly
+what I&#8217;ve been looking for. papzi is the real deal! It&#8217;s all good. &#8220;
+</p></div>
+              <div class="testimonial-image-info">
+                <div class="testimonial-info">
+                  <h2 class="testimonial-customer-name">Robet Smith</h2>
+                    
+                    <div class="testimonial-job">Photographer</div>
+                                  </div>
+              </div>
+            </div>
+          </div>
+      
+         
+        </div>
+                                        <div class="testimonial-content">
+                  <div class="item">
+            <div class="testimonial-item">
+              <div class="testimonial-icon">
+                <span aria-hidden="true" class="icon-quotes"></span>
+              </div>
+              <div class="testimonial-customer-position"><p class="post-excerpt">&#8220;Thanks guys, keep up the good work! It&#8217;s exactly
+what I&#8217;ve been looking for. papzi is the real deal! It&#8217;s all good. &#8220;
+</p></div>
+              <div class="testimonial-image-info">
+                <div class="testimonial-info">
+                  <h2 class="testimonial-customer-name">Saitama One</h2>
+                    
+                    <div class="testimonial-job">Photographer </div>
+                                  </div>
+              </div>
+            </div>
+          </div>
+
+         
+        </div>
+                                        <div class="testimonial-content">
+                  <div class="item">
+            <div class="testimonial-item">
+              <div class="testimonial-icon">
+                <span aria-hidden="true" class="icon-quotes"></span>
+              </div>
+              <div class="testimonial-customer-position"><p class="post-excerpt">&#8220;Thanks guys, keep up the good work! It&#8217;s exactly
+what I&#8217;ve been looking for. papzi is the real deal! It&#8217;s all good. &#8220;
+</p></div>
+              <div class="testimonial-image-info">
+                <div class="testimonial-info">
+                  <h2 class="testimonial-customer-name">Sara Colinton</h2>
+                    
+                    <div class="testimonial-job">Nutricionist </div>
+                                  </div>
+              </div>
+            </div>
+          </div>
+
+         
+        </div>
+                                        <div class="testimonial-content">
+                  <div class="item">
+            <div class="testimonial-item">
+              <div class="testimonial-icon">
+                <span aria-hidden="true" class="icon-quotes"></span>
+              </div>
+              <div class="testimonial-customer-position"><p class="post-excerpt">&#8220;Thanks guys, keep up the good work! It&#8217;s exactly
+what I&#8217;ve been looking for. papzi is the real deal! It&#8217;s all good. &#8220;
+</p></div>
+              <div class="testimonial-image-info">
+                <div class="testimonial-info">
+                  <h2 class="testimonial-customer-name">Shetty Jamie</h2>
+                    
+                    <div class="testimonial-job">Designer</div>
+                                  </div>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+                  </div>
+  </div>
+ </div>
+</div>
+        </div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        <section class="elementor-section elementor-top-section elementor-element elementor-element-c07337f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c07337f" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-3e4701d" data-id="3e4701d" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-08840a4 elementor-widget elementor-widget-image" data-id="08840a4" data-element_type="widget" data-widget_type="image.default">
+        <div class="elementor-widget-container">
+                              <img loading="lazy" decoding="async" width="217" height="214" src="wp-content/uploads/2021/12/flo.png" class="elementor-animation-wobble-horizontal attachment-large size-large wp-image-32761" alt="" />															</div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        <section class="elementor-section elementor-top-section elementor-element elementor-element-bc07445 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="bc07445" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-1007ee0" data-id="1007ee0" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-747919b box-shadow elementor-widget elementor-widget-heading" data-id="747919b" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Tasty & Crunchy</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-e7549f0 elementor-widget elementor-widget-heading" data-id="e7549f0" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Special Price Combo</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-67b225e elementor-widget elementor-widget-text-editor" data-id="67b225e" data-element_type="widget" data-widget_type="text-editor.default">
+        <div class="elementor-widget-container">
+                  Inspired by recipes and creations of world’s best chefs								</div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        <section class="elementor-section elementor-top-section elementor-element elementor-element-5627ee9 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="5627ee9" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-e3e1c10" data-id="e3e1c10" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <section class="elementor-section elementor-inner-section elementor-element elementor-element-3cda5c2 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3cda5c2" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8e0ec53 wpb-col-sm-100" data-id="8e0ec53" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-c353329 elementor-widget elementor-widget-bwp_product_list" data-id="c353329" data-element_type="widget" data-widget_type="bwp_product_list.default">
+        <div class="elementor-widget-container">
+            <div id="bwp_default_8017910841770709775" class="bwp_product_list bwp_list_default default2  no-title">
+    <div class="content products-list grid row">	
+                  <div class="item-product col-xl-12 col-lg-12 col-md-12 col-12">
+                      <div class="products-entry clearfix product-wapper">
+          <div class="products-content">
+            <div class="contents">
+                <div class='product-lable'>
+                  <div class="vgwc-label vgwc-featured hot">Hot</div>						
+          <div class="onsale">-48%</div>			</div>
+              <div class="product-top">
+                <h3 class="product-title"><a href="shop/smoothie-drinks/index.html">Smoothie drinks</a></h3>
+                <div class="mkd-pli-dots"></div>
+                  
+  <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>13.00</bdi></span> &ndash; <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>67.00</bdi></span></span>
+                  
+              </div>
+              <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed... </p>						</div>
+          </div>
+        </div>
+       
+        </div>
+                        <div class="item-product col-xl-12 col-lg-12 col-md-12 col-12">
+                      <div class="products-entry clearfix product-wapper">
+          <div class="products-content">
+            <div class="contents">
+                <div class='product-lable'>
+                  <div class="vgwc-label vgwc-featured hot">Hot</div>						
+      </div>
+              <div class="product-top">
+                <h3 class="product-title"><a href="shop/sleek-iron-clock/index.html">Sleek Iron Clock</a></h3>
+                <div class="mkd-pli-dots"></div>
+                  
+  <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>50.00</bdi></span> &ndash; <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>90.00</bdi></span></span>
+                  
+              </div>
+              <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed... </p>						</div>
+          </div>
+        </div>
+       
+        </div>
+                        <div class="item-product col-xl-12 col-lg-12 col-md-12 col-12">
+                      <div class="products-entry clearfix product-wapper">
+          <div class="products-content">
+            <div class="contents">
+                <div class='product-lable'>
+                  <div class="vgwc-label vgwc-featured hot">Hot</div>						
+      </div>
+              <div class="product-top">
+                <h3 class="product-title"><a href="shop/bbq-fries/index.html">BBQ Fries</a></h3>
+                <div class="mkd-pli-dots"></div>
+                  
+  <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>1,200.00</bdi></span></span>
+                  
+              </div>
+              <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed... </p>						</div>
+          </div>
+        </div>
+       
+        </div>
+                        <div class="item-product col-xl-12 col-lg-12 col-md-12 col-12">
+                      <div class="products-entry clearfix product-wapper">
+          <div class="products-content">
+            <div class="contents">
+                <div class='product-lable'>
+                  <div class="vgwc-label vgwc-featured hot">Hot</div>						
+      </div>
+              <div class="product-top">
+                <h3 class="product-title"><a href="shop/alsatian/index.html">Alsatian</a></h3>
+                <div class="mkd-pli-dots"></div>
+                  
+  <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>75.00</bdi></span></span>
+                  
+              </div>
+              <p class="post-excerpt">The EcoSmart Fleece Hoodie full-zip hooded jacket provides medium... </p>						</div>
+          </div>
+        </div>
+       
+        </div>
+              
+    </div>				
+  </div>
+          </div>
+        </div>
+          </div>
+    </div>
+        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-040a656 wpb-col-sm-100" data-id="040a656" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-cf03b4f elementor-widget elementor-widget-bwp_product_list" data-id="cf03b4f" data-element_type="widget" data-widget_type="bwp_product_list.default">
+        <div class="elementor-widget-container">
+            <div id="bwp_default_7830669811770709775" class="bwp_product_list bwp_list_default default2  no-title">
+    <div class="content products-list grid row">	
+                  <div class="item-product col-xl-12 col-lg-12 col-md-12 col-12">
+                      <div class="products-entry clearfix product-wapper">
+          <div class="products-content">
+            <div class="contents">
+                <div class='product-lable'>
+                  <div class="vgwc-label vgwc-featured hot">Hot</div>						
+      </div>
+              <div class="product-top">
+                <h3 class="product-title"><a href="shop/alsatian/index.html">Alsatian</a></h3>
+                <div class="mkd-pli-dots"></div>
+                  
+  <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>75.00</bdi></span></span>
+                  
+              </div>
+              <p class="post-excerpt">The EcoSmart Fleece Hoodie full-zip hooded jacket provides medium... </p>						</div>
+          </div>
+        </div>
+       
+        </div>
+                        <div class="item-product col-xl-12 col-lg-12 col-md-12 col-12">
+                      <div class="products-entry clearfix product-wapper">
+          <div class="products-content">
+            <div class="contents">
+                <div class='product-lable'>
+                
+          <div class="onsale">-50%</div>			</div>
+              <div class="product-top">
+                <h3 class="product-title"><a href="shop/cheddar-fries/index.html">Cheddar Fries</a></h3>
+                <div class="mkd-pli-dots"></div>
+                  
+  <span class="price"><del aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>20.00</bdi></span></del> <span class="screen-reader-text">Original price was: &#036;20.00.</span><ins aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>10.00</bdi></span></ins><span class="screen-reader-text">Current price is: &#036;10.00.</span></span>
+                  
+              </div>
+              <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed... </p>						</div>
+          </div>
+        </div>
+       
+        </div>
+                        <div class="item-product col-xl-12 col-lg-12 col-md-12 col-12">
+                      <div class="products-entry clearfix product-wapper">
+          <div class="products-content">
+            <div class="contents">
+                <div class='product-lable'>
+                  <div class="vgwc-label vgwc-featured hot">Hot</div>						
+      </div>
+              <div class="product-top">
+                <h3 class="product-title"><a href="shop/banana-leaf/index.html">Banana Leaf</a></h3>
+                <div class="mkd-pli-dots"></div>
+                  
+  <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>100.00</bdi></span></span>
+                  
+              </div>
+              <p class="post-excerpt">Dressed with leaf lettuce and tomatoes on a toasted... </p>						</div>
+          </div>
+        </div>
+       
+        </div>
+                        <div class="item-product col-xl-12 col-lg-12 col-md-12 col-12">
+                      <div class="products-entry clearfix product-wapper">
+          <div class="products-content">
+            <div class="contents">
+                <div class='product-lable'>
+                
+      </div>
+              <div class="product-top">
+                <h3 class="product-title"><a href="shop/burger-king/index.html">Burger King</a></h3>
+                <div class="mkd-pli-dots"></div>
+                  
+  <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>99.00</bdi></span></span>
+                  
+              </div>
+              <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed... </p>						</div>
+          </div>
+        </div>
+       
+        </div>
+              
+    </div>				
+  </div>
+          </div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        <div class="elementor-element elementor-element-8d2177a elementor-widget__width-auto elementor-absolute elementor-hidden-tablet elementor-hidden-mobile img-3 elementor-widget elementor-widget-image" data-id="8d2177a" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+        <div class="elementor-widget-container">
+                              <img loading="lazy" decoding="async" width="404" height="743" src="wp-content/uploads/2021/12/back-8.png" class="attachment-large size-large wp-image-32896" alt="" />															</div>
+        </div>
+        <div class="elementor-element elementor-element-72270c4 img-3 elementor-widget__width-auto elementor-absolute elementor-hidden-tablet elementor-hidden-mobile elementor-widget elementor-widget-image" data-id="72270c4" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+        <div class="elementor-widget-container">
+                              <img loading="lazy" decoding="async" width="291" height="501" src="wp-content/uploads/2021/12/back-7.png" class="attachment-large size-large wp-image-32880" alt="" />															</div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        <section class="elementor-section elementor-top-section elementor-element elementor-element-07daac8 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="07daac8" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-cd9da43" data-id="cd9da43" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <section class="elementor-section elementor-inner-section elementor-element elementor-element-65ca295 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="65ca295" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-18ca296" data-id="18ca296" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-d4f5615 elementor-widget elementor-widget-bwp_image" data-id="d4f5615" data-element_type="widget" data-widget_type="bwp_image.default">
+        <div class="elementor-widget-container">
+          <div class="bwp-widget-banner layout-6">
+    
+  <div class="bg-banner">
+    <div class="banner-wrapper banners">
+      <div class="bwp-image ">
+                  <a href="#"><img decoding="async" src="wp-content/uploads/2021/12/banner-12.jpg" alt="Banner Image" /></a>
+              </div>
+      <div class="banner-wrapper-infor">
+        <div class="info">
+          <div class="content">
+                          <a class= "link-title" href="#"><h3 class="title-banner">Pizza  <br />Healthily</h3></a>
+                                      <div class="bwp-image-subtitle">
+                            
+                  Everything you order  <br />will be quickly <br /> delivered to your  door.							
+                              </div>	
+                                    <div class="bwp-image-description">
+                          
+                $10.00						
+                          </div>	
+                                  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+        </div>
+        </div>
+          </div>
+    </div>
+        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-350debf" data-id="350debf" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-6056890 elementor-widget elementor-widget-bwp_image" data-id="6056890" data-element_type="widget" data-widget_type="bwp_image.default">
+        <div class="elementor-widget-container">
+          <div class="bwp-widget-banner layout-6">
+    
+  <div class="bg-banner">
+    <div class="banner-wrapper banners">
+      <div class="bwp-image ">
+                  <a href="#"><img decoding="async" src="wp-content/uploads/2021/12/banner-13.jpg" alt="Banner Image" /></a>
+              </div>
+      <div class="banner-wrapper-infor">
+        <div class="info">
+          <div class="content">
+                          <a class= "link-title" href="#"><h3 class="title-banner">Short  <br />combo Drink</h3></a>
+                                      <div class="bwp-image-subtitle">
+                            
+                  Everything you order  <br />will be quickly <br /> delivered to your  door.							
+                              </div>	
+                                    <div class="bwp-image-description">
+                          
+                $15.00						
+                          </div>	
+                                  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+        </div>
+        </div>
+          </div>
+    </div>
+        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-2acefef" data-id="2acefef" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-5196663 elementor-widget elementor-widget-bwp_image" data-id="5196663" data-element_type="widget" data-widget_type="bwp_image.default">
+        <div class="elementor-widget-container">
+          <div class="bwp-widget-banner layout-6">
+    
+  <div class="bg-banner">
+    <div class="banner-wrapper banners">
+      <div class="bwp-image ">
+                  <a href="#"><img decoding="async" src="wp-content/uploads/2021/12/banner-14.jpg" alt="Banner Image" /></a>
+              </div>
+      <div class="banner-wrapper-infor">
+        <div class="info">
+          <div class="content">
+                          <a class= "link-title" href="#"><h3 class="title-banner">Single <br /> Products</h3></a>
+                                      <div class="bwp-image-subtitle">
+                            
+                  Everything you order  <br />will be quickly <br /> delivered to your  door.							
+                              </div>	
+                                    <div class="bwp-image-description">
+                          
+                $16.00						
+                          </div>	
+                                  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+        </div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+          </div>
+    </div>
+          </div>
+    </section>
+        <section class="elementor-section elementor-top-section elementor-element elementor-element-f3ff61a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="f3ff61a" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7cfdedb" data-id="7cfdedb" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-6d0d56c head elementor-widget elementor-widget-heading" data-id="6d0d56c" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">You Order We<br />  Deliver</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-8d7c7b2 head-1 elementor-widget elementor-widget-text-editor" data-id="8d7c7b2" data-element_type="widget" data-widget_type="text-editor.default">
+        <div class="elementor-widget-container">
+                  Free shipping Orders $50 Get a 1.5L Pepsi Free 								</div>
+        </div>
+        <div class="elementor-element elementor-element-8469f2c elementor-align-center elementor-widget elementor-widget-button" data-id="8469f2c" data-element_type="widget" data-widget_type="button.default">
+        <div class="elementor-widget-container">
+                  <div class="elementor-button-wrapper">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="#">
+            <span class="elementor-button-content-wrapper">
+                  <span class="elementor-button-text">make an order</span>
+          </span>
+          </a>
+        </div>
+                </div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        </div>
+      </div>
+</article>	</div>
+  </div>
+</div>
+  </div>
+                    <footer id="bwp-footer" class="bwp-footer footer-1">
+            <div data-elementor-type="wp-post" data-elementor-id="11196" class="elementor elementor-11196">
+            <section class="elementor-section elementor-top-section elementor-element elementor-element-57761b1 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="57761b1" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-20370e7" data-id="20370e7" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <section class="elementor-section elementor-inner-section elementor-element elementor-element-6757c82 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="6757c82" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-367530e wpb-col-sm-100" data-id="367530e" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-bd6f76c img elementor-widget-mobile__width-auto elementor-widget elementor-widget-image" data-id="bd6f76c" data-element_type="widget" data-widget_type="image.default">
+        <div class="elementor-widget-container">
+                              <img width="319" height="120" src="wp-content/uploads/2022/01/logo-white.png" class="attachment-large size-large wp-image-37098" alt="" />															</div>
+        </div>
+          </div>
+    </div>
+        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-abd57f1 wpb-col-sm-100" data-id="abd57f1" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-5440a7c footer-head-1 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="5440a7c" data-element_type="widget" data-widget_type="divider.default">
+        <div class="elementor-widget-container">
+              <div class="elementor-divider">
+      <span class="elementor-divider-separator">
+            </span>
+    </div>
+            </div>
+        </div>
+          </div>
+    </div>
+        <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-501a920 wpb-col-sm-100" data-id="501a920" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-a0ea0af elementor-widget-mobile__width-auto elementor-widget elementor-widget-shortcode" data-id="a0ea0af" data-element_type="widget" data-widget_type="shortcode.default">
+        <div class="elementor-widget-container">
+              <div class="elementor-shortcode"><ul class="social-link"><li><a href="#"><i class="fa fa-twitter"></i></a></li><li><a href="#"><i class="fa fa-instagram"></i></a></li><li><a href="#"><i class="fa fa-dribbble"></i></a></li><li><a href="#"><i class="fa fa-behance"></i></a></li></ul></div>
+            </div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        <section class="elementor-section elementor-inner-section elementor-element elementor-element-3a8ba5e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3a8ba5e" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-18d3bd9" data-id="18d3bd9" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-a14c55b elementor-widget elementor-widget-heading" data-id="a14c55b" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Book a table</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-22f9500 footer-head elementor-widget elementor-widget-text-editor" data-id="22f9500" data-element_type="widget" data-widget_type="text-editor.default">
+        <div class="elementor-widget-container">
+                  Save time with proper planning								</div>
+        </div>
+        <div class="elementor-element elementor-element-c1852cb elementor-widget elementor-widget-heading" data-id="c1852cb" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">934 595 876</h2>				</div>
+        </div>
+          </div>
+    </div>
+        <div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-a07ed3d" data-id="a07ed3d" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-6e37df2 elementor-widget elementor-widget-heading" data-id="6e37df2" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">newsletter</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-4c32bb0 footer-head elementor-widget elementor-widget-text-editor" data-id="4c32bb0" data-element_type="widget" data-widget_type="text-editor.default">
+        <div class="elementor-widget-container">
+                  Newsletter Exclusive Discount codes								</div>
+        </div>
+        <div class="elementor-element elementor-element-b3fe73a elementor-widget elementor-widget-shortcode" data-id="b3fe73a" data-element_type="widget" data-widget_type="shortcode.default">
+        <div class="elementor-widget-container">
+              <div class="elementor-shortcode">
+<div class="wpcf7 no-js" id="wpcf7-f1287-o1" lang="en-US" dir="ltr" data-wpcf7-id="1287">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="https://papzi.wpbingosite.com/#wpcf7-f1287-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<div style={{display: "none"}}>
+<input type="hidden" name="_wpcf7" value="1287" />
+<input type="hidden" name="_wpcf7_version" value="6.0.6" />
+<input type="hidden" name="_wpcf7_locale" value="en_US" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f1287-o1" />
+<input type="hidden" name="_wpcf7_container_post" value="0" />
+<input type="hidden" name="_wpcf7_posted_data_hash" value="" />
+</div>
+<div class="wpbingo-newsletter newsletter-default">
+  <div class="content-newsletter">
+    <p><span class="wpcf7-form-control-wrap" data-name="your-email"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Your Email..." value="" type="email" name="your-email" /></span><span class="clearfix"><input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="SUBSCRIBE" /></span>
+    </p>
+  </div>
+</div><p style={{display: "none"}} class="akismet-fields-container" data-prefix="_wpcf7_ak_"><label>&#916;<textarea name="_wpcf7_ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="_wpcf7_ak_js" value="53"/><script>document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );</script></p><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+</div>
+            </div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        <section class="elementor-section elementor-inner-section elementor-element elementor-element-889af22 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="889af22" data-element_type="section">
+            <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-f6e3192" data-id="f6e3192" data-element_type="column">
+      <div class="elementor-widget-wrap elementor-element-populated">
+            <div class="elementor-element elementor-element-27b99da footer-head-1 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="27b99da" data-element_type="widget" data-widget_type="divider.default">
+        <div class="elementor-widget-container">
+              <div class="elementor-divider">
+      <span class="elementor-divider-separator">
+            </span>
+    </div>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-da5f038 elementor-icon-list--layout-inline elementor-align-center footer-head elementor-mobile-align-left elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="da5f038" data-element_type="widget" data-widget_type="icon-list.default">
+        <div class="elementor-widget-container">
+              <ul class="elementor-icon-list-items elementor-inline-items">
+              <li class="elementor-icon-list-item elementor-inline-item">
+                      <a href="#">
+
+                      <span class="elementor-icon-list-text">Fast food Papzi</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item elementor-inline-item">
+                      <a href="#">
+
+                      <span class="elementor-icon-list-text">467 Park Avenue New York, Ny 10</span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item elementor-inline-item">
+                      <a href="#">
+
+                      <span class="elementor-icon-list-text"><span class="__cf_email__" data-cfemail="660900000f050326031e070b160a034805090b">[email&#160;protected]</span></span>
+                      </a>
+                  </li>
+                <li class="elementor-icon-list-item elementor-inline-item">
+                      <a href="#">
+
+                      <span class="elementor-icon-list-text">Phone: 01-800-81200</span>
+                      </a>
+                  </li>
+            </ul>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-96b82fc elementor-widget elementor-widget-image" data-id="96b82fc" data-element_type="widget" data-widget_type="image.default">
+        <div class="elementor-widget-container">
+                              <img width="201" height="22" src="wp-content/uploads/2020/06/credit.png" class="attachment-large size-large wp-image-32779" alt="" />															</div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        <div class="elementor-element elementor-element-b9f25eb footer-head-2 elementor-widget elementor-widget-heading" data-id="b9f25eb" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">Copyright © 2022 Papzi .Designed by WPBingo</h2>				</div>
+        </div>
+        <div class="elementor-element elementor-element-dec2bc6 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="dec2bc6" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+        <div class="elementor-widget-container">
+                              <img width="66" height="43" src="wp-content/uploads/2020/06/flo-2.png" class="attachment-large size-large wp-image-32788" alt="" />															</div>
+        </div>
+        <div class="elementor-element elementor-element-7845715 elementor-widget__width-auto elementor-absolute elementor-widget elementor-widget-image" data-id="7845715" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="image.default">
+        <div class="elementor-widget-container">
+                              <img width="66" height="43" src="wp-content/uploads/2020/06/flo-1.png" class="attachment-large size-large wp-image-32787" alt="" />															</div>
+        </div>
+          </div>
+    </div>
+          </div>
+    </section>
+        </div>
+          </footer>
+      </div>
+      
+      
+      
+
+
+    
+  );
+};
+
+export default Banner;

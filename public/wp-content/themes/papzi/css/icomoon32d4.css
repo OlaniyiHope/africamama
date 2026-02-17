@@ -1,0 +1,106 @@
+@font-face{
+  font-family:icomoon;
+  src:url(../fonts/icomoon6dbe.eot?fzv6fp);
+  src:url(../fonts/icomoon6dbe.eot?fzv6fp#iefix) format("embedded-opentype"),url(../fonts/icomoon6dbe.ttf?fzv6fp) format("truetype"),url(../fonts/icomoon6dbe.woff?fzv6fp) format("woff"),url(../fonts/icomoon6dbe.svg?fzv6fp#icomoon) format("svg");
+  font-weight:400;
+  font-style:normal;
+  font-display:block;
+}
+
+[class*=" icon-"],[class^=icon-]{
+  font-family:icomoon;
+  speak:none;
+  font-style:normal;
+  font-weight:400;
+  font-variant:normal;
+  text-transform:none;
+  line-height:1;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+
+.icon-truck:before{
+  content:"\e90d";
+}
+.icon-box:before{
+  content:"\e90e";
+}
+.icon-multiply:before{
+  content:"\e90f";
+}
+.icon-star:before{
+  content:"\e90c";
+}
+.icon-wave:before{
+  content:"\e90b";
+}
+.icon-Food-Service:before{
+  content:"\e901";
+}
+.icon-Hamburger:before{
+  content:"\e903";
+}
+.icon-Hot-Dog-free:before{
+  content:"\e904";
+}
+.icon-Junk-Food:before{
+  content:"\e905";
+}
+.icon-Pizza-1:before{
+  content:"\e906";
+}
+.icon-Popcorn:before{
+  content:"\e907";
+}
+.icon-Taco-1:before{
+  content:"\e909";
+}
+.icon-Juice-1:before{
+  content:"\e90a";
+}
+.icon-Email:before{
+  content:"\e900";
+}
+.icon-Menu:before{
+  content:"\e902";
+}
+.icon-quotes1:before{
+  content:"\e908";
+}
+.icon-Video:before{
+  content:"\e923";
+}
+.icon-Arow-R:before{
+  content:"\e930";
+}
+.icon-Bucket:before{
+  content:"\e933";
+}
+.icon-Chicken-1:before{
+  content:"\e937";
+}
+.icon-Clock-1:before{
+  content:"\e938";
+}
+.icon-Clock-2:before{
+  content:"\e939";
+}
+.icon-Clock:before{
+  content:"\e93a";
+}
+.icon-Login:before{
+  content:"\e93e";
+}
+.icon-quotes:before{
+  content:"\e93f";
+}
+.icon-Search:before{
+  content:"\e940";
+}
+.icon-Heart:before{
+  content:"\e941";
+}
+.icon-Cart:before{
+  content:"\e942";
+}

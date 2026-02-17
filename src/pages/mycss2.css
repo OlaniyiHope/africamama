@@ -1,0 +1,43 @@
+/* Force hamburger (mobile menu) lines to black */
+.btn-nav-mobile span,
+.btn-nav-mobile span::before,
+.btn-nav-mobile span::after {
+  background-color: #000 !important; /* force black lines */
+}
+
+/* Optional: make sure the icon color also changes */
+#main-menu-mobile .btn-nav-mobile {
+  color: #000 !important;
+  fill: #000 !important;
+}
+.btn-nav-mobile span,
+.btn-nav-mobile span::before,
+.btn-nav-mobile span::after {
+  background-color: #000 !important;
+}
+[class*="btn-nav-mobile"] span,
+[class*="btn-nav-mobile"] span::before,
+[class*="btn-nav-mobile"] span::after {
+  background-color: #000 !important;
+}
+
+
+#cms-header {
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+#cms-header.scrolled-header {
+  background-color: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Force ALL hamburger lines to white */
+header .btn-nav-mobile span,
+header .btn-nav-mobile span::before,
+header .btn-nav-mobile span::after {
+  background-color: #fff !important;
+}
+/* Nuclear override (works 100%) */
+header #main-menu-mobile .btn-nav-mobile.open-menu > span {
+  background-color: #fff !important;
+}
