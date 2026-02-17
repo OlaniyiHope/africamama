@@ -26,6 +26,8 @@ import ParentCat from "./pages/ParentCat";
 import Shop from "./pages/Shop";
 import Single from "./pages/Single";
 import WishList from "./pages/WishList";
+import About from "./pages/About";
+import Faq from "./pages/Faq";
 
 
 const routes = [
@@ -63,6 +65,18 @@ const routes = [
   {
     path: "/my-account", 
     element: <Login />,
+  },
+  {
+    path: "/about-us", 
+    element: <About />,
+  },
+  {
+    path: "/contact", 
+    element: <Contact />,
+  },
+  {
+    path: "/faq", 
+    element: <Faq />,
   },
 
 //   {

@@ -664,7 +664,7 @@ useEffect(() => {
       <div class="content-category slick-carousel" data-dots="0" data-slidesToScroll="true" data-nav="1" data-columns4="1" data-columns3="2" data-columns2="3" data-columns1="4" data-columns1440="5" data-columns="6">
                           <div class="item item-product-cat">	
                       <div class="item-product-cat-content">
-                              <a href="product-category/burgers/index.html">
+                              <a href="/shop">
                   <div class="item-image">
                                           <img decoding="async" src="wp-content/uploads/2022/01/Image-2.jpg" alt="burgers" />
                                       </div>
@@ -672,7 +672,7 @@ useEffect(() => {
                                           
                             <div class="product-cat-content-info">
                                 <h2 class="item-title">
-                  <a href="product-category/burgers/index.html">Burgers</a>
+                  <a href="/shop">Burgers</a>
                 </h2>
                                               </div>
             </div>
@@ -681,7 +681,7 @@ useEffect(() => {
                       
                           <div class="item item-product-cat">	
                       <div class="item-product-cat-content">
-                              <a href="product-category/combo-offer/index.html">
+                              <a href="/shop">
                   <div class="item-image">
                                           <img decoding="async" src="wp-content/uploads/2022/01/Image-3.jpg" alt="combo-offer" />
                                       </div>
@@ -689,7 +689,7 @@ useEffect(() => {
                                           
                             <div class="product-cat-content-info">
                                 <h2 class="item-title">
-                  <a href="product-category/combo-offer/index.html">Combo Offer</a>
+                  <a href="/shop">Combo Offer</a>
                 </h2>
                                               </div>
             </div>
@@ -698,7 +698,7 @@ useEffect(() => {
                       
                           <div class="item item-product-cat">	
                       <div class="item-product-cat-content">
-                              <a href="product-category/kids-menu/index.html">
+                              <a href="/shop">
                   <div class="item-image">
                                           <img decoding="async" src="wp-content/uploads/2022/01/Image-4.jpg" alt="kids-menu" />
                                       </div>
@@ -706,7 +706,7 @@ useEffect(() => {
                                           
                             <div class="product-cat-content-info">
                                 <h2 class="item-title">
-                  <a href="product-category/kids-menu/index.html">Kids Menu</a>
+                  <a href="/shop">Kids Menu</a>
                 </h2>
                                               </div>
             </div>
@@ -715,7 +715,7 @@ useEffect(() => {
                       
                           <div class="item item-product-cat">	
                       <div class="item-product-cat-content">
-                              <a href="product-category/pizza-menu/index.html">
+                              <a href="/shop">
                   <div class="item-image">
                                           <img decoding="async" src="wp-content/uploads/2022/01/Image-6.jpg" alt="pizza-menu" />
                                       </div>
@@ -723,7 +723,7 @@ useEffect(() => {
                                           
                             <div class="product-cat-content-info">
                                 <h2 class="item-title">
-                  <a href="product-category/pizza-menu/index.html">Pizza Menu</a>
+                  <a href="/shop">Pizza Menu</a>
                 </h2>
                                               </div>
             </div>
@@ -732,7 +732,7 @@ useEffect(() => {
                       
                           <div class="item item-product-cat">	
                       <div class="item-product-cat-content">
-                              <a href="product-category/sandwich/index.html">
+                              <a href="/shop">
                   <div class="item-image">
                                           <img decoding="async" src="wp-content/uploads/2022/01/Image-5.jpg" alt="sandwich" />
                                       </div>
@@ -740,7 +740,7 @@ useEffect(() => {
                                           
                             <div class="product-cat-content-info">
                                 <h2 class="item-title">
-                  <a href="product-category/sandwich/index.html">Sandwich</a>
+                  <a href="/shop">Sandwich</a>
                 </h2>
                                               </div>
             </div>
@@ -749,7 +749,7 @@ useEffect(() => {
                       
                           <div class="item item-product-cat">	
                       <div class="item-product-cat-content">
-                              <a href="product-category/sauces/index.html">
+                              <a href="/shop">
                   <div class="item-image">
                                           <img decoding="async" src="wp-content/uploads/2022/01/Image-1.jpg" alt="sauces" />
                                       </div>
@@ -757,7 +757,7 @@ useEffect(() => {
                                           
                             <div class="product-cat-content-info">
                                 <h2 class="item-title">
-                  <a href="product-category/sauces/index.html">Sauces</a>
+                  <a href="/shop">Sauces</a>
                 </h2>
                                               </div>
             </div>
@@ -766,7 +766,7 @@ useEffect(() => {
                       
                           <div class="item item-product-cat">	
                       <div class="item-product-cat-content">
-                              <a href="product-category/starbucks/index.html">
+                              <a href="/shop">
                   <div class="item-image">
                                           <img decoding="async" src="wp-content/uploads/2022/01/Image-3.jpg" alt="starbucks" />
                                       </div>
@@ -774,7 +774,7 @@ useEffect(() => {
                                           
                             <div class="product-cat-content-info">
                                 <h2 class="item-title">
-                  <a href="product-category/starbucks/index.html">Starbucks</a>
+                  <a href="/shop">Starbucks</a>
                 </h2>
                                               </div>
             </div>
@@ -912,7 +912,7 @@ useEffect(() => {
                             
                   Buy any 2 large pizzas <br />and get a 1.5L Pepsi Free 							
                               </div>	
-                                                  <a class="button" href="#">ORDER NOW</a>						
+                                                  <a class="button" href="/shop/single">ORDER NOW</a>						
                       </div>
         </div>
       </div>
@@ -1027,16 +1027,16 @@ useEffect(() => {
       <div class='product-lable'>
                   <div class="vgwc-label vgwc-featured hot">Hot</div>						
           <div class="onsale">-48%</div>			</div>
-<div class="product-thumb-hover"><a href="shop/smoothie-drinks/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-21-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-26-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16541" data-id="16541" data-product_name="Smoothie drinks" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-21-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-21-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-26-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16541" data-id="16541" data-product_name="Smoothie drinks" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-21-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
       <span class="product-quickview"><a href="#" data-product_id="16541" class="quickview quickview-button quickview-16541" >Quick View <i class="icon-Search"></i></a></span>		</div>
       </div>
   <div class="products-content">
     <div class="contents">
-      <h3 class="product-title"><a href="shop/smoothie-drinks/index.html">Smoothie drinks</a></h3>
+      <h3 class="product-title"><a href="/shop/single">Smoothie drinks</a></h3>
       
   <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>13.00</bdi></span> &ndash; <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>67.00</bdi></span></span>
       <div class="btn-atc">
-        <a rel="nofollow" href="shop/smoothie-drinks/index.html" data-quantity="1" data-product_id="16541" data-product_sku="D2300-3-2-3" class="button product_type_variable add_to_cart_button">Select options</a>			</div>
+        <a rel="nofollow" href="/shop/single" data-quantity="1" data-product_id="16541" data-product_sku="D2300-3-2-3" class="button product_type_variable add_to_cart_button">Select options</a>			</div>
     </div>
   </div>
 </div>															</div>
@@ -1046,16 +1046,16 @@ useEffect(() => {
       <div class='product-lable'>
                   <div class="vgwc-label vgwc-featured hot">Hot</div>						
       </div>
-<div class="product-thumb-hover"><a href="shop/sleek-iron-clock/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-26-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-15-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16536" data-id="16536" data-product_name="Sleek Iron Clock" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-26-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-26-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-15-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16536" data-id="16536" data-product_name="Sleek Iron Clock" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-26-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
       <span class="product-quickview"><a href="#" data-product_id="16536" class="quickview quickview-button quickview-16536" >Quick View <i class="icon-Search"></i></a></span>		</div>
       </div>
   <div class="products-content">
     <div class="contents">
-      <h3 class="product-title"><a href="shop/sleek-iron-clock/index.html">Sleek Iron Clock</a></h3>
+      <h3 class="product-title"><a href="/shop/single">Sleek Iron Clock</a></h3>
       
   <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>50.00</bdi></span> &ndash; <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>90.00</bdi></span></span>
       <div class="btn-atc">
-        <a rel="nofollow" href="shop/sleek-iron-clock/index.html" data-quantity="1" data-product_id="16536" data-product_sku="D2300-3-2-2" class="button product_type_variable add_to_cart_button">Select options</a>			</div>
+        <a rel="nofollow" href="/shop/single" data-quantity="1" data-product_id="16536" data-product_sku="D2300-3-2-2" class="button product_type_variable add_to_cart_button">Select options</a>			</div>
     </div>
   </div>
 </div>															</div>
@@ -1068,12 +1068,12 @@ useEffect(() => {
       <div class='product-lable'>
                   <div class="vgwc-label vgwc-featured hot">Hot</div>						
       </div>
-<div class="product-thumb-hover"><a href="shop/bbq-fries/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-5-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-13-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16508" data-id="16508" data-product_name="BBQ Fries" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-5-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-5-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-13-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16508" data-id="16508" data-product_name="BBQ Fries" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-5-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
       <span class="product-quickview"><a href="#" data-product_id="16508" class="quickview quickview-button quickview-16508" >Quick View <i class="icon-Search"></i></a></span>		</div>
       </div>
   <div class="products-content">
     <div class="contents">
-      <h3 class="product-title"><a href="shop/bbq-fries/index.html">BBQ Fries</a></h3>
+      <h3 class="product-title"><a href="/shop/single">BBQ Fries</a></h3>
       
   <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>1,200.00</bdi></span></span>
       <div class="btn-atc">
@@ -1087,12 +1087,12 @@ useEffect(() => {
       <div class='product-lable'>
                   <div class="vgwc-label vgwc-featured hot">Hot</div>						
       </div>
-<div class="product-thumb-hover"><a href="shop/alsatian/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-19-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-24-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16320" data-id="16320" data-product_name="Alsatian" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-19-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-19-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-24-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16320" data-id="16320" data-product_name="Alsatian" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-19-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
       <span class="product-quickview"><a href="#" data-product_id="16320" class="quickview quickview-button quickview-16320" >Quick View <i class="icon-Search"></i></a></span>		</div>
       </div>
   <div class="products-content">
     <div class="contents">
-      <h3 class="product-title"><a href="shop/alsatian/index.html">Alsatian</a></h3>
+      <h3 class="product-title"><a href="/shop/single">Alsatian</a></h3>
       
   <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>75.00</bdi></span></span>
       <div class="btn-atc">
@@ -1109,7 +1109,7 @@ useEffect(() => {
       <div class='product-lable'>
                 
           <div class="onsale">-50%</div>			</div>
-<div class="product-thumb-hover"><a href="shop/cheddar-fries/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-11-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-13-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-10448" data-id="10448" data-product_name="Cheddar Fries" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-11-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-11-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-13-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-10448" data-id="10448" data-product_name="Cheddar Fries" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-11-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
       <span class="product-quickview"><a href="#" data-product_id="10448" class="quickview quickview-button quickview-10448" >Quick View <i class="icon-Search"></i></a></span>		</div>
           <div class="product-stock">    
         <span class="stock">Out Of Stock</span>
@@ -1117,11 +1117,11 @@ useEffect(() => {
       </div>
   <div class="products-content">
     <div class="contents">
-      <h3 class="product-title"><a href="shop/cheddar-fries/index.html">Cheddar Fries</a></h3>
+      <h3 class="product-title"><a href="/shop/single">Cheddar Fries</a></h3>
       
   <span class="price"><del aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>20.00</bdi></span></del> <span class="screen-reader-text">Original price was: &#036;20.00.</span><ins aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>10.00</bdi></span></ins><span class="screen-reader-text">Current price is: &#036;10.00.</span></span>
       <div class="btn-atc">
-        <a rel="nofollow" href="shop/cheddar-fries/index.html" data-quantity="1" data-product_id="10448" data-product_sku="U2006" class="button product_type_simple read_more ajax_add_to_cart">Read more</a>			</div>
+        <a rel="nofollow" href="/shop/single" data-quantity="1" data-product_id="10448" data-product_sku="U2006" class="button product_type_simple read_more ajax_add_to_cart">Read more</a>			</div>
     </div>
   </div>
 </div>															</div>
@@ -1131,12 +1131,12 @@ useEffect(() => {
       <div class='product-lable'>
                   <div class="vgwc-label vgwc-featured hot">Hot</div>						
       </div>
-<div class="product-thumb-hover"><a href="shop/banana-leaf/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-22-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2018/10/1-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-1061" data-id="1061" data-product_name="Banana Leaf" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-22-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-22-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2018/10/1-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-1061" data-id="1061" data-product_name="Banana Leaf" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-22-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
       <span class="product-quickview"><a href="#" data-product_id="1061" class="quickview quickview-button quickview-1061" >Quick View <i class="icon-Search"></i></a></span>		</div>
       </div>
   <div class="products-content">
     <div class="contents">
-      <h3 class="product-title"><a href="shop/banana-leaf/index.html">Banana Leaf</a></h3>
+      <h3 class="product-title"><a href="/shop/single">Banana Leaf</a></h3>
       
   <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>100.00</bdi></span></span>
       <div class="btn-atc">
@@ -1153,7 +1153,7 @@ useEffect(() => {
       <div class='product-lable'>
                   <div class="vgwc-label vgwc-featured hot">Hot</div>						
       </div>
-<div class="product-thumb-hover"><a href="shop/mare-e-monti/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-24-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-25-600x600.jpg" class="hover-image back" alt="" /></a></div>	<div class="countdown">
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-24-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-25-600x600.jpg" class="hover-image back" alt="" /></a></div>	<div class="countdown">
     <div class="item-countdown">
       <div class="product-countdown"  
         data-day="d"
@@ -1172,11 +1172,11 @@ useEffect(() => {
       </div>
   <div class="products-content">
     <div class="contents">
-      <h3 class="product-title"><a href="shop/mare-e-monti/index.html">Mare e Monti</a></h3>
+      <h3 class="product-title"><a href="shop/single">Mare e Monti</a></h3>
       
   <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>22.00</bdi></span> &ndash; <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>400.00</bdi></span></span>
       <div class="btn-atc">
-        <a rel="nofollow" href="shop/mare-e-monti/index.html" data-quantity="1" data-product_id="3989" data-product_sku="VN00189" class="button product_type_grouped read_more">View products</a>			</div>
+        <a rel="nofollow" href="shop/single" data-quantity="1" data-product_id="3989" data-product_sku="VN00189" class="button product_type_grouped read_more">View products</a>			</div>
     </div>
   </div>
 </div>															</div>
@@ -1186,12 +1186,12 @@ useEffect(() => {
       <div class='product-lable'>
                 
       </div>
-<div class="product-thumb-hover"><a href="shop/burger-king/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-3-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-27-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16588" data-id="16588" data-product_name="Burger King" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-3-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-3-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-27-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16588" data-id="16588" data-product_name="Burger King" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-3-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
       <span class="product-quickview"><a href="#" data-product_id="16588" class="quickview quickview-button quickview-16588" >Quick View <i class="icon-Search"></i></a></span>		</div>
       </div>
   <div class="products-content">
     <div class="contents">
-      <h3 class="product-title"><a href="shop/burger-king/index.html">Burger King</a></h3>
+      <h3 class="product-title"><a href="shop/single">Burger King</a></h3>
       
   <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>99.00</bdi></span></span>
       <div class="btn-atc">
@@ -1208,12 +1208,12 @@ useEffect(() => {
       <div class='product-lable'>
                 
       </div>
-<div class="product-thumb-hover"><a href="shop/florentine/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-11-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-6-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16521" data-id="16521" data-product_name="Florentine" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-11-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-11-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-6-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16521" data-id="16521" data-product_name="Florentine" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-11-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
       <span class="product-quickview"><a href="#" data-product_id="16521" class="quickview quickview-button quickview-16521" >Quick View <i class="icon-Search"></i></a></span>		</div>
       </div>
   <div class="products-content">
     <div class="contents">
-      <h3 class="product-title"><a href="shop/florentine/index.html">Florentine</a></h3>
+      <h3 class="product-title"><a href="shop/single">Florentine</a></h3>
       
   <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>120.00</bdi></span></span>
       <div class="btn-atc">
@@ -1226,7 +1226,7 @@ useEffect(() => {
                                 </div>
           <div class="content-button">
                         <div class="btn-all">
-              <a href="shop/index.html">all products</a>
+              <a href="/shop">all products</a>
             </div>
                       </div>
         </div>
@@ -1254,9 +1254,9 @@ useEffect(() => {
         <div class="elementor-element elementor-element-dba27e8 elementor-align-center elementor-widget elementor-widget-button" data-id="dba27e8" data-element_type="widget" data-widget_type="button.default">
         <div class="elementor-widget-container">
                   <div class="elementor-button-wrapper">
-          <a class="elementor-button elementor-button-link elementor-size-sm" href="shop/index.html">
+          <a class="elementor-button elementor-button-link elementor-size-sm" href="/shop">
             <span class="elementor-button-content-wrapper">
-                  <span class="elementor-button-text">ORDER NOW</span>
+                  <span class="elementor-button-text"><a href="/shop/single">ORDER NOW</a></span>
           </span>
           </a>
         </div>
@@ -1439,7 +1439,7 @@ what I&#8217;ve been looking for. papzi is the real deal! It&#8217;s all good. &
                   <div class="vgwc-label vgwc-featured hot">Hot</div>						
           <div class="onsale">-48%</div>			</div>
               <div class="product-top">
-                <h3 class="product-title"><a href="shop/smoothie-drinks/index.html">Smoothie drinks</a></h3>
+                <h3 class="product-title"><a href="shop/single">Smoothie drinks</a></h3>
                 <div class="mkd-pli-dots"></div>
                   
   <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>13.00</bdi></span> &ndash; <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>67.00</bdi></span></span>
@@ -1458,7 +1458,7 @@ what I&#8217;ve been looking for. papzi is the real deal! It&#8217;s all good. &
                   <div class="vgwc-label vgwc-featured hot">Hot</div>						
       </div>
               <div class="product-top">
-                <h3 class="product-title"><a href="shop/sleek-iron-clock/index.html">Sleek Iron Clock</a></h3>
+                <h3 class="product-title"><a href="shop/single">Sleek Iron Clock</a></h3>
                 <div class="mkd-pli-dots"></div>
                   
   <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>50.00</bdi></span> &ndash; <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>90.00</bdi></span></span>
@@ -1477,7 +1477,7 @@ what I&#8217;ve been looking for. papzi is the real deal! It&#8217;s all good. &
                   <div class="vgwc-label vgwc-featured hot">Hot</div>						
       </div>
               <div class="product-top">
-                <h3 class="product-title"><a href="shop/bbq-fries/index.html">BBQ Fries</a></h3>
+                <h3 class="product-title"><a href="shop/single">BBQ Fries</a></h3>
                 <div class="mkd-pli-dots"></div>
                   
   <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>1,200.00</bdi></span></span>
@@ -1496,7 +1496,7 @@ what I&#8217;ve been looking for. papzi is the real deal! It&#8217;s all good. &
                   <div class="vgwc-label vgwc-featured hot">Hot</div>						
       </div>
               <div class="product-top">
-                <h3 class="product-title"><a href="shop/alsatian/index.html">Alsatian</a></h3>
+                <h3 class="product-title"><a href="shop/single">Alsatian</a></h3>
                 <div class="mkd-pli-dots"></div>
                   
   <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>75.00</bdi></span></span>
@@ -1528,7 +1528,7 @@ what I&#8217;ve been looking for. papzi is the real deal! It&#8217;s all good. &
                   <div class="vgwc-label vgwc-featured hot">Hot</div>						
       </div>
               <div class="product-top">
-                <h3 class="product-title"><a href="shop/alsatian/index.html">Alsatian</a></h3>
+                <h3 class="product-title"><a href="shop/single">Alsatian</a></h3>
                 <div class="mkd-pli-dots"></div>
                   
   <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>75.00</bdi></span></span>
@@ -1547,7 +1547,7 @@ what I&#8217;ve been looking for. papzi is the real deal! It&#8217;s all good. &
                 
           <div class="onsale">-50%</div>			</div>
               <div class="product-top">
-                <h3 class="product-title"><a href="shop/cheddar-fries/index.html">Cheddar Fries</a></h3>
+                <h3 class="product-title"><a href="shop/single">Cheddar Fries</a></h3>
                 <div class="mkd-pli-dots"></div>
                   
   <span class="price"><del aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>20.00</bdi></span></del> <span class="screen-reader-text">Original price was: &#036;20.00.</span><ins aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>10.00</bdi></span></ins><span class="screen-reader-text">Current price is: &#036;10.00.</span></span>
@@ -1566,7 +1566,7 @@ what I&#8217;ve been looking for. papzi is the real deal! It&#8217;s all good. &
                   <div class="vgwc-label vgwc-featured hot">Hot</div>						
       </div>
               <div class="product-top">
-                <h3 class="product-title"><a href="shop/banana-leaf/index.html">Banana Leaf</a></h3>
+                <h3 class="product-title"><a href="shop/single">Banana Leaf</a></h3>
                 <div class="mkd-pli-dots"></div>
                   
   <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>100.00</bdi></span></span>
@@ -1585,7 +1585,7 @@ what I&#8217;ve been looking for. papzi is the real deal! It&#8217;s all good. &
                 
       </div>
               <div class="product-top">
-                <h3 class="product-title"><a href="shop/burger-king/index.html">Burger King</a></h3>
+                <h3 class="product-title"><a href="shop/single">Burger King</a></h3>
                 <div class="mkd-pli-dots"></div>
                   
   <span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>99.00</bdi></span></span>

@@ -143,3 +143,116 @@
   border: none;
   cursor: pointer;
 }
+/* ════════════════════════════════════════════════════════════
+   MOBILE BOTTOM NAV — refined, more padding, finer look
+   Add this to your Header.css (or wherever your header styles live)
+════════════════════════════════════════════════════════════ */
+
+.header-mobile-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+
+  /* White bar with refined shadow */
+  background: #ffffff;
+  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.08);
+
+  /* Flex row, evenly spaced */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  /* ← MORE PADDING: top/bottom increased from typical ~8px to 14px */
+  padding: 14px 8px 18px;        /* extra bottom for home-indicator safe area */
+
+  /* Safe area inset for iPhone notch/home bar */
+  padding-bottom: calc(18px + env(safe-area-inset-bottom));
+
+  /* Rounded top corners — feels more native/polished */
+  border-radius: 20px 20px 0 0;
+
+  /* Subtle top border line */
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Each nav item — flex column so icon + optional label stack */
+.header-mobile-fixed > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+/* All links inside the nav items */
+.header-mobile-fixed a,
+.header-mobile-fixed .search-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.18s ease;
+}
+
+.header-mobile-fixed a:hover,
+.header-mobile-fixed .search-toggle:hover {
+  color: #e8360c;
+  transform: translateY(-2px);
+}
+
+/* Icons — slightly bigger and finer */
+.header-mobile-fixed i {
+  font-size: 22px;               /* was likely ~18px — increased */
+  line-height: 1;
+  display: block;
+  color: inherit;
+}
+
+/* ── Optional labels under each icon ─────────────────────────
+   If you want labels (Shop / Account / Search / Wishlist),
+   add a <span> inside each link in your JSX and uncomment:
+
+  .header-mobile-fixed span.nav-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: inherit;
+  }
+──────────────────────────────────────────────────────────── */
+
+/* Active item highlight — add className="active" to the current page's div */
+.header-mobile-fixed .active a,
+.header-mobile-fixed .active .search-toggle {
+  color: #e8360c;
+}
+
+/* Thin dot indicator under active icon */
+.header-mobile-fixed .active::after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #e8360c;
+  margin-top: 3px;
+}
+
+/* Wishlist heart — keep your brand red on hover */
+.header-mobile-fixed .wishlist-box a:hover i {
+  color: #e8360c;
+}
+
+/* ── Only show on mobile ─────────────────────────────────── */
+@media (min-width: 768px) {
+  .header-mobile-fixed {
+    display: none;
+  }
+}

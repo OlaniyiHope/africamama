@@ -1,391 +1,201 @@
 import React from "react";
 
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+
+import Footer from "./Footer";
+import Header from "./Header";
 
 const Faq = () => {
   return (
     <>
       <body class="page-template page-template-elementor_header_footer page page-id-623 ehf-template-hello-elementor ehf-stylesheet-hello-elementor jkit-color-scheme elementor-default elementor-template-full-width elementor-kit-3 elementor-page elementor-page-623">
         <div id="page" class="jkit-template  site">
-          <Navbar />
+          <Header />
 
-          <div
-            data-elementor-type="wp-page"
-            data-elementor-id="873"
-            class="elementor elementor-873"
-          >
-            <section
-              class="elementor-section elementor-top-section elementor-element elementor-element-1a954e6 elementor-section-content-middle elementor-reverse-tablet elementor-reverse-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-              data-id="1a954e6"
-              data-element_type="section"
-              data-settings='{"background_background":"classic"}'
-            >
-              <div class="elementor-background-overlay"></div>
-              <div class="elementor-container elementor-column-gap-default">
-                <div
-                  class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-dacc27e"
-                  data-id="dacc27e"
-                  data-element_type="column"
-                >
-                  <div class="elementor-widget-wrap elementor-element-populated">
-                    <div
-                      class="elementor-element elementor-element-333043e elementor-widget elementor-widget-heading"
-                      data-id="333043e"
-                      data-element_type="widget"
-                      data-widget_type="heading.default"
-                    >
-                      <div class="elementor-widget-container">
-                        <h2 class="elementor-heading-title elementor-size-default">
-                          FAQ
-                        </h2>{" "}
-                      </div>
-                    </div>
-                    <div
-                      class="elementor-element elementor-element-59cf796 elementor-icon-list--layout-inline elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
-                      data-id="59cf796"
-                      data-element_type="widget"
-                      data-widget_type="icon-list.default"
-                    >
-                      <div class="elementor-widget-container">
-                        <ul class="elementor-icon-list-items elementor-inline-items">
-                          <li class="elementor-icon-list-item elementor-inline-item">
-                            <span class="elementor-icon-list-text">Home</span>
-                          </li>
-                          <li class="elementor-icon-list-item elementor-inline-item">
-                            <span class="elementor-icon-list-icon">
-                              <i
-                                aria-hidden="true"
-                                class="fas fa-chevron-right"
-                              ></i>{" "}
-                            </span>
-                            <span class="elementor-icon-list-text">FAQ</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-            <section
-              class="elementor-section elementor-top-section elementor-element elementor-element-e1eda61 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-              data-id="e1eda61"
-              data-element_type="section"
-              data-settings='{"background_background":"classic"}'
-            >
-              <div class="elementor-container elementor-column-gap-default">
-                <div
-                  class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-fae830d"
-                  data-id="fae830d"
-                  data-element_type="column"
-                >
-                  <div class="elementor-widget-wrap elementor-element-populated">
-                    <div
-                      class="elementor-element elementor-element-febcbdc elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
-                      data-id="febcbdc"
-                      data-element_type="widget"
-                      data-widget_type="icon-list.default"
-                    >
-                      <div class="elementor-widget-container">
-                        <ul class="elementor-icon-list-items">
-                          <li class="elementor-icon-list-item">
-                            <span class="elementor-icon-list-icon">
-                              <i
-                                aria-hidden="true"
-                                class="far fa-dot-circle"
-                              ></i>
-                            </span>
-                            <span class="elementor-icon-list-text">FAQ</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div
-                      class="elementor-element elementor-element-d7d91da elementor-widget elementor-widget-heading"
-                      data-id="d7d91da"
-                      data-element_type="widget"
-                      data-widget_type="heading.default"
-                    >
-                      <div class="elementor-widget-container">
-                        <h2 class="elementor-heading-title elementor-size-default">
-                          General Questions
-                        </h2>
-                      </div>
-                    </div>
-                    <div
-                      class="elementor-element elementor-element-e06fd99 elementor-widget elementor-widget-jkit_accordion"
-                      data-id="e06fd99"
-                      data-element_type="widget"
-                      data-widget_type="jkit_accordion.default"
-                    >
-                      <div class="elementor-widget-container">
-                        <div class="jeg-elementor-kit jkit-accordion style-shadow jeg_module_873_1_66a66a1877199">
-                          <div class="card-wrapper expand">
-                            <div class="card-header background-gradient">
-                              <a
-                                class="card-header-button"
-                                aria-expanded="false"
-                                data-target="#expand-8fab880"
-                                aria-controls="expand-8fab880"
-                              >
-                                <span class="title">
-                                  Is There a Minimum or Maximum Amount for
-                                  Transactions?
-                                </span>
-                                <div class="right-icon-group">
-                                  <div class="normal-icon">
-                                    <i
-                                      aria-hidden="true"
-                                      class="fas fa-chevron-down"
-                                    ></i>
-                                  </div>
-                                  <div class="active-icon">
-                                    <i
-                                      aria-hidden="true"
-                                      class="fas fa-chevron-up"
-                                    ></i>
-                                  </div>
-                                </div>
-                              </a>
-                            </div>
-                            <div
-                              class="card-expand"
-                              id="expand-8fab880"
-                              style={{ display: "block" }}
-                            >
-                              <div class="card-body">
-                                There may be minimum and maximum limits for
-                                different types of transactions. Please contact
-                                customer support for specific details.
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card-wrapper">
-                            <div class="card-header background-gradient">
-                              <a
-                                class="card-header-button"
-                                aria-expanded="false"
-                                data-target="#expand-c8565b5"
-                                aria-controls="expand-c8565b5"
-                              >
-                                <span class="title">
-                                  What Should I Do If I Encounter an Issue With
-                                  My Transaction?
-                                </span>
-                                <div class="right-icon-group">
-                                  <div class="normal-icon">
-                                    <i
-                                      aria-hidden="true"
-                                      class="fas fa-chevron-down"
-                                    ></i>
-                                  </div>
-                                  <div class="active-icon">
-                                    <i
-                                      aria-hidden="true"
-                                      class="fas fa-chevron-up"
-                                    ></i>
-                                  </div>
-                                </div>
-                              </a>
-                            </div>
-                            <div
-                              class="card-expand"
-                              id="expand-c8565b5"
-                              style={{ display: "none" }}
-                            >
-                              <div class="card-body">
-                                If you encounter any issues with your
-                                transaction, please contact our customer support
-                                immediately. We are available 24/7 to assist you
-                                and resolve any problems.
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card-wrapper">
-                            <div class="card-header background-gradient">
-                              <a
-                                class="card-header-button"
-                                aria-expanded="false"
-                                data-target="#expand-34c3ab0"
-                                aria-controls="expand-34c3ab0"
-                              >
-                                <span class="title">
-                                  What Kinds of Payment Do You Accept?
-                                </span>
-                                <div class="right-icon-group">
-                                  <div class="normal-icon">
-                                    <i
-                                      aria-hidden="true"
-                                      class="fas fa-chevron-down"
-                                    ></i>
-                                  </div>
-                                  <div class="active-icon">
-                                    <i
-                                      aria-hidden="true"
-                                      class="fas fa-chevron-up"
-                                    ></i>
-                                  </div>
-                                </div>
-                              </a>
-                            </div>
-                            <div
-                              class="card-expand"
-                              id="expand-34c3ab0"
-                              style={{ display: "none" }}
-                            >
-                              <div class="card-body">
-                                We accept various forms of payment including
-                                cash, bank transfers, and major credit/debit
-                                cards for our POS transactions, bill payments,
-                                and other services.
-                              </div>
-                            </div>
-                          </div>
-                          <div class="card-wrapper">
-                            <div class="card-header background-gradient">
-                              <a
-                                href="#expand-1baf2f0"
-                                class="card-header-button"
-                                aria-expanded="false"
-                                data-target="#expand-1baf2f0"
-                                aria-controls="expand-1baf2f0"
-                              >
-                                <span class="title">
-                                  How Can I Join the Ajo (Thrift) Program?
-                                </span>
-                                <div class="right-icon-group">
-                                  <div class="normal-icon">
-                                    <i
-                                      aria-hidden="true"
-                                      class="fas fa-chevron-down"
-                                    ></i>
-                                  </div>
-                                  <div class="active-icon">
-                                    <i
-                                      aria-hidden="true"
-                                      class="fas fa-chevron-up"
-                                    ></i>
-                                  </div>
-                                </div>
-                              </a>
-                            </div>
-                            <div
-                              class="card-expand"
-                              id="expand-1baf2f0"
-                              style={{ display: "none" }}
-                            >
-                              <div class="card-body">
-                                To join our Ajo (Thrift) program, you can
-                                contact our customer service for assistance. Our
-                                representatives will guide you through the
-                                process. 07078771831
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div
-                  class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-61096ea"
-                  data-id="61096ea"
-                  data-element_type="column"
-                >
-                  <div class="elementor-widget-wrap elementor-element-populated">
-                    <div
-                      class="elementor-element elementor-element-bbf46f4 elementor-widget elementor-widget-heading"
-                      data-id="bbf46f4"
-                      data-element_type="widget"
-                      data-widget_type="heading.default"
-                    >
-                      <div class="elementor-widget-container">
-                        <h3 class="elementor-heading-title elementor-size-default">
-                          Support
-                        </h3>{" "}
-                      </div>
-                    </div>
-                    <div
-                      class="elementor-element elementor-element-05287eb elementor-widget elementor-widget-text-editor"
-                      data-id="05287eb"
-                      data-element_type="widget"
-                      data-widget_type="text-editor.default"
-                    >
-                      <div class="elementor-widget-container">
-                        At OGAPOS, we are committed to providing exceptional
-                        support to our customers. Whether you need assistance
-                        with your transactions, have questions about our
-                        services, or need help with your account, our dedicated
-                        support team is here to help. Reach out to us via our
-                        contact page or call our support hotline for prompt and
-                        reliable assistance.
-                      </div>
-                    </div>
-                    <div
-                      class="elementor-element elementor-element-902d6a5 elementor-position-left elementor-vertical-align-middle elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-widget-tablet__width-initial elementor-view-default elementor-mobile-position-top elementor-widget elementor-widget-icon-box"
-                      data-id="902d6a5"
-                      data-element_type="widget"
-                      data-widget_type="icon-box.default"
-                    >
-                      <div class="elementor-widget-container">
-                        <div class="elementor-icon-box-wrapper">
-                          <div class="elementor-icon-box-icon">
-                            <span class="elementor-icon elementor-animation-">
-                              <i
-                                aria-hidden="true"
-                                class="jki jki-envelope2-light"
-                              ></i>{" "}
-                            </span>
-                          </div>
-
-                          <div class="elementor-icon-box-content">
-                            <h3 class="elementor-icon-box-title">
-                              <span>Email Address </span>
-                            </h3>
-
-                            <p class="elementor-icon-box-description">
-                              info@ogapos.com
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="elementor-element elementor-element-f69b30c elementor-position-left elementor-vertical-align-middle elementor-widget__width-initial elementor-widget-mobile__width-inherit elementor-view-default elementor-mobile-position-top elementor-widget elementor-widget-icon-box"
-                      data-id="f69b30c"
-                      data-element_type="widget"
-                      data-widget_type="icon-box.default"
-                    >
-                      <div class="elementor-widget-container">
-                        <div class="elementor-icon-box-wrapper">
-                          <div class="elementor-icon-box-icon">
-                            <span class="elementor-icon elementor-animation-">
-                              <i
-                                aria-hidden="true"
-                                class="jki jki-phone1-light"
-                              ></i>{" "}
-                            </span>
-                          </div>
-
-                          <div class="elementor-icon-box-content">
-                            <h3 class="elementor-icon-box-title">
-                              <span>Phone Number </span>
-                            </h3>
-
-                            <p class="elementor-icon-box-description">
-                              +234 707 877 1831, +234 803 876 3637
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
+        	<div id="bwp-main" class="bwp-main">
+						<div data-bg_default ="https://papzi.wpbingosite.com/wp-content/uploads/2022/02/Image-9-1.jpg" class="page-title bwp-title"  style={{backgroundImage: "url(../wp-content/uploads/2022/02/Image-9-1.jpg);"}}>
+				<div class="container" >	
+										<div class="content-title-heading">
+		<span class="back-to-shop">Shop</span>
+		<h1 class="text-title-heading">
+			Faq		</h1>
+	</div>
+									<div id="breadcrumb" class="breadcrumb"><div class="bwp-breadcrumb"><a href="../index.html">Home</a> <span class="delimiter"></span> <span class="current">Faq</span> </div></div>			
+												</div>
+			</div>
+			<div class="container">
+	<div class="row">
+		<div class="col-lg-12 col-md-12">    
+			<div id="main-content" class="main-content">
+				<div id="primary" class="content-area">
+					<div id="content" class="site-content" role="main">
+						<article id="post-14474" class="post-14474 page type-page status-publish hentry">
+		<div class="entry-content clearfix">
+				<div data-elementor-type="wp-page" data-elementor-id="14474" class="elementor elementor-14474">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-66e9c05 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="66e9c05" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-4170ba4" data-id="4170ba4" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-ca300dd elementor-view-default elementor-widget elementor-widget-icon" data-id="ca300dd" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+						</div>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-ba7f0e9 title-block-1 elementor-widget elementor-widget-heading" data-id="ba7f0e9" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Frequently Asked Questions<span>.</span></h2>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-acbdb48 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="acbdb48" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-2d2b84b" data-id="2d2b84b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-72c70e8 elementor-widget elementor-widget-heading" data-id="72c70e8" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">01. The order</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-8a84d42 elementor-widget elementor-widget-text-editor" data-id="8a84d42" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									When do I receive my order?								</div>
+				</div>
+				<div class="elementor-element elementor-element-19dfa4d elementor-widget elementor-widget-text-editor" data-id="19dfa4d" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>When placing the order, a day of shipment is indicated. After the order has been placed, the same delivery time will also be stated on the order confirmation. It is therefore never possible that during the order, the shipping day on the website, is different than on the order confirmation.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-2ddce35 elementor-widget elementor-widget-text-editor" data-id="2ddce35" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									I now see the longer delivery time of (a part of) my order. How can I cancel it?								</div>
+				</div>
+				<div class="elementor-element elementor-element-f82b452 elementor-widget elementor-widget-text-editor" data-id="f82b452" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									If the order has a longer delivery time than you had previously seen, it is of course possible to cancel (a part of) the order. For this you can contact our customer service. They will cancel the order for you. The purchase amount will be back on your bank account within two working days. When an order has already been shipped, it can no longer be cancelled.								</div>
+				</div>
+				<div class="elementor-element elementor-element-9342301 elementor-widget elementor-widget-text-editor" data-id="9342301" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									When will I receive the invoice for my order?								</div>
+				</div>
+				<div class="elementor-element elementor-element-ca54782 elementor-widget elementor-widget-text-editor" data-id="ca54782" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									When you have paid for the order, you will not automatically receive an invoice for your order. If you wish to receive an invoice, this can be done in two ways.The first way is through your account at our store. When you log in to your account you can see your orders and download the invoice.								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-46827e5" data-id="46827e5" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-97de7fa elementor-widget elementor-widget-heading" data-id="97de7fa" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">02. Shipment</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-e97e387 elementor-widget elementor-widget-text-editor" data-id="e97e387" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									When do I receive my order?								</div>
+				</div>
+				<div class="elementor-element elementor-element-20eb60b elementor-widget elementor-widget-text-editor" data-id="20eb60b" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>When placing the order, a day of shipment is indicated. After the order has been placed, the same delivery time will also be stated on the order confirmation. It is therefore never possible that during the order, the shipping day on the website, is different than on the order confirmation.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-8c5f1a8 elementor-widget elementor-widget-text-editor" data-id="8c5f1a8" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									I now see the longer delivery time of (a part of) my order. How can I cancel it?								</div>
+				</div>
+				<div class="elementor-element elementor-element-a0d6221 elementor-widget elementor-widget-text-editor" data-id="a0d6221" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									If the order has a longer delivery time than you had previously seen, it is of course possible to cancel (a part of) the order. For this you can contact our customer service. They will cancel the order for you. The purchase amount will be back on your bank account within two working days. When an order has already been shipped, it can no longer be cancelled.								</div>
+				</div>
+				<div class="elementor-element elementor-element-8744d1e elementor-widget elementor-widget-text-editor" data-id="8744d1e" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									When will I receive the invoice for my order?								</div>
+				</div>
+				<div class="elementor-element elementor-element-f06fc3a elementor-widget elementor-widget-text-editor" data-id="f06fc3a" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									When you have paid for the order, you will not automatically receive an invoice for your order. If you wish to receive an invoice, this can be done in two ways.The first way is through your account at our store. When you log in to your account you can see your orders and download the invoice.								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-654ba5d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="654ba5d" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-79cd7ac" data-id="79cd7ac" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-23a61e7 elementor-widget elementor-widget-heading" data-id="23a61e7" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">03. The order</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-7865024 elementor-widget elementor-widget-text-editor" data-id="7865024" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									When do I receive my order?								</div>
+				</div>
+				<div class="elementor-element elementor-element-5ddc240 elementor-widget elementor-widget-text-editor" data-id="5ddc240" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>When placing the order, a day of shipment is indicated. After the order has been placed, the same delivery time will also be stated on the order confirmation. It is therefore never possible that during the order, the shipping day on the website, is different than on the order confirmation.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-5ab8cef elementor-widget elementor-widget-text-editor" data-id="5ab8cef" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									I now see the longer delivery time of (a part of) my order. How can I cancel it?								</div>
+				</div>
+				<div class="elementor-element elementor-element-4508ca8 elementor-widget elementor-widget-text-editor" data-id="4508ca8" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									If the order has a longer delivery time than you had previously seen, it is of course possible to cancel (a part of) the order. For this you can contact our customer service. They will cancel the order for you. The purchase amount will be back on your bank account within two working days. When an order has already been shipped, it can no longer be cancelled.								</div>
+				</div>
+				<div class="elementor-element elementor-element-ca4127a elementor-widget elementor-widget-text-editor" data-id="ca4127a" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									When will I receive the invoice for my order?								</div>
+				</div>
+				<div class="elementor-element elementor-element-6389efd elementor-widget elementor-widget-text-editor" data-id="6389efd" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									When you have paid for the order, you will not automatically receive an invoice for your order. If you wish to receive an invoice, this can be done in two ways.The first way is through your account at our store. When you log in to your account you can see your orders and download the invoice.								</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-76aaebb" data-id="76aaebb" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-9e341b1 elementor-widget elementor-widget-heading" data-id="9e341b1" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">04. Returns, exchanges and complaints</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-5bfc156 elementor-widget elementor-widget-text-editor" data-id="5bfc156" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									When do I receive my order?								</div>
+				</div>
+				<div class="elementor-element elementor-element-bb2f0af elementor-widget elementor-widget-text-editor" data-id="bb2f0af" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>When placing the order, a day of shipment is indicated. After the order has been placed, the same delivery time will also be stated on the order confirmation. It is therefore never possible that during the order, the shipping day on the website, is different than on the order confirmation.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-c34a0e4 elementor-widget elementor-widget-text-editor" data-id="c34a0e4" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									I now see the longer delivery time of (a part of) my order. How can I cancel it?								</div>
+				</div>
+				<div class="elementor-element elementor-element-244190b elementor-widget elementor-widget-text-editor" data-id="244190b" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									If the order has a longer delivery time than you had previously seen, it is of course possible to cancel (a part of) the order. For this you can contact our customer service. They will cancel the order for you. The purchase amount will be back on your bank account within two working days. When an order has already been shipped, it can no longer be cancelled.								</div>
+				</div>
+				<div class="elementor-element elementor-element-eb374a1 elementor-widget elementor-widget-text-editor" data-id="eb374a1" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									When will I receive the invoice for my order?								</div>
+				</div>
+				<div class="elementor-element elementor-element-7fc4d36 elementor-widget elementor-widget-text-editor" data-id="7fc4d36" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									When you have paid for the order, you will not automatically receive an invoice for your order. If you wish to receive an invoice, this can be done in two ways.The first way is through your account at our store. When you log in to your account you can see your orders and download the invoice.								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+			</div>
+</article>				</div>
+				</div>
+			</div>
+		</div>   
+    </div>
+</div>
+	</div>
           <Footer />
         </div>
       </body>
