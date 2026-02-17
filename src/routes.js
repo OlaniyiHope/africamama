@@ -60,6 +60,10 @@ const routes = [
     path: "/wishlist", 
     element: <WishList />,
   },
+  {
+    path: "/my-account", 
+    element: <Login />,
+  },
 
 //   {
 //  path: "/single-product/:id",
