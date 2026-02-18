@@ -73,7 +73,7 @@ const { pathname } = useLocation();
 
                   <div className="wpbingoLogo" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
   <Link to="/"><img src={logo} alt="Papzi" /></Link>
-  <h6 style={{ margin: 0, whiteSpace: "nowrap" }}>Africa Mama Put</h6>
+  <h6 style={{ margin: 0, whiteSpace: "nowrap", fontWeight: "800", fontSize: "20px"  }}>Africa Mama Put</h6>
 </div>
                 </div>
                 <div className="col-sm-3 col-3 header-right">
@@ -173,7 +173,7 @@ const { pathname } = useLocation();
                   <div className="col-xl-4 col-lg-4 header-left desktop-col-left">
                 <div className="wpbingoLogo" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
   <Link to="/"><img src={logo} alt="Papzi" /></Link>
-  <h6 style={{ margin: 0, whiteSpace: "nowrap" }}>Africa Mama Put</h6>
+  <h6 style={{ margin: 0, whiteSpace: "nowrap", fontWeight: "800", fontSize: "20px"  }}>Africa Mama Put</h6>
 </div>
                     <div className="phone">
                       <a href="tel:934595876">934595876</a>

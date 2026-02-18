@@ -91,26 +91,16 @@ export default function HeroBanner() {
           transition: background 0.5s ease;
         }
 
-        /* ════════ INNER CONTAINER — limits content width like original ════════ */
-        /* The WordPress original has a max-width container so text doesn't stretch full page */
-        .ppz__inner {
-          max-width: 1200px;
-          margin: 0 auto;
-          height: 100%;
-          position: relative;
-        }
-
-        /* ════════ SLIDE GRID ════════ */
+        /* ════════ SLIDE GRID — ALWAYS SIDE BY SIDE, NEVER STACKED ════════ */
         .ppz__slide {
           position: absolute;
           inset: 0;
           display: grid;
-          grid-template-columns: 44% 56%;
+          grid-template-columns: 50% 50%;
           align-items: center;
           opacity: 1;
           transform: translateX(0);
           transition: opacity 0.35s ease, transform 0.35s ease;
-          /* Padding left matches original ~230px indent from left edge */
           padding: 0 0 0 80px;
         }
         .ppz__slide--out {
@@ -126,36 +116,33 @@ export default function HeroBanner() {
           padding-right: 20px;
         }
 
-        /* Row 1 — [parallelogram NEW] [CHICKEN] inline */
         .ppz__row1 {
           display: flex;
           align-items: center;
-          gap: 16px;
+          gap: 12px;
           flex-wrap: nowrap;
         }
 
-        /* Parallelogram yellow tag — skewX exactly like original */
         .ppz__tag {
           display: inline-block;
           background: #ffb219;
           transform: skewX(-13deg);
-          padding: 8px 24px;
+          padding: 6px 18px;
           border-radius: 2px;
           flex-shrink: 0;
         }
         .ppz__tag span {
           display: inline-block;
           transform: skewX(13deg);
-          font-size: 17px;
+          font-size: 15px;
           font-weight: 900;
           color: #1a1a1a;
           letter-spacing: 0.5px;
           text-transform: uppercase;
         }
 
-        /* Headline word on same line as tag */
         .ppz__h-inline {
-          font-size: clamp(38px, 4.8vw, 68px);
+          font-size: clamp(28px, 4.8vw, 68px);
           font-weight: 900;
           color: #fff;
           line-height: 1;
@@ -164,9 +151,8 @@ export default function HeroBanner() {
           white-space: nowrap;
         }
 
-        /* Full second headline line */
         .ppz__h2 {
-          font-size: clamp(38px, 4.8vw, 68px);
+          font-size: clamp(28px, 4.8vw, 68px);
           font-weight: 900;
           color: #fff;
           line-height: 1;
@@ -176,7 +162,7 @@ export default function HeroBanner() {
         }
 
         .ppz__sub {
-          font-size: clamp(13px, 1.2vw, 16px);
+          font-size: clamp(11px, 1.2vw, 16px);
           color: rgba(255, 255, 255, 0.85);
           line-height: 1.6;
           max-width: 380px;
@@ -185,13 +171,13 @@ export default function HeroBanner() {
         .ppz__btn {
           display: inline-block;
           width: fit-content;
-          padding: 13px 44px;
+          padding: 11px 36px;
           background: transparent;
           border: 2px solid rgba(255, 255, 255, 0.85);
           border-radius: 30px;
           color: #fff;
           font-family: 'Nunito', sans-serif;
-          font-size: 13px;
+          font-size: 12px;
           font-weight: 800;
           letter-spacing: 2px;
           text-transform: uppercase;
@@ -208,21 +194,15 @@ export default function HeroBanner() {
         .ppz__food-col {
           position: relative;
           height: 100%;
-          /* image is fully visible — no overflow clipping */
           overflow: visible;
         }
 
-        /* 
-          Image fills column height and is vertically centered.
-          We use object-fit: contain so it NEVER gets cut.
-          The image sits slightly above center to match original (bleeds upward).
-        */
         .ppz__food-img {
           position: absolute;
           top: 50%;
           left: 50%;
-          transform: translate(-50%, -52%);   /* shift slightly up */
-          height: 105%;                        /* a hair taller than banner for the bleed-top look */
+          transform: translate(-50%, -52%);
+          height: 105%;
           width: auto;
           max-width: 100%;
           object-fit: contain;
@@ -235,7 +215,6 @@ export default function HeroBanner() {
           50%       { transform: translate(-50%, -56%); }
         }
 
-        /* Price badge — top right of image column, like original */
         .ppz__price {
           position: absolute;
           top: 48px;
@@ -261,13 +240,12 @@ export default function HeroBanner() {
           to   { opacity: 1; transform: rotate(0deg) scale(1); }
         }
 
-        /* ════════ PREV / NEXT — WHITE PILL SHAPE (matches original exactly) ════════ */
+        /* ════════ PREV / NEXT ════════ */
         .ppz__nav {
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
           z-index: 20;
-          /* WHITE background with rounded right/left edges — pill tab shape */
           background: #ffffff;
           border: none;
           color: #333;
@@ -276,7 +254,6 @@ export default function HeroBanner() {
           font-weight: 900;
           letter-spacing: 3px;
           text-transform: uppercase;
-          /* vertical text */
           writing-mode: vertical-rl;
           padding: 20px 10px;
           cursor: pointer;
@@ -287,23 +264,18 @@ export default function HeroBanner() {
           background: #f5f5f5;
           box-shadow: 2px 0 16px rgba(0,0,0,0.2);
         }
-
-        /* PREV — left side, text reads bottom-to-top */
         .ppz__nav--prev {
           left: 0;
-          border-radius: 0 20px 20px 0;   /* curved on the right side only */
+          border-radius: 0 20px 20px 0;
           text-orientation: mixed;
-          /* rotate so PREV reads upward on left edge */
           transform: translateY(-50%) rotate(180deg);
         }
-
-        /* NEXT — right side, text reads top-to-bottom */
         .ppz__nav--next {
           right: 0;
-          border-radius: 20px 0 0 20px;  /* curved on the left side only */
+          border-radius: 20px 0 0 20px;
         }
 
-        /* ════════ DOT NAV ════════ */
+        /* ════════ DOTS ════════ */
         .ppz__dots {
           position: absolute;
           bottom: 20px;
@@ -328,28 +300,112 @@ export default function HeroBanner() {
           transform: scale(1.45);
         }
 
-        /* ════════ RESPONSIVE ════════ */
+        /* ════════ MOBILE — SIDE BY SIDE (never stacked) ════════ */
         @media (max-width: 768px) {
-          .ppz { height: auto; min-height: 500px; }
-          .ppz__slide {
-            grid-template-columns: 1fr;
-            padding: 40px 20px 70px;
-            gap: 20px;
+          .ppz {
+            height: 420px;
           }
-          .ppz__food-col { height: 280px; }
-          .ppz__food-img {
+
+          /* KEY: Keep grid-template-columns as two columns — never 1fr */
+          .ppz__slide {
+            grid-template-columns: 50% 50%;
+            padding: 0 0 0 36px;
+            align-items: center;
+          }
+
+          .ppz__text {
+            gap: 10px;
+            padding-right: 8px;
+          }
+
+          .ppz__tag {
+            padding: 5px 12px;
+          }
+          .ppz__tag span {
+            font-size: 12px;
+          }
+
+          .ppz__h-inline,
+          .ppz__h2 {
+            font-size: clamp(20px, 6.5vw, 38px);
+            letter-spacing: -0.5px;
+            white-space: normal;
+          }
+
+          .ppz__sub {
+            font-size: 11px;
+            line-height: 1.5;
+          }
+
+          .ppz__btn {
+            padding: 9px 22px;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+          }
+
+          .ppz__food-col {
             height: 100%;
+            overflow: visible;
+          }
+
+          .ppz__food-img {
+            position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -52%);
+            height: 110%;
+            width: auto;
+            max-width: none;
           }
-          @keyframes foodFloat {
-            0%, 100% { transform: translate(-50%, -50%); }
-            50%       { transform: translate(-50%, -55%); }
+
+          .ppz__price {
+            top: 16px;
+            right: 8px;
+            width: 60px;
+            height: 60px;
           }
-          .ppz__price { top: 10px; right: 10px; width: 70px; height: 70px; }
-          .ppz__price-amt { font-size: 16px; }
-          .ppz__h-inline, .ppz__h2 { font-size: clamp(30px, 8vw, 48px); }
+          .ppz__price-label { font-size: 8px; }
+          .ppz__price-amt   { font-size: 14px; }
+
+          .ppz__nav {
+            padding: 14px 8px;
+            font-size: 8px;
+            letter-spacing: 2px;
+          }
+
+          .ppz__dots {
+            bottom: 10px;
+          }
+          .ppz__dot {
+            width: 7px;
+            height: 7px;
+          }
+        }
+
+        /* ════════ VERY SMALL PHONES < 400px ════════ */
+        @media (max-width: 400px) {
+          .ppz {
+            height: 340px;
+          }
+          .ppz__slide {
+            padding: 0 0 0 24px;
+          }
+          .ppz__h-inline,
+          .ppz__h2 {
+            font-size: clamp(17px, 7vw, 26px);
+          }
+          .ppz__sub {
+            display: none;
+          }
+          .ppz__btn {
+            padding: 7px 16px;
+            font-size: 9px;
+          }
+          .ppz__price {
+            width: 50px;
+            height: 50px;
+          }
+          .ppz__price-amt { font-size: 12px; }
         }
       `}</style>
 
@@ -357,7 +413,6 @@ export default function HeroBanner() {
         className="ppz"
         style={{ "--bg": s.bg, "--badge-color": s.badge.color }}
       >
-        {/* ── SLIDE (uses ppz__inner for max-width centering) ── */}
         <div className={`ppz__slide${animOut ? " ppz__slide--out" : ""}`}>
 
           {/* LEFT TEXT */}
@@ -366,7 +421,6 @@ export default function HeroBanner() {
               <div className="ppz__tag"><span>{s.tagText}</span></div>
               <span className="ppz__h-inline">{s.headlineInline}</span>
             </div>
-
             <div className="ppz__h2">{s.headline2}</div>
             <p className="ppz__sub">{s.sub}</p>
             <button className="ppz__btn">Order Now</button>
@@ -378,7 +432,6 @@ export default function HeroBanner() {
               <span className="ppz__price-label">{s.badge.label}</span>
               <span className="ppz__price-amt">{s.badge.price}</span>
             </div>
-
             <img
               className="ppz__food-img"
               src={s.foodImg}
@@ -387,7 +440,7 @@ export default function HeroBanner() {
           </div>
         </div>
 
-        {/* ── WHITE CURVED PREV/NEXT ── */}
+        {/* PREV / NEXT */}
         <button
           className="ppz__nav ppz__nav--prev"
           onClick={() => go((current - 1 + slides.length) % slides.length)}
@@ -397,7 +450,7 @@ export default function HeroBanner() {
           onClick={() => go((current + 1) % slides.length)}
         >NEXT</button>
 
-        {/* ── DOTS ── */}
+        {/* DOTS */}
         <div className="ppz__dots">
           {slides.map((_, i) => (
             <button

@@ -87,568 +87,7 @@ useEffect(() => {
       <article id="post-9601" class="post-9601 page type-page status-publish hentry">
     <div class="entry-content clearfix">
         <div data-elementor-type="wp-page" data-elementor-id="9601" class="elementor elementor-9601">
-            {/* <section class="elementor-section elementor-top-section elementor-element elementor-element-ef67a94 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="ef67a94" data-element_type="section">
-            <div class="elementor-container elementor-column-gap-default">
-          <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-25e5744" data-id="25e5744" data-element_type="column">
-      <div class="elementor-widget-wrap elementor-element-populated">
-            <div class="elementor-element elementor-element-c9d814a elementor-widget elementor-widget-slider_revolution" data-id="c9d814a" data-element_type="widget" data-widget_type="slider_revolution.default">
-        <div class="elementor-widget-container">
-          
-    <div class="wp-block-themepunch-revslider">
-  <p class="rs-p-wp-fix"></p>
-      <rs-module-wrap id="rev_slider_134_1_wrapper" data-source="gallery">
-        <rs-module id="rev_slider_134_1"  data-version="6.5.18">
-          <rs-slides>
-            <rs-slide style={{position: "absolute;"}} data-key="rs-576" data-title="Slide" data-thumb="//papzi.wpbingosite.com/wp-content/uploads/2022/01/slider-1-50x100.jpg" data-anim="f:center;" data-in="o:0;sx:1.1;sy:1.1;m:true;row:30;col:30;" data-out="a:false;" data-alttrans="boxfade,boxslide">
-              <img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" title="slider-1" width="1920" height="915" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/slider-1.jpg" data-parallax="off" data-no-retina />
-<rs-group
-                id="slider-134-slide-576-layer-16" 
-                data-type="group"
-                data-rsp_ch="on"
-                data-xy="x:r;xo:280px,149px,111px,81px;yo:345px,320px,240px,223px;"
-                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
-                data-dim="w:120px,64px,48px,50px;h:120px,64px,48px,50px;"
-                data-border="bor:50%,50%,50%,50%;"
-                data-frame_0="sX:0.9;sY:0.9;"
-                data-frame_1="e:power2.inOut;sp:2000;"
-                data-frame_999="o:0;st:w;sA:9000;"
-                data-loop_0="rY:-40;"
-                data-loop_999="rY:40;sp:3000;e:sine.inOut;yyr:t;"
-                style={{zIndex:"18;", backgroundColor:"#00a950;"}}
-              ><rs-layer
-                  id="slider-134-slide-576-layer-17" 
-                  data-type="text"
-                  data-rsp_ch="on"
-                  data-xy="xo:16px,8px,6px,13px;yo:26px,13px,9px,14px;"
-                  data-text="w:normal;s:18,9,6,10;l:32,17,12,7;a:center;"
-                  data-dim="w:89.2031px,47px,35px,21px;"
-                  data-frame_0="o:1;"
-                  data-frame_0_chars="d:5;o:0;rX:90deg;oZ:-50;"
-                  data-frame_1="sp:1750;"
-                  data-frame_1_chars="e:power4.inOut;d:10;oZ:-50;"
-                  data-frame_999="o:0;st:w;"
-                  style={{zIndex:"16;", fontFamily:"'Comfortaa';"}}
-                >Only 
-                </rs-layer>
-
-            <rs-layer
-                  id="slider-134-slide-576-layer-18" 
-                  data-type="text"
-                  data-rsp_ch="on"
-                  data-xy="xo:19px,10px,7px,7px;yo:53px,28px,21px,24px;"
-                  data-text="w:normal;s:34,18,13,12;l:40,21,15,16;fw:700;a:center;"
-                  data-dim="w:89.2031px,47px,35px,37px;"
-                  data-frame_0="x:0,0,0,0px;y:0,0,0,0px;o:1;"
-                  data-frame_0_chars="d:5;x:0,0,0,0px;y:-100%;o:0;rZ:35deg;"
-                  data-frame_0_mask="u:t;x:0,0,0,0px;y:0,0,0,0px;"
-                  data-frame_1="x:0,0,0,0px;y:0,0,0,0px;sp:1200;"
-                  data-frame_1_chars="e:power4.inOut;d:10;x:0,0,0,0px;y:0,0,0,0px;rZ:0deg;"
-                  data-frame_1_mask="u:t;x:0,0,0,0px;y:0,0,0,0px;"
-                  data-frame_999="o:0;st:w;"
-                      style={{zIndex:"17;", fontFamily:"'Montserrat';"}}
-                >$12.9 
-                </rs-layer>
-              </rs-group>
-
-            <rs-layer
-                id="slider-134-slide-576-layer-0" 
-                data-type="image"
-                data-rsp_ch="on"
-                data-xy="x:r;xo:166px,71px,-17px,0;yo:198px,206px,154px,202px;"
-                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
-                data-dim="w:747px,398px,298px,250px;h:588px,313px,234px,158px;"
-                data-frame_0="sX:0.9;sY:0.9;"
-                data-frame_1="x:-1px,0px,0px,0px;y:-2px,-1px,0px,0px;st:500;sp:1200;"
-                data-frame_999="o:0;st:w;"
-                    style={{zIndex:"9;", fontFamily:"'Comfortaa';"}}
-              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="fries" class="tp-rs-img rs-lazyload" width="747" height="588" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/02/fries.png" data-no-retina /> 
-              </rs-layer>
-
-            <rs-layer
-                id="slider-134-slide-576-layer-1" 
-                data-type="text"
-                data-rsp_ch="on"
-                data-xy="xo:315px,100px,25px,23px;yo:538px,427px,280px,258px;"
-                data-text="w:normal;s:18,18,18,13;l:25,22,22,18;"
-                data-vbility="t,t,t,f"
-                data-frame_0="x:50,26,19,11;"
-                data-frame_1="st:500;sp:800;"
-                data-frame_999="o:0;st:w;"
-                      style={{zIndex:"13;", fontFamily:"'Comfortaa';"}}
-              >Buy any 2 large pizzas and get a 1.5L Pepsi Free  
-              </rs-layer>
-
-            <rs-layer
-                id="slider-134-slide-576-layer-2" 
-                data-type="image"
-                data-rsp_ch="on"
-                data-xy="xo:315px,168px,126px,78px;y:b;yo:-2px,-1px,0,0;"
-                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
-                data-dim="w:870px,464px,348px,217px;h:129px,68px,51px,31px;"
-                data-frame_999="o:0;st:w;"
-            style={{zIndex:"14;", fontFamily:"'Comfortaa';"}}
-              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="layer-2" class="tp-rs-img rs-lazyload" width="870" height="129" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/layer-2.png" data-no-retina />  
-              </rs-layer>
-
-              <rs-layer
-                id="slider-134-slide-576-layer-4" 
-                data-type="text"
-                data-rsp_ch="on"
-                data-xy="xo:496px,207px,106px,87px;yo:371px,297px,167px,161px;"
-                data-text="w:normal;s:80,50,40,40;l:80,85,75,60;fw:800;"
-                data-frame_0="x:50,26,19,11;"
-                data-frame_1="st:300;sp:700;"
-                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
-                data-frame_999_mask="u:t;"
-              style={{zIndex:"11;", fontFamily:"'Comfortaa';"}}
-              >Hungry <br />
- 
-              </rs-layer>
-
-            <rs-layer
-                id="slider-134-slide-576-layer-5" 
-                data-type="image"
-                data-rsp_ch="on"
-                data-xy="x:r;xo:0,0,-80px,0;yo:266px,238px,178px,202px;"
-                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
-                data-dim="w:842px,449px,336px,250px;h:508px,270px,202px,158px;"
-                data-frame_0="o:1;"
-                data-frame_0_chars="d:5;x:ran(-250|250);y:ran(-150|150);sX:ran(0|1.5);sY:ran(0|1.5);rX:ran(-90|90);rY:ran(-90|90);rZ:ran(-90|90);"
-                data-frame_1="e:power4.inOut;st:500;sp:1500;"
-                data-frame_1_chars="dir:random;d:10;"
-                data-frame_999="o:0;st:w;"
-            style={{zIndex:"8;", fontFamily:"'Comfortaa';"}}
-              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="Layer-5" class="tp-rs-img rs-lazyload" width="842" height="508" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/Layer-5.png" data-no-retina /> 
-              </rs-layer>
-
-            <rs-layer
-                id="slider-134-slide-576-layer-6" 
-                class="button-slider rev-btn"
-                data-type="button"
-                data-rsp_ch="on"
-                data-xy="xo:315px,100px,25px,20px;yo:595px,479px,318px,279px;"
-                data-text="w:normal;s:14,14,12,11;l:50,45,45,40;ls:0px,0px,0px,3px;fw:700;"
-                data-dim="minh:0px,none,none,none;"
-                data-padding="r:44,40,30,25;l:44,40,30,25;"
-                data-border="bos:solid;boc:#ffffff;bow:1px,1px,1px,1px;bor:25px,25px,25px,25px;"
-                data-frame_0="x:50,26,19,11;"
-                data-frame_1="st:600;sp:800;"
-                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
-                data-frame_999_mask="u:t;"
-                data-frame_hover="c:#fff;bgc:#ffb219;boc:transparent;bor:25px,25px,25px,25px;bos:solid;bow:1px,1px,1px,1px;"
-                  style={{zIndex:"12;", fontFamily:"'Comfortaa';"}}
-              >ORDER NOW 
-              </rs-layer>
-
-              <rs-layer
-                id="slider-134-slide-576-layer-7" 
-                data-type="text"
-                data-rsp_ch="on"
-                data-xy="xo:315px,100px,25px,20px;yo:454px,349px,212px,199px;"
-                data-text="w:normal;s:80,50,40,40;l:80,85,75,60;fw:800;"
-                data-frame_0="x:50,26,19,11;"
-                data-frame_1="st:300;sp:700;"
-                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
-                data-frame_999_mask="u:t;"
-      style={{zIndex:"10", fontFamily:"'Comfortaa';"}}
-              >For More<br />
- 
-              </rs-layer>
-
-            <rs-layer
-                id="slider-134-slide-576-layer-8" 
-                class="new"
-                data-type="text"
-                data-color="#272727"
-                data-rsp_ch="on"
-                data-xy="xo:315px,102px,32px,22px;yo:360px,316px,189px,175px;"
-                data-text="w:normal;s:43,22,16,16;l:80,42,31,29;a:center;"
-                data-dim="w:180px,96px,72px,60px;h:80px,42px,31px,30px;"
-                data-padding="r:15,8,6,4;l:15,8,6,4;"
-                data-frame_0="x:50,26,19,11;"
-                data-frame_1="st:300;sp:700;"
-                data-frame_999="x:-50,-26,-19,-11;o:0;st:w;sp:1000;"
-                style={{zIndex:"15", fontFamily:"'Comfortaa';"}}
-              >New 
-              </rs-layer>
-            </rs-slide>
-            <rs-slide style={{position: "absolute;"}} data-key="rs-718" data-title="Slide" data-thumb="//papzi.wpbingosite.com/wp-content/uploads/2022/01/slider-1-50x100.jpg" data-in="o:1;y:(-100%);col:5;" data-out="a:false;" data-alttrans="boxfade,boxslide">
-              <img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" title="slider-1" width="1920" height="915" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/slider-1.jpg" data-parallax="off" data-no-retina />
-
-              <rs-group
-                id="slider-134-slide-718-layer-16" 
-                data-type="group"
-                data-rsp_ch="on"
-                data-xy="x:r;xo:257px,187px,140px,62px;yo:394px,320px,240px,223px;"
-                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
-                data-dim="w:120px,64px,48px,50px;h:120px,64px,48px,50px;"
-                data-border="bor:50%,50%,50%,50%;"
-                data-frame_0="sX:0.9;sY:0.9;"
-                data-frame_1="e:power2.inOut;sp:2000;"
-                data-frame_999="o:0;st:w;sA:9000;"
-                data-loop_0="rY:-40;"
-                data-loop_999="rY:40;sp:3000;e:sine.inOut;yyr:t;"
-      style={{zIndex:"18;", fontFamily:"'Comfortaa';"}}
-              >
-              <rs-layer
-                  id="slider-134-slide-718-layer-17" 
-                  data-type="text"
-                  data-color="#f1252b"
-                  data-rsp_ch="on"
-                  data-xy="xo:16px,8px,6px,13px;yo:26px,13px,9px,14px;"
-                  data-text="w:normal;s:18,9,6,10;l:32,17,12,7;a:center;"
-                  data-dim="w:89.2031px,47px,35px,21px;"
-                  data-frame_0="o:1;"
-                  data-frame_0_chars="d:5;o:0;rX:90deg;oZ:-50;"
-                  data-frame_1="sp:1750;"
-                  data-frame_1_chars="e:power4.inOut;d:10;oZ:-50;"
-                  data-frame_999="o:0;st:w;"
-                  style={{zIndex:"16;", fontFamily:"'Comfortaa';"}}
-                >Offer 
-                </rs-layer>
-
-              <rs-layer
-                  id="slider-134-slide-718-layer-18" 
-                  data-type="text"
-                  data-color="#f1252b"
-                  data-rsp_ch="on"
-                  data-xy="xo:19px,10px,7px,7px;yo:53px,28px,21px,24px;"
-                  data-text="w:normal;s:34,18,13,12;l:40,21,15,16;fw:700;a:center;"
-                  data-dim="w:89.2031px,47px,35px,37px;"
-                  data-frame_0="x:0,0,0,0px;y:0,0,0,0px;o:1;"
-                  data-frame_0_chars="d:5;x:0,0,0,0px;y:-100%;o:0;rZ:35deg;"
-                  data-frame_0_mask="u:t;x:0,0,0,0px;y:0,0,0,0px;"
-                  data-frame_1="x:0,0,0,0px;y:0,0,0,0px;sp:1200;"
-                  data-frame_1_chars="e:power4.inOut;d:10;x:0,0,0,0px;y:0,0,0,0px;rZ:0deg;"
-                  data-frame_1_mask="u:t;x:0,0,0,0px;y:0,0,0,0px;"
-                  data-frame_999="o:0;st:w;"
-                    style={{zIndex:"17;", fontFamily:"'Comfortaa';"}}
-                >$14.9 
-                </rs-layer>
-              </rs-group>
-
-            <rs-layer
-                id="slider-134-slide-718-layer-0" 
-                data-type="image"
-                data-rsp_ch="on"
-                data-xy="x:r;xo:226px,138px,19px,0;yo:185px,238px,178px,143px;"
-                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
-                data-dim="w:630px,336px,252px,250px;h:732px,390px,292px,290px;"
-                data-frame_0="sX:0.9;sY:0.9;"
-                data-frame_1="st:500;sp:1200;"
-                data-frame_999="o:0;st:w;"
-                style={{zIndex:"9", fontFamily:"'Comfortaa';"}}
-              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="Layer-3" class="tp-rs-img rs-lazyload" width="630" height="732" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/Layer-3.png" data-no-retina /> 
-              </rs-layer>
-
-              <rs-layer
-                id="slider-134-slide-718-layer-1" 
-                data-type="text"
-                data-rsp_ch="on"
-                data-xy="xo:315px,100px,25px,23px;yo:538px,427px,280px,258px;"
-                data-text="w:normal;s:18,18,18,13;l:25,23,22,18;"
-                data-vbility="t,t,t,f"
-                data-frame_0="x:50,26,19,11;"
-                data-frame_1="y:1px,0px,0px,0px;st:500;sp:900;"
-                data-frame_999="o:0;st:w;"
-                    style={{zIndex:"13", fontFamily:"'Comfortaa';"}}
-              >Buy any 2 large pizzas and get a 1.5L Pepsi Free  
-              </rs-layer>
-
-              <rs-layer
-                id="slider-134-slide-718-layer-2" 
-                data-type="image"
-                data-rsp_ch="on"
-                data-xy="xo:315px,168px,126px,78px;y:b;yo:-2px,-1px,0,0;"
-                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
-                data-dim="w:542px,289px,216px,135px;h:175px,93px,69px,43px;"
-                data-frame_999="o:0;st:w;"
-              style={{zIndex:"14", fontFamily:"'Comfortaa';"}}
-              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="Layer-4" class="tp-rs-img rs-lazyload" width="542" height="175" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/Layer-4.png" data-no-retina /> 
-              </rs-layer>
-
-              <rs-layer
-                id="slider-134-slide-718-layer-3" 
-                data-type="image"
-                data-rsp_ch="on"
-                data-xy="x:l,r,r,r;xo:1151px,0,-100px,0;yo:264px,276px,199px,201px;"
-                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
-                data-dim="w:842px,449px,336px,250px;h:508px,270px,202px,151px;"
-                data-frame_999="o:0;st:w;"
-        style={{zIndex:"8;", fontFamily:"'Comfortaa';"}}
-              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="Layer-5" class="tp-rs-img rs-lazyload" width="842" height="508" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/Layer-5.png" data-no-retina /> 
-              </rs-layer>
-
-            <rs-layer
-                id="slider-134-slide-718-layer-4" 
-                data-type="text"
-                data-rsp_ch="on"
-                data-xy="xo:496px,207px,106px,87px;yo:371px,294px,167px,161px;"
-                data-text="w:normal;s:80,50,40,40;l:80,85,75,60;fw:800;"
-                data-frame_0="o:1;"
-                data-frame_0_chars="d:5;x:105%;o:1;rY:45deg;rZ:90deg;"
-                data-frame_0_mask="u:t;"
-                data-frame_1="st:300;sp:800;"
-                data-frame_1_chars="e:power4.inOut;d:10;rZ:0deg;"
-                data-frame_1_mask="u:t;"
-                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
-                data-frame_999_mask="u:t;"
-                      style={{zIndex:"11;", fontFamily:"'Comfortaa';"}}
-              >Guess your  <br />
- 
-              </rs-layer>
-
-              <rs-layer
-                id="slider-134-slide-718-layer-6" 
-                class="button-slider rev-btn"
-                data-type="button"
-                data-rsp_ch="on"
-                data-xy="xo:315px,100px,25px,20px;yo:595px,479px,318px,279px;"
-                data-text="w:normal;s:14,11,12,11;l:50,45,45,40;ls:0px,3px,0px,3px;fw:700;"
-                data-dim="minh:0px,none,none,none;"
-                data-padding="r:44,40,30,25;l:44,40,30,25;"
-                data-border="bos:solid;boc:#ffffff;bow:1px,1px,1px,1px;bor:25px,25px,25px,25px;"
-                data-frame_0="x:right;skX:-85;"
-                data-frame_1="st:600;sp:800;"
-                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
-                data-frame_999_mask="u:t;"
-                data-frame_hover="c:#fff;bgc:#ffb219;boc:transparent;bor:25px,25px,25px,25px;bos:solid;bow:1px,1px,1px,1px;"
-            style={{zIndex:"12;", fontFamily:"'Comfortaa';"}}
-              >ORDER NOW 
-              </rs-layer>
-
-              <rs-layer
-                id="slider-134-slide-718-layer-7" 
-                data-type="text"
-                data-rsp_ch="on"
-                data-xy="xo:315px,100px,25px,20px;yo:454px,349px,212px,199px;"
-                data-text="w:normal;s:80,50,40,40;l:80,85,75,60;fw:800;"
-                data-frame_0="o:1;"
-                data-frame_0_chars="d:5;x:105%;o:1;rY:45deg;rZ:90deg;"
-                data-frame_0_mask="u:t;"
-                data-frame_1="st:300;sp:800;"
-                data-frame_1_chars="e:power4.inOut;d:10;rZ:0deg;"
-                data-frame_1_mask="u:t;"
-                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
-                data-frame_999_mask="u:t;"
-          style={{zIndex:"10;", fontFamily:"'Comfortaa';"}}
-              > favourite African food <br />
- 
-              </rs-layer>
-
-              <rs-layer
-                id="slider-134-slide-718-layer-8" 
-                class="new"
-                data-type="text"
-                data-color="#272727"
-                data-rsp_ch="on"
-                data-xy="xo:315px,102px,32px,22px;yo:360px,312px,189px,175px;"
-                data-text="w:normal;s:43,22,16,16;l:80,42,31,29;a:center;"
-                data-dim="w:180px,96px,72px,60px;h:80px,42px,31px,30px;"
-                data-padding="r:15,8,6,4;l:15,8,6,4;"
-                data-frame_0="o:1;"
-                data-frame_0_chars="d:5;x:105%;o:1;rY:45deg;rZ:90deg;"
-                data-frame_0_mask="u:t;"
-                data-frame_1="sp:1200;"
-                data-frame_1_chars="e:power4.inOut;d:10;rZ:0deg;"
-                data-frame_1_mask="u:t;"
-                data-frame_999="o:0;st:w;"
-      style={{zIndex:"15;", fontFamily:"'Comfortaa';"}}
-              >New 
-              </rs-layer>
-          </rs-slide>
-            <rs-slide style={{position: "absolute;"}} data-key="rs-720" data-title="Slide" data-thumb="//papzi.wpbingosite.com/wp-content/uploads/2022/01/slider-1-50x100.jpg" data-anim="f:slidebased;" data-in="o:1;x:(100%);m:true;row:5;" data-out="a:false;" data-alttrans="boxfade,boxslide">
-              <img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="" title="slider-1" width="1920" height="915" class="rev-slidebg tp-rs-img rs-lazyload" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/slider-1.jpg" data-parallax="off" data-no-retina />
-
-            <rs-group
-                id="slider-134-slide-720-layer-16" 
-                data-type="group"
-                data-rsp_ch="on"
-                data-xy="x:r;xo:280px,209px,137px,69px;yo:355px,320px,240px,208px;"
-                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
-                data-dim="w:120px,64px,48px,50px;h:120px,64px,48px,50px;"
-                data-border="bor:50%,50%,50%,50%;"
-                data-frame_0="sX:0.9;sY:0.9;"
-                data-frame_1="e:power2.inOut;sp:2000;"
-                data-frame_999="o:0;st:w;sA:9000;"
-                data-loop_0="rY:-40;"
-                data-loop_999="rY:40;sp:3000;e:sine.inOut;yyr:t;"
-                  style={{zIndex:"18;", fontFamily:"'Comfortaa';"}}
-              ><rs-layer
-                  id="slider-134-slide-720-layer-17" 
-                  data-type="text"
-                  data-rsp_ch="on"
-                  data-xy="xo:16px,8px,6px,13px;yo:26px,13px,9px,14px;"
-                  data-text="w:normal;s:18,9,6,10;l:32,17,12,7;a:center;"
-                  data-dim="w:89.2031px,47px,35px,21px;"
-                  data-frame_0="o:1;"
-                  data-frame_0_chars="d:5;o:0;rX:90deg;oZ:-50;"
-                  data-frame_1="sp:1750;"
-                  data-frame_1_chars="e:power4.inOut;d:10;oZ:-50;"
-                  data-frame_999="o:0;st:w;"
-                      style={{zIndex:"16;", fontFamily:"'Comfortaa';"}}
-                >Offer 
-                </rs-layer>
-
-                <rs-layer
-                  id="slider-134-slide-720-layer-18" 
-                  data-type="text"
-                  data-rsp_ch="on"
-                  data-xy="xo:19px,10px,7px,7px;yo:53px,28px,21px,24px;"
-                  data-text="w:normal;s:34,18,13,12;l:40,21,15,16;fw:700;a:center;"
-                  data-dim="w:89.2031px,47px,35px,37px;"
-                  data-frame_0="x:0,0,0,0px;y:0,0,0,0px;o:1;"
-                  data-frame_0_chars="d:5;x:0,0,0,0px;y:-100%;o:0;rZ:35deg;"
-                  data-frame_0_mask="u:t;x:0,0,0,0px;y:0,0,0,0px;"
-                  data-frame_1="x:0,0,0,0px;y:0,0,0,0px;sp:1200;"
-                  data-frame_1_chars="e:power4.inOut;d:10;x:0,0,0,0px;y:0,0,0,0px;rZ:0deg;"
-                  data-frame_1_mask="u:t;x:0,0,0,0px;y:0,0,0,0px;"
-                  data-frame_999="o:0;st:w;"
-                  style={{zIndex:"17;", fontFamily:"'Comfortaa';"}}
-                >$14.9 
-                </rs-layer>
-            </rs-group>
-
-              <rs-layer
-                id="slider-134-slide-720-layer-0" 
-                data-type="image"
-                data-rsp_ch="on"
-                data-xy="x:r;xo:152px,110px,-8px,76px;yo:238px,238px,178px,167px;"
-                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
-                data-dim="w:914px,487px,365px,250px;h:526px,280px,210px,144px;"
-                data-frame_0="sX:0.9;sY:0.9;"
-                data-frame_1="st:500;sp:1200;"
-                data-frame_999="o:0;st:w;"
-            style={{zIndex:"9;", fontFamily:"'Comfortaa';"}}
-              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="Layer-7" class="tp-rs-img rs-lazyload" width="914" height="526" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/Layer-7.png" data-no-retina /> 
-              </rs-layer>
-              <rs-layer
-                id="slider-134-slide-720-layer-1" 
-                data-type="text"
-                data-rsp_ch="on"
-                data-xy="xo:315px,100px,25px,23px;yo:538px,427px,281px,258px;"
-                data-text="w:normal;s:18,18,18,13;l:25,23,22,18;"
-                data-vbility="t,t,t,f"
-                data-frame_0="x:50,26,19,11;"
-                data-frame_1="st:500;sp:800;"
-                data-frame_999="o:0;st:w;"
-                    style={{zIndex:"13;", fontFamily:"'Comfortaa';"}}
-              >Buy any 2 pizzas and get a 1.5L Pepsi 
-              </rs-layer>
-
-            <rs-layer
-                id="slider-134-slide-720-layer-2" 
-                data-type="image"
-                data-rsp_ch="on"
-                data-xy="xo:315px,168px,126px,78px;y:b;yo:-2px,-1px,0,0;"
-                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
-                data-dim="w:602px,321px,240px,150px;h:110px,58px,43px,26px;"
-                data-frame_999="o:0;st:w;"
-                  style={{zIndex:"14;", fontFamily:"'Comfortaa';"}}
-              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="Layer-6" class="tp-rs-img rs-lazyload" width="602" height="110" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/Layer-6.png" data-no-retina /> 
-              </rs-layer>
-
-              <rs-layer
-                id="slider-134-slide-720-layer-3" 
-                data-type="image"
-                data-rsp_ch="on"
-                data-xy="x:l,r,r,r;xo:1151px,0,-100px,0;yo:264px,225px,171px,184px;"
-                data-text="w:normal;s:20,10,7,4;l:0,13,9,6;"
-                data-dim="w:842px,449px,336px,250px;h:508px,270px,202px,151px;"
-                data-frame_999="o:0;st:w;"
-      style={{zIndex:"8;", fontFamily:"'Comfortaa';"}}
-              ><img loading="lazy" decoding="async" src="wp-content/plugins/revslider/public/assets/assets/dummy.png" alt="Layer-5" class="tp-rs-img rs-lazyload" width="842" height="508" data-lazyload="//papzi.wpbingosite.com/wp-content/uploads/2022/01/Layer-5.png" data-no-retina /> 
-              </rs-layer>
-              <rs-layer
-                id="slider-134-slide-720-layer-4" 
-                data-type="text"
-                data-rsp_ch="on"
-                data-xy="xo:496px,207px,106px,87px;yo:371px,294px,167px,161px;"
-                data-text="w:normal;s:80,50,40,40;l:80,85,75,60;fw:800;"
-                data-frame_0="o:1;"
-                data-frame_0_chars="d:5;x:105%;o:1;rY:45deg;rZ:90deg;"
-                data-frame_0_mask="u:t;"
-                data-frame_1="st:300;sp:800;"
-                data-frame_1_chars="e:power4.inOut;d:10;rZ:0deg;"
-                data-frame_1_mask="u:t;"
-                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
-                data-frame_999_mask="u:t;"
-      style={{zIndex:"11;", fontFamily:"'Comfortaa';"}}
-              >       combo <br />
- 
-              </rs-layer>
-
-            <rs-layer
-                id="slider-134-slide-720-layer-6" 
-                class="button-slider rev-btn"
-                data-type="button"
-                data-rsp_ch="on"
-                data-xy="xo:315px,100px,25px,20px;yo:595px,479px,318px,279px;"
-                data-text="w:normal;s:14,11,11,11;l:50,45,40,40;ls:0px,0px,0px,3px;fw:700;"
-                data-dim="minh:0px,none,none,none;"
-                data-padding="r:44,40,40,25;l:44,40,40,25;"
-                data-border="bos:solid;boc:#ffffff;bow:1px,1px,1px,1px;bor:25px,25px,25px,25px;"
-                data-frame_0="x:-100%;skX:45;"
-                data-frame_1="st:600;sp:800;"
-                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
-                data-frame_999_mask="u:t;"
-                data-frame_hover="c:#fff;bgc:#ffb219;boc:transparent;bor:25px,25px,25px,25px;bos:solid;bow:1px,1px,1px,1px;"
-                style={{zIndex:"12;", fontFamily:"'Comfortaa';"}}
-              >ORDER NOW 
-              </rs-layer>
-
-              <rs-layer
-                id="slider-134-slide-720-layer-7" 
-                data-type="text"
-                data-rsp_ch="on"
-                data-xy="xo:315px,100px,25px,20px;yo:454px,349px,212px,199px;"
-                data-text="w:normal;s:80,50,40,40;l:80,85,75,60;fw:800;"
-                data-frame_0="o:1;"
-                data-frame_0_chars="d:5;x:105%;o:1;rY:45deg;rZ:90deg;"
-                data-frame_0_mask="u:t;"
-                data-frame_1="st:300;sp:800;"
-                data-frame_1_chars="e:power4.inOut;d:10;rZ:0deg;"
-                data-frame_1_mask="u:t;"
-                data-frame_999="x:-100%;o:0;st:w;sp:1000;"
-                data-frame_999_mask="u:t;"
-                    style={{zIndex:"10;", fontFamily:"'Comfortaa';"}}
-              > fastfood 
-              </rs-layer>
-
-              <rs-layer
-                id="slider-134-slide-720-layer-8" 
-                class="new"
-                data-type="text"
-                data-color="#272727"
-                data-rsp_ch="on"
-                data-xy="xo:315px,102px,32px,22px;yo:360px,312px,189px,175px;"
-                data-text="w:normal;s:43,22,16,16;l:80,42,31,29;a:center;"
-                data-dim="w:180px,96px,72px,60px;h:80px,42px,31px,30px;"
-                data-padding="r:15,8,6,4;l:15,8,6,4;"
-                data-frame_0="o:1;"
-                data-frame_0_chars="d:5;x:105%;o:1;rY:45deg;rZ:90deg;"
-                data-frame_0_mask="u:t;"
-                data-frame_1="sp:1200;"
-                data-frame_1_chars="e:power4.inOut;d:10;rZ:0deg;"
-                data-frame_1_mask="u:t;"
-                data-frame_999="o:0;st:w;"
-          style={{zIndex:"15;", fontFamily:"'Comfortaa';"}}
-              >New 
-              </rs-layer>
-          </rs-slide>
-          </rs-slides>
-        </rs-module>
-  
-      </rs-module-wrap>
-  
-</div>
-
-            </div>
-        </div>
-          </div>
-    </div>
-          </div>
-    </section> */}
+       
     <HeroBanner />
         <section class="elementor-section elementor-top-section elementor-element elementor-element-c2c9c9f elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c2c9c9f" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
             <div class="elementor-container elementor-column-gap-default">
@@ -1028,7 +467,7 @@ useEffect(() => {
                   <div class="vgwc-label vgwc-featured hot">Hot</div>						
           <div class="onsale">-48%</div>			</div>
 <div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-21-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-26-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16541" data-id="16541" data-product_name="Smoothie drinks" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-21-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
-      <span class="product-quickview"><a href="#" data-product_id="16541" class="quickview quickview-button quickview-16541" >Quick View <i class="icon-Search"></i></a></span>		</div>
+      <span class="product-quickview"></span>		</div>
       </div>
   <div class="products-content">
     <div class="contents">
@@ -1047,7 +486,7 @@ useEffect(() => {
                   <div class="vgwc-label vgwc-featured hot">Hot</div>						
       </div>
 <div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-26-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-15-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16536" data-id="16536" data-product_name="Sleek Iron Clock" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-26-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
-      <span class="product-quickview"><a href="#" data-product_id="16536" class="quickview quickview-button quickview-16536" >Quick View <i class="icon-Search"></i></a></span>		</div>
+      <span class="product-quickview"></span>		</div>
       </div>
   <div class="products-content">
     <div class="contents">
@@ -1069,7 +508,7 @@ useEffect(() => {
                   <div class="vgwc-label vgwc-featured hot">Hot</div>						
       </div>
 <div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-5-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-13-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16508" data-id="16508" data-product_name="BBQ Fries" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-5-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
-      <span class="product-quickview"><a href="#" data-product_id="16508" class="quickview quickview-button quickview-16508" >Quick View <i class="icon-Search"></i></a></span>		</div>
+      <span class="product-quickview"></span>		</div>
       </div>
   <div class="products-content">
     <div class="contents">
@@ -1088,7 +527,7 @@ useEffect(() => {
                   <div class="vgwc-label vgwc-featured hot">Hot</div>						
       </div>
 <div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-19-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-24-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16320" data-id="16320" data-product_name="Alsatian" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-19-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
-      <span class="product-quickview"><a href="#" data-product_id="16320" class="quickview quickview-button quickview-16320" >Quick View <i class="icon-Search"></i></a></span>		</div>
+      <span class="product-quickview"></span>		</div>
       </div>
   <div class="products-content">
     <div class="contents">
@@ -1110,7 +549,7 @@ useEffect(() => {
                 
           <div class="onsale">-50%</div>			</div>
 <div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-11-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-13-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-10448" data-id="10448" data-product_name="Cheddar Fries" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-11-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
-      <span class="product-quickview"><a href="#" data-product_id="10448" class="quickview quickview-button quickview-10448" >Quick View <i class="icon-Search"></i></a></span>		</div>
+      <span class="product-quickview"></span>		</div>
           <div class="product-stock">    
         <span class="stock">Out Of Stock</span>
       </div>
@@ -1132,7 +571,7 @@ useEffect(() => {
                   <div class="vgwc-label vgwc-featured hot">Hot</div>						
       </div>
 <div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-22-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2018/10/1-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-1061" data-id="1061" data-product_name="Banana Leaf" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-22-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
-      <span class="product-quickview"><a href="#" data-product_id="1061" class="quickview quickview-button quickview-1061" >Quick View <i class="icon-Search"></i></a></span>		</div>
+      <span class="product-quickview"></span>		</div>
       </div>
   <div class="products-content">
     <div class="contents">
@@ -1168,7 +607,7 @@ useEffect(() => {
     </div>
   </div>
       <button class="woosw-btn woosw-btn-3989" data-id="3989" data-product_name="Mare e Monti" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-24-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
-      <span class="product-quickview"><a href="#" data-product_id="3989" class="quickview quickview-button quickview-3989" >Quick View <i class="icon-Search"></i></a></span>		</div>
+      <span class="product-quickview"></span>		</div>
       </div>
   <div class="products-content">
     <div class="contents">
@@ -1187,7 +626,7 @@ useEffect(() => {
                 
       </div>
 <div class="product-thumb-hover"><a href="shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-3-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-27-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16588" data-id="16588" data-product_name="Burger King" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-3-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
-      <span class="product-quickview"><a href="#" data-product_id="16588" class="quickview quickview-button quickview-16588" >Quick View <i class="icon-Search"></i></a></span>		</div>
+      <span class="product-quickview"></span>		</div>
       </div>
   <div class="products-content">
     <div class="contents">
@@ -1209,7 +648,7 @@ useEffect(() => {
                 
       </div>
 <div class="product-thumb-hover"><a href="shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-11-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" /><img loading="lazy" decoding="async" width="600" height="600" src="wp-content/uploads/2019/04/american-burgers-6-600x600.jpg" class="hover-image back" alt="" /></a></div>		<button class="woosw-btn woosw-btn-16521" data-id="16521" data-product_name="Florentine" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-11-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
-      <span class="product-quickview"><a href="#" data-product_id="16521" class="quickview quickview-button quickview-16521" >Quick View <i class="icon-Search"></i></a></span>		</div>
+      <span class="product-quickview"></span>		</div>
       </div>
   <div class="products-content">
     <div class="contents">
