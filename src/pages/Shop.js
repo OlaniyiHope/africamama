@@ -203,14 +203,14 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 		<ul class="content-products">
 					<li class="item-product">
 				<div class="item-thumb">
-					<a href="mini-cucine/index.html"><img src="../wp-content/uploads/2019/04/american-burgers-9.jpg" alt="" /></a>
+					<a href="/shop/single"><img src="../wp-content/uploads/2019/04/american-burgers-9.jpg" alt="" /></a>
 				</div>
 				<div class="content-bottom">
 											<div class="rating none">
 							<div class="star-rating none"></div>
 						</div>
 										<div class="item-title">
-						<a href="mini-cucine/index.html">Mini Cucine</a>
+						<a href="/shop/singlr">Mini Cucine</a>
 					</div>
 					<div class="price">
 						<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>150.00</bdi></span>					</div>
@@ -218,13 +218,13 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 			</li>
 					<li class="item-product">
 				<div class="item-thumb">
-					<a href="smoothie-drinks/index.html"><img src="../wp-content/uploads/2019/04/american-burgers-21.jpg" alt="" /></a>
+					<a href="/shop/single"><img src="../wp-content/uploads/2019/04/american-burgers-21.jpg" alt="" /></a>
 				</div>
 				<div class="content-bottom">
 											<div class="rating">
 							<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style={{width:"100%"}}>Rated <strong class="rating">5.00</strong> out of 5</span></div>						</div>
 										<div class="item-title">
-						<a href="smoothie-drinks/index.html">Smoothie drinks</a>
+						<a href="/shop/single">Smoothie drinks</a>
 					</div>
 					<div class="price">
 						<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>13.00</bdi></span> &ndash; <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>67.00</bdi></span>					</div>
@@ -232,13 +232,13 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 			</li>
 					<li class="item-product">
 				<div class="item-thumb">
-					<a href="sleek-iron-clock/index.html"><img src="../wp-content/uploads/2019/04/american-burgers-26.jpg" alt="" /></a>
+					<a href="/shop/single"><img src="../wp-content/uploads/2019/04/american-burgers-26.jpg" alt="" /></a>
 				</div>
 				<div class="content-bottom">
 											<div class="rating">
 							<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style={{width:"100%"}}>Rated <strong class="rating">5.00</strong> out of 5</span></div>						</div>
 										<div class="item-title">
-						<a href="sleek-iron-clock/index.html">Sleek Iron Clock</a>
+						<a href="/shop/single">Sleek Iron Clock</a>
 					</div>
 					<div class="price">
 						<span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>50.00</bdi></span> &ndash; <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>90.00</bdi></span>					</div>
@@ -287,12 +287,12 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 			<div class='product-lable'>
 									<div class="vgwc-label vgwc-featured hot">Hot</div>						
 			</div>
-<div class="product-thumb-hover"><a href="alsatian/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-19-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-24-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16320" data-id="16320" data-product_name="Alsatian" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-19-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-19-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-24-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16320" data-id="16320" data-product_name="Alsatian" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-19-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
 			<span class="product-quickview"><a href="#" data-product_id="16320" class="quickview quickview-button quickview-16320" >Quick View <i class="icon-Search"></i></a></span>		</div>
 			</div>
 	<div class="products-content">
 		<div class="contents">
-			<h3 class="product-title"><a href="alsatian/index.html">Alsatian</a></h3>
+			<h3 class="product-title"><a href="/shop/single">Alsatian</a></h3>
 			
 	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>75.00</bdi></span></span>
 			<div class="btn-atc">
@@ -306,7 +306,7 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 			<div class='product-lable'>
 									<div class="vgwc-label vgwc-featured hot">Hot</div>						
 			</div>
-<div class="product-thumb-hover"><a href="american-burgers/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-27-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-3-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>	<div class="countdown">
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-27-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-3-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>	<div class="countdown">
 		<div class="item-countdown">
 			<div class="product-countdown"  
 				data-day="d"
@@ -325,7 +325,7 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 			</div>
 	<div class="products-content">
 		<div class="contents">
-			<h3 class="product-title"><a href="american-burgers/index.html">American Burgers</a></h3>
+			<h3 class="product-title"><a href="/shop/single">American Burgers</a></h3>
 			
 	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>79.00</bdi></span></span>
 			<div class="btn-atc">
@@ -339,12 +339,12 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 			<div class='product-lable'>
 									<div class="vgwc-label vgwc-featured hot">Hot</div>						
 			</div>
-<div class="product-thumb-hover"><a href="banana-leaf/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-22-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2018/10/1-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-1061" data-id="1061" data-product_name="Banana Leaf" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-22-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-22-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2018/10/1-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-1061" data-id="1061" data-product_name="Banana Leaf" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-22-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
 			<span class="product-quickview"><a href="#" data-product_id="1061" class="quickview quickview-button quickview-1061" >Quick View <i class="icon-Search"></i></a></span>		</div>
 			</div>
 	<div class="products-content">
 		<div class="contents">
-			<h3 class="product-title"><a href="banana-leaf/index.html">Banana Leaf</a></h3>
+			<h3 class="product-title"><a href="/shop/single">Banana Leaf</a></h3>
 			
 	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>100.00</bdi></span></span>
 			<div class="btn-atc">
@@ -358,12 +358,12 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 			<div class='product-lable'>
 									<div class="vgwc-label vgwc-featured hot">Hot</div>						
 			</div>
-<div class="product-thumb-hover"><a href="bbq-fries/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-5-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-13-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16508" data-id="16508" data-product_name="BBQ Fries" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-5-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-5-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-13-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16508" data-id="16508" data-product_name="BBQ Fries" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-5-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
 			<span class="product-quickview"><a href="#" data-product_id="16508" class="quickview quickview-button quickview-16508" >Quick View <i class="icon-Search"></i></a></span>		</div>
 			</div>
 	<div class="products-content">
 		<div class="contents">
-			<h3 class="product-title"><a href="bbq-fries/index.html">BBQ Fries</a></h3>
+			<h3 class="product-title"><a href="/shop/single">BBQ Fries</a></h3>
 			
 	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>1,200.00</bdi></span></span>
 			<div class="btn-atc">
@@ -377,12 +377,12 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 			<div class='product-lable'>
 									<div class="vgwc-label vgwc-featured hot">Hot</div>						
 			</div>
-<div class="product-thumb-hover"><a href="bonchon-chicken/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-20-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-11-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16318" data-id="16318" data-product_name="Bonchon Chicken" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-20-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-20-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-11-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16318" data-id="16318" data-product_name="Bonchon Chicken" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-20-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
 			<span class="product-quickview"><a href="#" data-product_id="16318" class="quickview quickview-button quickview-16318" >Quick View <i class="icon-Search"></i></a></span>		</div>
 			</div>
 	<div class="products-content">
 		<div class="contents">
-			<h3 class="product-title"><a href="bonchon-chicken/index.html">Bonchon Chicken</a></h3>
+			<h3 class="product-title"><a href="/shop/single">Bonchon Chicken</a></h3>
 			
 	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>200.00</bdi></span></span>
 			<div class="btn-atc">
@@ -396,12 +396,12 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 			<div class='product-lable'>
 								
 			</div>
-<div class="product-thumb-hover"><a href="burger-king/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-3-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-27-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16588" data-id="16588" data-product_name="Burger King" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-3-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-3-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-27-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16588" data-id="16588" data-product_name="Burger King" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-3-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
 			<span class="product-quickview"><a href="#" data-product_id="16588" class="quickview quickview-button quickview-16588" >Quick View <i class="icon-Search"></i></a></span>		</div>
 			</div>
 	<div class="products-content">
 		<div class="contents">
-			<h3 class="product-title"><a href="burger-king/index.html">Burger King</a></h3>
+			<h3 class="product-title"><a href="/shop/single">Burger King</a></h3>
 			
 	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>99.00</bdi></span></span>
 			<div class="btn-atc">
@@ -415,7 +415,7 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 			<div class='product-lable'>
 								
 					<div class="onsale">-50%</div>			</div>
-<div class="product-thumb-hover"><a href="cheddar-fries/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-11-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-13-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-10448" data-id="10448" data-product_name="Cheddar Fries" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-11-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-11-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-13-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-10448" data-id="10448" data-product_name="Cheddar Fries" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-11-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
 			<span class="product-quickview"><a href="#" data-product_id="10448" class="quickview quickview-button quickview-10448" >Quick View <i class="icon-Search"></i></a></span>		</div>
 					<div class="product-stock">    
 				<span class="stock">Out Of Stock</span>
@@ -423,11 +423,11 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 			</div>
 	<div class="products-content">
 		<div class="contents">
-			<h3 class="product-title"><a href="cheddar-fries/index.html">Cheddar Fries</a></h3>
+			<h3 class="product-title"><a href="/shop/single">Cheddar Fries</a></h3>
 			
 	<span class="price"><del aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>20.00</bdi></span></del> <span class="screen-reader-text">Original price was: &#036;20.00.</span><ins aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>10.00</bdi></span></ins><span class="screen-reader-text">Current price is: &#036;10.00.</span></span>
 			<div class="btn-atc">
-				<a rel="nofollow" href="cheddar-fries/index.html" data-quantity="1" data-product_id="10448" data-product_sku="U2006" class="button product_type_simple read_more ajax_add_to_cart">Read more</a>			</div>
+				<a rel="nofollow" href="/shop/single" data-quantity="1" data-product_id="10448" data-product_sku="U2006" class="button product_type_simple read_more ajax_add_to_cart">Read more</a>			</div>
 		</div>
 	</div>
 </div>
@@ -437,12 +437,12 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 			<div class='product-lable'>
 									<div class="vgwc-label vgwc-featured hot">Hot</div>						
 					<div class="onsale">-10%</div>			</div>
-<div class="product-thumb-hover"><a href="cheesecake/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-12-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-9-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16518" data-id="16518" data-product_name="Cheesecake" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-12-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-12-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-9-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16518" data-id="16518" data-product_name="Cheesecake" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-12-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
 			<span class="product-quickview"><a href="#" data-product_id="16518" class="quickview quickview-button quickview-16518" >Quick View <i class="icon-Search"></i></a></span>		</div>
 			</div>
 	<div class="products-content">
 		<div class="contents">
-			<h3 class="product-title"><a href="cheesecake/index.html">Cheesecake</a></h3>
+			<h3 class="product-title"><a href="/shop/single">Cheesecake</a></h3>
 			
 	<span class="price"><del aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>200.00</bdi></span></del> <span class="screen-reader-text">Original price was: &#036;200.00.</span><ins aria-hidden="true"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>180.00</bdi></span></ins><span class="screen-reader-text">Current price is: &#036;180.00.</span></span>
 			<div class="btn-atc">
@@ -456,7 +456,7 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 			<div class='product-lable'>
 									<div class="vgwc-label vgwc-featured hot">Hot</div>						
 			</div>
-<div class="product-thumb-hover"><a href="combo-salad/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-22-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-8-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16316" data-id="16316" data-product_name="Combo salad" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-22-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-22-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-8-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16316" data-id="16316" data-product_name="Combo salad" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-22-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
 			<span class="product-quickview"><a href="#" data-product_id="16316" class="quickview quickview-button quickview-16316" >Quick View <i class="icon-Search"></i></a></span>		</div>
 					<div class="product-stock">    
 				<span class="stock">Out Of Stock</span>
@@ -464,11 +464,11 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 			</div>
 	<div class="products-content">
 		<div class="contents">
-			<h3 class="product-title"><a href="combo-salad/index.html">Combo salad</a></h3>
+			<h3 class="product-title"><a href="/shop/single">Combo salad</a></h3>
 			
 	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>45.00</bdi></span></span>
 			<div class="btn-atc">
-				<a rel="nofollow" href="combo-salad/index.html" data-quantity="1" data-product_id="16316" data-product_sku="D1114" class="button product_type_simple read_more ajax_add_to_cart">Read more</a>			</div>
+				<a rel="nofollow" href="/shop/single" data-quantity="1" data-product_id="16316" data-product_sku="D1114" class="button product_type_simple read_more ajax_add_to_cart">Read more</a>			</div>
 		</div>
 	</div>
 </div>
@@ -478,12 +478,12 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 			<div class='product-lable'>
 								
 			</div>
-<div class="product-thumb-hover"><a href="florentine/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-11-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-6-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16521" data-id="16521" data-product_name="Florentine" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-11-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-11-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-6-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16521" data-id="16521" data-product_name="Florentine" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-11-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
 			<span class="product-quickview"><a href="#" data-product_id="16521" class="quickview quickview-button quickview-16521" >Quick View <i class="icon-Search"></i></a></span>		</div>
 			</div>
 	<div class="products-content">
 		<div class="contents">
-			<h3 class="product-title"><a href="florentine/index.html">Florentine</a></h3>
+			<h3 class="product-title"><a href="/shop/single">Florentine</a></h3>
 			
 	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>120.00</bdi></span></span>
 			<div class="btn-atc">
@@ -497,12 +497,12 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 			<div class='product-lable'>
 									<div class="vgwc-label vgwc-featured hot">Hot</div>						
 			</div>
-<div class="product-thumb-hover"><a href="french-fries/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-23-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-13-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16509" data-id="16509" data-product_name="French fries" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-23-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-23-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-13-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16509" data-id="16509" data-product_name="French fries" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-23-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
 			<span class="product-quickview"><a href="#" data-product_id="16509" class="quickview quickview-button quickview-16509" >Quick View <i class="icon-Search"></i></a></span>		</div>
 			</div>
 	<div class="products-content">
 		<div class="contents">
-			<h3 class="product-title"><a href="french-fries/index.html">French fries</a></h3>
+			<h3 class="product-title"><a href="/shop/single">French fries</a></h3>
 			
 	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>35.00</bdi></span></span>
 			<div class="btn-atc">
@@ -516,16 +516,16 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 			<div class='product-lable'>
 									<div class="vgwc-label vgwc-featured hot">Hot</div>						
 			</div>
-<div class="product-thumb-hover"><a href="heated-affair/index.html" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-6-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-7-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16514" data-id="16514" data-product_name="Heated Affair" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-6-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
+<div class="product-thumb-hover"><a href="/shop/single" class="woocommerce-LoopProduct-link"><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-6-600x600.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail wp-post-image" alt="" decoding="async" /><img loading="lazy" width="600" height="600" src="../wp-content/uploads/2019/04/american-burgers-7-600x600.jpg" class="hover-image back" alt="" decoding="async" /></a></div>		<button class="woosw-btn woosw-btn-16514" data-id="16514" data-product_name="Heated Affair" data-product_image="https://papzi.wpbingosite.com/wp-content/uploads/2019/04/american-burgers-6-720x484.jpg" aria-label="Add to wishlist">Add to wishlist</button>		<div class='product-button'>
 			<span class="product-quickview"><a href="#" data-product_id="16514" class="quickview quickview-button quickview-16514" >Quick View <i class="icon-Search"></i></a></span>		</div>
 			</div>
 	<div class="products-content">
 		<div class="contents">
-			<h3 class="product-title"><a href="heated-affair/index.html">Heated Affair</a></h3>
+			<h3 class="product-title"><a href="/shop/single">Heated Affair</a></h3>
 			
 	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>150.00</bdi></span> &ndash; <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>160.00</bdi></span></span>
 			<div class="btn-atc">
-				<a rel="nofollow" href="heated-affair/index.html" data-quantity="1" data-product_id="16514" data-product_sku="D2300-2" class="button product_type_variable add_to_cart_button">Select options</a>			</div>
+				<a rel="nofollow" href="/shop/single" data-quantity="1" data-product_id="16514" data-product_sku="D2300-2" class="button product_type_variable add_to_cart_button">Select options</a>			</div>
 		</div>
 	</div>
 </div>
@@ -534,8 +534,8 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
 							<nav class="woocommerce-pagination">
 	<ul class='page-numbers'>
 	<li><span aria-label="Page 1" aria-current="page" class="page-numbers current">1</span></li>
-	<li><a aria-label="Page 2" class="page-numbers" href="page/2/index.html">2</a></li>
-	<li><a class="next page-numbers" href="page/2/index.html">Next</a></li>
+	<li><a aria-label="Page 2" class="page-numbers" href="/shop">2</a></li>
+	<li><a class="next page-numbers" href="/shop">Next</a></li>
 </ul>
 </nav>
 						</div>
