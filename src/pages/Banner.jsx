@@ -7,6 +7,7 @@ import { useCart } from "../context/CartContext";
 import { HiMenu, HiX } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+
 // import "./mycss.css"
 import Header3 from "./Header3";
 import Header from "./Header";
@@ -105,7 +106,7 @@ useEffect(() => {
                       <div class="item-product-cat-content">
                               <a href="/shop">
                   <div class="item-image">
-                                          <img decoding="async" src="wp-content/uploads/2022/01/Image-2.jpg" alt="burgers" />
+                                          <img decoding="async" src="/wp-content/uploads/2022/01/Image-2.jpg" alt="burgers" />
                                       </div>
                 </a>
                                           
@@ -122,7 +123,7 @@ useEffect(() => {
                       <div class="item-product-cat-content">
                               <a href="/shop">
                   <div class="item-image">
-                                          <img decoding="async" src="wp-content/uploads/2022/01/Image-3.jpg" alt="combo-offer" />
+                                          <img decoding="async" src="/wp-content/uploads/2022/01/Image-3.jpg" alt="combo-offer" />
                                       </div>
                 </a>
                                           
@@ -139,7 +140,7 @@ useEffect(() => {
                       <div class="item-product-cat-content">
                               <a href="/shop">
                   <div class="item-image">
-                                          <img decoding="async" src="wp-content/uploads/2022/01/Image-4.jpg" alt="kids-menu" />
+                                          <img decoding="async" src="/wp-content/uploads/2022/01/Image-4.jpg" alt="kids-menu" />
                                       </div>
                 </a>
                                           
@@ -156,7 +157,7 @@ useEffect(() => {
                       <div class="item-product-cat-content">
                               <a href="/shop">
                   <div class="item-image">
-                                          <img decoding="async" src="wp-content/uploads/2022/01/Image-6.jpg" alt="pizza-menu" />
+                                          <img decoding="async" src="/wp-content/uploads/2022/01/Image-6.jpg" alt="pizza-menu" />
                                       </div>
                 </a>
                                           
@@ -173,7 +174,7 @@ useEffect(() => {
                       <div class="item-product-cat-content">
                               <a href="/shop">
                   <div class="item-image">
-                                          <img decoding="async" src="wp-content/uploads/2022/01/Image-5.jpg" alt="sandwich" />
+                                          <img decoding="async" src="/wp-content/uploads/2022/01/Image-5.jpg" alt="sandwich" />
                                       </div>
                 </a>
                                           
@@ -190,7 +191,7 @@ useEffect(() => {
                       <div class="item-product-cat-content">
                               <a href="/shop">
                   <div class="item-image">
-                                          <img decoding="async" src="wp-content/uploads/2022/01/Image-1.jpg" alt="sauces" />
+                                          <img decoding="async" src="/wp-content/uploads/2022/01/Image-1.jpg" alt="sauces" />
                                       </div>
                 </a>
                                           
@@ -207,7 +208,7 @@ useEffect(() => {
                       <div class="item-product-cat-content">
                               <a href="/shop">
                   <div class="item-image">
-                                          <img decoding="async" src="wp-content/uploads/2022/01/Image-3.jpg" alt="starbucks" />
+                                          <img decoding="async" src="/wp-content/uploads/2022/01/Image-3.jpg" alt="starbucks" />
                                       </div>
                 </a>
                                           

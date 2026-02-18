@@ -16,6 +16,21 @@ function App() {
   const content = useRoutes(routes);
   const navigate = useNavigate();
 
+useEffect(() => {
+  const imageUrls = [
+    "/wp-content/uploads/2022/01/Image-1.jpg",
+    "/wp-content/uploads/2022/01/Image-2.jpg",
+    "/wp-content/uploads/2022/01/Image-3.jpg",
+    "/wp-content/uploads/2022/01/Image-4.jpg",
+    "/wp-content/uploads/2022/01/Image-5.jpg",
+    "/wp-content/uploads/2022/01/Image-6.jpg",
+  ];
+
+  imageUrls.forEach((url) => {
+    const img = new Image();
+    img.src = url;
+  });
+}, []);
   return (
     <div>
   
