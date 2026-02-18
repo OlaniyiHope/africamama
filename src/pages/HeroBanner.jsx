@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 // ─── YOUR LOCAL IMAGES ────────────────────────────────────────────────────────
 import friedImg from "./media/fried.png";
 import saladImg from "../pages/media/fried.png";
+import { Link, useNavigate } from "react-router-dom";
 // import comboImg from "./media/combo.png";
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -46,7 +47,7 @@ export default function HeroBanner() {
   const [current, setCurrent] = useState(0);
   const [animOut, setAnimOut] = useState(false);
   const timerRef = useRef(null);
-
+const navigate = useNavigate();
   const resetTimer = () => {
     clearInterval(timerRef.current);
     timerRef.current = setInterval(() => go((current + 1) % slides.length), 6000);
@@ -90,7 +91,11 @@ export default function HeroBanner() {
           font-family: 'Nunito', sans-serif;
           transition: background 0.5s ease;
         }
-
+@media (max-width: 768px) {
+  .ppz__sub {
+    display: none;
+  }
+}
         /* ════════ SLIDE GRID — ALWAYS SIDE BY SIDE, NEVER STACKED ════════ */
         .ppz__slide {
           position: absolute;
@@ -423,7 +428,7 @@ export default function HeroBanner() {
             </div>
             <div className="ppz__h2">{s.headline2}</div>
             <p className="ppz__sub">{s.sub}</p>
-            <button className="ppz__btn">Order Now</button>
+<Link to="/shop/single" className="ppz__btn">Order Now</Link>
           </div>
 
           {/* RIGHT IMAGE */}

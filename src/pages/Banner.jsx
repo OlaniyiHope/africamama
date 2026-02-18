@@ -12,7 +12,7 @@ import Header3 from "./Header3";
 import Header from "./Header";
 import HeroBanner from "./HeroBanner";
 
-
+import logo from "./logo.png";
 const Banner = ({ cartCount = 1 }) => {
   const [menuOpen, setMenuOpen] = useState(false); // mobile menu
   const [categories, setCategories] = useState([]);
@@ -1212,7 +1212,7 @@ what I&#8217;ve been looking for. papzi is the real deal! It&#8217;s all good. &
       <div class="elementor-widget-wrap elementor-element-populated">
             <div class="elementor-element elementor-element-bd6f76c img elementor-widget-mobile__width-auto elementor-widget elementor-widget-image" data-id="bd6f76c" data-element_type="widget" data-widget_type="image.default">
         <div class="elementor-widget-container">
-                              <img width="319" height="120" src="wp-content/uploads/2022/01/logo-white.png" class="attachment-large size-large wp-image-37098" alt="" />															</div>
+                              <img width="319" height="120" src={logo} class="attachment-large size-large wp-image-37098" alt="" />															</div>
         </div>
           </div>
     </div>

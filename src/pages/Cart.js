@@ -14,7 +14,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import Header2 from "./Header2";
 import Header3 from "./Header3";
-
+import backgroundImg from "./media/back.jpg";
 
 const Cart = () => {
   // const { cartItems, removeFromCart, updateQuantity, clearCart } = useCart();
@@ -58,20 +58,46 @@ const [cartItems, setCartItems,  removeFromCart, updateQuantity, clearCart] = us
     <body className="wp-singular page-template-default page page-id-17 wp-theme-papzi theme-papzi woocommerce-cart woocommerce-page woocommerce-no-js cart banners-effect-6 elementor-default elementor-kit-9482">
       <Header />
       
-      <div id="bwp-main" className="bwp-main" style={{paddingTop: "200px"}}>
-        <div data-bg_default="https://papzi.wpbingosite.com/wp-content/uploads/2022/02/Image-9-1.jpg" className="page-title bwp-title" style={{backgroundImage: "url(https://papzi.wpbingosite.com/wp-content/uploads/2022/02/Image-9-1.jpg)"}}>
-          <div className="container">	
-            <div className="content-title-heading">
-              <span className="back-to-shop">Shop</span>
-              <h1 className="text-title-heading">Cart</h1>
-            </div>
-            <div id="breadcrumb" className="breadcrumb">
-              <div className="bwp-breadcrumb">
-                <Link to="/">Home</Link> <span className="delimiter"></span> <span className="current">Cart</span>
-              </div>
-            </div>			
-          </div>
-        </div>
+      <div id="bwp-main" className="bwp-main">
+   <div 
+  className="page-title bwp-title"  
+  style={{
+    backgroundImage: `url(${backgroundImg})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    minHeight: "300px",
+    position: "relative",
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center"
+  }}
+>
+  {/* Overlay */}
+  <div style={{
+    position: "absolute",
+    top: 0, left: 0, right: 0, bottom: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.3)",
+    zIndex: 1
+  }} />
+
+  <div className="container" style={{ position: "relative", zIndex: 2 }}>	
+    <div className="content-title-heading">
+      <h1 className="text-title-heading" style={{ color: "white", fontSize: "48px", fontWeight: "700", margin: "0 0 15px 0" }}>
+Cart
+      </h1>
+    </div>
+    <div id="breadcrumb" className="breadcrumb">
+      <div className="bwp-breadcrumb">
+        <Link to="/" style={{ color: "white" }}>Home</Link> 
+        <span style={{ color: "white", margin: "0 8px" }}>/</span> 
+        <span style={{ color: "white" }}>Cart</span>
+      </div>
+    </div>			
+  </div>
+</div>
 
         <div className="container">
           <div className="row">

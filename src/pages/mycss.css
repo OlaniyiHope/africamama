@@ -256,3 +256,35 @@
     display: none;
   }
 }
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #e74c3c;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0 3px;
+}
+
+.icons-cart i {
+  font-size: 28px;  /* increase this value to make it bigger */
+}
+
+.icons-cart {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.desktop-col-right .icons-cart i {
+  font-size: 26px;
+}

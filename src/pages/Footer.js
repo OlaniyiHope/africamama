@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 
-
+import logo from "./logo.png";
 const Footer = () => {
   return (
    <div id='page' class="hfeed page-wrapper  "  >
@@ -17,7 +17,7 @@ const Footer = () => {
 			<div class="elementor-widget-wrap elementor-element-populated">
 						<div class="elementor-element elementor-element-48a55d5 img elementor-widget elementor-widget-image" data-id="48a55d5" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
-															<img loading="lazy" width="319" height="120" src="../wp-content/uploads/2022/01/logo-white.png" class="attachment-large size-large wp-image-37098" alt="" />															</div>
+															<img loading="lazy" width="319" height="120" src={logo} class="attachment-large size-large wp-image-37098" alt="" />															</div>
 				</div>
 					</div>
 		</div>
