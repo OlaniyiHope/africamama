@@ -72,8 +72,8 @@ const { pathname } = useLocation();
                   </div> */}
 
                   <div className="wpbingoLogo" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-  <Link to="/"><img src={logo} alt="Papzi" /></Link>
-  <h6 style={{ margin: 0, whiteSpace: "nowrap", fontWeight: "800", fontSize: "20px"  }}>Africa Mama Put</h6>
+  <Link to="/"><img src={logo}  alt="Papzi" /></Link>
+  {/* <h6 style={{ margin: 0, whiteSpace: "nowrap", fontWeight: "800", fontSize: "20px"  }}>Africa Mama Put</h6> */}
 </div>
                 </div>
                 <div className="col-sm-3 col-3 header-right">
@@ -172,8 +172,8 @@ const { pathname } = useLocation();
                   {/* LEFT: Logo + Phone */}
                   <div className="col-xl-4 col-lg-4 header-left desktop-col-left">
                 <div className="wpbingoLogo" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-  <Link to="/"><img src={logo} alt="Papzi" /></Link>
-  <h6 style={{ margin: 0, whiteSpace: "nowrap", fontWeight: "800", fontSize: "20px"  }}>Africa Mama Put</h6>
+  <Link to="/"><img src={logo}  alt="Papzi" /></Link>
+  {/* <h6 style={{ margin: 0, whiteSpace: "nowrap", fontWeight: "800", fontSize: "20px"  }}>Africa Mama Put</h6> */}
 </div>
                     <div className="phone">
                       <a href="tel:934595876">934595876</a>
@@ -264,7 +264,7 @@ const { pathname } = useLocation();
 
         /* Logo image size */
         .wpbingoLogo img {
-          height: 36px;      /* ← constrains logo to fit compact header */
+          height: 96px;      /* ← constrains logo to fit compact header */
           width: auto;
         }
 
@@ -361,7 +361,15 @@ const { pathname } = useLocation();
           color: #333;
           line-height: 1;
         }
+.header-mobile .header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.header-mobile .wpbingoLogo {
+  justify-content: center;
+}
         .mobile-menu-list { list-style: none; margin: 0; padding: 0; }
         .mobile-menu-list > li > a,
         .mobile-menu-label {
