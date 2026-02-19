@@ -72,16 +72,7 @@ useEffect(() => {
  
   <Header />
   <div id="bwp-main" class="bwp-main">
-            <div data-bg_default ="https://papzi.wpbingosite.com/wp-content/uploads/2022/02/Image-9-1.jpg" class="page-title bwp-title"  style={{backgroundImage:"url(wp-content/uploads/2022/02/Image-9-1.jpg);"}}>
-        <div class="container" >	
-                    <div class="content-title-heading">
-    <span class="back-to-shop">Shop</span>
-    <h1 class="text-title-heading">
-      Home 1		</h1>
-  </div>
-                  <div id="breadcrumb" class="breadcrumb"><div class="bwp-breadcrumb"><a href="index.html">Home</a> <span class="delimiter"></span> <span class="current">Home 1</span> </div></div>			
-                        </div>
-      </div>
+       
       <div id="main-content" class="main-content">
   <div id="primary" class="content-area container">
     <div id="content" class="site-content" role="main">
@@ -228,7 +219,7 @@ useEffect(() => {
     </div>
           </div>
     </section>
-        <section class="elementor-section elementor-inner-section elementor-element elementor-element-5eec500 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5eec500" data-element_type="section">
+        {/* <section class="elementor-section elementor-inner-section elementor-element elementor-element-5eec500 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5eec500" data-element_type="section">
             <div class="elementor-container elementor-column-gap-default">
           <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-605b04a" data-id="605b04a" data-element_type="column">
       <div class="elementor-widget-wrap elementor-element-populated">
@@ -330,7 +321,7 @@ useEffect(() => {
           </div>
     </div>
           </div>
-    </section>
+    </section> */}
         <section class="elementor-section elementor-inner-section elementor-element elementor-element-c8db585 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c8db585" data-element_type="section">
             <div class="elementor-container elementor-column-gap-default">
           <div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-645c144" data-id="645c144" data-element_type="column">

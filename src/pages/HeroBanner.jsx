@@ -10,7 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 const slides = [
   {
     id: 1,
-    bg: "#e8360c",
+    bg: "#b90705",
     badge: { label: "Only", price: "$12.9", color: "#00a950" },
     tagText: "New",
     headlineInline: "CHICKEN",
@@ -21,7 +21,7 @@ const slides = [
   },
   {
     id: 2,
-    bg: "#e8360c",
+    bg: "#41a626",
     badge: { label: "Offer", price: "$14.9", color: "#f1252b" },
     tagText: "New",
     headlineInline: "PIZZA",
@@ -32,7 +32,7 @@ const slides = [
   },
   {
     id: 3,
-    bg: "#e8360c",
+    bg: "#faaf00",
     badge: { label: "Offer", price: "$14.9", color: "#ffb219" },
     tagText: "New",
     headlineInline: "FASTFOOD",
