@@ -168,7 +168,8 @@ const Event = () => {
               <div className="eltdf-title-inner">
                 <div className="eltdf-grid">
                   <div className="eltdf-title-info">
-                    <h5 className="eltdf-page-title entry-title">Gallery Portfolio</h5>
+                    <h5 className="eltdf-page-title entry-title"> Some of our recent events</h5>
+                    
                   </div>
                   <div className="eltdf-breadcrumbs-info">
                     <div itemProp="breadcrumb" className="eltdf-breadcrumbs">
@@ -176,7 +177,8 @@ const Event = () => {
                       <span className="eltdf-delimiter">
                         <BreadcrumbArrow />
                       </span>
-                      <span className="eltdf-current">Gallery Portfolio</span>
+                      <span className="eltdf-current">Events</span>
+                 
                     </div>
                   </div>
                 </div>
@@ -184,9 +186,33 @@ const Event = () => {
             </div>
           </div>
 
+          {/* ── Description — between banner and gallery ── */}
+          <div style={{
+            backgroundColor: "#0c1315",
+            padding: "40px 60px",
+            textAlign: "center",
+          }}>
+            <p style={{
+              color: "rgba(201,171,129,0.85)",
+              fontSize: "15px",
+              lineHeight: "1.8",
+              maxWidth: "800px",
+              margin: "0 auto",
+              fontWeight: 300,
+              letterSpacing: "0.03em",
+            }}>
+              We have successfully catered at weddings, corporate functions, parties and small
+              gatherings for over 20 years. To give you a glimpse of what we do, we have picked
+              out a selection of images that showcase some of our most recent events! For more
+              information, please contact us at{" "}
+              <strong style={{ color: "#C9AB81" }}>0208 3100 844</strong> or fill in our form.
+            </p>
+          </div>
+
           {/* Gallery Grid */}
           <div className="eltdf-full-width">
             <div className="eltdf-full-width-inner">
+
               <div className="eltdf-grid-lines-holder eltdf-grid-columns-5">
                 {[1, 2, 3, 4, 5].map((n) => (
                   <div key={n} className={`eltdf-grid-line eltdf-grid-column-${n}`} />
