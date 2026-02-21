@@ -13,13 +13,18 @@ p,
 span {
   font-family: "Space Grotesk", sans-serif !important;
 }
-/* App.css or index.css */
+/* Global rule */
 .eltdf-content {
-  padding-top: 90px; /* desktop header height */
+  padding-top: 90px;
 }
 
 @media (max-width: 1024px) {
   .eltdf-content {
-    padding-top: 70px; /* mobile header height */
+    padding-top: 70px;
   }
+}
+
+/* Homepage overrides the global rule — slider goes behind header */
+.eltdf-content.eltdf-home-content {
+  padding-top: 0 !important;
 }
