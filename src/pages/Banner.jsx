@@ -155,7 +155,7 @@ useEffect(() => {
 								data-frame_1="e:power2.inOut;st:750;sp:1300;sR:750;"
 								data-frame_999="y:50;o:0;e:power2.inOut;st:w;sp:1000;sR:2450;"
 							style={{zIndex:"8;", fontFamily:"metropolis1920regular, sans-serif;"}}
-							><a itemprop="url" href="portfolio-item/shrimp-pasta/index.html" target="_self"  class="eltdf-btn eltdf-btn-large eltdf-btn-outline"  >
+							><a itemprop="url" href="/shop" target="_self"  class="eltdf-btn eltdf-btn-large eltdf-btn-outline"  >
         <span class="eltdf-btn-text">View Menu Dishes</span>
         </a> 
 							</rs-layer>
@@ -292,7 +292,7 @@ useEffect(() => {
 								data-frame_1="e:power2.inOut;st:750;sp:1300;sR:750;"
 								data-frame_999="y:50;o:0;e:power2.inOut;st:w;sp:1000;sR:2450;"
 							style={{zIndex:"8;", fontFamily:"metropolis1920regular, sans-serif;"}}
-							><a itemprop="url" href="portfolio-item/shrimp-pasta/index.html" target="_self"  class="eltdf-btn eltdf-btn-large eltdf-btn-outline"  >
+							><a itemprop="url" href="/shop" target="_self"  class="eltdf-btn eltdf-btn-large eltdf-btn-outline"  >
         <span class="eltdf-btn-text">View Menu Dishes</span>
         </a> 
 							</rs-layer>
@@ -429,7 +429,7 @@ useEffect(() => {
 								data-frame_1="e:power2.inOut;st:750;sp:1300;sR:750;"
 								data-frame_999="y:50;o:0;e:power2.inOut;st:w;sp:1000;sR:2450;"
 							style={{zIndex:"8;", fontFamily:"metropolis1920regular, sans-serif;"}}
-							><a itemprop="url" href="portfolio-item/shrimp-pasta/index.html" target="_self"  class="eltdf-btn eltdf-btn-large eltdf-btn-outline"  >
+							><a itemprop="url" href="/shop" target="_self"  class="eltdf-btn eltdf-btn-large eltdf-btn-outline"  >
         <span class="eltdf-btn-text">View Menu Dishes</span>
         </a> 
 							</rs-layer>
