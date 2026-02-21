@@ -66,20 +66,21 @@ const navItems = [
     href: "/our-menu",
   },
   {
-    label: "Events",
+    label: "Catering & Events",
     href: "/event",
   },
+
   {
-    label: "Blog",
-    href: "/blog-post",
-  },
-  {
-    label: "Shop",
+    label: "Order",
     href: "/shop",
   },
   {
     label: "About",
     href: "/about-us",
+  },
+    {
+    label: "Blog",
+    href: "/blog-post",
   },
   {
     label: "Account",
