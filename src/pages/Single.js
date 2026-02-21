@@ -84,7 +84,7 @@ const Single = () => {
               {/* Cart Notice */}
               <div className="woocommerce-notices-wrapper">
                 <div className="woocommerce-message" role="alert">
-                  <a href="../../cart/index.html" tabIndex="1" className="button wc-forward">View cart</a> &ldquo;Pimms jug&rdquo; has been added to your cart.
+                  <a href="/cart" tabIndex="1" className="button wc-forward">View cart</a> &ldquo;Pimms jug&rdquo; has been added to your cart.
                 </div>
               </div>
 
