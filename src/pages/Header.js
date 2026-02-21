@@ -58,105 +58,28 @@ const CartSVG = ({ count }) => (
 /* ─── Nav Data ─── */
 const navItems = [
   {
-	label: "Home", href: "/",
-	children: [
-	  { label: "Main Home", href: "/" },
-	  { label: "Bar Home", href: "/bar-home" },
-	  { label: "Restaurant Home", href: "/restaurant-home" },
-	  { label: "Fine Dining", href: "/fine-dining" },
-	  { label: "Split Screen Showcase", href: "/split-screen-showcase" },
-	  { label: "Haute Cuisine", href: "/haute-cuisine" },
-	  { label: "Restaurant Menu", href: "/restaurant-menu" },
-	  { label: "Fullscreen Showcase", href: "/fullscreen-showcase" },
-	  { label: "Carousel Showcase", href: "/carousel-showcase" },
-	  { label: "Landing", href: "/landing" },
-	]
+    label: "Home",
+    href: "/",
   },
   {
-	label: "Pages", href: "#",
-	children: [
-	  { label: "About Us", href: "/about-us" },
-	  { label: "Meet The Chef", href: "/meet-the-chef" },
-	  { label: "Our Chefs", href: "/our-chefs" },
-	  { label: "Our Menu", href: "/our-menu" },
-	  { label: "Our Kitchen", href: "/our-kitchen" },
-	  { label: "Gallery Page", href: "/gallery-page" },
-	  { label: "Booking Page", href: "/booking-page" },
-	  { label: "Contact Us", href: "/contact-us" },
-	  { label: "Coming Soon", href: "/coming-soon" },
-	]
+    label: "Menu",
+    href: "/our-menu",
   },
   {
-	label: "Portfolio", href: "#",
-	children: [
-	  {
-		label: "Portfolio Types", href: "#", subChildren: [
-		  { label: "Gallery Portfolio", href: "/gallery-portfolio" },
-		  { label: "Standard Portfolio", href: "/standard-portfolio" },
-		  { label: "Slider Portfolio", href: "/slider-portfolio" },
-		]
-	  },
-	  {
-		label: "Portfolio Layout", href: "#", subChildren: [
-		  { label: "Two Col.", href: "/two-columns-portfolio" },
-		  { label: "Three Col.", href: "/three-columns-portfolio" },
-		  { label: "Three Col. Wide", href: "/three-columns-portfolio-wide" },
-		  { label: "Four Col.", href: "/four-columns-portfolio" },
-		  { label: "Four Col. Wide", href: "/four-columns-portfolio-wide" },
-		  { label: "Five Col. Wide", href: "/five-columns-portfolio-wide" },
-		]
-	  },
-	  {
-		label: "Portfolio Single", href: "#", subChildren: [
-		  { label: "Small Images", href: "/portfolio-item/shrimp-pasta" },
-		  { label: "Small Slider", href: "/portfolio-item/beef-steak" },
-		  { label: "Large Slider", href: "/portfolio-item/chicken-file" },
-		  { label: "Large Images", href: "/portfolio-item/punch-party" },
-		  { label: "Gallery", href: "/portfolio-item/delicious-fruit-punch" },
-		]
-	  },
-	]
+    label: "Order",
+    href: "/shop",
   },
   {
-	label: "Blog", href: "#",
-	children: [
-	  { label: "Blog Standard", href: "/blog-standard" },
-	  { label: "Blog Left Sidebar", href: "/blog-left-sidebar" },
-	  { label: "Blog No Sidebar", href: "/blog-no-sidebar" },
-	  { label: "Blog Classic", href: "/blog-classic" },
-	  {
-		label: "Post Types", href: "#", subChildren: [
-		  { label: "Standard", href: "/elegant-food" },
-		  { label: "Quote", href: "/food-inspiration" },
-		  { label: "Link", href: "/wnim-ad-minim" },
-		  { label: "Audio", href: "/the-royal-charm" },
-		  { label: "Video", href: "/our-speciality" },
-		  { label: "Gallery", href: "/delicious-desserts" },
-		  { label: "No Sidebar", href: "/fine-dining-space" },
-		]
-	  },
-	]
+    label: "Blog",
+    href: "/blog-standard",
   },
   {
-	label: "Shop", href: "#",
-	children: [
-	  { label: "Product List", href: "/shop" },
-	  { label: "Product Single", href: "/product/dadiho-de-tapo" },
-	  {
-		label: "Shop Layouts", href: "#", subChildren: [
-		  { label: "Three Col.", href: "/shop-three-columns" },
-		  { label: "Four Col.", href: "/shop-four-columns" },
-		  { label: "Full Width", href: "/shop-full-width" },
-		]
-	  },
-	  {
-		label: "Shop Pages", href: "#", subChildren: [
-		  { label: "My Account", href: "/my-account" },
-		  { label: "Checkout", href: "/checkout" },
-		  { label: "Cart", href: "/cart" },
-		]
-	  },
-	]
+    label: "Shop",
+    href: "/shop",
+  },
+  {
+    label: "Account",
+    href: "/my-account",
   },
 ];
 
