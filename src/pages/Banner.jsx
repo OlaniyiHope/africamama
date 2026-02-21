@@ -8,7 +8,7 @@ import { HiMenu, HiX } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
-// import "./mycss.css"
+import "./Banner.css"
 import Header3 from "./Header3";
 import Header from "./Header";
 import HeroBanner from "./HeroBanner";
@@ -68,9 +68,11 @@ useEffect(() => {
 
   return (
 <>
-   <div>
+<body class="home page-template page-template-full-width page-template-full-width-php page page-id-7 theme-laurent laurent-core-2.4.3 woocommerce-no-js laurent-ver-3.4.1 eltdf-grid-1300 eltdf-content-is-behind-header eltdf-wide-dropdown-menu-content-in-grid eltdf-no-behavior eltdf-dropdown-animate-height eltdf-header-standard eltdf-menu-area-shadow-disable eltdf-menu-area-in-grid-shadow-disable eltdf-menu-area-in-grid-border-disable eltdf-logo-area-border-disable eltdf-logo-area-in-grid-border-disable eltdf-header-vertical-shadow-disable eltdf-header-vertical-border-disable eltdf-side-menu-slide-from-right eltdf-woocommerce-columns-2 eltdf-woo-normal-space eltdf-woo-pl-info-below-image eltdf-woo-single-thumb-below-image eltdf-woo-single-has-pretty-photo eltdf-default-mobile-header eltdf-sticky-up-mobile-header qode-export-1.0 wpb-js-composer js-comp-ver-7.9 vc_responsive" itemscope itemtype="https://schema.org/WebPage">
     
- 
+     <div class="eltdf-wrapper">
+        <div class="eltdf-wrapper-inner">
+            <div class="eltdf-double-grid-line-one"></div><div class="eltdf-double-grid-line-two"></div>
   <Header />
  		<a id='eltdf-back-to-top' href='#'>
         
@@ -1061,6 +1063,9 @@ useEffect(() => {
       </div>
       
       <Footer />
+
+	  </div>
+	  </body>
 	  </>
       
 
