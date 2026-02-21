@@ -307,7 +307,7 @@ const SideMenuPanel = ({ open, onClose }) => (
 		letterSpacing: "0.04em", textAlign: "center",
 		margin: "0 0 6px", fontWeight: 300,
 	  }}>
-		107 Duncan Avenue, New York
+Liverpool, United Kingdom
 	  </p>
 
 	  {/* Phone */}
@@ -316,7 +316,7 @@ const SideMenuPanel = ({ open, onClose }) => (
 		letterSpacing: "0.04em", textAlign: "center",
 		margin: "0 0 6px", fontWeight: 300,
 	  }}>
-		914-309-7030,
+		0787689686,
 	  </p>
 
 	  {/* Hours */}
@@ -325,14 +325,14 @@ const SideMenuPanel = ({ open, onClose }) => (
 		letterSpacing: "0.04em", textAlign: "center",
 		margin: "0 0 60px", fontWeight: 300,
 	  }}>
-		Open: 09:00 am – 01:00 pm
+		Open: 10:00 am – 09:00 pm(Monday -Thursday) <br />10:00am - 11:00pm(Friday to Saturday)<br />Sunday - Closed
 	  </p>
 
 	  {/* Social links */}
 	  {["Facebook", "Instagram", "Trip Advisor"].map((social) => (
 		<div key={social} style={{ marginBottom: 28, textAlign: "center" }}>
 		  <a
-			href="#"
+			href="african_mamaput"
 			onClick={(e) => e.preventDefault()}
 			style={{
 			  color: "#C9AB81",
