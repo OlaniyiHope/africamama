@@ -78,7 +78,7 @@ useEffect(() => {
         
             </a>
 			        
-            <div class="eltdf-content" style={{marginTop: "-110px"}}>
+            <div class="eltdf-content" >
                 <div class="eltdf-content-inner">
 <div class="eltdf-full-width">
     	<div class="eltdf-full-width-inner">
