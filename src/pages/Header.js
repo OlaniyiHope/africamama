@@ -71,7 +71,7 @@ const navItems = [
   },
   {
     label: "Blog",
-    href: "/blog-standard",
+    href: "/blog-post",
   },
   {
     label: "Shop",
