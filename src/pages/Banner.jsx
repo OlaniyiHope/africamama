@@ -156,7 +156,7 @@ useEffect(() => {
 								data-frame_999="y:50;o:0;e:power2.inOut;st:w;sp:1000;sR:2450;"
 							style={{zIndex:"8;", fontFamily:"metropolis1920regular, sans-serif;"}}
 							><a itemprop="url" href="portfolio-item/shrimp-pasta/index.html" target="_self"  class="eltdf-btn eltdf-btn-large eltdf-btn-outline"  >
-        <span class="eltdf-btn-text">View More</span>
+        <span class="eltdf-btn-text">View Menu Dishes</span>
         </a> 
 							</rs-layer>
 
@@ -293,7 +293,7 @@ useEffect(() => {
 								data-frame_999="y:50;o:0;e:power2.inOut;st:w;sp:1000;sR:2450;"
 							style={{zIndex:"8;", fontFamily:"metropolis1920regular, sans-serif;"}}
 							><a itemprop="url" href="portfolio-item/shrimp-pasta/index.html" target="_self"  class="eltdf-btn eltdf-btn-large eltdf-btn-outline"  >
-        <span class="eltdf-btn-text">View More</span>
+        <span class="eltdf-btn-text">View Menu Dishes</span>
         </a> 
 							</rs-layer>
 
@@ -430,7 +430,7 @@ useEffect(() => {
 								data-frame_999="y:50;o:0;e:power2.inOut;st:w;sp:1000;sR:2450;"
 							style={{zIndex:"8;", fontFamily:"metropolis1920regular, sans-serif;"}}
 							><a itemprop="url" href="portfolio-item/shrimp-pasta/index.html" target="_self"  class="eltdf-btn eltdf-btn-large eltdf-btn-outline"  >
-        <span class="eltdf-btn-text">View More</span>
+        <span class="eltdf-btn-text">View Menu Dishes</span>
         </a> 
 							</rs-layer>
 
@@ -626,7 +626,12 @@ useEffect(() => {
 		<div class="eltdf-eh-item-content eltdf-eh-custom-4257" >
 					</div>
 	</div>
-</div></div></div></div></div></div><div class="eltdf-row-grid-section-wrapper eltdf-content-aligment-center"  ><div class="eltdf-row-grid-section"><div class="vc_row wpb_row vc_row-fluid vc_custom_1577721730223" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-elements-holder   eltdf-two-columns  eltdf-responsive-mode-1024  fifty-fifty" ><div class="eltdf-eh-item    "  data-item-class="eltdf-eh-custom-8914" data-1025-1399="0 6% 0 0" data-769-1024="0 0" data-681-768="0 0" data-680="0 0">
+</div></div></div></div></div></div>
+
+
+
+
+{/* <div class="eltdf-row-grid-section-wrapper eltdf-content-aligment-center"  ><div class="eltdf-row-grid-section"><div class="vc_row wpb_row vc_row-fluid vc_custom_1577721730223" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-elements-holder   eltdf-two-columns  eltdf-responsive-mode-1024  fifty-fifty" ><div class="eltdf-eh-item    "  data-item-class="eltdf-eh-custom-8914" data-1025-1399="0 6% 0 0" data-769-1024="0 0" data-681-768="0 0" data-680="0 0">
 	<div class="eltdf-eh-item-inner">
 		<div class="eltdf-eh-item-content eltdf-eh-custom-8914" style={{padding: "0 7.8% 0 0"}}>
 			<div class="eltdf-single-image-holder     eltdf-image-appear-from-top">
@@ -662,7 +667,12 @@ useEffect(() => {
         <span class="eltdf-btn-text">View All</span>
         </a>		</div>
 	</div>
-</div></div></div></div></div></div></div></div><div class="eltdf-row-grid-section-wrapper "  style={{backgroundColor:"#0f1d22"}}><div class="eltdf-row-grid-section"><div class="vc_row wpb_row vc_row-fluid vc_custom_1577721733574" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-section-title-holder    eltdf-st-decor-animation" style={{padding: "0 3%", textAlign: "center"}}>
+</div></div></div></div></div></div></div></div> */}
+
+
+
+
+<div class="eltdf-row-grid-section-wrapper "  style={{backgroundColor:"#0f1d22"}}><div class="eltdf-row-grid-section"><div class="vc_row wpb_row vc_row-fluid vc_custom_1577721733574" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-section-title-holder    eltdf-st-decor-animation" style={{padding: "0 3%", textAlign: "center"}}>
 	<div class="eltdf-st-inner">
                     <span class="eltdf-st-tagline">
                 Special selection            </span>
@@ -848,7 +858,11 @@ useEffect(() => {
 			</div>
 </div>		</div>
 	</div>
-</div></div></div></div></div></div></div></div><div data-parallax-bg-image="https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/main-background-5.jpg" data-parallax-bg-speed="1" class="vc_row wpb_row vc_row-fluid vc_custom_1574159245515 eltdf-parallax-row-holder eltdf-content-aligment-center" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-video-button-holder  ">
+</div></div></div></div></div></div></div></div>
+
+
+
+{/* <div data-parallax-bg-image="https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/main-background-5.jpg" data-parallax-bg-speed="1" class="vc_row wpb_row vc_row-fluid vc_custom_1574159245515 eltdf-parallax-row-holder eltdf-content-aligment-center" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-video-button-holder  ">
 	<div class="eltdf-video-button-image">
 			</div>
 	    <a class="eltdf-video-button-play"  href="https://vimeo.com/369245407?iframe=true" data-rel="prettyPhoto[video_button_pretty_photo_822]">
@@ -858,7 +872,11 @@ useEffect(() => {
         </span>
 			</span>
 		</a>
-	</div></div></div></div></div><div class="vc_row wpb_row vc_row-fluid vc_custom_1573549706260 eltdf-content-aligment-center" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-section-title-holder    eltdf-st-decor-animation" style={{textAlign: "center"}}>
+	</div></div></div></div></div>
+	 */}
+	
+	
+	<div class="vc_row wpb_row vc_row-fluid vc_custom_1573549706260 eltdf-content-aligment-center" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-section-title-holder    eltdf-st-decor-animation" style={{textAlign: "center"}}>
 	<div class="eltdf-st-inner">
                     <span class="eltdf-st-tagline">
                 Laurent’s tasty offer            </span>
