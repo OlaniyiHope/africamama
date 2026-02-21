@@ -297,7 +297,7 @@ const SideMenuPanel = ({ open, onClose }) => (
 		letterSpacing: "0.05em", textAlign: "center",
 		margin: "0 0 10px", fontWeight: 300,
 	  }}>
-		Laurent Fine dining,
+		African Mama Put
 	  </p>
 
 	  {/* Address */}
