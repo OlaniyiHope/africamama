@@ -28,6 +28,13 @@ import Single from "./pages/Single";
 import WishList from "./pages/WishList";
 import About from "./pages/About";
 import Faq from "./pages/Faq";
+import Booking from "./pages/Booking";
+import Coming from "./pages/Coming";
+import Menu from "./pages/Menu";
+import Blog from "./pages/Blog";
+import SingleBlog from "./pages/SingleBlog";
+
+import Header2 from "./pages/Header2";
 
 
 const routes = [
@@ -39,11 +46,15 @@ const routes = [
     element: <Home />,
   },
   {
+    path: "/header", 
+    element: <Header2 />,
+  },
+  {
     path: "/shop", 
     element: <Shop />,
   },
   {
-    path: "/shop/single", 
+    path: "/single", 
     element: <Single />,
   },
   {
@@ -71,12 +82,32 @@ const routes = [
     element: <About />,
   },
   {
+    path: "/booking", 
+    element: <Booking />,
+  },
+  {
     path: "/contact", 
     element: <Contact />,
   },
   {
+    path: "/coming-soon", 
+    element: <Coming />,
+  },
+  {
+    path: "/our-menu", 
+    element: <Menu />,
+  },
+  {
     path: "/faq", 
     element: <Faq />,
+  },
+  {
+    path: "/blog-post", 
+    element: <Blog />,
+  },
+  {
+    path: "/single-blog-post", 
+    element: <SingleBlog />,
   },
 
 //   {

@@ -1,168 +1,273 @@
-import React, {useState, useContext} from "react";
-import Header2 from "./Header2";
+import React, { useState, useContext } from "react";
 import Footer from "./Footer";
+import Header from "./Header";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
-import {toast} from "react-toastify";
-import backgroundImg from "./media/back.jpg";
-import Header from "./Header";
-const Login = () => {
-   const [email, setEmail]       = useState("");
-  const [password, setPassword] = useState("");
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
+const Login = () => {
   const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [loginLoading, setLoginLoading] = useState(false);
+
+  const [regFullname, setRegFullname] = useState("");
+  const [regEmail, setRegEmail] = useState("");
+  const [regPassword, setRegPassword] = useState("");
+  const [regLoading, setRegLoading] = useState(false);
+
   const handleLogin = async (e) => {
     e.preventDefault();
-
-    if (!email || !password) {
-      toast.error("Email and password are required");
-      return;
-    }
-
-    dispatch({ type: "LOGIN_START" });
-
+    if (!loginEmail || !loginPassword) return toast.error("Email and password are required");
+    setLoginLoading(true);
     try {
       const { data } = await axios.post(
         `${process.env.REACT_APP_API_URL}/api/auth/login`,
-        { email, password }
+        { email: loginEmail, password: loginPassword }
       );
-
-      dispatch({ type: "LOGIN_SUCCESS", payload: data.user });
+      localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
-
+      dispatch({ type: "LOGIN_SUCCESS", payload: data.user });
       toast.success("Login successful!");
-
-      navigate("/"); // redirect to home
+      setTimeout(() => navigate("/"), 1500);
     } catch (err) {
-      const message = err.response?.data?.message || "Login failed";
-      dispatch({ type: "LOGIN_FAILURE", payload: message });
-      toast.error(message);
+      toast.error(err.response?.data?.message || "Login failed");
+    } finally {
+      setLoginLoading(false);
     }
   };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    if (!regFullname || !regEmail || !regPassword) return toast.error("All fields are required");
+    if (regPassword.length < 8) return toast.error("Password must be at least 8 characters");
+    setRegLoading(true);
+    try {
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/auth/signup`,
+        { fullname: regFullname, email: regEmail, password: regPassword }
+      );
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+      dispatch({ type: "LOGIN_SUCCESS", payload: data.user });
+      toast.success("Registration successful! Welcome 🎉");
+      setTimeout(() => navigate("/"), 1500);
+    } catch (err) {
+      toast.error(err.response?.data?.message || "Registration failed");
+    } finally {
+      setRegLoading(false);
+    }
+  };
+
   return (
-<body class="wp-singular page-template-default page page-id-19 wp-theme-papzi theme-papzi woocommerce-account woocommerce-page woocommerce-no-js my-account banners-effect-6 elementor-default elementor-kit-9482">
+    <>
+      <ToastContainer position="top-right" autoClose={3000} />
       <Header />
 
-   	<div id="bwp-main" class="bwp-main">
-					 <div 
-            className="page-title bwp-title"  
-            style={{
-              backgroundImage: `url(${backgroundImg})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              minHeight: "300px",
-              position: "relative",
-              width: "100%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center"
-            }}
-          >
-            {/* Overlay */}
-            <div style={{
-              position: "absolute",
-              top: 0, left: 0, right: 0, bottom: 0,
-              backgroundColor: "rgba(0, 0, 0, 0.3)",
-              zIndex: 1
-            }} />
-          
-            <div className="container" style={{ position: "relative", zIndex: 2 }}>	
-              <div className="content-title-heading">
-                <h1 className="text-title-heading" style={{ color: "white", fontSize: "48px", fontWeight: "700", margin: "0 0 15px 0" }}>
-                  MY Account
-                </h1>
-              </div>
-              <div id="breadcrumb" className="breadcrumb">
-                <div className="bwp-breadcrumb">
-                  <Link to="/" style={{ color: "white" }}>Home</Link> 
-                  <span style={{ color: "white", margin: "0 8px" }}>/</span> 
-                  <span style={{ color: "white" }}>Wishlist</span>
+      <a id="eltdf-back-to-top" href="#">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="43.047px" height="43.031px" viewBox="0 0 43.047 43.031" xmlSpace="preserve">
+          <circle fill="none" stroke="#BC9A6B" strokeMiterlimit="10" cx="21.523" cy="21.531" r="20.986"/>
+          <circle fill="none" stroke="#BC9A6B" className="eltdf-popout" strokeMiterlimit="10" cx="21.523" cy="21.531" r="16.049"/>
+          <polyline fill="none" stroke="#BC9A6B" strokeMiterlimit="10" points="15.205,23.875 21.523,18.573 27.842,23.875 "/>
+        </svg>
+      </a>
+
+      <div className="eltdf-content" style={{marginTop: "-110px"}}>
+        <div className="eltdf-content-inner">
+
+          {/* Page Title / Breadcrumb */}
+          <div className="eltdf-title-holder eltdf-standard-with-breadcrumbs-type eltdf-title-va-header-bottom" style={{height: "189px", backgroundColor: "#0c1315"}} data-height="189">
+            <div className="eltdf-grid-lines-holder eltdf-grid-columns-5">
+              <div className="eltdf-grid-line eltdf-grid-column-1"></div>
+              <div className="eltdf-grid-line eltdf-grid-column-2"></div>
+              <div className="eltdf-grid-line eltdf-grid-column-3"></div>
+              <div className="eltdf-grid-line eltdf-grid-column-4"></div>
+              <div className="eltdf-grid-line eltdf-grid-column-5"></div>
+            </div>
+            <div className="eltdf-title-wrapper" style={{height: "79px", paddingTop: "110px"}}>
+              <div className="eltdf-title-inner">
+                <div className="eltdf-grid">
+                  <div className="eltdf-title-info">
+                    <h5 className="eltdf-page-title entry-title">My account</h5>
+                  </div>
+                  <div className="eltdf-breadcrumbs-info">
+                    <div itemProp="breadcrumb" className="eltdf-breadcrumbs">
+                      <a itemProp="url" href="../index.html">Home</a>
+                      <span className="eltdf-delimiter">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.3 8.5" className="eltdf-breadcrumb-arrow">
+                          <polyline points="0.4 0.4 3.6 4.2 0.4 8.1 " />
+                          <polyline points="4.5 0.4 7.7 4.2 4.5 8.1 " />
+                        </svg>
+                      </span>
+                      <span className="eltdf-current">My account</span>
+                    </div>
+                  </div>
                 </div>
-              </div>			
+              </div>
             </div>
           </div>
-			<div class="container">
-	<div class="row">
-		<div class="col-lg-12 col-md-12">    
-			<div id="main-content" class="main-content">
-				<div id="primary" class="content-area">
-					<div id="content" class="site-content" role="main">
-						<article id="post-19" class="post-19 page type-page status-publish hentry">
-		<div class="entry-content clearfix">
-		<div class="woocommerce"><div class="woocommerce-notices-wrapper"></div><div class="col2-set row" id="customer_login">
-	<div class="col-lg-6 col-md-6 col-sm-12">
-		<div class="box-form-login">
-			<h2>Login</h2>
-			<div class="box-content">
-				<div class="form-login">
-					<form method="post" class="login">
-												<div class="username">
-							<label for="username">Username or email address <span class="required">*</span></label>
-							<input type="text" class="input-text" name="username" id="username" />
-						</div>
-						<div class="password">
-							<label for="password">Password <span class="required">*</span></label>
-							<input class="input-text" type="password" name="password" id="password" />
-						</div>
-												<div class="rememberme-lost">
-							<div class="rememberme">
-								<input name="rememberme" type="checkbox" id="rememberme" value="forever" />
-								<label for="rememberme" class="inline">Remember me</label>
-							</div>
-							<div class="lost_password">
-								<a href="lost-password/index.html">Lost your password?</a>
-							</div>
-						</div>
-						<div class="button-login">
-							<input type="hidden" id="woocommerce-login-nonce" name="woocommerce-login-nonce" value="9576f6aae3" /><input type="hidden" name="_wp_http_referer" value="/my-account/" />							<input type="submit" class="button" name="login" value="Login" /> 
-						</div>
-											</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-lg-6 col-md-6 col-sm-12">
-		<div class="box-form-login">
-			<h2 class="register">Register</h2>
-			<div class="box-content">
-				<div class="form-register">
-					<form method="post" class="register">
-																		<div class="email">
-							<label for="reg_email">Email address <span class="required">*</span></label>
-							<input type="email" class="input-text" name="email" id="reg_email" value="" />
-						</div>
-													<div class="password">
-								<label for="reg_password">Password <span class="required">*</span></label>
-								<input type="password" class="input-text" name="password" id="reg_password" />
-							</div>
-												
-						<div style={{left: "-999em", position: "absolute;"}}><label for="trap">Anti-spam</label><input type="text" name="email_2" id="trap" tabindex="-1" /></div>
-						<wc-order-attribution-inputs></wc-order-attribution-inputs><div class="woocommerce-privacy-policy-text"></div>												<div class="button-register">
-							<input type="hidden" id="woocommerce-register-nonce" name="woocommerce-register-nonce" value="30a81377c0" /><input type="hidden" name="_wp_http_referer" value="/my-account/" />							<input type="submit" class="button" name="register" value="Register" />
-						</div>
-											</form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-</div>
-	</div>
-</article>			</div>
-				</div>
-			</div>
-		</div>   
-    </div>
-</div>
-	</div>
+
+          {/* Main Container */}
+          <div className="eltdf-container eltdf-default-page-template">
+            <div className="eltdf-container-inner clearfix">
+              <div className="eltdf-grid-lines-holder eltdf-grid-columns-5">
+                <div className="eltdf-grid-line eltdf-grid-column-1"></div>
+                <div className="eltdf-grid-line eltdf-grid-column-2"></div>
+                <div className="eltdf-grid-line eltdf-grid-column-3"></div>
+                <div className="eltdf-grid-line eltdf-grid-column-4"></div>
+                <div className="eltdf-grid-line eltdf-grid-column-5"></div>
+              </div>
+
+              <div className="eltdf-grid-row">
+                <div className="eltdf-page-content-holder eltdf-grid-col-12">
+                  <div className="woocommerce">
+                    <div className="woocommerce-notices-wrapper"></div>
+
+                    {/* Login Form */}
+                    <h2>Login</h2>
+                    <form className="woocommerce-form woocommerce-form-login login" onSubmit={handleLogin}>
+                      <p className="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                        <label htmlFor="username">
+                          Username or email address&nbsp;
+                          <span className="required" aria-hidden="true">*</span>
+                          <span className="screen-reader-text">Required</span>
+                        </label>
+                        <input
+                          type="text"
+                          className="woocommerce-Input woocommerce-Input--text input-text"
+                          name="username"
+                          id="username"
+                          autoComplete="username"
+                          value={loginEmail}
+                          onChange={(e) => setLoginEmail(e.target.value)}
+                          required
+                          aria-required="true"
+                        />
+                      </p>
+                      <p className="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                        <label htmlFor="password">
+                          Password&nbsp;
+                          <span className="required" aria-hidden="true">*</span>
+                          <span className="screen-reader-text">Required</span>
+                        </label>
+                        <input
+                          className="woocommerce-Input woocommerce-Input--text input-text"
+                          type="password"
+                          name="password"
+                          id="password"
+                          autoComplete="current-password"
+                          value={loginPassword}
+                          onChange={(e) => setLoginPassword(e.target.value)}
+                          required
+                          aria-required="true"
+                        />
+                      </p>
+                      <p className="form-row">
+                        <label className="woocommerce-form__label woocommerce-form__label-for-checkbox woocommerce-form-login__rememberme">
+                          <input
+                            className="woocommerce-form__input woocommerce-form__input-checkbox"
+                            name="rememberme"
+                            type="checkbox"
+                            id="rememberme"
+                            defaultValue="forever"
+                          />
+                          <span>Remember me</span>
+                        </label>
+                        <button
+                          type="submit"
+                          className="woocommerce-button button woocommerce-form-login__submit"
+                          name="login"
+                          disabled={loginLoading}
+                        >
+                          {loginLoading ? "Logging in..." : "Log in"}
+                        </button>
+                      </p>
+                      <p className="woocommerce-LostPassword lost_password">
+                        <a href="lost-password/index.html">Lost your password?</a>
+                      </p>
+                    </form>
+
+                    {/* Register Form */}
+                    <h2>Register</h2>
+                    <form className="woocommerce-form woocommerce-form-register register" onSubmit={handleRegister}>
+                      <p className="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                        <label htmlFor="reg_fullname">
+                          Full name&nbsp;
+                          <span className="required" aria-hidden="true">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          className="woocommerce-Input woocommerce-Input--text input-text"
+                          name="fullname"
+                          id="reg_fullname"
+                          autoComplete="name"
+                          value={regFullname}
+                          onChange={(e) => setRegFullname(e.target.value)}
+                          required
+                          aria-required="true"
+                        />
+                      </p>
+                      <p className="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                        <label htmlFor="reg_email">
+                          Email address&nbsp;
+                          <span className="required" aria-hidden="true">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          className="woocommerce-Input woocommerce-Input--text input-text"
+                          name="email"
+                          id="reg_email"
+                          autoComplete="email"
+                          value={regEmail}
+                          onChange={(e) => setRegEmail(e.target.value)}
+                          required
+                          aria-required="true"
+                        />
+                      </p>
+                      <p className="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                        <label htmlFor="reg_password">
+                          Password&nbsp;
+                          <span className="required" aria-hidden="true">*</span>
+                        </label>
+                        <input
+                          type="password"
+                          className="woocommerce-Input woocommerce-Input--text input-text"
+                          name="password"
+                          id="reg_password"
+                          autoComplete="new-password"
+                          value={regPassword}
+                          onChange={(e) => setRegPassword(e.target.value)}
+                          required
+                          aria-required="true"
+                        />
+                      </p>
+                      <p className="form-row">
+                        <button
+                          type="submit"
+                          className="woocommerce-button button woocommerce-form-register__submit"
+                          name="register"
+                          disabled={regLoading}
+                        >
+                          {regLoading ? "Registering..." : "Register"}
+                        </button>
+                      </p>
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
       <Footer />
-    </body>
+    </>
   );
 };
 
