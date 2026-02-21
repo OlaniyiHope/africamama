@@ -78,6 +78,10 @@ const navItems = [
     href: "/shop",
   },
   {
+    label: "About",
+    href: "/about-us",
+  },
+  {
     label: "Account",
     href: "/my-account",
   },

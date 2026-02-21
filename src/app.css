@@ -13,3 +13,13 @@ p,
 span {
   font-family: "Space Grotesk", sans-serif !important;
 }
+/* App.css or index.css */
+.eltdf-content {
+  padding-top: 90px; /* desktop header height */
+}
+
+@media (max-width: 1024px) {
+  .eltdf-content {
+    padding-top: 70px; /* mobile header height */
+  }
+}

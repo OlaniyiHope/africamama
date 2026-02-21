@@ -879,7 +879,7 @@ useEffect(() => {
 	<div class="vc_row wpb_row vc_row-fluid vc_custom_1573549706260 eltdf-content-aligment-center" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-section-title-holder    eltdf-st-decor-animation" style={{textAlign: "center"}}>
 	<div class="eltdf-st-inner">
                     <span class="eltdf-st-tagline">
-                Laurent’s tasty offer            </span>
+Africa Mama Put tasty offer            </span>
         		            <div class="eltdf-st-title-holder">
                                     <div class="decor">
                                       
@@ -887,7 +887,7 @@ useEffect(() => {
                         
                         </div>
                                 <h1 class="eltdf-st-title" >
-                    Our Menu                </h1>
+                 Best Selling             </h1>
                                     <div class="decor">
                                       
                                       

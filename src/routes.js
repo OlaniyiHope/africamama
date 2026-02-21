@@ -35,6 +35,7 @@ import Blog from "./pages/Blog";
 import SingleBlog from "./pages/SingleBlog";
 
 import Header2 from "./pages/Header2";
+import Event from "./pages/Event";
 
 
 const routes = [
@@ -104,6 +105,10 @@ const routes = [
   {
     path: "/blog-post", 
     element: <Blog />,
+  },
+  {
+    path: "/event", 
+    element: <Event />,
   },
   {
     path: "/single-blog-post", 
