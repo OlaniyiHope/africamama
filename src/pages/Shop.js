@@ -101,10 +101,10 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
                           </div>
                         </div>
                         <div className="eltdf-pl-text-wrapper">
-                          <h6 className="eltdf-product-list-title"><a href="../product/tequila-shot/index.html">Tequila shot</a></h6>
+                          <h6 className="eltdf-product-list-title"><a href="/single">Tequila shot</a></h6>
                           <span className="price"><span className="woocommerce-Price-amount amount"><bdi><span className="woocommerce-Price-currencySymbol">&pound;</span>28.00</bdi></span></span>
                         </div>
-                        <a href="../product/tequila-shot/index.html" className="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
+                        <a href="/single" className="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
                       </li>
 
                       <li className="product type-product post-1763 status-publish instock product_cat-cocktails product_tag-cocktails product_tag-sweet has-post-thumbnail shipping-taxable purchasable product-type-simple">
@@ -122,10 +122,10 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
                           </div>
                         </div>
                         <div className="eltdf-pl-text-wrapper">
-                          <h6 className="eltdf-product-list-title"><a href="../product/pimms-jug-2/index.html">Pimms jug</a></h6>
+                          <h6 className="eltdf-product-list-title"><a href="/single">Pimms jug</a></h6>
                           <span className="price"><span className="woocommerce-Price-amount amount"><bdi><span className="woocommerce-Price-currencySymbol">&pound;</span>22.00</bdi></span></span>
                         </div>
-                        <a href="../product/pimms-jug-2/index.html" className="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
+                        <a href="/single" className="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
                       </li>
 
                       <li className="product type-product post-1762 status-publish last instock product_cat-cocktails product_tag-cuisine product_tag-sweet has-post-thumbnail shipping-taxable purchasable product-type-simple">
@@ -143,10 +143,10 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
                           </div>
                         </div>
                         <div className="eltdf-pl-text-wrapper">
-                          <h6 className="eltdf-product-list-title"><a href="../product/coco-spice-2/index.html">Coco spice</a></h6>
+                          <h6 className="eltdf-product-list-title"><a href="/single">Coco spice</a></h6>
                           <span className="price"><span className="woocommerce-Price-amount amount"><bdi><span className="woocommerce-Price-currencySymbol">&pound;</span>17.00</bdi></span></span>
                         </div>
-                        <a href="../product/coco-spice-2/index.html" className="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
+                        <a href="/single" className="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
                       </li>
 
                       <li className="product type-product post-1761 status-publish first instock product_cat-cocktails product_tag-breakfast product_tag-sea-food has-post-thumbnail shipping-taxable purchasable product-type-simple">
@@ -164,10 +164,10 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
                           </div>
                         </div>
                         <div className="eltdf-pl-text-wrapper">
-                          <h6 className="eltdf-product-list-title"><a href="../product/punch-2/index.html">Punch</a></h6>
+                          <h6 className="eltdf-product-list-title"><a href="/single">Punch</a></h6>
                           <span className="price"><span className="woocommerce-Price-amount amount"><bdi><span className="woocommerce-Price-currencySymbol">&pound;</span>17.00</bdi></span></span>
                         </div>
-                        <a href="../product/punch-2/index.html" className="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
+                        <a href="/single" className="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
                       </li>
 
                       <li className="product type-product post-1485 status-publish instock product_cat-cocktails product_tag-breakfast product_tag-sea-food has-post-thumbnail shipping-taxable purchasable product-type-simple">
@@ -185,10 +185,10 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
                           </div>
                         </div>
                         <div className="eltdf-pl-text-wrapper">
-                          <h6 className="eltdf-product-list-title"><a href="../product/punch/index.html">Punch</a></h6>
+                          <h6 className="eltdf-product-list-title"><a href="/single">Punch</a></h6>
                           <span className="price"><span className="woocommerce-Price-amount amount"><bdi><span className="woocommerce-Price-currencySymbol">&pound;</span>17.00</bdi></span></span>
                         </div>
-                        <a href="../product/punch/index.html" className="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
+                        <a href="/single" className="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
                       </li>
 
                       <li className="product type-product post-1477 status-publish last instock product_cat-cocktails product_tag-cuisine product_tag-sweet has-post-thumbnail shipping-taxable purchasable product-type-simple">
@@ -206,10 +206,10 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
                           </div>
                         </div>
                         <div className="eltdf-pl-text-wrapper">
-                          <h6 className="eltdf-product-list-title"><a href="../product/coco-spice/index.html">Coco spice</a></h6>
+                          <h6 className="eltdf-product-list-title"><a href="/single">Coco spice</a></h6>
                           <span className="price"><span className="woocommerce-Price-amount amount"><bdi><span className="woocommerce-Price-currencySymbol">&pound;</span>17.00</bdi></span></span>
                         </div>
-                        <a href="../product/coco-spice/index.html" className="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
+                        <a href="/single" className="woocommerce-LoopProduct-link woocommerce-loop-product__link"></a>
                       </li>
 
                     </ul>
@@ -264,21 +264,21 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
                       <div className="eltdf-widget-title-holder"><h6 className="eltdf-widget-title">Products</h6></div>
                       <ul className="product_list_widget">
                         <li>
-                          <a href="../product/tequila-shot/index.html">
+                          <a href="/single">
                             <img width="600" height="600" src="../wp-content/uploads/2019/11/home-8-img-shop-9-600x600.jpg" className="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="a" decoding="async" loading="lazy" srcSet="https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-9-600x600.jpg 600w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-9-300x300.jpg 300w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-9-150x150.jpg 150w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-9-768x768.jpg 768w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-9-650x650.jpg 650w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-9-100x100.jpg 100w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-9.jpg 800w" sizes="(max-width: 600px) 100vw, 600px" />
                             <span className="product-title">Tequila shot</span>
                           </a>
                           <span className="woocommerce-Price-amount amount"><bdi><span className="woocommerce-Price-currencySymbol">&pound;</span>28.00</bdi></span>
                         </li>
                         <li>
-                          <a href="../product/pimms-jug-2/index.html">
+                          <a href="/single">
                             <img width="600" height="600" src="../wp-content/uploads/2019/11/home-8-img-shop-7-600x600.jpg" className="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="d" decoding="async" loading="lazy" srcSet="https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-7-600x600.jpg 600w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-7-300x300.jpg 300w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-7-150x150.jpg 150w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-7-768x768.jpg 768w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-7-650x650.jpg 650w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-7-100x100.jpg 100w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-7.jpg 800w" sizes="(max-width: 600px) 100vw, 600px" />
                             <span className="product-title">Pimms jug</span>
                           </a>
                           <span className="woocommerce-Price-amount amount"><bdi><span className="woocommerce-Price-currencySymbol">&pound;</span>22.00</bdi></span>
                         </li>
                         <li>
-                          <a href="../product/coco-spice-2/index.html">
+                          <a href="/single">
                             <img width="600" height="600" src="../wp-content/uploads/2019/11/home-8-img-shop-8-600x600.jpg" className="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="d" decoding="async" loading="lazy" srcSet="https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-8-600x600.jpg 600w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-8-300x300.jpg 300w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-8-150x150.jpg 150w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-8-768x768.jpg 768w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-8-650x650.jpg 650w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-8-100x100.jpg 100w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/home-8-img-shop-8.jpg 800w" sizes="(max-width: 600px) 100vw, 600px" />
                             <span className="product-title">Coco spice</span>
                           </a>
