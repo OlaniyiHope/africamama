@@ -66,8 +66,8 @@ const navItems = [
     href: "/our-menu",
   },
   {
-    label: "Order",
-    href: "/shop",
+    label: "Events",
+    href: "/event",
   },
   {
     label: "Blog",
