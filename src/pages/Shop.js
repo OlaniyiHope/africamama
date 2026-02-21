@@ -26,7 +26,7 @@ const backgroundImg = "https://papzi.wpbingosite.com/wp-content/uploads/2022/02/
         </svg>
       </a>
 	        
-      <div className="eltdf-content" style={{marginTop: "-110px"}}>
+      <div className="eltdf-content" >
         <div className="eltdf-content-inner">
           <div className="eltdf-title-holder eltdf-standard-with-breadcrumbs-type eltdf-title-va-header-bottom" style={{height: "189px", backgroundColor: "#0c1315"}} data-height="189">
             <div className="eltdf-grid-lines-holder eltdf-grid-columns-5">

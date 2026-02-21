@@ -85,7 +85,7 @@ const Cart = () => {
         </svg>
       </a>
 
-      <div className="eltdf-content" style={{marginTop: "-110px"}}>
+      <div className="eltdf-content" >
         <div className="eltdf-content-inner">
 
           {/* Page Title / Breadcrumb */}

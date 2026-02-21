@@ -45,7 +45,7 @@ const Coming = () => {
         </svg>
       </a>
 
-      <div className="eltdf-content" style={{marginTop: "-110px"}}>
+      <div className="eltdf-content">
         <div className="eltdf-content-inner">
           <div className="eltdf-full-width">
             <div className="eltdf-full-width-inner">

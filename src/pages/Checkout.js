@@ -110,7 +110,7 @@ const Checkout = () => {
     <body>
       <Header />
       
-  <div class="eltdf-content" style={{marginTop: "-110px"}}>
+  <div class="eltdf-content" >
                 <div class="eltdf-content-inner">
 <div class="eltdf-title-holder eltdf-standard-with-breadcrumbs-type eltdf-title-va-header-bottom" style={{height: "189px;", backgroundColor: "#0c1315"}} data-height="189">
     <div class="eltdf-grid-lines-holder eltdf-grid-columns-5"><div class="eltdf-grid-line eltdf-grid-column-1"></div><div class="eltdf-grid-line eltdf-grid-column-2"></div><div class="eltdf-grid-line eltdf-grid-column-3"></div><div class="eltdf-grid-line eltdf-grid-column-4"></div><div class="eltdf-grid-line eltdf-grid-column-5"></div></div>    	<div class="eltdf-title-wrapper" style={{height: "79px;", paddingTop: "110px"}}>
