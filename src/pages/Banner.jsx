@@ -15,6 +15,7 @@ import HeroBanner from "./HeroBanner";
 
 import logo from "./logo.png";
 import Footer from "./Footer";
+import HeroSlider from "./HeroSlider";
 const Banner = ({ cartCount = 1 }) => {
   const [menuOpen, setMenuOpen] = useState(false); // mobile menu
   const [categories, setCategories] = useState([]);
@@ -86,7 +87,7 @@ useEffect(() => {
 				<div class="eltdf-page-content-holder eltdf-grid-col-12">
 					<div class="wpb-content-wrapper"><div class="eltdf-row-grid-section-wrapper eltdf-content-aligment-center"  ><div class="eltdf-row-grid-section"><div class="vc_row wpb_row vc_row-fluid" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
 		<p class="rs-p-wp-fix"></p>
-			<rs-module-wrap id="rev_slider_1_1_wrapper" data-source="gallery" style={{visibility:"hidden", background:"transparent", padding: "0;"}}>
+			{/* <rs-module-wrap id="rev_slider_1_1_wrapper" data-source="gallery" style={{visibility:"hidden", background:"transparent", padding: "0;"}}>
 				<rs-module id="rev_slider_1_1"  data-version="6.7.18">
 					<rs-slides style={{overflow: "hidden", position: "absolute;"}}>
 						<rs-slide style={{position: "absolute;"}} data-key="rs-8" data-title="Slide" data-thumb="//laurent.qodeinteractive.com/wp-content/uploads/2019/12/main-h-new-rev-img-1-50x100.jpg" data-in="o:0;" data-out="a:false;">
@@ -503,7 +504,9 @@ useEffect(() => {
 					</rs-slides>
 				</rs-module>
 	
-			</rs-module-wrap>
+			</rs-module-wrap> */}
+
+			<HeroSlider />
 
 </div></div></div></div></div></div>
 

@@ -1,31 +1,10 @@
-/* ── Load fonts ── */
+/* ── @import MUST be first ── */
+@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Josefin+Sans:wght@300;400&display=swap');
+
+/* ── Metropolis local font ── */
 @font-face {
   font-family: 'metropolis1920regular';
   src: url('../font/Metropolis1920-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Miniver&family=Josefin+Sans:wght@300;400&display=swap');
-
-/* ── DEFAULT: all rs-layers use Miniver ── */
-rs-layer {
-  font-family: 'Miniver', cursive !important;
-}
-
-/* ── JOSEFIN SANS: the paragraph/description text layers (layer-2) ── */
-#slider-1-slide-8-layer-2,
-#slider-1-slide-40-layer-2,
-#slider-1-slide-41-layer-2 {
-  font-family: 'Josefin Sans', sans-serif !important;
-}
-
-/* ── METROPOLIS: Best Dishes / Finest Drinks / Food Heaven (layers 4 & 5) ── */
-#slider-1-slide-8-layer-4,
-#slider-1-slide-8-layer-5,
-#slider-1-slide-40-layer-4,
-#slider-1-slide-40-layer-5,
-#slider-1-slide-41-layer-4,
-#slider-1-slide-41-layer-5 {
-  font-family: 'metropolis1920regular', sans-serif !important;
 }
