@@ -541,7 +541,7 @@ useEffect(() => {
                         </div>
                             </div>
 							<p class="eltdf-st-text" >
-				Lorem ipsum dolor sit amet, consectet adipisicing eli sed do eiu sm od tempor incididunt ut abore et dolore mag aliqua. Ut enim ad minm eniam quis nostrud.			</p>
+From Chester to every corner of the UK, we’re serving nostalgia, comfort, and good vibes through African food	</p>
 					</div>
 </div>		</div>
 	</div>
