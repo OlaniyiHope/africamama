@@ -398,6 +398,380 @@
 // };
 
 // export default Single;
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
+// import { Link, useParams } from "react-router-dom";
+// import "./style.css";
+// import Header from "./Header";
+// import Footer from "./Footer";
+
+// const Single = () => {
+//   const { id } = useParams();
+//   const [product, setProduct] = useState(null);
+//   const [loading, setLoading] = useState(true);
+//   const [activeTab, setActiveTab] = useState("description");
+//   const [quantity, setQuantity] = useState(1);
+//   const [selectedImage, setSelectedImage] = useState(0);
+
+//   useEffect(() => {
+//     setLoading(true);
+//     axios
+//       .get(`${process.env.REACT_APP_API_URL}/api/db/product/${id}`)
+//       .then((res) => {
+//         setProduct(res.data);
+//         setLoading(false);
+//       })
+//       .catch((err) => {
+//         console.error("Failed to fetch product:", err);
+//         setLoading(false);
+//       });
+//   }, [id]);
+
+//   if (loading) {
+//     return (
+//       <>
+//         <Header />
+//         <div style={{ height: "100vh", background: "#0c1315", display: "flex", alignItems: "center", justifyContent: "center" }}>
+//           <p style={{ color: "#C9AB81", letterSpacing: "0.2em", fontFamily: "Josefin Sans, sans-serif" }}>LOADING...</p>
+//         </div>
+//         <Footer />
+//       </>
+//     );
+//   }
+
+//   if (!product) {
+//     return (
+//       <>
+//         <Header />
+//         <div style={{ height: "60vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+//           <p style={{ color: "#888", fontSize: 18 }}>Product not found.</p>
+//         </div>
+//         <Footer />
+//       </>
+//     );
+//   }
+
+//   const images = product.images?.length > 0 ? product.images : [];
+//   const categoryName = product.category?.name || "";
+//   const categoryId = product.category?._id || product.category;
+
+//   return (
+//     <>
+//       <Header />
+
+//       <a id="eltdf-back-to-top" href="#">
+//         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="43.047px" height="43.031px" viewBox="0 0 43.047 43.031" xmlSpace="preserve">
+//           <circle fill="none" stroke="#BC9A6B" strokeMiterlimit="10" cx="21.523" cy="21.531" r="20.986" />
+//           <circle fill="none" stroke="#BC9A6B" className="eltdf-popout" strokeMiterlimit="10" cx="21.523" cy="21.531" r="16.049" />
+//           <polyline fill="none" stroke="#BC9A6B" strokeMiterlimit="10" points="15.205,23.875 21.523,18.573 27.842,23.875" />
+//         </svg>
+//       </a>
+
+//       <div className="eltdf-content">
+//         <div className="eltdf-content-inner">
+
+//           {/* ── Breadcrumb Bar ── */}
+//           <div
+//             className="eltdf-title-holder eltdf-standard-with-breadcrumbs-type eltdf-title-va-header-bottom"
+//             style={{ height: "189px", backgroundColor: "#0c1315" }}
+//           >
+//             <div className="eltdf-title-wrapper" style={{ height: "79px", paddingTop: "110px" }}>
+//               <div className="eltdf-title-inner">
+//                 <div className="eltdf-grid">
+//                   <div className="eltdf-title-info">
+//                     <h5 className="eltdf-page-title entry-title">{product.name}</h5>
+//                   </div>
+//                   <div className="eltdf-breadcrumbs-info">
+//                     <div itemProp="breadcrumb" className="eltdf-breadcrumbs">
+//                       <Link to="/">Home</Link>
+//                       <span className="eltdf-delimiter">
+//                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.3 8.5" className="eltdf-breadcrumb-arrow">
+//                           <polyline points="0.4 0.4 3.6 4.2 0.4 8.1" />
+//                           <polyline points="4.5 0.4 7.7 4.2 4.5 8.1" />
+//                         </svg>
+//                       </span>
+//                       <Link to="/shop">Shop</Link>
+//                       {categoryName && (
+//                         <>
+//                           <span className="eltdf-delimiter">
+//                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.3 8.5" className="eltdf-breadcrumb-arrow">
+//                               <polyline points="0.4 0.4 3.6 4.2 0.4 8.1" />
+//                               <polyline points="4.5 0.4 7.7 4.2 4.5 8.1" />
+//                             </svg>
+//                           </span>
+//                           <Link to={`/shop?category=${categoryId}`}>{categoryName}</Link>
+//                         </>
+//                       )}
+//                       <span className="eltdf-delimiter">
+//                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.3 8.5" className="eltdf-breadcrumb-arrow">
+//                           <polyline points="0.4 0.4 3.6 4.2 0.4 8.1" />
+//                           <polyline points="4.5 0.4 7.7 4.2 4.5 8.1" />
+//                         </svg>
+//                       </span>
+//                       <span className="eltdf-current">{product.name}</span>
+//                     </div>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+
+//           {/* ── Main Product Content ── */}
+//           <div className="eltdf-container">
+//             <div className="eltdf-container-inner clearfix">
+
+//               <div id={`product-${product._id}`} className="product">
+//                 <div className="eltdf-single-product-content">
+
+//                   {/* ── Product Gallery ── */}
+//                   <div className="woocommerce-product-gallery woocommerce-product-gallery--with-images images">
+//                     <div className="woocommerce-product-gallery__wrapper">
+//                       {images.length > 0 ? (
+//                         <>
+//                           {/* Main image */}
+//                           <div className="woocommerce-product-gallery__image">
+//                             <img
+//                               src={images[selectedImage]}
+//                               alt={product.name}
+//                               style={{ width: "100%", objectFit: "cover", maxHeight: 520 }}
+//                             />
+//                           </div>
+
+//                           {/* Thumbnail strip */}
+//                           {images.length > 1 && (
+//                             <div style={{ display: "flex", gap: 8, marginTop: 10, flexWrap: "wrap" }}>
+//                               {images.map((img, i) => (
+//                                 <img
+//                                   key={i}
+//                                   src={img}
+//                                   alt={`${product.name} ${i + 1}`}
+//                                   onClick={() => setSelectedImage(i)}
+//                                   style={{
+//                                     width: 80, height: 80, objectFit: "cover",
+//                                     cursor: "pointer",
+//                                     border: i === selectedImage ? "2px solid #C9AB81" : "2px solid transparent",
+//                                     opacity: i === selectedImage ? 1 : 0.65,
+//                                     transition: "all 0.2s ease",
+//                                   }}
+//                                 />
+//                               ))}
+//                             </div>
+//                           )}
+//                         </>
+//                       ) : (
+//                         <div style={{
+//                           width: "100%", height: 400,
+//                           background: "#1a2020",
+//                           display: "flex", alignItems: "center", justifyContent: "center",
+//                           color: "#C9AB81", letterSpacing: "0.1em",
+//                         }}>
+//                           NO IMAGE
+//                         </div>
+//                       )}
+//                     </div>
+//                   </div>
+
+//                   {/* ── Product Summary ── */}
+//                   <div className="eltdf-single-product-summary">
+//                     <div className="summary entry-summary">
+//                       <h3 itemProp="name" className="eltdf-single-product-title">{product.name}</h3>
+
+//                       <p className="price">
+//                         <span className="woocommerce-Price-amount amount">
+//                           <bdi>
+//                             <span className="woocommerce-Price-currencySymbol">₦</span>
+//                             {Number(product.price).toLocaleString()}
+//                           </bdi>
+//                         </span>
+//                       </p>
+
+//                       {product.description && (
+//                         <div className="woocommerce-product-details__short-description">
+//                           <p>{product.description}</p>
+//                         </div>
+//                       )}
+
+//                       {/* Quantity + Add to Cart */}
+//                       <div className="cart" style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 20 }}>
+//                         <div className="eltdf-quantity-buttons quantity">
+//                           <span
+//                             className="eltdf-quantity-minus"
+//                             onClick={() => setQuantity(q => Math.max(product.minimumQuantity || 1, q - 1))}
+//                             style={{ cursor: "pointer" }}
+//                           >
+//                             −
+//                           </span>
+//                           <input
+//                             type="text"
+//                             className="eltdf-quantity-input input-text qty text"
+//                             value={quantity}
+//                             readOnly
+//                             size="4"
+//                           />
+//                           <span
+//                             className="eltdf-quantity-plus"
+//                             onClick={() => setQuantity(q => q + 1)}
+//                             style={{ cursor: "pointer" }}
+//                           >
+//                             +
+//                           </span>
+//                         </div>
+//                         <button
+//                           className="single_add_to_cart_button button alt"
+//                           onClick={() => {
+//                             // TODO: wire up your cart context/state here
+//                             alert(`Added ${quantity} × ${product.name} to cart`);
+//                           }}
+//                         >
+//                           Add to cart
+//                         </button>
+//                       </div>
+
+//                       {/* Product Meta */}
+//                       <div className="product_meta" style={{ marginTop: 20 }}>
+//                         {product.weight && (
+//                           <span className="sku_wrapper">
+//                             Weight: <span className="sku">{product.weight} {product.unit}</span> &nbsp;|&nbsp;
+//                           </span>
+//                         )}
+//                         {categoryName && (
+//                           <span className="posted_in">
+//                             Category: <Link to={`/shop?category=${categoryId}`}>{categoryName}</Link>
+//                           </span>
+//                         )}
+//                         {product.tag?.length > 0 && (
+//                           <span className="tagged_as">
+//                             &nbsp;| Tags: {product.tag.join(", ")}
+//                           </span>
+//                         )}
+//                       </div>
+
+//                       {/* Stock info */}
+//                       {product.quantityAvailable !== undefined && (
+//                         <p style={{ marginTop: 10, fontSize: 13, color: product.quantityAvailable > 0 ? "#4caf50" : "#e53935" }}>
+//                           {product.quantityAvailable > 0 ? `In stock (${product.quantityAvailable} available)` : "Out of stock"}
+//                         </p>
+//                       )}
+
+//                     </div>
+//                   </div>
+//                 </div>
+
+//                 {/* ── Product Tabs ── */}
+//                 <div className="woocommerce-tabs wc-tabs-wrapper" style={{ marginTop: 40 }}>
+//                   <ul className="tabs wc-tabs" role="tablist">
+//                     {["description", "additional", "reviews"].map((tab) => (
+//                       <li
+//                         key={tab}
+//                         className={activeTab === tab ? "active" : ""}
+//                         role="tab"
+//                         style={{ cursor: "pointer" }}
+//                         onClick={() => setActiveTab(tab)}
+//                       >
+//                         <a href={`#tab-${tab}`} onClick={e => e.preventDefault()}>
+//                           {tab === "description" && "Description"}
+//                           {tab === "additional" && "Additional Information"}
+//                           {tab === "reviews" && `Reviews (${product.reviews?.length || 0})`}
+//                         </a>
+//                       </li>
+//                     ))}
+//                   </ul>
+
+//                   {/* Description */}
+//                   {activeTab === "description" && (
+//                     <div className="woocommerce-Tabs-panel panel" id="tab-description">
+//                       <h2>Description</h2>
+//                       <p>{product.description || "No description available."}</p>
+//                       {product.ingredients?.length > 0 && (
+//                         <>
+//                           <h4>Ingredients</h4>
+//                           <p>{product.ingredients.join(", ")}</p>
+//                         </>
+//                       )}
+//                       {product.allergens?.length > 0 && (
+//                         <>
+//                           <h4>Allergens</h4>
+//                           <p>{product.allergens.join(", ")}</p>
+//                         </>
+//                       )}
+//                       {product.features?.length > 0 && (
+//                         <>
+//                           <h4>Features</h4>
+//                           <ul>{product.features.map((f, i) => <li key={i}>{f}</li>)}</ul>
+//                         </>
+//                       )}
+//                     </div>
+//                   )}
+
+//                   {/* Additional Info */}
+//                   {activeTab === "additional" && (
+//                     <div className="woocommerce-Tabs-panel panel" id="tab-additional">
+//                       <h2>Additional Information</h2>
+//                       <table className="woocommerce-product-attributes shop_attributes">
+//                         <tbody>
+//                           {product.weight && (
+//                             <tr>
+//                               <th>Weight / Volume</th>
+//                               <td>{product.weight} {product.unit}</td>
+//                             </tr>
+//                           )}
+//                           {product.expiryInfo && (
+//                             <tr>
+//                               <th>Shelf Life</th>
+//                               <td>{product.expiryInfo}</td>
+//                             </tr>
+//                           )}
+//                           {product.storageInfo && (
+//                             <tr>
+//                               <th>Storage</th>
+//                               <td>{product.storageInfo}</td>
+//                             </tr>
+//                           )}
+//                           {product.minimumQuantity && (
+//                             <tr>
+//                               <th>Minimum Order</th>
+//                               <td>{product.minimumQuantity}</td>
+//                             </tr>
+//                           )}
+//                         </tbody>
+//                       </table>
+//                     </div>
+//                   )}
+
+//                   {/* Reviews */}
+//                   {activeTab === "reviews" && (
+//                     <div className="woocommerce-Tabs-panel panel" id="tab-reviews">
+//                       <div className="woocommerce-Reviews">
+//                         <h2>Reviews</h2>
+//                         {product.reviews?.length === 0 || !product.reviews ? (
+//                           <p className="woocommerce-noreviews">There are no reviews yet.</p>
+//                         ) : (
+//                           product.reviews.map((review, i) => (
+//                             <div key={i} style={{ borderBottom: "1px solid #eee", paddingBottom: 12, marginBottom: 12 }}>
+//                               <strong>{review.name}</strong> — ⭐ {review.rating}/5
+//                               <p>{review.comment}</p>
+//                             </div>
+//                           ))
+//                         )}
+//                       </div>
+//                     </div>
+//                   )}
+//                 </div>
+
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+
+//       <Footer />
+//     </>
+//   );
+// };
+
+// export default Single;
+
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
@@ -456,316 +830,393 @@ const Single = () => {
   const categoryId = product.category?._id || product.category;
 
   return (
-    <>
-      <Header />
+    <div className="product-template-default single single-product woocommerce woocommerce-page eltdf-woocommerce-page eltdf-woo-single-page eltdf-woocommerce-columns-4 eltdf-woo-normal-space eltdf-woo-pl-info-below-image eltdf-woo-single-thumb-below-image" itemScope itemType="https://schema.org/WebPage">
+      <div className="eltdf-wrapper">
+        <div className="eltdf-wrapper-inner">
+          <div className="eltdf-double-grid-line-one"></div>
+          <div className="eltdf-double-grid-line-two"></div>
 
-      <a id="eltdf-back-to-top" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="43.047px" height="43.031px" viewBox="0 0 43.047 43.031" xmlSpace="preserve">
-          <circle fill="none" stroke="#BC9A6B" strokeMiterlimit="10" cx="21.523" cy="21.531" r="20.986" />
-          <circle fill="none" stroke="#BC9A6B" className="eltdf-popout" strokeMiterlimit="10" cx="21.523" cy="21.531" r="16.049" />
-          <polyline fill="none" stroke="#BC9A6B" strokeMiterlimit="10" points="15.205,23.875 21.523,18.573 27.842,23.875" />
-        </svg>
-      </a>
+          <Header />
 
-      <div className="eltdf-content">
-        <div className="eltdf-content-inner">
+          <a id='eltdf-back-to-top' href='#'>
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="43.047px" height="43.031px" viewBox="0 0 43.047 43.031" xmlSpace="preserve">
+              <circle fill="none" stroke="#BC9A6B" strokeMiterlimit="10" cx="21.523" cy="21.531" r="20.986"/>
+              <circle fill="none" stroke="#BC9A6B" className="eltdf-popout" strokeMiterlimit="10" cx="21.523" cy="21.531" r="16.049"/>
+              <polyline fill="none" stroke="#BC9A6B" strokeMiterlimit="10" points="15.205,23.875 21.523,18.573 27.842,23.875 "/>
+            </svg>
+          </a>
 
-          {/* ── Breadcrumb Bar ── */}
-          <div
-            className="eltdf-title-holder eltdf-standard-with-breadcrumbs-type eltdf-title-va-header-bottom"
-            style={{ height: "189px", backgroundColor: "#0c1315" }}
-          >
-            <div className="eltdf-title-wrapper" style={{ height: "79px", paddingTop: "110px" }}>
-              <div className="eltdf-title-inner">
-                <div className="eltdf-grid">
-                  <div className="eltdf-title-info">
-                    <h5 className="eltdf-page-title entry-title">{product.name}</h5>
-                  </div>
-                  <div className="eltdf-breadcrumbs-info">
-                    <div itemProp="breadcrumb" className="eltdf-breadcrumbs">
-                      <Link to="/">Home</Link>
-                      <span className="eltdf-delimiter">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.3 8.5" className="eltdf-breadcrumb-arrow">
-                          <polyline points="0.4 0.4 3.6 4.2 0.4 8.1" />
-                          <polyline points="4.5 0.4 7.7 4.2 4.5 8.1" />
-                        </svg>
-                      </span>
-                      <Link to="/shop">Shop</Link>
-                      {categoryName && (
-                        <>
+          <div className="eltdf-content">
+            <div className="eltdf-content-inner">
+
+              {/* Page Title / Breadcrumb */}
+              <div className="eltdf-title-holder eltdf-standard-with-breadcrumbs-type eltdf-title-va-header-bottom" style={{height: "189px", backgroundColor: "#0c1315"}} data-height="189">
+                <div className="eltdf-grid-lines-holder eltdf-grid-columns-5">
+                  <div className="eltdf-grid-line eltdf-grid-column-1"></div>
+                  <div className="eltdf-grid-line eltdf-grid-column-2"></div>
+                  <div className="eltdf-grid-line eltdf-grid-column-3"></div>
+                  <div className="eltdf-grid-line eltdf-grid-column-4"></div>
+                  <div className="eltdf-grid-line eltdf-grid-column-5"></div>
+                </div>
+                <div className="eltdf-title-wrapper" style={{height: "79px", paddingTop: "110px"}}>
+                  <div className="eltdf-title-inner">
+                    <div className="eltdf-grid">
+                      <div className="eltdf-title-info">
+                        <h5 className="eltdf-page-title entry-title">{product.name}</h5>
+                      </div>
+                      <div className="eltdf-breadcrumbs-info">
+                        <div itemProp="breadcrumb" className="eltdf-breadcrumbs">
+                          <Link itemProp="url" to="/">Home</Link>
                           <span className="eltdf-delimiter">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.3 8.5" className="eltdf-breadcrumb-arrow">
-                              <polyline points="0.4 0.4 3.6 4.2 0.4 8.1" />
-                              <polyline points="4.5 0.4 7.7 4.2 4.5 8.1" />
+                              <polyline points="0.4 0.4 3.6 4.2 0.4 8.1 " />
+                              <polyline points="4.5 0.4 7.7 4.2 4.5 8.1 " />
                             </svg>
                           </span>
-                          <Link to={`/shop?category=${categoryId}`}>{categoryName}</Link>
-                        </>
-                      )}
-                      <span className="eltdf-delimiter">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.3 8.5" className="eltdf-breadcrumb-arrow">
-                          <polyline points="0.4 0.4 3.6 4.2 0.4 8.1" />
-                          <polyline points="4.5 0.4 7.7 4.2 4.5 8.1" />
-                        </svg>
-                      </span>
-                      <span className="eltdf-current">{product.name}</span>
+                          <Link itemProp="url" to="/shop">Shop</Link>
+                          {categoryName && (
+                            <>
+                              <span className="eltdf-delimiter">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.3 8.5" className="eltdf-breadcrumb-arrow">
+                                  <polyline points="0.4 0.4 3.6 4.2 0.4 8.1 " />
+                                  <polyline points="4.5 0.4 7.7 4.2 4.5 8.1 " />
+                                </svg>
+                              </span>
+                              <Link to={`/shop?category=${categoryId}`}>{categoryName}</Link>
+                            </>
+                          )}
+                          <span className="eltdf-delimiter">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.3 8.5" className="eltdf-breadcrumb-arrow">
+                              <polyline points="0.4 0.4 3.6 4.2 0.4 8.1 " />
+                              <polyline points="4.5 0.4 7.7 4.2 4.5 8.1 " />
+                            </svg>
+                          </span>
+                          <span className="eltdf-current">{product.name}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
 
-          {/* ── Main Product Content ── */}
-          <div className="eltdf-container">
-            <div className="eltdf-container-inner clearfix">
+              {/* Main Container */}
+              <div className="eltdf-container">
+                <div className="eltdf-container-inner clearfix">
+                  <div className="eltdf-grid-lines-holder eltdf-grid-columns-5">
+                    <div className="eltdf-grid-line eltdf-grid-column-1"></div>
+                    <div className="eltdf-grid-line eltdf-grid-column-2"></div>
+                    <div className="eltdf-grid-line eltdf-grid-column-3"></div>
+                    <div className="eltdf-grid-line eltdf-grid-column-4"></div>
+                    <div className="eltdf-grid-line eltdf-grid-column-5"></div>
+                  </div>
 
-              <div id={`product-${product._id}`} className="product">
-                <div className="eltdf-single-product-content">
+                  {/* Product */}
+                  <div id={`product-${product._id}`} className="product type-product status-publish instock has-post-thumbnail purchasable product-type-simple">
+                    <div className="eltdf-single-product-content">
 
-                  {/* ── Product Gallery ── */}
-                  <div className="woocommerce-product-gallery woocommerce-product-gallery--with-images images">
-                    <div className="woocommerce-product-gallery__wrapper">
-                      {images.length > 0 ? (
-                        <>
-                          {/* Main image */}
-                          <div className="woocommerce-product-gallery__image">
-                            <img
-                              src={images[selectedImage]}
-                              alt={product.name}
-                              style={{ width: "100%", objectFit: "cover", maxHeight: 520 }}
-                            />
+                      {/* Product Gallery */}
+                      <div className="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4" style={{opacity: 1, transition: "opacity .25s ease-in-out"}}>
+                        <div className="woocommerce-product-gallery__wrapper">
+                          {images.length > 0 ? (
+                            <>
+                              <div className="woocommerce-product-gallery__image">
+                                <a href={images[selectedImage]}>
+                                  <img
+                                    src={images[selectedImage]}
+                                    className="wp-post-image"
+                                    alt={product.name}
+                                    title={product.name}
+                                    decoding="async"
+                                    style={{ width: "100%", objectFit: "cover" }}
+                                  />
+                                </a>
+                              </div>
+                              {images.length > 1 && images.map((img, i) => (
+                                <div
+                                  key={i}
+                                  data-thumb={img}
+                                  className="woocommerce-product-gallery__image"
+                                  onClick={() => setSelectedImage(i)}
+                                  style={{ cursor: "pointer", display: "inline-block" }}
+                                >
+                                  <img
+                                    decoding="async"
+                                    loading="lazy"
+                                    src={img}
+                                    alt={`${product.name} ${i + 1}`}
+                                    style={{
+                                      width: 80, height: 80, objectFit: "cover",
+                                      border: i === selectedImage ? "2px solid #C9AB81" : "2px solid transparent",
+                                      opacity: i === selectedImage ? 1 : 0.65,
+                                      transition: "all 0.2s ease",
+                                      marginRight: 8, marginTop: 8,
+                                    }}
+                                  />
+                                </div>
+                              ))}
+                            </>
+                          ) : (
+                            <div className="woocommerce-product-gallery__image" style={{ background: "#1a2020", height: 400, display: "flex", alignItems: "center", justifyContent: "center", color: "#C9AB81", letterSpacing: "0.1em" }}>
+                              NO IMAGE
+                            </div>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Product Summary */}
+                      <div className="eltdf-single-product-summary">
+                        <div className="summary entry-summary">
+
+                          <h3 itemProp="name" className="eltdf-single-product-title">{product.name}</h3>
+
+                          <p className="price">
+                            <span className="woocommerce-Price-amount amount">
+                              <bdi>
+                                <span className="woocommerce-Price-currencySymbol">₦</span>
+                                {Number(product.price).toLocaleString()}
+                              </bdi>
+                            </span>
+                          </p>
+
+                          <div className="woocommerce-product-details__short-description">
+                            <p style={{textAlign: "left"}}>{product.description || ""}</p>
                           </div>
 
-                          {/* Thumbnail strip */}
-                          {images.length > 1 && (
-                            <div style={{ display: "flex", gap: 8, marginTop: 10, flexWrap: "wrap" }}>
-                              {images.map((img, i) => (
-                                <img
-                                  key={i}
-                                  src={img}
-                                  alt={`${product.name} ${i + 1}`}
-                                  onClick={() => setSelectedImage(i)}
-                                  style={{
-                                    width: 80, height: 80, objectFit: "cover",
-                                    cursor: "pointer",
-                                    border: i === selectedImage ? "2px solid #C9AB81" : "2px solid transparent",
-                                    opacity: i === selectedImage ? 1 : 0.65,
-                                    transition: "all 0.2s ease",
-                                  }}
-                                />
-                              ))}
+                          {/* Add to Cart Form */}
+                          <div className="cart">
+                            <div className="eltdf-quantity-buttons quantity">
+                              <label className="screen-reader-text" htmlFor={`quantity_${product._id}`}>{product.name} quantity</label>
+                              <span
+                                className="eltdf-quantity-minus arrow_carrot-down"
+                                onClick={() => setQuantity(q => Math.max(product.minimumQuantity || 1, q - 1))}
+                                style={{ cursor: "pointer" }}
+                              ></span>
+                              <input
+                                type="text"
+                                id={`quantity_${product._id}`}
+                                className="eltdf-quantity-input input-text qty text"
+                                data-step="1"
+                                data-min={product.minimumQuantity || 1}
+                                data-max={product.quantityAvailable || ""}
+                                name="quantity"
+                                value={quantity}
+                                onChange={(e) => setQuantity(Number(e.target.value) || 1)}
+                                aria-label="Qty"
+                                size="4"
+                                inputMode="numeric"
+                              />
+                              <span
+                                className="eltdf-quantity-plus arrow_carrot-up"
+                                onClick={() => setQuantity(q => q + 1)}
+                                style={{ cursor: "pointer" }}
+                              ></span>
                             </div>
-                          )}
-                        </>
-                      ) : (
-                        <div style={{
-                          width: "100%", height: 400,
-                          background: "#1a2020",
-                          display: "flex", alignItems: "center", justifyContent: "center",
-                          color: "#C9AB81", letterSpacing: "0.1em",
-                        }}>
-                          NO IMAGE
+                            <button
+                              type="button"
+                              className="single_add_to_cart_button button alt"
+                              onClick={() => {
+                                // TODO: wire up your cart context/state here
+                                alert(`Added ${quantity} × ${product.name} to cart`);
+                              }}
+                            >
+                              Add to cart
+                            </button>
+                          </div>
+
+                          {/* Product Meta */}
+                          <div className="product_meta">
+                            {product.weight && (
+                              <span className="sku_wrapper">Weight: <span className="sku">{product.weight} {product.unit}</span></span>
+                            )}
+                            {categoryName && (
+                              <span className="posted_in">
+                                Category: <Link to={`/shop?category=${categoryId}`} rel="tag">{categoryName}</Link>
+                              </span>
+                            )}
+                            {product.tag?.length > 0 && (
+                              <span className="tagged_as">
+                                Tags: {product.tag.map((t, i) => (
+                                  <span key={i}>
+                                    <span rel="tag">{t}</span>
+                                    {i < product.tag.length - 1 ? ", " : ""}
+                                  </span>
+                                ))}
+                              </span>
+                            )}
+                            {product.quantityAvailable !== undefined && (
+                              <span style={{ display: "block", marginTop: 6, fontSize: 13, color: product.quantityAvailable > 0 ? "#4caf50" : "#e53935" }}>
+                                {product.quantityAvailable > 0 ? `In stock (${product.quantityAvailable} available)` : "Out of stock"}
+                              </span>
+                            )}
+                          </div>
+
+                          {/* Social Share */}
+                          <div className="eltdf-woo-social-share-holder">
+                            <div className="eltdf-social-share-holder eltdf-list">
+                              <p className="eltdf-social-title">Share:</p>
+                              <ul>
+                                <li className="eltdf-facebook-share">
+                                  <a itemProp="url" className="eltdf-share-link" href="#" onClick={(e) => { e.preventDefault(); window.open(`https://www.facebook.com/sharer.php?u=${encodeURIComponent(window.location.href)}`, 'sharer', 'toolbar=0,status=0,width=620,height=280'); }}>
+                                    <span className="eltdf-social-network-icon ion-social-facebook-outline"></span>
+                                  </a>
+                                </li>
+                                <li className="eltdf-twitter-share">
+                                  <a itemProp="url" className="eltdf-share-link" href="#" onClick={(e) => { e.preventDefault(); window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(product.name + ' ' + window.location.href)}`, 'popupwindow', 'scrollbars=yes,width=800,height=400'); }}>
+                                    <span className="eltdf-social-network-icon ion-social-twitter-outline"></span>
+                                  </a>
+                                </li>
+                                <li className="eltdf-tumblr-share">
+                                  <a itemProp="url" className="eltdf-share-link" href="#" onClick={(e) => { e.preventDefault(); const popUp = window.open(`https://www.tumblr.com/share/link?url=${encodeURIComponent(window.location.href)}&name=${encodeURIComponent(product.name)}`, 'popupwindow', 'scrollbars=yes,width=800,height=400'); popUp.focus(); }}>
+                                    <span className="eltdf-social-network-icon ion-social-tumblr-outline"></span>
+                                  </a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Product Tabs */}
+                    <div className="woocommerce-tabs wc-tabs-wrapper">
+                      <ul className="tabs wc-tabs" role="tablist">
+                        <li className={`description_tab ${activeTab === "description" ? "active" : ""}`} id="tab-title-description" role="tab" aria-controls="tab-description" style={{ cursor: "pointer" }} onClick={() => setActiveTab("description")}>
+                          <a href="#tab-description" onClick={e => e.preventDefault()}>Description</a>
+                        </li>
+                        <li className={`additional_information_tab ${activeTab === "additional" ? "active" : ""}`} id="tab-title-additional_information" role="tab" aria-controls="tab-additional_information" style={{ cursor: "pointer" }} onClick={() => setActiveTab("additional")}>
+                          <a href="#tab-additional_information" onClick={e => e.preventDefault()}>Additional information</a>
+                        </li>
+                        <li className={`reviews_tab ${activeTab === "reviews" ? "active" : ""}`} id="tab-title-reviews" role="tab" aria-controls="tab-reviews" style={{ cursor: "pointer" }} onClick={() => setActiveTab("reviews")}>
+                          <a href="#tab-reviews" onClick={e => e.preventDefault()}>Reviews ({product.reviews?.length || 0})</a>
+                        </li>
+                      </ul>
+
+                      {/* Description Tab */}
+                      {activeTab === "description" && (
+                        <div className="woocommerce-Tabs-panel woocommerce-Tabs-panel--description panel entry-content wc-tab" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">
+                          <h2>Description</h2>
+                          <p>{product.description || "No description available."}</p>
+                          {product.ingredients?.length > 0 && (<><h4>Ingredients</h4><p>{product.ingredients.join(", ")}</p></>)}
+                          {product.allergens?.length > 0 && (<><h4>Allergens</h4><p>{product.allergens.join(", ")}</p></>)}
+                          {product.features?.length > 0 && (<><h4>Features</h4><ul>{product.features.map((f, i) => <li key={i}>{f}</li>)}</ul></>)}
+                        </div>
+                      )}
+
+                      {/* Additional Info Tab */}
+                      {activeTab === "additional" && (
+                        <div className="woocommerce-Tabs-panel woocommerce-Tabs-panel--additional_information panel entry-content wc-tab" id="tab-additional_information" role="tabpanel" aria-labelledby="tab-title-additional_information">
+                          <h2>Additional information</h2>
+                          <table className="woocommerce-product-attributes shop_attributes">
+                            <tbody>
+                              {product.weight && (
+                                <tr className="woocommerce-product-attributes-item woocommerce-product-attributes-item--weight">
+                                  <th className="woocommerce-product-attributes-item__label">Weight / Volume</th>
+                                  <td className="woocommerce-product-attributes-item__value">{product.weight} {product.unit}</td>
+                                </tr>
+                              )}
+                              {product.expiryInfo && product.expiryInfo !== "none" && (
+                                <tr className="woocommerce-product-attributes-item">
+                                  <th className="woocommerce-product-attributes-item__label">Shelf Life</th>
+                                  <td className="woocommerce-product-attributes-item__value">{product.expiryInfo}</td>
+                                </tr>
+                              )}
+                              {product.storageInfo && product.storageInfo !== "none" && (
+                                <tr className="woocommerce-product-attributes-item">
+                                  <th className="woocommerce-product-attributes-item__label">Storage</th>
+                                  <td className="woocommerce-product-attributes-item__value">{product.storageInfo}</td>
+                                </tr>
+                              )}
+                              {product.minimumQuantity && (
+                                <tr className="woocommerce-product-attributes-item">
+                                  <th className="woocommerce-product-attributes-item__label">Minimum Order</th>
+                                  <td className="woocommerce-product-attributes-item__value">{product.minimumQuantity}</td>
+                                </tr>
+                              )}
+                            </tbody>
+                          </table>
+                        </div>
+                      )}
+
+                      {/* Reviews Tab */}
+                      {activeTab === "reviews" && (
+                        <div className="woocommerce-Tabs-panel woocommerce-Tabs-panel--reviews panel entry-content wc-tab" id="tab-reviews" role="tabpanel" aria-labelledby="tab-title-reviews">
+                          <div id="reviews" className="woocommerce-Reviews">
+                            <div id="comments">
+                              <h2 className="woocommerce-Reviews-title">Reviews</h2>
+                              {!product.reviews?.length ? (
+                                <p className="woocommerce-noreviews">There are no reviews yet.</p>
+                              ) : (
+                                product.reviews.map((review, i) => (
+                                  <div key={i} style={{ borderBottom: "1px solid #eee", paddingBottom: 12, marginBottom: 12 }}>
+                                    <strong>{review.name}</strong> — ⭐ {review.rating}/5
+                                    <p>{review.comment}</p>
+                                  </div>
+                                ))
+                              )}
+                            </div>
+                            <div id="review_form_wrapper">
+                              <div id="review_form">
+                                <div id="respond" className="comment-respond">
+                                  <span id="reply-title" className="comment-reply-title">
+                                    Be the first to review &ldquo;{product.name}&rdquo;
+                                  </span>
+                                  <div className="comment-form">
+                                    <p className="comment-notes">
+                                      <span id="email-notes">Your email address will not be published.</span>{" "}
+                                      <span className="required-field-message">Required fields are marked <span className="required">*</span></span>
+                                    </p>
+                                    <div className="comment-form-rating">
+                                      <label htmlFor="rating">Your rating&nbsp;<span className="required">*</span></label>
+                                      <select name="rating" id="rating">
+                                        <option value="">Rate&hellip;</option>
+                                        <option value="5">Perfect</option>
+                                        <option value="4">Good</option>
+                                        <option value="3">Average</option>
+                                        <option value="2">Not that bad</option>
+                                        <option value="1">Very poor</option>
+                                      </select>
+                                    </div>
+                                    <p className="comment-form-comment">
+                                      <label htmlFor="comment">Your review&nbsp;<span className="required">*</span></label>
+                                      <textarea id="comment" name="comment" cols="45" rows="8"></textarea>
+                                    </p>
+                                    <p className="comment-form-author">
+                                      <label htmlFor="author">Name&nbsp;<span className="required">*</span></label>
+                                      <input id="author" name="author" type="text" defaultValue="" size="30" />
+                                    </p>
+                                    <p className="comment-form-email">
+                                      <label htmlFor="email">Email&nbsp;<span className="required">*</span></label>
+                                      <input id="email" name="email" type="email" defaultValue="" size="30" />
+                                    </p>
+                                    <p className="comment-form-cookies-consent">
+                                      <input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" defaultValue="yes" />
+                                      <label htmlFor="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label>
+                                    </p>
+                                    <p className="form-submit">
+                                      <input name="submit" type="submit" id="submit" className="submit" defaultValue="Submit" />
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div className="clear"></div>
+                          </div>
                         </div>
                       )}
                     </div>
-                  </div>
 
-                  {/* ── Product Summary ── */}
-                  <div className="eltdf-single-product-summary">
-                    <div className="summary entry-summary">
-                      <h3 itemProp="name" className="eltdf-single-product-title">{product.name}</h3>
-
-                      <p className="price">
-                        <span className="woocommerce-Price-amount amount">
-                          <bdi>
-                            <span className="woocommerce-Price-currencySymbol">₦</span>
-                            {Number(product.price).toLocaleString()}
-                          </bdi>
-                        </span>
-                      </p>
-
-                      {product.description && (
-                        <div className="woocommerce-product-details__short-description">
-                          <p>{product.description}</p>
-                        </div>
-                      )}
-
-                      {/* Quantity + Add to Cart */}
-                      <div className="cart" style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 20 }}>
-                        <div className="eltdf-quantity-buttons quantity">
-                          <span
-                            className="eltdf-quantity-minus"
-                            onClick={() => setQuantity(q => Math.max(product.minimumQuantity || 1, q - 1))}
-                            style={{ cursor: "pointer" }}
-                          >
-                            −
-                          </span>
-                          <input
-                            type="text"
-                            className="eltdf-quantity-input input-text qty text"
-                            value={quantity}
-                            readOnly
-                            size="4"
-                          />
-                          <span
-                            className="eltdf-quantity-plus"
-                            onClick={() => setQuantity(q => q + 1)}
-                            style={{ cursor: "pointer" }}
-                          >
-                            +
-                          </span>
-                        </div>
-                        <button
-                          className="single_add_to_cart_button button alt"
-                          onClick={() => {
-                            // TODO: wire up your cart context/state here
-                            alert(`Added ${quantity} × ${product.name} to cart`);
-                          }}
-                        >
-                          Add to cart
-                        </button>
-                      </div>
-
-                      {/* Product Meta */}
-                      <div className="product_meta" style={{ marginTop: 20 }}>
-                        {product.weight && (
-                          <span className="sku_wrapper">
-                            Weight: <span className="sku">{product.weight} {product.unit}</span> &nbsp;|&nbsp;
-                          </span>
-                        )}
-                        {categoryName && (
-                          <span className="posted_in">
-                            Category: <Link to={`/shop?category=${categoryId}`}>{categoryName}</Link>
-                          </span>
-                        )}
-                        {product.tag?.length > 0 && (
-                          <span className="tagged_as">
-                            &nbsp;| Tags: {product.tag.join(", ")}
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Stock info */}
-                      {product.quantityAvailable !== undefined && (
-                        <p style={{ marginTop: 10, fontSize: 13, color: product.quantityAvailable > 0 ? "#4caf50" : "#e53935" }}>
-                          {product.quantityAvailable > 0 ? `In stock (${product.quantityAvailable} available)` : "Out of stock"}
-                        </p>
-                      )}
-
-                    </div>
                   </div>
                 </div>
-
-                {/* ── Product Tabs ── */}
-                <div className="woocommerce-tabs wc-tabs-wrapper" style={{ marginTop: 40 }}>
-                  <ul className="tabs wc-tabs" role="tablist">
-                    {["description", "additional", "reviews"].map((tab) => (
-                      <li
-                        key={tab}
-                        className={activeTab === tab ? "active" : ""}
-                        role="tab"
-                        style={{ cursor: "pointer" }}
-                        onClick={() => setActiveTab(tab)}
-                      >
-                        <a href={`#tab-${tab}`} onClick={e => e.preventDefault()}>
-                          {tab === "description" && "Description"}
-                          {tab === "additional" && "Additional Information"}
-                          {tab === "reviews" && `Reviews (${product.reviews?.length || 0})`}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Description */}
-                  {activeTab === "description" && (
-                    <div className="woocommerce-Tabs-panel panel" id="tab-description">
-                      <h2>Description</h2>
-                      <p>{product.description || "No description available."}</p>
-                      {product.ingredients?.length > 0 && (
-                        <>
-                          <h4>Ingredients</h4>
-                          <p>{product.ingredients.join(", ")}</p>
-                        </>
-                      )}
-                      {product.allergens?.length > 0 && (
-                        <>
-                          <h4>Allergens</h4>
-                          <p>{product.allergens.join(", ")}</p>
-                        </>
-                      )}
-                      {product.features?.length > 0 && (
-                        <>
-                          <h4>Features</h4>
-                          <ul>{product.features.map((f, i) => <li key={i}>{f}</li>)}</ul>
-                        </>
-                      )}
-                    </div>
-                  )}
-
-                  {/* Additional Info */}
-                  {activeTab === "additional" && (
-                    <div className="woocommerce-Tabs-panel panel" id="tab-additional">
-                      <h2>Additional Information</h2>
-                      <table className="woocommerce-product-attributes shop_attributes">
-                        <tbody>
-                          {product.weight && (
-                            <tr>
-                              <th>Weight / Volume</th>
-                              <td>{product.weight} {product.unit}</td>
-                            </tr>
-                          )}
-                          {product.expiryInfo && (
-                            <tr>
-                              <th>Shelf Life</th>
-                              <td>{product.expiryInfo}</td>
-                            </tr>
-                          )}
-                          {product.storageInfo && (
-                            <tr>
-                              <th>Storage</th>
-                              <td>{product.storageInfo}</td>
-                            </tr>
-                          )}
-                          {product.minimumQuantity && (
-                            <tr>
-                              <th>Minimum Order</th>
-                              <td>{product.minimumQuantity}</td>
-                            </tr>
-                          )}
-                        </tbody>
-                      </table>
-                    </div>
-                  )}
-
-                  {/* Reviews */}
-                  {activeTab === "reviews" && (
-                    <div className="woocommerce-Tabs-panel panel" id="tab-reviews">
-                      <div className="woocommerce-Reviews">
-                        <h2>Reviews</h2>
-                        {product.reviews?.length === 0 || !product.reviews ? (
-                          <p className="woocommerce-noreviews">There are no reviews yet.</p>
-                        ) : (
-                          product.reviews.map((review, i) => (
-                            <div key={i} style={{ borderBottom: "1px solid #eee", paddingBottom: 12, marginBottom: 12 }}>
-                              <strong>{review.name}</strong> — ⭐ {review.rating}/5
-                              <p>{review.comment}</p>
-                            </div>
-                          ))
-                        )}
-                      </div>
-                    </div>
-                  )}
-                </div>
-
               </div>
+
             </div>
           </div>
+
+          <Footer />
         </div>
       </div>
-
-      <Footer />
-    </>
+    </div>
   );
 };
 

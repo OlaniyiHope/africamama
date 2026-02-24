@@ -11,7 +11,7 @@ const AUDIENCES = [
     description: "Family-friendly meals that make everyone feel at home.",
     fallbackBg: "#1a2a1a",
     icon: "🏠",
-    link: "/our-menu?tag=family",
+    link: "/shop?tag=family",
   },
   {
     key: "students",
@@ -21,7 +21,7 @@ const AUDIENCES = [
       "Affordable, tasty plates that keep you fuelled through lectures and late nights.",
     fallbackBg: "#1a1a2a",
     icon: "📚",
-    link: "/our-menu?tag=student",
+    link: "/shop?tag=student",
   },
   {
     key: "professionals",
@@ -31,7 +31,7 @@ const AUDIENCES = [
       "Convenient, flavour-packed meals for busy days.",
     fallbackBg: "#2a1a1a",
     icon: "💼",
-    link: "/our-menu?tag=professional",
+    link: "/shop?tag=professional",
   },
 ];
 
