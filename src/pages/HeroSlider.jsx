@@ -214,7 +214,7 @@ const taglines = [
 
         {/* LAYER 3 — CTA Button */}
         <Link
-          to="/our-menu"
+  to={`/shop?category=${cat._id}`} 
           className="eltdf-btn eltdf-btn-large eltdf-btn-outline"
           style={{ textDecoration: "none" }}
         >
