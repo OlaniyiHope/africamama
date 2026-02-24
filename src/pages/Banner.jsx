@@ -16,6 +16,7 @@ import HeroBanner from "./HeroBanner";
 import logo from "./logo.png";
 import Footer from "./Footer";
 import HeroSlider from "./HeroSlider";
+import AudienceSection from "./AudienceSection";
 const Banner = ({ cartCount = 1 }) => {
   const [menuOpen, setMenuOpen] = useState(false); // mobile menu
   const [categories, setCategories] = useState([]);
@@ -507,7 +508,106 @@ useEffect(() => {
 			</rs-module-wrap> */}
 
 			<HeroSlider />
+			<AudienceSection />
+	
+	<div class="vc_row wpb_row vc_row-fluid vc_custom_1573549706260 eltdf-content-aligment-center" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-section-title-holder    eltdf-st-decor-animation" style={{textAlign: "center"}}>
+	<div class="eltdf-st-inner">
+                    <span class="eltdf-st-tagline">
+Meals for Families          </span>
+        		            <div class="eltdf-st-title-holder">
+                                    <div class="decor">
+                                      
+                           
+                        
+                        </div>
+                                <h4 class="eltdf-st-title" >
+              Family-friendly meals that make everyone feel at home.           </h4>
+                                    <div class="decor">
+                                      
+                                      
+                         
+                        </div>
+                            </div>
+							</div>
+</div></div></div></div></div>
 
+
+<div class="eltdf-row-grid-section-wrapper eltdf-content-aligment-center"  >
+  
+  
+  <div class="eltdf-row-grid-section"><div class="vc_row wpb_row vc_row-fluid vc_custom_1573574980934" ><div class="wpb_column vc_column_container vc_col-sm-12">
+    
+    <div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-portfolio-list-holder eltdf-grid-list eltdf-pl-gallery eltdf-three-columns eltdf-medium-space eltdf-disable-bottom-space eltdf-pl-standard-overlay    eltdf-pl-pag-no-pagination  eltdf-pl-has-animation     "  >
+		<div class="eltdf-pl-inner eltdf-outer-space  clearfix">
+		<article class="eltdf-pl-item eltdf-item-space  post-942 portfolio-item type-portfolio-item status-publish has-post-thumbnail hentry portfolio-category-specialties portfolio-tag-recipes portfolio-tag-sweet portfolio-tag-tasty">
+	<div class="eltdf-pl-item-inner">
+		<div class="eltdf-pli-image">
+	<img loading="lazy" decoding="async" width="800" height="1217" src="wp-content/uploads/2019/10/main-images-1.jpg" class="attachment-full size-full wp-post-image" alt="d" srcset="https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-1.jpg 800w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-1-600x913.jpg 600w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-1-197x300.jpg 197w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-1-768x1168.jpg 768w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-1-673x1024.jpg 673w" sizes="(max-width: 800px) 100vw, 800px" />    <div class="eltdf-pli-image-shader-overlay">
+    </div>
+</div>
+<div class="eltdf-pli-text-holder" >
+	<div class="eltdf-pli-text-wrapper">
+		<div class="eltdf-pli-text">
+				<h5 itemprop="name" class="eltdf-pli-title entry-title" >
+		Starters	</h5>
+
+					<div class="eltdf-pli-category-holder">
+							<a itemprop="url" class="eltdf-pli-category" href="portfolio-category/specialties/index.html">Specialties</a>
+					</div>
+	
+			
+					</div>
+	</div>
+</div>
+		<a itemprop="url" class="eltdf-pli-link eltdf-block-drag-link" href="portfolio-item/starters/index.html" target="_self"></a>
+	</div>
+</article><article class="eltdf-pl-item eltdf-item-space  post-943 portfolio-item type-portfolio-item status-publish has-post-thumbnail hentry portfolio-category-specialties portfolio-tag-sweet portfolio-tag-tasty">
+	<div class="eltdf-pl-item-inner">
+		<div class="eltdf-pli-image">
+	<img loading="lazy" decoding="async" width="800" height="1217" src="wp-content/uploads/2019/10/main-images-2.jpg" class="attachment-full size-full wp-post-image" alt="j" srcset="https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-2.jpg 800w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-2-600x913.jpg 600w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-2-197x300.jpg 197w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-2-768x1168.jpg 768w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-2-673x1024.jpg 673w" sizes="(max-width: 800px) 100vw, 800px" />    <div class="eltdf-pli-image-shader-overlay">
+        </div>
+</div>
+<div class="eltdf-pli-text-holder" >
+	<div class="eltdf-pli-text-wrapper">
+		<div class="eltdf-pli-text">
+				<h5 itemprop="name" class="eltdf-pli-title entry-title" >
+		Main Courses	</h5>
+
+					<div class="eltdf-pli-category-holder">
+							<a itemprop="url" class="eltdf-pli-category" href="portfolio-category/specialties/index.html">Specialties</a>
+					</div>
+	
+			
+					</div>
+	</div>
+</div>
+		<a itemprop="url" class="eltdf-pli-link eltdf-block-drag-link" href="portfolio-item/main-courses/index.html" target="_self"></a>
+	</div>
+</article><article class="eltdf-pl-item eltdf-item-space  post-944 portfolio-item type-portfolio-item status-publish has-post-thumbnail hentry portfolio-category-specialties portfolio-tag-recipes portfolio-tag-sweet portfolio-tag-tasty">
+	<div class="eltdf-pl-item-inner">
+		<div class="eltdf-pli-image">
+	<img loading="lazy" decoding="async" width="800" height="1217" src="wp-content/uploads/2019/10/main-images-3.jpg" class="attachment-full size-full wp-post-image" alt="s" srcset="https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-3.jpg 800w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-3-600x913.jpg 600w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-3-197x300.jpg 197w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-3-768x1168.jpg 768w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-3-673x1024.jpg 673w" sizes="(max-width: 800px) 100vw, 800px" />    <div class="eltdf-pli-image-shader-overlay">
+    </div>
+</div>
+<div class="eltdf-pli-text-holder" >
+	<div class="eltdf-pli-text-wrapper">
+		<div class="eltdf-pli-text">
+				<h5 itemprop="name" class="eltdf-pli-title entry-title" >
+		Desserts	</h5>
+
+					<div class="eltdf-pli-category-holder">
+							<a itemprop="url" class="eltdf-pli-category" href="portfolio-category/specialties/index.html">Specialties</a>
+					</div>
+	
+			
+					</div>
+	</div>
+</div>
+		<a itemprop="url" class="eltdf-pli-link eltdf-block-drag-link" href="portfolio-item/desserts/index.html" target="_self"></a>
+	</div>
+</article>	</div>
+        	</div></div></div></div></div></div></div>
+			
 </div></div></div></div></div></div>
 
 
@@ -878,101 +978,9 @@ useEffect(() => {
 	</div></div></div></div></div>
 	 */}
 	
-	
-	<div class="vc_row wpb_row vc_row-fluid vc_custom_1573549706260 eltdf-content-aligment-center" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-section-title-holder    eltdf-st-decor-animation" style={{textAlign: "center"}}>
-	<div class="eltdf-st-inner">
-                    <span class="eltdf-st-tagline">
-Africa Mama Put tasty offer            </span>
-        		            <div class="eltdf-st-title-holder">
-                                    <div class="decor">
-                                      
-                           
-                        
-                        </div>
-                                <h1 class="eltdf-st-title" >
-                 Best Selling             </h1>
-                                    <div class="decor">
-                                      
-                                      
-                         
-                        </div>
-                            </div>
-							</div>
-</div></div></div></div></div><div class="eltdf-row-grid-section-wrapper eltdf-content-aligment-center"  >
-  
-  
-  <div class="eltdf-row-grid-section"><div class="vc_row wpb_row vc_row-fluid vc_custom_1573574980934" ><div class="wpb_column vc_column_container vc_col-sm-12">
-    
-    <div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-portfolio-list-holder eltdf-grid-list eltdf-pl-gallery eltdf-three-columns eltdf-medium-space eltdf-disable-bottom-space eltdf-pl-standard-overlay    eltdf-pl-pag-no-pagination  eltdf-pl-has-animation     "  >
-		<div class="eltdf-pl-inner eltdf-outer-space  clearfix">
-		<article class="eltdf-pl-item eltdf-item-space  post-942 portfolio-item type-portfolio-item status-publish has-post-thumbnail hentry portfolio-category-specialties portfolio-tag-recipes portfolio-tag-sweet portfolio-tag-tasty">
-	<div class="eltdf-pl-item-inner">
-		<div class="eltdf-pli-image">
-	<img loading="lazy" decoding="async" width="800" height="1217" src="wp-content/uploads/2019/10/main-images-1.jpg" class="attachment-full size-full wp-post-image" alt="d" srcset="https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-1.jpg 800w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-1-600x913.jpg 600w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-1-197x300.jpg 197w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-1-768x1168.jpg 768w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-1-673x1024.jpg 673w" sizes="(max-width: 800px) 100vw, 800px" />    <div class="eltdf-pli-image-shader-overlay">
-    </div>
-</div>
-<div class="eltdf-pli-text-holder" >
-	<div class="eltdf-pli-text-wrapper">
-		<div class="eltdf-pli-text">
-				<h5 itemprop="name" class="eltdf-pli-title entry-title" >
-		Starters	</h5>
 
-					<div class="eltdf-pli-category-holder">
-							<a itemprop="url" class="eltdf-pli-category" href="portfolio-category/specialties/index.html">Specialties</a>
-					</div>
-	
 			
-					</div>
-	</div>
-</div>
-		<a itemprop="url" class="eltdf-pli-link eltdf-block-drag-link" href="portfolio-item/starters/index.html" target="_self"></a>
-	</div>
-</article><article class="eltdf-pl-item eltdf-item-space  post-943 portfolio-item type-portfolio-item status-publish has-post-thumbnail hentry portfolio-category-specialties portfolio-tag-sweet portfolio-tag-tasty">
-	<div class="eltdf-pl-item-inner">
-		<div class="eltdf-pli-image">
-	<img loading="lazy" decoding="async" width="800" height="1217" src="wp-content/uploads/2019/10/main-images-2.jpg" class="attachment-full size-full wp-post-image" alt="j" srcset="https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-2.jpg 800w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-2-600x913.jpg 600w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-2-197x300.jpg 197w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-2-768x1168.jpg 768w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-2-673x1024.jpg 673w" sizes="(max-width: 800px) 100vw, 800px" />    <div class="eltdf-pli-image-shader-overlay">
-        </div>
-</div>
-<div class="eltdf-pli-text-holder" >
-	<div class="eltdf-pli-text-wrapper">
-		<div class="eltdf-pli-text">
-				<h5 itemprop="name" class="eltdf-pli-title entry-title" >
-		Main Courses	</h5>
-
-					<div class="eltdf-pli-category-holder">
-							<a itemprop="url" class="eltdf-pli-category" href="portfolio-category/specialties/index.html">Specialties</a>
-					</div>
-	
-			
-					</div>
-	</div>
-</div>
-		<a itemprop="url" class="eltdf-pli-link eltdf-block-drag-link" href="portfolio-item/main-courses/index.html" target="_self"></a>
-	</div>
-</article><article class="eltdf-pl-item eltdf-item-space  post-944 portfolio-item type-portfolio-item status-publish has-post-thumbnail hentry portfolio-category-specialties portfolio-tag-recipes portfolio-tag-sweet portfolio-tag-tasty">
-	<div class="eltdf-pl-item-inner">
-		<div class="eltdf-pli-image">
-	<img loading="lazy" decoding="async" width="800" height="1217" src="wp-content/uploads/2019/10/main-images-3.jpg" class="attachment-full size-full wp-post-image" alt="s" srcset="https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-3.jpg 800w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-3-600x913.jpg 600w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-3-197x300.jpg 197w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-3-768x1168.jpg 768w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-images-3-673x1024.jpg 673w" sizes="(max-width: 800px) 100vw, 800px" />    <div class="eltdf-pli-image-shader-overlay">
-    </div>
-</div>
-<div class="eltdf-pli-text-holder" >
-	<div class="eltdf-pli-text-wrapper">
-		<div class="eltdf-pli-text">
-				<h5 itemprop="name" class="eltdf-pli-title entry-title" >
-		Desserts	</h5>
-
-					<div class="eltdf-pli-category-holder">
-							<a itemprop="url" class="eltdf-pli-category" href="portfolio-category/specialties/index.html">Specialties</a>
-					</div>
-	
-			
-					</div>
-	</div>
-</div>
-		<a itemprop="url" class="eltdf-pli-link eltdf-block-drag-link" href="portfolio-item/desserts/index.html" target="_self"></a>
-	</div>
-</article>	</div>
-        	</div></div></div></div></div></div></div><div class="eltdf-svg-pattern-holder eltdf-pattern-position-left" style={{transform: "translateY(130px)"}}>
+			<div class="eltdf-svg-pattern-holder eltdf-pattern-position-left" style={{transform: "translateY(130px)"}}>
 
             
             
