@@ -24,7 +24,12 @@ const HeroSlider = () => {
         setLoading(false);
       });
   }, []);
-
+const taglines = [
+  "welcome to our delicious corner",
+  "Hungry for more?",
+  "Guess your favourite African food.",
+  "From our pot to your plate.",
+];
   // Auto-advance every 5 seconds
   useEffect(() => {
     if (categories.length === 0) return;
@@ -127,17 +132,17 @@ const HeroSlider = () => {
         {/* LAYER 1 — small tagline above (Miniver font, gold, italic feel) 
             Original: "welcome to our delicious corner" / "take a sip..." 
             We use the category name's first word as intro, or a fixed welcome line */}
-        <p style={{
-          fontFamily: "'Miniver', cursive",
-          color: "#C9AB81",
-          fontSize: "clamp(16px, 2.2vw, 25px)",
-          fontWeight: "normal",
-          letterSpacing: "0.05em",
-          margin: "0 0 18px 0",
-          lineHeight: 1.4,
-        }}>
-          welcome to our delicious corner
-        </p>
+<p style={{
+  fontFamily: "'Miniver', cursive",
+  color: "#C9AB81",
+  fontSize: "clamp(16px, 2.2vw, 25px)",
+  fontWeight: "normal",
+  letterSpacing: "0.05em",
+  margin: "0 0 18px 0",
+  lineHeight: 1.4,
+}}>
+  {taglines[current % taglines.length]}
+</p>
 
         {/* LAYER 0 + 4 + 5 — Big split title with decorative lines 
             Original layout: [deco-line]  "The"(Miniver small)  "BEST DISHES"(Metropolis big)  [deco-line] */}
