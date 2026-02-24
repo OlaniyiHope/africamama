@@ -15,6 +15,7 @@ const Shop = () => {
   const [loading, setLoading] = useState(true);
   const [sortBy, setSortBy] = useState("date");
 const [fetchTrigger, setFetchTrigger] = useState(0);
+const tagFilter = searchParams.get("tag");  // ← add this
 
   // Fetch categories for sidebar
   useEffect(() => {
@@ -28,16 +29,36 @@ const [fetchTrigger, setFetchTrigger] = useState(0);
   }, []);
 
   // Fetch products — re-runs when category filter or sort changes
+// useEffect(() => {
+//   setLoading(true);
+//   const base = process.env.REACT_APP_API_URL;
+
+//   const url = categoryFilter
+//     ? `${base}/api/db/products/category/${categoryFilter}`
+//     : `${base}/api/db/products`;
+
+//   axios
+//     .get(url)
+//     .then((res) => {
+//       setProducts(Array.isArray(res.data) ? res.data : res.data.products || []);
+//       setLoading(false);
+//     })
+//     .catch((err) => {
+//       console.error("Failed to fetch products:", err);
+//       setLoading(false);
+//     });
+// }, [categoryFilter, sortBy, fetchTrigger]);
 useEffect(() => {
   setLoading(true);
   const base = process.env.REACT_APP_API_URL;
 
-  const url = categoryFilter
+  const url = tagFilter
+    ? `${base}/api/db/products/tag/${tagFilter}`
+    : categoryFilter
     ? `${base}/api/db/products/category/${categoryFilter}`
     : `${base}/api/db/products`;
 
-  axios
-    .get(url)
+  axios.get(url)
     .then((res) => {
       setProducts(Array.isArray(res.data) ? res.data : res.data.products || []);
       setLoading(false);
@@ -46,8 +67,7 @@ useEffect(() => {
       console.error("Failed to fetch products:", err);
       setLoading(false);
     });
-}, [categoryFilter, sortBy, fetchTrigger]);
-
+}, [categoryFilter, tagFilter, sortBy, fetchTrigger]);
   const handleCategoryClick = (catId) => {
     if (catId === categoryFilter) {
       // clicking same category clears filter
@@ -90,9 +110,12 @@ useEffect(() => {
               <div className="eltdf-title-inner">
                 <div className="eltdf-grid">
                   <div className="eltdf-title-info">
-                    <h5 className="eltdf-page-title entry-title">
+                    {/* <h5 className="eltdf-page-title entry-title">
                       {activeCategoryName ? activeCategoryName : "Shop"}
-                    </h5>
+                    </h5> */}
+                    <h5 className="eltdf-page-title entry-title">
+  {activeCategoryName || (tagFilter ? `${tagFilter} meals` : "Shop")}
+</h5>
                   </div>
                   <div className="eltdf-breadcrumbs-info">
                     <div itemProp="breadcrumb" className="eltdf-breadcrumbs">
@@ -168,7 +191,23 @@ useEffect(() => {
                       </span>
                     </div>
                   )}
-
+{tagFilter && (
+  <div style={{ marginBottom: 16 }}>
+    <span style={{
+      display: "inline-flex", alignItems: "center", gap: 8,
+      background: "#C9AB81", color: "#0c1315",
+      padding: "4px 12px", borderRadius: 20, fontSize: 13, fontWeight: 500,
+    }}>
+      {tagFilter}
+      <button
+        onClick={() => setSearchParams({})}
+        style={{ background: "none", border: "none", cursor: "pointer", color: "#0c1315", fontWeight: 700, fontSize: 15, lineHeight: 1, padding: 0 }}
+      >
+        ×
+      </button>
+    </span>
+  </div>
+)}
                   {/* Products */}
                   <div className="eltdf-pl-main-holder">
                     {loading ? (
