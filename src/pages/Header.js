@@ -61,10 +61,10 @@ const navItems = [
     label: "Home",
     href: "/",
   },
-  {
-    label: "Menu",
-    href: "/our-menu",
-  },
+//   {
+//     label: "Menu",
+//     href: "/our-menu",
+//   },
   {
     label: "Catering & Events",
     href: "/event",
