@@ -86,7 +86,10 @@ const HeroSlider = () => {
   const [titleSmall, titleBig] = splitName(cat.name);
 
   return (
+      <div className="hero-slider-wrapper">
     <div style={{ position: "relative", width: "100%", height: "100vh", overflow: "hidden" }}>
+
+
 
       {/* ── Background slides ── */}
       {categories.map((c, i) => (
@@ -271,7 +274,7 @@ const HeroSlider = () => {
           />
         ))}
       </div>
-
+</div>
     </div>
   );
 };

@@ -8,3 +8,20 @@
   font-weight: normal;
   font-style: normal;
 }
+/* Make the hero slider full-width by breaking out of grid constraints */
+.eltdf-row-grid-section-wrapper:has(.hero-slider-wrapper),
+.eltdf-row-grid-section:has(.hero-slider-wrapper),
+.eltdf-page-content-holder:has(.hero-slider-wrapper) {
+  padding: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.hero-slider-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
