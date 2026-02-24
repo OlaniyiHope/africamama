@@ -11,7 +11,7 @@ label,
 a,
 p,
 span {
-  font-family: "Space Grotesk", sans-serif !important;
+  /* font-family: "Space Grotesk", sans-serif !important; */
 }
 /* Global rule */
 .eltdf-content {

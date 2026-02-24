@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Banner.css";
+// Add this at the very top of HeroSlider.jsx
+import '../font/Metropolis1920-Regular.otf';
 
 const HeroSlider = () => {
   const [categories, setCategories] = useState([]);
@@ -167,15 +169,12 @@ const HeroSlider = () => {
           )}
 
           {/* Big words (e.g. "FOOD HEAVEN") — Metropolis */}
-          <span style={{
-            fontFamily: "'metropolis1920regular', sans-serif",
-            color: "#C9AB81",
+          <span 	style={{fontFamily:"metropolis1920regular, sans-serif",    color: "#C9AB81",
             fontSize: "clamp(36px, 7vw, 120px)",
             fontWeight: "normal",
             letterSpacing: "0.2em",
             lineHeight: 1,
-            textTransform: "uppercase",
-          }}>
+            textTransform: "uppercase",}}>
             {titleBig}
           </span>
 
