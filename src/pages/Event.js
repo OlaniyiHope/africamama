@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import { useTheme } from "../context/ThemeContext";
 
 const portfolioItems = [
   {
@@ -77,33 +78,40 @@ const portfolioItems = [
   },
 ];
 
-const BreadcrumbArrow = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.3 8.5" className="eltdf-breadcrumb-arrow">
+// ── Sub-components receive tokens as prop so they stay pure ──────────────────
+
+const BreadcrumbArrow = ({ color }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 8.3 8.5"
+    className="eltdf-breadcrumb-arrow"
+    style={{ stroke: color }}
+  >
     <polyline points="0.4 0.4 3.6 4.2 0.4 8.1" />
     <polyline points="4.5 0.4 7.7 4.2 4.5 8.1" />
   </svg>
 );
 
-const BackToTop = () => (
+const BackToTop = ({ tokens }) => (
   <a id="eltdf-back-to-top" href="#">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      x="0px"
-      y="0px"
-      width="43.047px"
-      height="43.031px"
+      x="0px" y="0px"
+      width="43.047px" height="43.031px"
       viewBox="0 0 43.047 43.031"
     >
-      <circle fill="none" stroke="#BC9A6B" strokeMiterlimit="10" cx="21.523" cy="21.531" r="20.986" />
-      <circle fill="none" stroke="#BC9A6B" className="eltdf-popout" strokeMiterlimit="10" cx="21.523" cy="21.531" r="16.049" />
-      <polyline fill="none" stroke="#BC9A6B" strokeMiterlimit="10" points="15.205,23.875 21.523,18.573 27.842,23.875" />
+      <circle fill="none" stroke={tokens.text} strokeMiterlimit="10" cx="21.523" cy="21.531" r="20.986" />
+      <circle fill="none" stroke={tokens.text} className="eltdf-popout" strokeMiterlimit="10" cx="21.523" cy="21.531" r="16.049" />
+      <polyline fill="none" stroke={tokens.text} strokeMiterlimit="10" points="15.205,23.875 21.523,18.573 27.842,23.875" />
     </svg>
   </a>
 );
 
-const PortfolioCard = ({ item }) => (
+const PortfolioCard = ({ item, tokens }) => (
   <article className={`eltdf-pl-item eltdf-item-space ${item.id}`}>
     <div className="eltdf-pl-item-inner">
+
+      {/* Image */}
       <div className="eltdf-pli-image">
         <img
           loading="lazy"
@@ -115,10 +123,16 @@ const PortfolioCard = ({ item }) => (
           alt={item.title}
         />
       </div>
+
+      {/* Hover text overlay */}
       <div className="eltdf-pli-text-holder">
         <div className="eltdf-pli-text-wrapper">
           <div className="eltdf-pli-text">
-            <h5 itemProp="name" className="eltdf-pli-title entry-title">
+            <h5
+              itemProp="name"
+              className="eltdf-pli-title entry-title"
+              style={{ color: tokens.heading }}
+            >
               {item.title}
             </h5>
             <div className="eltdf-pli-category-holder">
@@ -126,6 +140,7 @@ const PortfolioCard = ({ item }) => (
                 itemProp="url"
                 className="eltdf-pli-category"
                 href={`../portfolio-category/${item.categorySlug}/index.html`}
+                style={{ color: tokens.text }}
               >
                 {item.category}
               </a>
@@ -133,6 +148,8 @@ const PortfolioCard = ({ item }) => (
           </div>
         </div>
       </div>
+
+      {/* Full-card link */}
       <a
         itemProp="url"
         className="eltdf-pli-link eltdf-block-drag-link"
@@ -143,81 +160,126 @@ const PortfolioCard = ({ item }) => (
   </article>
 );
 
+// ── Main component ───────────────────────────────────────────────────────────
+
 const Event = () => {
+  const { tokens } = useTheme();
+
   return (
     <>
       <Header />
 
-      <BackToTop />
+      <BackToTop tokens={tokens} />
 
-      <div className="eltdf-content" >
+      <div
+        className="eltdf-content"
+        style={{ background: tokens.pageBg, transition: "background 0.3s ease" }}
+      >
         <div className="eltdf-content-inner">
 
-          {/* Page Title / Breadcrumb */}
+          {/* ── Page Title / Breadcrumb ── */}
           <div
             className="eltdf-title-holder eltdf-standard-with-breadcrumbs-type eltdf-title-va-header-bottom"
-            style={{ height: "189px", backgroundColor: "#0c1315" }}
+            style={{
+              height: "189px",
+              backgroundColor: tokens.pageBg,
+              transition: "background 0.3s ease",
+            }}
             data-height="189"
           >
+            {/* Grid lines */}
             <div className="eltdf-grid-lines-holder eltdf-grid-columns-5">
               {[1, 2, 3, 4, 5].map((n) => (
-                <div key={n} className={`eltdf-grid-line eltdf-grid-column-${n}`} />
+                <div
+                  key={n}
+                  className={`eltdf-grid-line eltdf-grid-column-${n}`}
+                  style={{ borderColor: tokens.borderFaint }}
+                />
               ))}
             </div>
+
             <div className="eltdf-title-wrapper" style={{ height: "79px", paddingTop: "110px" }}>
               <div className="eltdf-title-inner">
                 <div className="eltdf-grid">
+
                   <div className="eltdf-title-info">
-                    <h5 className="eltdf-page-title entry-title"> Some of our recent events</h5>
-                    
+                    <h5
+                      className="eltdf-page-title entry-title"
+                      style={{ color: tokens.heading }}
+                    >
+                      Some of our recent events
+                    </h5>
                   </div>
+
                   <div className="eltdf-breadcrumbs-info">
                     <div itemProp="breadcrumb" className="eltdf-breadcrumbs">
-                      <a itemProp="url" href="../index.html">Home</a>
+                      <a
+                        itemProp="url"
+                        href="../index.html"
+                        style={{ color: tokens.text }}
+                      >
+                        Home
+                      </a>
                       <span className="eltdf-delimiter">
-                        <BreadcrumbArrow />
+                        <BreadcrumbArrow color={tokens.text} />
                       </span>
-                      <span className="eltdf-current">Events</span>
-                 
+                      <span
+                        className="eltdf-current"
+                        style={{ color: tokens.textMuted }}
+                      >
+                        Events
+                      </span>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>
           </div>
 
-          {/* ── Description — between banner and gallery ── */}
+          {/* ── Description strip ── */}
           <div style={{
-            backgroundColor: "#0c1315",
+            backgroundColor: tokens.pageBg,
             padding: "40px 60px",
             textAlign: "center",
+            transition: "background 0.3s ease",
           }}>
             <p style={{
-              color: "rgba(201,171,129,0.85)",
+              color: tokens.body,
               fontSize: "15px",
               lineHeight: "1.8",
               maxWidth: "800px",
               margin: "0 auto",
               fontWeight: 300,
               letterSpacing: "0.03em",
+              transition: "color 0.3s ease",
             }}>
               We have successfully catered at weddings, corporate functions, parties and small
               gatherings for over 20 years. To give you a glimpse of what we do, we have picked
               out a selection of images that showcase some of our most recent events! For more
               information, please contact us at{" "}
-              <strong style={{ color: "#C9AB81" }}>0208 3100 844</strong> or fill in our form.
+              <strong style={{ color: tokens.text }}>0208 3100 844</strong> or fill in our form.
             </p>
           </div>
 
-          {/* Gallery Grid */}
-          <div className="eltdf-full-width">
+          {/* ── Gallery Grid ── */}
+          <div
+            className="eltdf-full-width"
+            style={{ background: tokens.pageBg, transition: "background 0.3s ease" }}
+          >
             <div className="eltdf-full-width-inner">
 
+              {/* Grid lines */}
               <div className="eltdf-grid-lines-holder eltdf-grid-columns-5">
                 {[1, 2, 3, 4, 5].map((n) => (
-                  <div key={n} className={`eltdf-grid-line eltdf-grid-column-${n}`} />
+                  <div
+                    key={n}
+                    className={`eltdf-grid-line eltdf-grid-column-${n}`}
+                    style={{ borderColor: tokens.borderFaint }}
+                  />
                 ))}
               </div>
+
               <div className="eltdf-grid-row">
                 <div className="eltdf-page-content-holder eltdf-grid-col-12">
                   <div className="wpb-content-wrapper">
@@ -230,7 +292,11 @@ const Event = () => {
                                 <div className="eltdf-portfolio-list-holder eltdf-grid-list eltdf-pl-gallery eltdf-three-columns eltdf-normal-space eltdf-disable-bottom-space eltdf-pl-gallery-overlay eltdf-pl-pag-no-pagination">
                                   <div className="eltdf-pl-inner eltdf-outer-space clearfix">
                                     {portfolioItems.map((item) => (
-                                      <PortfolioCard key={item.id} item={item} />
+                                      <PortfolioCard
+                                        key={item.id}
+                                        item={item}
+                                        tokens={tokens}
+                                      />
                                     ))}
                                   </div>
                                 </div>
@@ -243,6 +309,7 @@ const Event = () => {
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
 
