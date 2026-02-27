@@ -41,8 +41,8 @@ export const themes = {
   light: {
     bg: "#FAF6F1",
     bgScrolled: "rgba(250,246,241,0.97)",
-    text: "#7A5C2E",
-    textMuted: "rgba(122,92,46,0.8)",
+    text: "#000",
+    textMuted: "#000",
     border: "rgba(122,92,46,0.2)",
     borderFaint: "rgba(122,92,46,0.08)",
     borderSub: "rgba(122,92,46,0.1)",
