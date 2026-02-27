@@ -7,7 +7,7 @@ import "./Header.css";
 import logo from "./media/logo.png";
 /* ─── SVG Components ─── */
 const LogoSVG = () => (
-  <img src={logo} alt="Laurent Restaurant" style={{ width: 80, height: "auto" }} />
+  <img src={logo} alt="Laurent Restaurant" style={{ width: 70, height: "auto" }} />
 );
 
 const MenuOpenerSVG = () => (
