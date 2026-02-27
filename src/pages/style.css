@@ -36,3 +36,33 @@
   font-size: 13px;
   letter-spacing: 1px;
 }
+
+/* â”€â”€ Paste this into your global style.css or Banner.css â”€â”€ */
+
+/* Fix WooCommerce default dark backgrounds on product meta */
+.product_meta .sku_wrapper,
+.product_meta .sku,
+.product_meta .posted_in,
+.product_meta .posted_in a,
+.product_meta .tagged_as,
+.product_meta .tagged_as span,
+.product_meta span {
+  background: transparent !important;
+  background-color: transparent !important;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Also fix the Add to Cart button area if affected */
+.cart .single_add_to_cart_button,
+.woocommerce .cart .button {
+  background-color: transparent;
+}
+
+/* General safety net for any highlighted spans inside product pages */
+.eltdf-single-product-summary span,
+.eltdf-single-product-summary a,
+.summary span,
+.summary a {
+  background: transparent !important;
+}

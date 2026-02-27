@@ -331,7 +331,9 @@ const Single = () => {
                           <div className="product_meta" style={{ color: tokens.textMuted }}>
                             {product.weight && (
                               <span className="sku_wrapper" style={{ color: tokens.textMuted }}>
-                                Weight: <span className="sku" style={{ color: tokens.pageBg }}>{product.weight} {product.unit}</span>
+                                Weight: <span className="sku" style={{ color: tokens.body, background: "transparent" }}>
+  {product.weight} {product.unit}
+</span>
                               </span>
                             )}
                             {categoryName && (
