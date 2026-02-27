@@ -317,7 +317,7 @@ const Shop = () => {
                   <aside
                     className="eltdf-sidebar"
                     style={{
-                      background: tokens.cardBg,
+                      background: tokens.pageBg,
                       transition: "background 0.3s ease",
                     }}
                   >
