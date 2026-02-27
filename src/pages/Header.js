@@ -540,49 +540,620 @@
 
 // export default Header;
 
-import React, { useState, useEffect, useRef, useContext, createContext } from "react";
+// import React, { useState, useEffect, useRef, useContext, createContext } from "react";
+// import { Link, useLocation } from "react-router-dom";
+// import { useCart } from "../context/CartContext";
+// import { AuthContext } from "../context/AuthContext";
+// import "./Header.css";
+// import logo from "./media/logo.png";
+
+// /* ─── Theme Context ─── */
+// export const ThemeContext = createContext({ theme: "dark", toggleTheme: () => {} });
+
+// /* ─── Theme Tokens ─── */
+// const themes = {
+//   dark: {
+// 	bg: "#0c1315",
+// 	bgScrolled: "rgba(12,19,21,0.97)",
+// 	text: "#C9AB81",
+// 	textMuted: "rgba(201,171,129,0.8)",
+// 	border: "rgba(201,171,129,0.15)",
+// 	borderFaint: "rgba(201,171,129,0.06)",
+// 	borderSub: "rgba(201,171,129,0.08)",
+// 	borderNav: "rgba(201,171,129,0.12)",
+// 	dropdownBg: "#0c1315",
+// 	panelBg: "#0c1315",
+// 	mobileBg: "#0c1315",
+// 	mobileOverlay: "rgba(0,0,0,0.5)",
+// 	mobileSubBg: "rgba(0,0,0,0.2)",
+//   },
+//   light: {
+// 	bg: "#FAF6F1",
+// 	bgScrolled: "rgba(250,246,241,0.97)",
+// 	text: "#7A5C2E",
+// 	textMuted: "rgba(122,92,46,0.8)",
+// 	border: "rgba(122,92,46,0.2)",
+// 	borderFaint: "rgba(122,92,46,0.08)",
+// 	borderSub: "rgba(122,92,46,0.1)",
+// 	borderNav: "rgba(122,92,46,0.15)",
+// 	dropdownBg: "#FAF6F1",
+// 	panelBg: "#FAF6F1",
+// 	mobileBg: "#FAF6F1",
+// 	mobileOverlay: "rgba(0,0,0,0.3)",
+// 	mobileSubBg: "rgba(122,92,46,0.05)",
+//   },
+// };
+
+// /* ─── SVG Components ─── */
+// const LogoSVG = () => (
+//   <img src={logo} alt="Laurent Restaurant" style={{ width: 70, height: "auto" }} />
+// );
+
+// const MenuOpenerSVG = ({ color }) => (
+//   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 25.2" className="eltdf-menu-opener"
+// 	style={{ width: 37, height: 25.2, display: "block", stroke: color, strokeWidth: 1, fill: "none" }}>
+// 	<line y1="7.6" x2="24" y2="7.6" />
+// 	<line x1="4.1" y1="0.5" x2="28.1" y2="0.5" />
+// 	<line x1="10.1" y1="24.6" x2="34.1" y2="24.6" />
+// 	<line x1="13" y1="17.6" x2="37" y2="17.6" />
+//   </svg>
+// );
+
+// const CloseMenuSVG = ({ color }) => (
+//   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+// 	style={{ width: 24, height: 24, display: "block", stroke: color, strokeWidth: 1.5, fill: "none" }}>
+// 	<line x1="2" y1="2" x2="22" y2="22" />
+// 	<line x1="22" y1="2" x2="2" y2="22" />
+//   </svg>
+// );
+
+// const ArrowSVG = () => (
+//   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.3 8.5" className="eltdf-menu-arrow"
+// 	style={{ width: 8, height: 9, display: "inline-block", marginLeft: 6, fill: "none", stroke: "currentColor", strokeWidth: 1 }}>
+// 	<polyline points="0.4 0.4 3.6 4.2 0.4 8.1" />
+// 	<polyline points="4.5 0.4 7.7 4.2 4.5 8.1" />
+//   </svg>
+// );
+
+// const CartSVG = ({ count, color }) => (
+//   <span style={{ position: "relative", display: "inline-flex", alignItems: "center" }}>
+// 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 34"
+// 	  style={{ width: 28, height: 26, fill: "none", stroke: color, strokeWidth: 1.2 }}>
+// 	  <path d="M1 1h5l3.5 18h18l3.5-12H8" />
+// 	  <circle cx="14" cy="30" r="2" fill={color} stroke="none" />
+// 	  <circle cx="27" cy="30" r="2" fill={color} stroke="none" />
+// 	</svg>
+// 	{count > 0 && (
+// 	  <span style={{
+// 		position: "absolute", top: -8, right: -10,
+// 		background: "transparent", border: `1px solid ${color}`,
+// 		color: color, fontSize: 10, width: 18, height: 18,
+// 		borderRadius: "50%", display: "flex", alignItems: "center",
+// 		justifyContent: "center", lineHeight: 1,
+// 	  }}>{count}</span>
+// 	)}
+//   </span>
+// );
+
+// const SunSVG = ({ color }) => (
+//   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+// 	style={{ width: 17, height: 17, display: "block", stroke: color, strokeWidth: 1.5, fill: "none" }}>
+// 	<circle cx="12" cy="12" r="5" />
+// 	<line x1="12" y1="1" x2="12" y2="3" />
+// 	<line x1="12" y1="21" x2="12" y2="23" />
+// 	<line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+// 	<line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+// 	<line x1="1" y1="12" x2="3" y2="12" />
+// 	<line x1="21" y1="12" x2="23" y2="12" />
+// 	<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+// 	<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+//   </svg>
+// );
+
+// const MoonSVG = ({ color }) => (
+//   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+// 	style={{ width: 17, height: 17, display: "block", stroke: color, strokeWidth: 1.5, fill: "none" }}>
+// 	<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+//   </svg>
+// );
+
+// /* ─── Inline Theme Toggle Button ─── */
+// const ThemeToggleButton = ({ theme, onToggle, tokens }) => (
+//   <button
+// 	onClick={onToggle}
+// 	aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+// 	title={theme === "dark" ? "Light Mode" : "Dark Mode"}
+// 	style={{
+// 	  background: "none",
+// 	  border: `1px solid ${tokens.border}`,
+// 	  borderRadius: 20,
+// 	  cursor: "pointer",
+// 	  padding: "5px 9px",
+// 	  display: "inline-flex",
+// 	  alignItems: "center",
+// 	  justifyContent: "center",
+// 	  transition: "opacity 0.2s ease",
+// 	}}
+// 	onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.65")}
+// 	onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+//   >
+// 	{theme === "dark" ? <SunSVG color={tokens.text} /> : <MoonSVG color={tokens.text} />}
+//   </button>
+// );
+
+// /* ─── Nav Data ─── */
+// const navItems = [
+//   { label: "Home", href: "/" },
+//   { label: "Catering & Events", href: "/event" },
+//   { label: "Order", href: "/shop" },
+//   { label: "About", href: "/about-us" },
+//   { label: "Blog", href: "/blog-post" },
+//   { label: "Account", href: "/my-account" },
+// ];
+
+// /* ─── Desktop Nav Item ─── */
+// const DesktopNavItem = ({ item, isActive }) => {
+//   const { theme } = useContext(ThemeContext);
+//   const tokens = themes[theme];
+//   const [open, setOpen] = useState(false);
+//   const ref = useRef(null);
+
+//   useEffect(() => {
+// 	const handleClick = (e) => {
+// 	  if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+// 	};
+// 	document.addEventListener("mousedown", handleClick);
+// 	return () => document.removeEventListener("mousedown", handleClick);
+//   }, []);
+
+//   return (
+// 	<li
+// 	  ref={ref}
+// 	  className={`menu-item${item.children ? " has_sub" : ""}${isActive ? " eltdf-active-item" : ""}`}
+// 	  style={{ position: "relative", listStyle: "none" }}
+// 	  onMouseEnter={() => item.children && setOpen(true)}
+// 	  onMouseLeave={() => item.children && setOpen(false)}
+// 	>
+// 	  <a
+// 		href={item.href}
+// 		onClick={(e) => { if (item.href === "#") e.preventDefault(); }}
+// 		style={{
+// 		  display: "inline-block", padding: "0 18px",
+// 		  color: tokens.text, textDecoration: "none", fontSize: 11,
+// 		  letterSpacing: "0.18em", fontFamily: "inherit", position: "relative",
+// 		}}
+// 	  >
+// 		<span className="item_outer">
+// 		  <span className="item_text">{item.label.toUpperCase()}</span>
+// 		</span>
+// 		{isActive && (
+// 		  <span style={{
+// 			position: "absolute", bottom: -6, left: "50%",
+// 			transform: "translateX(-50%)", width: 30,
+// 			height: 1, background: tokens.text, display: "block",
+// 		  }} />
+// 		)}
+// 	  </a>
+
+// 	  {item.children && open && (
+// 		<div className="second" style={{
+// 		  position: "absolute", top: "100%", left: "50%",
+// 		  transform: "translateX(-50%)",
+// 		  background: tokens.dropdownBg, minWidth: 200,
+// 		  padding: "10px 0", zIndex: 9999,
+// 		  boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+// 		}}>
+// 		  <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+// 			{item.children.map((child, ci) => (
+// 			  <DesktopDropdownItem key={ci} child={child} />
+// 			))}
+// 		  </ul>
+// 		</div>
+// 	  )}
+// 	</li>
+//   );
+// };
+
+// const DesktopDropdownItem = ({ child }) => {
+//   const { theme } = useContext(ThemeContext);
+//   const tokens = themes[theme];
+//   const [open, setOpen] = useState(false);
+
+//   return (
+// 	<li
+// 	  style={{ position: "relative", listStyle: "none" }}
+// 	  onMouseEnter={() => child.subChildren && setOpen(true)}
+// 	  onMouseLeave={() => child.subChildren && setOpen(false)}
+// 	>
+// 	  <a
+// 		href={child.href}
+// 		onClick={(e) => { if (child.href === "#") e.preventDefault(); }}
+// 		style={{
+// 		  display: "flex", alignItems: "center", justifyContent: "space-between",
+// 		  padding: "8px 20px", color: tokens.text, textDecoration: "none",
+// 		  fontSize: 11, letterSpacing: "0.12em",
+// 		  borderBottom: `1px solid ${tokens.borderSub}`,
+// 		}}
+// 	  >
+// 		<span>{child.label}</span>
+// 		{child.subChildren && <ArrowSVG />}
+// 	  </a>
+
+// 	  {child.subChildren && open && (
+// 		<ul style={{
+// 		  position: "absolute", top: 0, left: "100%",
+// 		  background: tokens.dropdownBg, minWidth: 180,
+// 		  padding: "10px 0", listStyle: "none", margin: 0,
+// 		  boxShadow: "4px 4px 20px rgba(0,0,0,0.2)", zIndex: 9999,
+// 		}}>
+// 		  {child.subChildren.map((sub, si) => (
+// 			<li key={si} style={{ listStyle: "none" }}>
+// 			  <a href={sub.href} style={{
+// 				display: "block", padding: "8px 20px",
+// 				color: tokens.text, textDecoration: "none",
+// 				fontSize: 11, letterSpacing: "0.12em",
+// 				borderBottom: `1px solid ${tokens.borderSub}`,
+// 			  }}>{sub.label}</a>
+// 			</li>
+// 		  ))}
+// 		</ul>
+// 	  )}
+// 	</li>
+//   );
+// };
+
+// /* ─── Mobile Nav Item ─── */
+// const MobileNavItem = ({ item, depth = 0 }) => {
+//   const { theme } = useContext(ThemeContext);
+//   const tokens = themes[theme];
+//   const [open, setOpen] = useState(false);
+//   const hasChildren = item.children || item.subChildren;
+//   const children = item.children || item.subChildren;
+
+//   return (
+// 	<li style={{ listStyle: "none", borderBottom: `1px solid ${tokens.borderNav}` }}>
+// 	  <div style={{
+// 		display: "flex", alignItems: "center",
+// 		justifyContent: "space-between", paddingLeft: depth * 16,
+// 	  }}>
+// 		<a
+// 		  href={item.href}
+// 		  onClick={(e) => { if (item.href === "#") e.preventDefault(); }}
+// 		  style={{
+// 			display: "block", padding: "13px 20px",
+// 			color: tokens.text, textDecoration: "none",
+// 			fontSize: 11, letterSpacing: "0.15em", flex: 1,
+// 		  }}
+// 		>
+// 		  {item.label.toUpperCase()}
+// 		</a>
+// 		{hasChildren && (
+// 		  <button
+// 			onClick={() => setOpen(!open)}
+// 			style={{
+// 			  background: "none", border: "none", cursor: "pointer",
+// 			  padding: "13px 20px", color: tokens.text,
+// 			  transform: open ? "rotate(90deg)" : "none",
+// 			  transition: "transform 0.2s",
+// 			}}
+// 		  >
+// 			<ArrowSVG />
+// 		  </button>
+// 		)}
+// 	  </div>
+// 	  {hasChildren && open && (
+// 		<ul style={{ listStyle: "none", margin: 0, padding: 0, background: tokens.mobileSubBg }}>
+// 		  {children.map((child, ci) => (
+// 			<MobileNavItem key={ci} item={child} depth={depth + 1} />
+// 		  ))}
+// 		</ul>
+// 	  )}
+// 	</li>
+//   );
+// };
+
+// /* ─── Side Menu Panel — contact info only, NO theme toggle ─── */
+// const SideMenuPanel = ({ open, onClose }) => {
+//   const { theme } = useContext(ThemeContext);
+//   const tokens = themes[theme];
+
+//   return (
+// 	<>
+// 	  {open && (
+// 		<div onClick={onClose} style={{
+// 		  position: "fixed", inset: 0,
+// 		  background: tokens.mobileOverlay, zIndex: 10000,
+// 		}} />
+// 	  )}
+
+// 	  <div style={{
+// 		position: "fixed", top: 0, right: 0,
+// 		width: 340, height: "100vh",
+// 		background: tokens.panelBg,
+// 		borderLeft: `1px solid ${tokens.border}`,
+// 		transform: open ? "translateX(0)" : "translateX(100%)",
+// 		transition: "transform 0.35s ease",
+// 		zIndex: 10001,
+// 		display: "flex", flexDirection: "column", alignItems: "center",
+// 		padding: "36px 30px 50px",
+// 		overflowY: "auto",
+// 	  }}>
+
+// 		<button onClick={onClose} style={{
+// 		  background: "none", border: "none", cursor: "pointer",
+// 		  alignSelf: "flex-end", padding: 0, marginBottom: 60,
+// 		}}>
+// 		  <CloseMenuSVG color={tokens.text} />
+// 		</button>
+
+// 		<div style={{ marginBottom: 50 }}>
+// 		  <LogoSVG />
+// 		</div>
+
+// 		<p style={{
+// 		  color: tokens.text, fontSize: 14, letterSpacing: "0.05em",
+// 		  textAlign: "center", margin: "0 0 10px", fontWeight: 300,
+// 		}}>
+// 		  African Mama Put
+// 		</p>
+
+// 		<p style={{
+// 		  color: tokens.textMuted, fontSize: 13, letterSpacing: "0.04em",
+// 		  textAlign: "center", margin: "0 0 6px", fontWeight: 300,
+// 		}}>
+// 		  Liverpool, United Kingdom
+// 		</p>
+
+// 		<p style={{
+// 		  color: tokens.textMuted, fontSize: 13, letterSpacing: "0.04em",
+// 		  textAlign: "center", margin: "0 0 6px", fontWeight: 300,
+// 		}}>
+// 		  0787689686
+// 		</p>
+
+// 		<p style={{
+// 		  color: tokens.textMuted, fontSize: 13, letterSpacing: "0.04em",
+// 		  textAlign: "center", margin: "0 0 60px", fontWeight: 300,
+// 		}}>
+// 		  Open: 10:00 am – 09:00 pm (Monday–Thursday) <br />
+// 		  10:00am – 11:00pm (Friday to Saturday) <br />
+// 		  Sunday – Closed
+// 		</p>
+
+// 		{["Facebook", "Instagram", "Trip Advisor"].map((social) => (
+// 		  <div key={social} style={{ marginBottom: 28, textAlign: "center" }}>
+// 			<a
+// 			  href="african_mamaput"
+// 			  onClick={(e) => e.preventDefault()}
+// 			  style={{
+// 				color: tokens.text, textDecoration: "none",
+// 				fontSize: 13, letterSpacing: "0.1em", fontWeight: 300,
+// 			  }}
+// 			>
+// 			  {social}
+// 			</a>
+// 			<div style={{
+// 			  width: 60, height: 1,
+// 			  background: tokens.border,
+// 			  margin: "6px auto 0",
+// 			}} />
+// 		  </div>
+// 		))}
+// 	  </div>
+// 	</>
+//   );
+// };
+
+// /* ─── Main Header Component ─── */
+// const Header = () => {
+//   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
+//   const toggleTheme = () => {
+// 	setTheme((prev) => {
+// 	  const next = prev === "dark" ? "light" : "dark";
+// 	  localStorage.setItem("theme", next);
+// 	  return next;
+// 	});
+//   };
+
+//   const tokens = themes[theme];
+//   const [sideMenuOpen, setSideMenuOpen] = useState(false);
+//   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+//   const [scrolled, setScrolled] = useState(false);
+//   const [isMobile, setIsMobile] = useState(window.innerWidth <= 1024);
+//   const { cartItems } = useCart();
+//   const { dispatch } = useContext(AuthContext);
+//   const { pathname } = useLocation();
+//   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+//   useEffect(() => {
+// 	const handleScroll = () => setScrolled(window.scrollY > 50);
+// 	window.addEventListener("scroll", handleScroll);
+// 	return () => window.removeEventListener("scroll", handleScroll);
+//   }, []);
+
+//   useEffect(() => {
+// 	const handleResize = () => setIsMobile(window.innerWidth <= 1024);
+// 	window.addEventListener("resize", handleResize);
+// 	return () => window.removeEventListener("resize", handleResize);
+//   }, []);
+
+//   useEffect(() => {
+// 	document.body.style.overflow = (sideMenuOpen || mobileNavOpen) ? "hidden" : "";
+// 	return () => { document.body.style.overflow = ""; };
+//   }, [sideMenuOpen, mobileNavOpen]);
+
+//   useEffect(() => {
+// 	document.documentElement.setAttribute("data-theme", theme);
+//   }, [theme]);
+
+//   const handleLogout = () => {
+// 	localStorage.removeItem("token");
+// 	localStorage.removeItem("user");
+// 	dispatch({ type: "LOGOUT" });
+//   };
+
+//   const headerStyle = {
+// 	position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
+// 	background: scrolled ? tokens.bgScrolled : tokens.bg,
+// 	transition: "background 0.3s ease",
+// 	borderBottom: `1px solid ${tokens.border}`,
+//   };
+
+//   return (
+// 	<ThemeContext.Provider value={{ theme, toggleTheme }}>
+// 	  <header className="eltdf-page-header" style={headerStyle}>
+
+// 		{/* Decorative grid lines */}
+// 		<div style={{
+// 		  position: "absolute", top: 0, bottom: 0, left: 0, right: 0,
+// 		  display: "flex", pointerEvents: "none", zIndex: 0,
+// 		}}>
+// 		  {[...Array(5)].map((_, i) => (
+// 			<div key={i} style={{ flex: 1, borderRight: `1px solid ${tokens.borderFaint}` }} />
+// 		  ))}
+// 		</div>
+
+// 		{/* ══ DESKTOP HEADER ══ */}
+// 		{!isMobile && (
+// 		  <div className="eltdf-menu-area" style={{
+// 			position: "relative", zIndex: 1,
+// 			display: "flex", alignItems: "center",
+// 			height: 90, padding: "0 30px",
+// 		  }}>
+// 			{/* LEFT: Logo */}
+// 			<div className="eltdf-position-left" style={{ flex: "0 0 auto", minWidth: 80 }}>
+// 			  <div className="eltdf-logo-wrapper eltdf-svg-logo">
+// 				<Link to="/" itemProp="url" style={{ display: "inline-block" }}>
+// 				  <LogoSVG />
+// 				</Link>
+// 			  </div>
+// 			</div>
+
+// 			{/* CENTER: Nav links */}
+// 			<div className="eltdf-position-center" style={{
+// 			  flex: 1, display: "flex", justifyContent: "center", alignItems: "center",
+// 			}}>
+// 			  <nav className="eltdf-main-menu" style={{ display: "flex", alignItems: "center" }}>
+// 				<ul style={{
+// 				  display: "flex", listStyle: "none",
+// 				  margin: 0, padding: 0, alignItems: "center", gap: 0,
+// 				}}>
+// 				  {navItems.map((item, i) => (
+// 					<DesktopNavItem
+// 					  key={i}
+// 					  item={item}
+// 					  isActive={pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))}
+// 					/>
+// 				  ))}
+// 				</ul>
+// 			  </nav>
+// 			</div>
+
+// 			{/* RIGHT: ☀️/🌙 + Cart + Side Menu opener */}
+// 			<div className="eltdf-position-right" style={{
+// 			  flex: "0 0 auto", minWidth: 80,
+// 			  display: "flex", alignItems: "center",
+// 			  gap: 20, justifyContent: "flex-end",
+// 			}}>
+// 			  <ThemeToggleButton theme={theme} onToggle={toggleTheme} tokens={tokens} />
+
+// 			  <Link to="/cart" style={{ display: "inline-flex", alignItems: "center" }}>
+// 				<CartSVG count={totalItems} color={tokens.text} />
+// 			  </Link>
+
+// 			  <button
+// 				className="eltdf-side-menu-button-opener"
+// 				onClick={() => setSideMenuOpen(true)}
+// 				style={{
+// 				  background: "none", border: "none",
+// 				  cursor: "pointer", padding: 0,
+// 				  display: "inline-flex", alignItems: "center",
+// 				}}
+// 				aria-label="Open side menu"
+// 			  >
+// 				<MenuOpenerSVG color={tokens.text} />
+// 			  </button>
+// 			</div>
+// 		  </div>
+// 		)}
+
+// 		{/* ══ MOBILE HEADER BAR ══ */}
+// 		{isMobile && (
+// 		  <div style={{
+// 			position: "relative", zIndex: 1,
+// 			display: "flex", alignItems: "center",
+// 			justifyContent: "space-between",
+// 			height: 70, padding: "0 20px",
+// 		  }}>
+// 			<Link to="/" style={{ display: "inline-block" }}>
+// 			  <LogoSVG />
+// 			</Link>
+
+// 			{/* RIGHT: ☀️/🌙 + Cart + Hamburger */}
+// 			<div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+// 			  <ThemeToggleButton theme={theme} onToggle={toggleTheme} tokens={tokens} />
+
+// 			  <Link to="/cart" style={{ display: "inline-flex", alignItems: "center" }}>
+// 				<CartSVG count={totalItems} color={tokens.text} />
+// 			  </Link>
+
+// 			  <button
+// 				onClick={() => setMobileNavOpen(!mobileNavOpen)}
+// 				style={{
+// 				  background: "none", border: "none",
+// 				  cursor: "pointer", padding: 0,
+// 				  display: "inline-flex", alignItems: "center",
+// 				}}
+// 				aria-label={mobileNavOpen ? "Close menu" : "Open menu"}
+// 			  >
+// 				{mobileNavOpen ? <CloseMenuSVG color={tokens.text} /> : <MenuOpenerSVG color={tokens.text} />}
+// 			  </button>
+// 			</div>
+// 		  </div>
+// 		)}
+
+// 		{/* Mobile Nav Drawer */}
+// 		{isMobile && (
+// 		  <div style={{
+// 			overflow: "hidden",
+// 			maxHeight: mobileNavOpen ? 1000 : 0,
+// 			transition: "max-height 0.4s ease",
+// 			background: tokens.mobileBg,
+// 			borderTop: mobileNavOpen ? `1px solid ${tokens.border}` : "none",
+// 		  }}>
+// 			<nav aria-label="Mobile Menu">
+// 			  <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+// 				{navItems.map((item, i) => (
+// 				  <MobileNavItem key={i} item={item} />
+// 				))}
+// 			  </ul>
+// 			</nav>
+// 		  </div>
+// 		)}
+
+// 	  </header>
+
+// 	  {/* Side Menu Panel — contact info only */}
+// 	  <SideMenuPanel open={sideMenuOpen} onClose={() => setSideMenuOpen(false)} />
+
+// 	  <style>{`
+// 		.menu-item a:hover span { opacity: 0.7; }
+// 		.eltdf-main-menu ul { height: 90px; align-items: center; }
+// 		.eltdf-main-menu li a { height: 90px; display: flex !important; align-items: center; }
+// 		.eltdf-page-header { display: block !important; }
+// 	  `}</style>
+// 	</ThemeContext.Provider>
+//   );
+// };
+
+// export default Header;
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { AuthContext } from "../context/AuthContext";
+import { useTheme, themes } from "../context/ThemeContext"; // ← shared context
 import "./Header.css";
 import logo from "./media/logo.png";
-
-/* ─── Theme Context ─── */
-export const ThemeContext = createContext({ theme: "dark", toggleTheme: () => {} });
-
-/* ─── Theme Tokens ─── */
-const themes = {
-  dark: {
-	bg: "#0c1315",
-	bgScrolled: "rgba(12,19,21,0.97)",
-	text: "#C9AB81",
-	textMuted: "rgba(201,171,129,0.8)",
-	border: "rgba(201,171,129,0.15)",
-	borderFaint: "rgba(201,171,129,0.06)",
-	borderSub: "rgba(201,171,129,0.08)",
-	borderNav: "rgba(201,171,129,0.12)",
-	dropdownBg: "#0c1315",
-	panelBg: "#0c1315",
-	mobileBg: "#0c1315",
-	mobileOverlay: "rgba(0,0,0,0.5)",
-	mobileSubBg: "rgba(0,0,0,0.2)",
-  },
-  light: {
-	bg: "#FAF6F1",
-	bgScrolled: "rgba(250,246,241,0.97)",
-	text: "#7A5C2E",
-	textMuted: "rgba(122,92,46,0.8)",
-	border: "rgba(122,92,46,0.2)",
-	borderFaint: "rgba(122,92,46,0.08)",
-	borderSub: "rgba(122,92,46,0.1)",
-	borderNav: "rgba(122,92,46,0.15)",
-	dropdownBg: "#FAF6F1",
-	panelBg: "#FAF6F1",
-	mobileBg: "#FAF6F1",
-	mobileOverlay: "rgba(0,0,0,0.3)",
-	mobileSubBg: "rgba(122,92,46,0.05)",
-  },
-};
 
 /* ─── SVG Components ─── */
 const LogoSVG = () => (
@@ -591,93 +1162,92 @@ const LogoSVG = () => (
 
 const MenuOpenerSVG = ({ color }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 25.2" className="eltdf-menu-opener"
-	style={{ width: 37, height: 25.2, display: "block", stroke: color, strokeWidth: 1, fill: "none" }}>
-	<line y1="7.6" x2="24" y2="7.6" />
-	<line x1="4.1" y1="0.5" x2="28.1" y2="0.5" />
-	<line x1="10.1" y1="24.6" x2="34.1" y2="24.6" />
-	<line x1="13" y1="17.6" x2="37" y2="17.6" />
+    style={{ width: 37, height: 25.2, display: "block", stroke: color, strokeWidth: 1, fill: "none" }}>
+    <line y1="7.6" x2="24" y2="7.6" />
+    <line x1="4.1" y1="0.5" x2="28.1" y2="0.5" />
+    <line x1="10.1" y1="24.6" x2="34.1" y2="24.6" />
+    <line x1="13" y1="17.6" x2="37" y2="17.6" />
   </svg>
 );
 
 const CloseMenuSVG = ({ color }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-	style={{ width: 24, height: 24, display: "block", stroke: color, strokeWidth: 1.5, fill: "none" }}>
-	<line x1="2" y1="2" x2="22" y2="22" />
-	<line x1="22" y1="2" x2="2" y2="22" />
+    style={{ width: 24, height: 24, display: "block", stroke: color, strokeWidth: 1.5, fill: "none" }}>
+    <line x1="2" y1="2" x2="22" y2="22" />
+    <line x1="22" y1="2" x2="2" y2="22" />
   </svg>
 );
 
 const ArrowSVG = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8.3 8.5" className="eltdf-menu-arrow"
-	style={{ width: 8, height: 9, display: "inline-block", marginLeft: 6, fill: "none", stroke: "currentColor", strokeWidth: 1 }}>
-	<polyline points="0.4 0.4 3.6 4.2 0.4 8.1" />
-	<polyline points="4.5 0.4 7.7 4.2 4.5 8.1" />
+    style={{ width: 8, height: 9, display: "inline-block", marginLeft: 6, fill: "none", stroke: "currentColor", strokeWidth: 1 }}>
+    <polyline points="0.4 0.4 3.6 4.2 0.4 8.1" />
+    <polyline points="4.5 0.4 7.7 4.2 4.5 8.1" />
   </svg>
 );
 
 const CartSVG = ({ count, color }) => (
   <span style={{ position: "relative", display: "inline-flex", alignItems: "center" }}>
-	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 34"
-	  style={{ width: 28, height: 26, fill: "none", stroke: color, strokeWidth: 1.2 }}>
-	  <path d="M1 1h5l3.5 18h18l3.5-12H8" />
-	  <circle cx="14" cy="30" r="2" fill={color} stroke="none" />
-	  <circle cx="27" cy="30" r="2" fill={color} stroke="none" />
-	</svg>
-	{count > 0 && (
-	  <span style={{
-		position: "absolute", top: -8, right: -10,
-		background: "transparent", border: `1px solid ${color}`,
-		color: color, fontSize: 10, width: 18, height: 18,
-		borderRadius: "50%", display: "flex", alignItems: "center",
-		justifyContent: "center", lineHeight: 1,
-	  }}>{count}</span>
-	)}
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 34"
+      style={{ width: 28, height: 26, fill: "none", stroke: color, strokeWidth: 1.2 }}>
+      <path d="M1 1h5l3.5 18h18l3.5-12H8" />
+      <circle cx="14" cy="30" r="2" fill={color} stroke="none" />
+      <circle cx="27" cy="30" r="2" fill={color} stroke="none" />
+    </svg>
+    {count > 0 && (
+      <span style={{
+        position: "absolute", top: -8, right: -10,
+        background: "transparent", border: `1px solid ${color}`,
+        color: color, fontSize: 10, width: 18, height: 18,
+        borderRadius: "50%", display: "flex", alignItems: "center",
+        justifyContent: "center", lineHeight: 1,
+      }}>{count}</span>
+    )}
   </span>
 );
 
 const SunSVG = ({ color }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-	style={{ width: 17, height: 17, display: "block", stroke: color, strokeWidth: 1.5, fill: "none" }}>
-	<circle cx="12" cy="12" r="5" />
-	<line x1="12" y1="1" x2="12" y2="3" />
-	<line x1="12" y1="21" x2="12" y2="23" />
-	<line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-	<line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-	<line x1="1" y1="12" x2="3" y2="12" />
-	<line x1="21" y1="12" x2="23" y2="12" />
-	<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-	<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+    style={{ width: 17, height: 17, display: "block", stroke: color, strokeWidth: 1.5, fill: "none" }}>
+    <circle cx="12" cy="12" r="5" />
+    <line x1="12" y1="1" x2="12" y2="3" />
+    <line x1="12" y1="21" x2="12" y2="23" />
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+    <line x1="1" y1="12" x2="3" y2="12" />
+    <line x1="21" y1="12" x2="23" y2="12" />
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
   </svg>
 );
 
 const MoonSVG = ({ color }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-	style={{ width: 17, height: 17, display: "block", stroke: color, strokeWidth: 1.5, fill: "none" }}>
-	<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    style={{ width: 17, height: 17, display: "block", stroke: color, strokeWidth: 1.5, fill: "none" }}>
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
   </svg>
 );
 
-/* ─── Inline Theme Toggle Button ─── */
 const ThemeToggleButton = ({ theme, onToggle, tokens }) => (
   <button
-	onClick={onToggle}
-	aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-	title={theme === "dark" ? "Light Mode" : "Dark Mode"}
-	style={{
-	  background: "none",
-	  border: `1px solid ${tokens.border}`,
-	  borderRadius: 20,
-	  cursor: "pointer",
-	  padding: "5px 9px",
-	  display: "inline-flex",
-	  alignItems: "center",
-	  justifyContent: "center",
-	  transition: "opacity 0.2s ease",
-	}}
-	onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.65")}
-	onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+    onClick={onToggle}
+    aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+    title={theme === "dark" ? "Light Mode" : "Dark Mode"}
+    style={{
+      background: "none",
+      border: `1px solid ${tokens.border}`,
+      borderRadius: 20,
+      cursor: "pointer",
+      padding: "5px 9px",
+      display: "inline-flex",
+      alignItems: "center",
+      justifyContent: "center",
+      transition: "opacity 0.2s ease",
+    }}
+    onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.65")}
+    onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
   >
-	{theme === "dark" ? <SunSVG color={tokens.text} /> : <MoonSVG color={tokens.text} />}
+    {theme === "dark" ? <SunSVG color={tokens.text} /> : <MoonSVG color={tokens.text} />}
   </button>
 );
 
@@ -693,269 +1263,218 @@ const navItems = [
 
 /* ─── Desktop Nav Item ─── */
 const DesktopNavItem = ({ item, isActive }) => {
-  const { theme } = useContext(ThemeContext);
-  const tokens = themes[theme];
+  const { theme, tokens } = useTheme();
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
-	const handleClick = (e) => {
-	  if (ref.current && !ref.current.contains(e.target)) setOpen(false);
-	};
-	document.addEventListener("mousedown", handleClick);
-	return () => document.removeEventListener("mousedown", handleClick);
+    const handleClick = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
   return (
-	<li
-	  ref={ref}
-	  className={`menu-item${item.children ? " has_sub" : ""}${isActive ? " eltdf-active-item" : ""}`}
-	  style={{ position: "relative", listStyle: "none" }}
-	  onMouseEnter={() => item.children && setOpen(true)}
-	  onMouseLeave={() => item.children && setOpen(false)}
-	>
-	  <a
-		href={item.href}
-		onClick={(e) => { if (item.href === "#") e.preventDefault(); }}
-		style={{
-		  display: "inline-block", padding: "0 18px",
-		  color: tokens.text, textDecoration: "none", fontSize: 11,
-		  letterSpacing: "0.18em", fontFamily: "inherit", position: "relative",
-		}}
-	  >
-		<span className="item_outer">
-		  <span className="item_text">{item.label.toUpperCase()}</span>
-		</span>
-		{isActive && (
-		  <span style={{
-			position: "absolute", bottom: -6, left: "50%",
-			transform: "translateX(-50%)", width: 30,
-			height: 1, background: tokens.text, display: "block",
-		  }} />
-		)}
-	  </a>
+    <li ref={ref}
+      className={`menu-item${item.children ? " has_sub" : ""}${isActive ? " eltdf-active-item" : ""}`}
+      style={{ position: "relative", listStyle: "none" }}
+      onMouseEnter={() => item.children && setOpen(true)}
+      onMouseLeave={() => item.children && setOpen(false)}
+    >
+      <a href={item.href}
+        onClick={(e) => { if (item.href === "#") e.preventDefault(); }}
+        style={{
+          display: "inline-block", padding: "0 18px",
+          color: tokens.text, textDecoration: "none", fontSize: 11,
+          letterSpacing: "0.18em", fontFamily: "inherit", position: "relative",
+        }}
+      >
+        <span className="item_outer">
+          <span className="item_text">{item.label.toUpperCase()}</span>
+        </span>
+        {isActive && (
+          <span style={{
+            position: "absolute", bottom: -6, left: "50%",
+            transform: "translateX(-50%)", width: 30,
+            height: 1, background: tokens.text, display: "block",
+          }} />
+        )}
+      </a>
 
-	  {item.children && open && (
-		<div className="second" style={{
-		  position: "absolute", top: "100%", left: "50%",
-		  transform: "translateX(-50%)",
-		  background: tokens.dropdownBg, minWidth: 200,
-		  padding: "10px 0", zIndex: 9999,
-		  boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
-		}}>
-		  <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
-			{item.children.map((child, ci) => (
-			  <DesktopDropdownItem key={ci} child={child} />
-			))}
-		  </ul>
-		</div>
-	  )}
-	</li>
+      {item.children && open && (
+        <div className="second" style={{
+          position: "absolute", top: "100%", left: "50%",
+          transform: "translateX(-50%)",
+          background: tokens.dropdownBg, minWidth: 200,
+          padding: "10px 0", zIndex: 9999,
+          boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+        }}>
+          <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+            {item.children.map((child, ci) => (
+              <DesktopDropdownItem key={ci} child={child} />
+            ))}
+          </ul>
+        </div>
+      )}
+    </li>
   );
 };
 
 const DesktopDropdownItem = ({ child }) => {
-  const { theme } = useContext(ThemeContext);
-  const tokens = themes[theme];
+  const { tokens } = useTheme();
   const [open, setOpen] = useState(false);
 
   return (
-	<li
-	  style={{ position: "relative", listStyle: "none" }}
-	  onMouseEnter={() => child.subChildren && setOpen(true)}
-	  onMouseLeave={() => child.subChildren && setOpen(false)}
-	>
-	  <a
-		href={child.href}
-		onClick={(e) => { if (child.href === "#") e.preventDefault(); }}
-		style={{
-		  display: "flex", alignItems: "center", justifyContent: "space-between",
-		  padding: "8px 20px", color: tokens.text, textDecoration: "none",
-		  fontSize: 11, letterSpacing: "0.12em",
-		  borderBottom: `1px solid ${tokens.borderSub}`,
-		}}
-	  >
-		<span>{child.label}</span>
-		{child.subChildren && <ArrowSVG />}
-	  </a>
+    <li style={{ position: "relative", listStyle: "none" }}
+      onMouseEnter={() => child.subChildren && setOpen(true)}
+      onMouseLeave={() => child.subChildren && setOpen(false)}
+    >
+      <a href={child.href}
+        onClick={(e) => { if (child.href === "#") e.preventDefault(); }}
+        style={{
+          display: "flex", alignItems: "center", justifyContent: "space-between",
+          padding: "8px 20px", color: tokens.text, textDecoration: "none",
+          fontSize: 11, letterSpacing: "0.12em",
+          borderBottom: `1px solid ${tokens.borderSub}`,
+        }}
+      >
+        <span>{child.label}</span>
+        {child.subChildren && <ArrowSVG />}
+      </a>
 
-	  {child.subChildren && open && (
-		<ul style={{
-		  position: "absolute", top: 0, left: "100%",
-		  background: tokens.dropdownBg, minWidth: 180,
-		  padding: "10px 0", listStyle: "none", margin: 0,
-		  boxShadow: "4px 4px 20px rgba(0,0,0,0.2)", zIndex: 9999,
-		}}>
-		  {child.subChildren.map((sub, si) => (
-			<li key={si} style={{ listStyle: "none" }}>
-			  <a href={sub.href} style={{
-				display: "block", padding: "8px 20px",
-				color: tokens.text, textDecoration: "none",
-				fontSize: 11, letterSpacing: "0.12em",
-				borderBottom: `1px solid ${tokens.borderSub}`,
-			  }}>{sub.label}</a>
-			</li>
-		  ))}
-		</ul>
-	  )}
-	</li>
+      {child.subChildren && open && (
+        <ul style={{
+          position: "absolute", top: 0, left: "100%",
+          background: tokens.dropdownBg, minWidth: 180,
+          padding: "10px 0", listStyle: "none", margin: 0,
+          boxShadow: "4px 4px 20px rgba(0,0,0,0.2)", zIndex: 9999,
+        }}>
+          {child.subChildren.map((sub, si) => (
+            <li key={si} style={{ listStyle: "none" }}>
+              <a href={sub.href} style={{
+                display: "block", padding: "8px 20px",
+                color: tokens.text, textDecoration: "none",
+                fontSize: 11, letterSpacing: "0.12em",
+                borderBottom: `1px solid ${tokens.borderSub}`,
+              }}>{sub.label}</a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </li>
   );
 };
 
 /* ─── Mobile Nav Item ─── */
 const MobileNavItem = ({ item, depth = 0 }) => {
-  const { theme } = useContext(ThemeContext);
-  const tokens = themes[theme];
+  const { tokens } = useTheme();
   const [open, setOpen] = useState(false);
   const hasChildren = item.children || item.subChildren;
   const children = item.children || item.subChildren;
 
   return (
-	<li style={{ listStyle: "none", borderBottom: `1px solid ${tokens.borderNav}` }}>
-	  <div style={{
-		display: "flex", alignItems: "center",
-		justifyContent: "space-between", paddingLeft: depth * 16,
-	  }}>
-		<a
-		  href={item.href}
-		  onClick={(e) => { if (item.href === "#") e.preventDefault(); }}
-		  style={{
-			display: "block", padding: "13px 20px",
-			color: tokens.text, textDecoration: "none",
-			fontSize: 11, letterSpacing: "0.15em", flex: 1,
-		  }}
-		>
-		  {item.label.toUpperCase()}
-		</a>
-		{hasChildren && (
-		  <button
-			onClick={() => setOpen(!open)}
-			style={{
-			  background: "none", border: "none", cursor: "pointer",
-			  padding: "13px 20px", color: tokens.text,
-			  transform: open ? "rotate(90deg)" : "none",
-			  transition: "transform 0.2s",
-			}}
-		  >
-			<ArrowSVG />
-		  </button>
-		)}
-	  </div>
-	  {hasChildren && open && (
-		<ul style={{ listStyle: "none", margin: 0, padding: 0, background: tokens.mobileSubBg }}>
-		  {children.map((child, ci) => (
-			<MobileNavItem key={ci} item={child} depth={depth + 1} />
-		  ))}
-		</ul>
-	  )}
-	</li>
+    <li style={{ listStyle: "none", borderBottom: `1px solid ${tokens.borderNav}` }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingLeft: depth * 16 }}>
+        <a href={item.href}
+          onClick={(e) => { if (item.href === "#") e.preventDefault(); }}
+          style={{
+            display: "block", padding: "13px 20px",
+            color: tokens.text, textDecoration: "none",
+            fontSize: 11, letterSpacing: "0.15em", flex: 1,
+          }}
+        >
+          {item.label.toUpperCase()}
+        </a>
+        {hasChildren && (
+          <button onClick={() => setOpen(!open)} style={{
+            background: "none", border: "none", cursor: "pointer",
+            padding: "13px 20px", color: tokens.text,
+            transform: open ? "rotate(90deg)" : "none",
+            transition: "transform 0.2s",
+          }}>
+            <ArrowSVG />
+          </button>
+        )}
+      </div>
+      {hasChildren && open && (
+        <ul style={{ listStyle: "none", margin: 0, padding: 0, background: tokens.mobileSubBg }}>
+          {children.map((child, ci) => (
+            <MobileNavItem key={ci} item={child} depth={depth + 1} />
+          ))}
+        </ul>
+      )}
+    </li>
   );
 };
 
-/* ─── Side Menu Panel — contact info only, NO theme toggle ─── */
+/* ─── Side Menu Panel ─── */
 const SideMenuPanel = ({ open, onClose }) => {
-  const { theme } = useContext(ThemeContext);
-  const tokens = themes[theme];
+  const { tokens } = useTheme();
 
   return (
-	<>
-	  {open && (
-		<div onClick={onClose} style={{
-		  position: "fixed", inset: 0,
-		  background: tokens.mobileOverlay, zIndex: 10000,
-		}} />
-	  )}
+    <>
+      {open && (
+        <div onClick={onClose} style={{
+          position: "fixed", inset: 0,
+          background: tokens.mobileOverlay, zIndex: 10000,
+        }} />
+      )}
 
-	  <div style={{
-		position: "fixed", top: 0, right: 0,
-		width: 340, height: "100vh",
-		background: tokens.panelBg,
-		borderLeft: `1px solid ${tokens.border}`,
-		transform: open ? "translateX(0)" : "translateX(100%)",
-		transition: "transform 0.35s ease",
-		zIndex: 10001,
-		display: "flex", flexDirection: "column", alignItems: "center",
-		padding: "36px 30px 50px",
-		overflowY: "auto",
-	  }}>
+      <div style={{
+        position: "fixed", top: 0, right: 0,
+        width: 340, height: "100vh",
+        background: tokens.panelBg,
+        borderLeft: `1px solid ${tokens.border}`,
+        transform: open ? "translateX(0)" : "translateX(100%)",
+        transition: "transform 0.35s ease",
+        zIndex: 10001,
+        display: "flex", flexDirection: "column", alignItems: "center",
+        padding: "36px 30px 50px",
+        overflowY: "auto",
+      }}>
+        <button onClick={onClose} style={{
+          background: "none", border: "none", cursor: "pointer",
+          alignSelf: "flex-end", padding: 0, marginBottom: 60,
+        }}>
+          <CloseMenuSVG color={tokens.text} />
+        </button>
 
-		<button onClick={onClose} style={{
-		  background: "none", border: "none", cursor: "pointer",
-		  alignSelf: "flex-end", padding: 0, marginBottom: 60,
-		}}>
-		  <CloseMenuSVG color={tokens.text} />
-		</button>
+        <div style={{ marginBottom: 50 }}><LogoSVG /></div>
 
-		<div style={{ marginBottom: 50 }}>
-		  <LogoSVG />
-		</div>
+        <p style={{ color: tokens.text, fontSize: 14, letterSpacing: "0.05em", textAlign: "center", margin: "0 0 10px", fontWeight: 300 }}>
+          African Mama Put
+        </p>
+        <p style={{ color: tokens.textMuted, fontSize: 13, letterSpacing: "0.04em", textAlign: "center", margin: "0 0 6px", fontWeight: 300 }}>
+          Liverpool, United Kingdom
+        </p>
+        <p style={{ color: tokens.textMuted, fontSize: 13, letterSpacing: "0.04em", textAlign: "center", margin: "0 0 6px", fontWeight: 300 }}>
+          0787689686
+        </p>
+        <p style={{ color: tokens.textMuted, fontSize: 13, letterSpacing: "0.04em", textAlign: "center", margin: "0 0 60px", fontWeight: 300 }}>
+          Open: 10:00 am – 09:00 pm (Monday–Thursday) <br />
+          10:00am – 11:00pm (Friday to Saturday) <br />
+          Sunday – Closed
+        </p>
 
-		<p style={{
-		  color: tokens.text, fontSize: 14, letterSpacing: "0.05em",
-		  textAlign: "center", margin: "0 0 10px", fontWeight: 300,
-		}}>
-		  African Mama Put
-		</p>
-
-		<p style={{
-		  color: tokens.textMuted, fontSize: 13, letterSpacing: "0.04em",
-		  textAlign: "center", margin: "0 0 6px", fontWeight: 300,
-		}}>
-		  Liverpool, United Kingdom
-		</p>
-
-		<p style={{
-		  color: tokens.textMuted, fontSize: 13, letterSpacing: "0.04em",
-		  textAlign: "center", margin: "0 0 6px", fontWeight: 300,
-		}}>
-		  0787689686
-		</p>
-
-		<p style={{
-		  color: tokens.textMuted, fontSize: 13, letterSpacing: "0.04em",
-		  textAlign: "center", margin: "0 0 60px", fontWeight: 300,
-		}}>
-		  Open: 10:00 am – 09:00 pm (Monday–Thursday) <br />
-		  10:00am – 11:00pm (Friday to Saturday) <br />
-		  Sunday – Closed
-		</p>
-
-		{["Facebook", "Instagram", "Trip Advisor"].map((social) => (
-		  <div key={social} style={{ marginBottom: 28, textAlign: "center" }}>
-			<a
-			  href="african_mamaput"
-			  onClick={(e) => e.preventDefault()}
-			  style={{
-				color: tokens.text, textDecoration: "none",
-				fontSize: 13, letterSpacing: "0.1em", fontWeight: 300,
-			  }}
-			>
-			  {social}
-			</a>
-			<div style={{
-			  width: 60, height: 1,
-			  background: tokens.border,
-			  margin: "6px auto 0",
-			}} />
-		  </div>
-		))}
-	  </div>
-	</>
+        {["Facebook", "Instagram", "Trip Advisor"].map((social) => (
+          <div key={social} style={{ marginBottom: 28, textAlign: "center" }}>
+            <a href="african_mamaput" onClick={(e) => e.preventDefault()} style={{
+              color: tokens.text, textDecoration: "none", fontSize: 13, letterSpacing: "0.1em", fontWeight: 300,
+            }}>
+              {social}
+            </a>
+            <div style={{ width: 60, height: 1, background: tokens.border, margin: "6px auto 0" }} />
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
 /* ─── Main Header Component ─── */
 const Header = () => {
-  const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
-  const toggleTheme = () => {
-	setTheme((prev) => {
-	  const next = prev === "dark" ? "light" : "dark";
-	  localStorage.setItem("theme", next);
-	  return next;
-	});
-  };
-
-  const tokens = themes[theme];
+  const { theme, toggleTheme, tokens } = useTheme(); // ← consumes global context
   const [sideMenuOpen, setSideMenuOpen] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -966,183 +1485,153 @@ const Header = () => {
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   useEffect(() => {
-	const handleScroll = () => setScrolled(window.scrollY > 50);
-	window.addEventListener("scroll", handleScroll);
-	return () => window.removeEventListener("scroll", handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-	const handleResize = () => setIsMobile(window.innerWidth <= 1024);
-	window.addEventListener("resize", handleResize);
-	return () => window.removeEventListener("resize", handleResize);
+    const handleResize = () => setIsMobile(window.innerWidth <= 1024);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
-	document.body.style.overflow = (sideMenuOpen || mobileNavOpen) ? "hidden" : "";
-	return () => { document.body.style.overflow = ""; };
+    document.body.style.overflow = (sideMenuOpen || mobileNavOpen) ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [sideMenuOpen, mobileNavOpen]);
 
-  useEffect(() => {
-	document.documentElement.setAttribute("data-theme", theme);
-  }, [theme]);
-
   const handleLogout = () => {
-	localStorage.removeItem("token");
-	localStorage.removeItem("user");
-	dispatch({ type: "LOGOUT" });
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    dispatch({ type: "LOGOUT" });
   };
 
   const headerStyle = {
-	position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
-	background: scrolled ? tokens.bgScrolled : tokens.bg,
-	transition: "background 0.3s ease",
-	borderBottom: `1px solid ${tokens.border}`,
+    position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000,
+    background: scrolled ? tokens.bgScrolled : tokens.bg,
+    transition: "background 0.3s ease",
+    borderBottom: `1px solid ${tokens.border}`,
   };
 
   return (
-	<ThemeContext.Provider value={{ theme, toggleTheme }}>
-	  <header className="eltdf-page-header" style={headerStyle}>
+    <>
+      <header className="eltdf-page-header" style={headerStyle}>
 
-		{/* Decorative grid lines */}
-		<div style={{
-		  position: "absolute", top: 0, bottom: 0, left: 0, right: 0,
-		  display: "flex", pointerEvents: "none", zIndex: 0,
-		}}>
-		  {[...Array(5)].map((_, i) => (
-			<div key={i} style={{ flex: 1, borderRight: `1px solid ${tokens.borderFaint}` }} />
-		  ))}
-		</div>
+        {/* Decorative grid lines */}
+        <div style={{
+          position: "absolute", top: 0, bottom: 0, left: 0, right: 0,
+          display: "flex", pointerEvents: "none", zIndex: 0,
+        }}>
+          {[...Array(5)].map((_, i) => (
+            <div key={i} style={{ flex: 1, borderRight: `1px solid ${tokens.borderFaint}` }} />
+          ))}
+        </div>
 
-		{/* ══ DESKTOP HEADER ══ */}
-		{!isMobile && (
-		  <div className="eltdf-menu-area" style={{
-			position: "relative", zIndex: 1,
-			display: "flex", alignItems: "center",
-			height: 90, padding: "0 30px",
-		  }}>
-			{/* LEFT: Logo */}
-			<div className="eltdf-position-left" style={{ flex: "0 0 auto", minWidth: 80 }}>
-			  <div className="eltdf-logo-wrapper eltdf-svg-logo">
-				<Link to="/" itemProp="url" style={{ display: "inline-block" }}>
-				  <LogoSVG />
-				</Link>
-			  </div>
-			</div>
+        {/* ══ DESKTOP HEADER ══ */}
+        {!isMobile && (
+          <div className="eltdf-menu-area" style={{
+            position: "relative", zIndex: 1,
+            display: "flex", alignItems: "center",
+            height: 90, padding: "0 30px",
+          }}>
+            <div className="eltdf-position-left" style={{ flex: "0 0 auto", minWidth: 80 }}>
+              <div className="eltdf-logo-wrapper eltdf-svg-logo">
+                <Link to="/" itemProp="url" style={{ display: "inline-block" }}>
+                  <LogoSVG />
+                </Link>
+              </div>
+            </div>
 
-			{/* CENTER: Nav links */}
-			<div className="eltdf-position-center" style={{
-			  flex: 1, display: "flex", justifyContent: "center", alignItems: "center",
-			}}>
-			  <nav className="eltdf-main-menu" style={{ display: "flex", alignItems: "center" }}>
-				<ul style={{
-				  display: "flex", listStyle: "none",
-				  margin: 0, padding: 0, alignItems: "center", gap: 0,
-				}}>
-				  {navItems.map((item, i) => (
-					<DesktopNavItem
-					  key={i}
-					  item={item}
-					  isActive={pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))}
-					/>
-				  ))}
-				</ul>
-			  </nav>
-			</div>
+            <div className="eltdf-position-center" style={{ flex: 1, display: "flex", justifyContent: "center", alignItems: "center" }}>
+              <nav className="eltdf-main-menu" style={{ display: "flex", alignItems: "center" }}>
+                <ul style={{ display: "flex", listStyle: "none", margin: 0, padding: 0, alignItems: "center", gap: 0 }}>
+                  {navItems.map((item, i) => (
+                    <DesktopNavItem key={i} item={item}
+                      isActive={pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))}
+                    />
+                  ))}
+                </ul>
+              </nav>
+            </div>
 
-			{/* RIGHT: ☀️/🌙 + Cart + Side Menu opener */}
-			<div className="eltdf-position-right" style={{
-			  flex: "0 0 auto", minWidth: 80,
-			  display: "flex", alignItems: "center",
-			  gap: 20, justifyContent: "flex-end",
-			}}>
-			  <ThemeToggleButton theme={theme} onToggle={toggleTheme} tokens={tokens} />
+            {/* RIGHT: Toggle + Cart + Side Menu */}
+            <div className="eltdf-position-right" style={{
+              flex: "0 0 auto", minWidth: 80,
+              display: "flex", alignItems: "center",
+              gap: 20, justifyContent: "flex-end",
+            }}>
+              <ThemeToggleButton theme={theme} onToggle={toggleTheme} tokens={tokens} />
+              <Link to="/cart" style={{ display: "inline-flex", alignItems: "center" }}>
+                <CartSVG count={totalItems} color={tokens.text} />
+              </Link>
+              <button
+                className="eltdf-side-menu-button-opener"
+                onClick={() => setSideMenuOpen(true)}
+                style={{ background: "none", border: "none", cursor: "pointer", padding: 0, display: "inline-flex", alignItems: "center" }}
+                aria-label="Open side menu"
+              >
+                <MenuOpenerSVG color={tokens.text} />
+              </button>
+            </div>
+          </div>
+        )}
 
-			  <Link to="/cart" style={{ display: "inline-flex", alignItems: "center" }}>
-				<CartSVG count={totalItems} color={tokens.text} />
-			  </Link>
+        {/* ══ MOBILE HEADER BAR ══ */}
+        {isMobile && (
+          <div style={{
+            position: "relative", zIndex: 1,
+            display: "flex", alignItems: "center",
+            justifyContent: "space-between",
+            height: 70, padding: "0 20px",
+          }}>
+            <Link to="/" style={{ display: "inline-block" }}><LogoSVG /></Link>
+            <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+              <ThemeToggleButton theme={theme} onToggle={toggleTheme} tokens={tokens} />
+              <Link to="/cart" style={{ display: "inline-flex", alignItems: "center" }}>
+                <CartSVG count={totalItems} color={tokens.text} />
+              </Link>
+              <button
+                onClick={() => setMobileNavOpen(!mobileNavOpen)}
+                style={{ background: "none", border: "none", cursor: "pointer", padding: 0, display: "inline-flex", alignItems: "center" }}
+                aria-label={mobileNavOpen ? "Close menu" : "Open menu"}
+              >
+                {mobileNavOpen ? <CloseMenuSVG color={tokens.text} /> : <MenuOpenerSVG color={tokens.text} />}
+              </button>
+            </div>
+          </div>
+        )}
 
-			  <button
-				className="eltdf-side-menu-button-opener"
-				onClick={() => setSideMenuOpen(true)}
-				style={{
-				  background: "none", border: "none",
-				  cursor: "pointer", padding: 0,
-				  display: "inline-flex", alignItems: "center",
-				}}
-				aria-label="Open side menu"
-			  >
-				<MenuOpenerSVG color={tokens.text} />
-			  </button>
-			</div>
-		  </div>
-		)}
+        {/* Mobile Nav Drawer */}
+        {isMobile && (
+          <div style={{
+            overflow: "hidden",
+            maxHeight: mobileNavOpen ? 1000 : 0,
+            transition: "max-height 0.4s ease",
+            background: tokens.mobileBg,
+            borderTop: mobileNavOpen ? `1px solid ${tokens.border}` : "none",
+          }}>
+            <nav aria-label="Mobile Menu">
+              <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+                {navItems.map((item, i) => (
+                  <MobileNavItem key={i} item={item} />
+                ))}
+              </ul>
+            </nav>
+          </div>
+        )}
 
-		{/* ══ MOBILE HEADER BAR ══ */}
-		{isMobile && (
-		  <div style={{
-			position: "relative", zIndex: 1,
-			display: "flex", alignItems: "center",
-			justifyContent: "space-between",
-			height: 70, padding: "0 20px",
-		  }}>
-			<Link to="/" style={{ display: "inline-block" }}>
-			  <LogoSVG />
-			</Link>
+      </header>
 
-			{/* RIGHT: ☀️/🌙 + Cart + Hamburger */}
-			<div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-			  <ThemeToggleButton theme={theme} onToggle={toggleTheme} tokens={tokens} />
+      <SideMenuPanel open={sideMenuOpen} onClose={() => setSideMenuOpen(false)} />
 
-			  <Link to="/cart" style={{ display: "inline-flex", alignItems: "center" }}>
-				<CartSVG count={totalItems} color={tokens.text} />
-			  </Link>
-
-			  <button
-				onClick={() => setMobileNavOpen(!mobileNavOpen)}
-				style={{
-				  background: "none", border: "none",
-				  cursor: "pointer", padding: 0,
-				  display: "inline-flex", alignItems: "center",
-				}}
-				aria-label={mobileNavOpen ? "Close menu" : "Open menu"}
-			  >
-				{mobileNavOpen ? <CloseMenuSVG color={tokens.text} /> : <MenuOpenerSVG color={tokens.text} />}
-			  </button>
-			</div>
-		  </div>
-		)}
-
-		{/* Mobile Nav Drawer */}
-		{isMobile && (
-		  <div style={{
-			overflow: "hidden",
-			maxHeight: mobileNavOpen ? 1000 : 0,
-			transition: "max-height 0.4s ease",
-			background: tokens.mobileBg,
-			borderTop: mobileNavOpen ? `1px solid ${tokens.border}` : "none",
-		  }}>
-			<nav aria-label="Mobile Menu">
-			  <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
-				{navItems.map((item, i) => (
-				  <MobileNavItem key={i} item={item} />
-				))}
-			  </ul>
-			</nav>
-		  </div>
-		)}
-
-	  </header>
-
-	  {/* Side Menu Panel — contact info only */}
-	  <SideMenuPanel open={sideMenuOpen} onClose={() => setSideMenuOpen(false)} />
-
-	  <style>{`
-		.menu-item a:hover span { opacity: 0.7; }
-		.eltdf-main-menu ul { height: 90px; align-items: center; }
-		.eltdf-main-menu li a { height: 90px; display: flex !important; align-items: center; }
-		.eltdf-page-header { display: block !important; }
-	  `}</style>
-	</ThemeContext.Provider>
+      <style>{`
+        .menu-item a:hover span { opacity: 0.7; }
+        .eltdf-main-menu ul { height: 90px; align-items: center; }
+        .eltdf-main-menu li a { height: 90px; display: flex !important; align-items: center; }
+        .eltdf-page-header { display: block !important; }
+      `}</style>
+    </>
   );
 };
 

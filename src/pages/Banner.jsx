@@ -17,11 +17,12 @@ import logo from "./logo.png";
 import Footer from "./Footer";
 import HeroSlider from "./HeroSlider";
 import AudienceSection from "./AudienceSection";
+import { useTheme } from "../context/ThemeContext";
 const Banner = ({ cartCount = 1 }) => {
   const [menuOpen, setMenuOpen] = useState(false); // mobile menu
   const [categories, setCategories] = useState([]);
   const { cartItems } = useCart();
-
+  const { tokens } = useTheme();
   // const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const totalItems = cartItems.length;
 
@@ -98,127 +99,184 @@ useEffect(() => {
 </div></div></div></div></div></div>
 
 
-<div class="eltdf-row-grid-section-wrapper eltdf-content-aligment-center"  ><div class="eltdf-row-grid-section"><div class="vc_row wpb_row vc_row-fluid vc_custom_1578664464836" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-elements-holder   eltdf-one-column  eltdf-responsive-mode-768  " ><div class="eltdf-eh-item    "  data-item-class="eltdf-eh-custom-2687" data-1400-1600="0 27% 40px 27%" data-1025-1399="0 23% 13px 23%" data-769-1024="0 20% 70px 20%" data-681-768="0 10% 0px 10%" data-680="0 2% 130px 2%">
-	<div class="eltdf-eh-item-inner">
-		<div class="eltdf-eh-item-content eltdf-eh-custom-2687" style={{padding: "0 31% 70px 31%"}}>
-			<div class="eltdf-section-title-holder    eltdf-st-decor-animation" style={{textAlign: "center"}}>
-	<div class="eltdf-st-inner">
-                    <span class="eltdf-st-tagline">
-                Our Story            </span>
-        		            <div class="eltdf-st-title-holder">
-                                    <div class="decor">
-                                      
-                                      
-                        
-                        
-                        
+
+
+
+
+      {/* ══ ABOUT US SECTION ══ */}
+<div className="eltdf-row-grid-section-wrapper eltdf-content-aligment-center"
+  style={{ background: tokens.pageBg, transition: "background 0.3s ease" }}>
+  <div className="eltdf-row-grid-section">
+    <div className="vc_row wpb_row vc_row-fluid vc_custom_1578664464836">
+      <div className="wpb_column vc_column_container vc_col-sm-12">
+        <div className="vc_column-inner">
+          <div className="wpb_wrapper">
+            <div className="eltdf-elements-holder eltdf-one-column eltdf-responsive-mode-768">
+              <div className="eltdf-eh-item" data-item-class="eltdf-eh-custom-2687"
+                data-1400-1600="0 27% 40px 27%" data-1025-1399="0 23% 13px 23%"
+                data-769-1024="0 20% 70px 20%" data-681-768="0 10% 0px 10%" data-680="0 2% 130px 2%">
+                <div className="eltdf-eh-item-inner">
+                  <div className="eltdf-eh-item-content eltdf-eh-custom-2687" style={{ padding: "0 31% 70px 31%" }}>
+                    <div className="eltdf-section-title-holder eltdf-st-decor-animation" style={{ textAlign: "center" }}>
+                      <div className="eltdf-st-inner">
+
+                        <span className="eltdf-st-tagline" style={{ color: tokens.tagline }}>
+                          Our Story
+                        </span>
+
+                        <div className="eltdf-st-title-holder">
+                          {/* ── Decor line above title ── */}
+                          <div className="decor" style={{ borderColor: tokens.border }} />
+
+                          <h1 className="eltdf-st-title" style={{ color: tokens.heading }}>
+                            About us
+                          </h1>
+
+                          {/* ── Decor line below title ── */}
+                          <div className="decor" style={{ borderColor: tokens.border }} />
                         </div>
-                                <h1 class="eltdf-st-title" >
-                    About us                </h1>
-                                    <div class="decor">
-                                      
-                                      
-                       
-                        
-                        
-                        </div>
-                            </div>
-							<p class="eltdf-st-text" >
-From Chester to every corner of the UK, we’re serving nostalgia, comfort, and good vibes through African food	</p>
-					</div>
-</div>		</div>
-	</div>
-</div></div></div></div></div></div></div></div>
 
+                        <p className="eltdf-st-text" style={{ color: tokens.body }}>
+                          From Chester to every corner of the UK, we're serving nostalgia, comfort, and good vibes through African food
+                        </p>
 
-
-
-
-
-<div class="eltdf-row-grid-section-wrapper eltdf-content-aligment-center"  ><div class="eltdf-row-grid-section"><div class="vc_row wpb_row vc_row-fluid" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1578912658047"><div class="wpb_wrapper"><div class="eltdf-elements-holder   eltdf-three-columns  eltdf-responsive-mode-680  " ><div class="eltdf-eh-item    "  data-item-class="eltdf-eh-custom-3026" data-1400-1600="170px 0 132px 0" data-1025-1399="150px 0 160px 0" data-769-1024="0 0 50px 0" data-681-768="0 0" data-680="0 0">
-	<div class="eltdf-eh-item-inner">
-		<div class="eltdf-eh-item-content eltdf-eh-custom-3026" style={{padding: "195px 10px 160px 0"}}>
-			<div class="eltdf-single-image-holder     eltdf-image-appear-from-top">
-    <div class="eltdf-si-inner" >
-                                                        <img loading="lazy" decoding="async" width="800" height="1013" src="wp-content/uploads/2019/10/main-img-1.jpg" class="attachment-full size-full" alt="d" srcset="https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-1.jpg 800w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-1-600x760.jpg 600w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-1-237x300.jpg 237w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-1-768x972.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" />                                                </div>
-</div>		</div>
-	</div>
-</div><div class="eltdf-eh-item    "  data-item-class="eltdf-eh-custom-4919" data-1400-1600="170px 0 132px 0" data-1025-1399="150px 0 160px 0" data-769-1024="0 0 50px 0" data-681-768="0 0" data-680="80px 0">
-	<div class="eltdf-eh-item-inner">
-		<div class="eltdf-eh-item-content eltdf-eh-custom-4919" style={{padding: "202px 73px 160px 73px"}}>
-			<div className="eltdf-single-image-holder eltdf-main-home-middle-svg-pattern eltdf-svg-pattern   eltdf-image-appear-none">
-    <div className="eltdf-si-inner">
-        <svg xmlns="http://www.w3.org/2000/svg" width="289.828" height="543.424">
-            <path fill="none" stroke="#9A7D57" strokeWidth="1.5" strokeMiterlimit="10" d="M0 0l72.457 72.457L0 144.913l72.457 72.457L0 289.826l72.457 72.456L0 434.739l72.457 72.456-36.229 36.229M72.457 0L0 72.457l72.457 72.457L0 217.37l72.457 72.457L0 362.282l72.457 72.457L0 507.195l36.229 36.229m72.457 0l36.229-36.229-72.457-72.456 72.457-72.457-72.457-72.456 72.457-72.457-72.457-72.457 72.457-72.457L72.457 0m72.457 0L72.457 72.457l72.457 72.457-72.457 72.456 72.457 72.457-72.457 72.456 72.457 72.457-72.457 72.456 36.229 36.229m72.457-.001l36.229-36.229-72.457-72.456 72.457-72.457-72.457-72.456 72.457-72.457-72.457-72.457 72.457-72.457L144.914 0m72.457 0l-72.457 72.457 72.457 72.457-72.457 72.457 72.457 72.457-72.457 72.456 72.457 72.457-72.457 72.456 36.229 36.229m72.457-.002l36.229-36.229-72.457-72.456 72.457-72.457-72.457-72.456 72.457-72.457-72.457-72.457 72.457-72.457L217.371 0m72.457 0l-72.457 72.457 72.457 72.457-72.457 72.457 72.457 72.457-72.457 72.456 72.457 72.457-72.457 72.456 36.229 36.229M18.113 54.343L0 36.229m54.342-18.115L36.229 0M18.113 18.114L36.228 0M126.8 18.114L108.686 0M90.571 18.114L108.686 0m90.571 18.114L181.143 0m0 0l-18.114 18.114m108.56 0L253.475 0M235.36 18.114L253.475 0m18.24 54.343l18.113-18.114m-271.715 90.57L0 108.685m271.715 18.114l18.113-18.114M18.113 199.256L0 181.142m271.715 18.114l18.113-18.114m-271.715 90.57L0 253.598m271.715 18.114l18.113-18.114M72.457 0v36.229L90.57 54.343m-36.029 0l17.916-18.114M144.914 0v36.229l18.113 18.114m-36.029 0l17.916-18.114M217.368 0v36.229l18.114 18.114M36.229 36.229v36.229l18.113 18.114m54.344-54.343v36.229L126.8 90.571m54.343-54.342v36.229l18.114 18.114M253.6 36.229v36.229l18.113 18.114m-72.262-36.229l17.917-18.114M72.457 72.457v36.229L90.57 126.8m-36.029-.001l17.916-18.114m72.457-36.228v36.229l18.113 18.114m-36.029-.001l17.916-18.114m72.447-36.228v36.229l18.114 18.114m-36.03-.001l17.916-18.114M72.457 144.913v36.229l18.113 18.114m-36.029 0l17.916-18.114m72.457-36.229v36.229l18.113 18.114m-36.029 0l17.916-18.114m72.447-36.229v36.229l18.114 18.114m-36.03 0l17.916-18.114M72.457 217.37v36.229l18.113 18.114m-36.029-.001l17.916-18.114m72.457-36.228v36.229l18.113 18.114m-36.029-.001l17.916-18.114m72.447-36.228v36.229l18.114 18.114m-36.03-.001l17.916-18.114M72.457 289.827v36.229L90.57 344.17m-36.029 0l17.916-18.114m72.457-36.229v36.229l18.113 18.114m-36.029 0l17.916-18.114m72.447-36.229v36.229l18.114 18.114m-36.03 0l17.916-18.114M72.457 362.282v36.229l18.113 18.114m-36.029 0l17.916-18.114m72.457-36.229v36.229l18.113 18.114m-36.029 0l17.916-18.114m72.447-36.229v36.229l18.114 18.114m-36.03 0l17.916-18.114M72.457 434.739v36.229l18.113 18.114m-36.029 0l17.916-18.114m72.457-36.229v36.229l18.113 18.114m-36.029 0l17.916-18.114m72.447-36.229v36.229l18.114 18.114m-36.03 0l17.916-18.114M18.313 90.571l17.916-18.114M90.77 90.571l17.916-18.114m54.541 18.114l17.916-18.114m54.541 18.114L253.6 72.457M36.229 108.685v36.229l18.113 18.114m54.344-54.343v36.229l18.114 18.114m54.343-54.343v36.229l18.114 18.114m54.343-54.343v36.229l18.113 18.114m-253.4 0l17.916-18.114m54.541 18.114l17.916-18.114m72.457 0l-17.916 18.114m72.457 0l17.916-18.114M36.229 181.142v36.229l18.113 18.114m54.344-54.343v36.229l18.114 18.114m54.343-54.343v36.229l18.114 18.114m54.343-54.343v36.229l18.113 18.114m-253.4-.001l17.916-18.114m54.541 18.114l17.916-18.114m72.457 0l-17.916 18.114m72.457 0L253.6 217.37M36.229 253.598v36.228l18.113 18.115m54.344-54.343v36.228l18.114 18.115m54.343-54.343v36.228l18.114 18.115m54.343-54.343v36.228l18.113 18.115m-253.4 0l17.916-18.115m54.541 18.115l17.916-18.115m54.541 18.115l17.916-18.115m54.541 18.115l17.916-18.115M18.113 344.159L0 326.046m271.715 18.113l18.113-18.113M18.113 416.625L0 398.512m271.715 18.113l18.113-18.113M18.113 489.081L0 470.968m271.715 18.113l18.113-18.113M36.229 326.046v36.228l18.113 18.115m54.344-54.343v36.228l18.114 18.115m54.343-54.343v36.228l18.114 18.115m54.343-54.343v36.228l18.113 18.115m-253.4 0l17.916-18.115m54.541 18.115l17.916-18.115m72.457-.001l-17.916 18.115m90.373-18.115l-17.916 18.115M36.229 398.511v36.228l18.113 18.115m54.344-54.343v36.228l18.114 18.115m54.343-54.343v36.228l18.114 18.115m54.343-54.343v36.228l18.113 18.115m-253.4 0l17.916-18.115m54.541 18.115l17.916-18.115m54.541 18.115l17.916-18.115m54.541 18.115l17.916-18.115M36.229 470.968v36.228l18.113 18.115m54.344-54.343v36.228l18.114 18.115m54.343-54.343v36.228l18.114 18.115m54.343-54.343v36.228l18.113 18.115m-253.4 0l17.916-18.115m54.541 18.115l17.916-18.115m54.541 18.115l17.916-18.115m72.457-.001l-17.916 18.115M72.457 507.195v36.229m72.457-36.229v36.229m72.457-36.229v36.229"/>
-        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>	</div>
-	</div>
-</div><div class="eltdf-eh-item    "  data-item-class="eltdf-eh-custom-3538" data-1400-1600="170px 0 132px 0" data-1025-1399="150px 0 160px 0" data-769-1024="0 0 50px 0" data-681-768="0 0" data-680="0 0">
-	<div class="eltdf-eh-item-inner">
-		<div class="eltdf-eh-item-content eltdf-eh-custom-3538" style={{padding: "195px 0 160px 10px"}}>
-			<div class="eltdf-single-image-holder     eltdf-image-appear-from-top">
-    <div class="eltdf-si-inner" >
-                                                        <img loading="lazy" decoding="async" width="800" height="1013" src="wp-content/uploads/2019/10/main-img-2.jpg" class="attachment-full size-full" alt="f" srcset="https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-2.jpg 800w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-2-600x760.jpg 600w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-2-237x300.jpg 237w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-2-768x972.jpg 768w" sizes="(max-width: 800px) 100vw, 800px" />                                                </div>
-</div>		</div>
-	</div>
-</div></div></div></div></div></div></div></div>
+  </div>
+</div>
 
+{/* ══ THREE-COLUMN IMAGE SECTION ══ */}
+<div className="eltdf-row-grid-section-wrapper eltdf-content-aligment-center"
+  style={{ background: tokens.pageBg, transition: "background 0.3s ease" }}>
+  <div className="eltdf-row-grid-section">
+    <div className="vc_row wpb_row vc_row-fluid">
+      <div className="wpb_column vc_column_container vc_col-sm-12">
+        <div className="vc_column-inner vc_custom_1578912658047">
+          <div className="wpb_wrapper">
+            <div className="eltdf-elements-holder eltdf-three-columns eltdf-responsive-mode-680">
 
+              {/* Left image */}
+              <div className="eltdf-eh-item" data-item-class="eltdf-eh-custom-3026"
+                data-1400-1600="170px 0 132px 0" data-1025-1399="150px 0 160px 0"
+                data-769-1024="0 0 50px 0" data-681-768="0 0" data-680="0 0">
+                <div className="eltdf-eh-item-inner">
+                  <div className="eltdf-eh-item-content eltdf-eh-custom-3026" style={{ padding: "195px 10px 160px 0" }}>
+                    <div className="eltdf-single-image-holder eltdf-image-appear-from-top">
+                      <div className="eltdf-si-inner">
+                        <img loading="lazy" decoding="async" width="800" height="1013"
+                          src="wp-content/uploads/2019/10/main-img-1.jpg"
+                          className="attachment-full size-full" alt="d"
+                          srcSet="https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-1.jpg 800w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-1-600x760.jpg 600w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-1-237x300.jpg 237w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-1-768x972.jpg 768w"
+                          sizes="(max-width: 800px) 100vw, 800px" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
+              {/* Centre SVG pattern */}
+              <div className="eltdf-eh-item" data-item-class="eltdf-eh-custom-4919"
+                data-1400-1600="170px 0 132px 0" data-1025-1399="150px 0 160px 0"
+                data-769-1024="0 0 50px 0" data-681-768="0 0" data-680="80px 0">
+                <div className="eltdf-eh-item-inner">
+                  <div className="eltdf-eh-item-content eltdf-eh-custom-4919" style={{ padding: "202px 73px 160px 73px" }}>
+                    <div className="eltdf-single-image-holder eltdf-main-home-middle-svg-pattern eltdf-svg-pattern eltdf-image-appear-none">
+                      <div className="eltdf-si-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="289.828" height="543.424">
+                          <path fill="none" stroke={tokens.text} strokeWidth="1.5" strokeMiterlimit="10"
+                            d="M0 0l72.457 72.457L0 144.913l72.457 72.457L0 289.826l72.457 72.456L0 434.739l72.457 72.456-36.229 36.229M72.457 0L0 72.457l72.457 72.457L0 217.37l72.457 72.457L0 362.282l72.457 72.457L0 507.195l36.229 36.229m72.457 0l36.229-36.229-72.457-72.456 72.457-72.457-72.457-72.456 72.457-72.457-72.457-72.457 72.457-72.457L72.457 0m72.457 0L72.457 72.457l72.457 72.457-72.457 72.456 72.457 72.457-72.457 72.456 72.457 72.457-72.457 72.456 36.229 36.229m72.457-.001l36.229-36.229-72.457-72.456 72.457-72.457-72.457-72.456 72.457-72.457-72.457-72.457 72.457-72.457L144.914 0m72.457 0l-72.457 72.457 72.457 72.457-72.457 72.457 72.457 72.457-72.457 72.456 72.457 72.457-72.457 72.456 36.229 36.229m72.457-.002l36.229-36.229-72.457-72.456 72.457-72.457-72.457-72.456 72.457-72.457-72.457-72.457 72.457-72.457L217.371 0m72.457 0l-72.457 72.457 72.457 72.457-72.457 72.457 72.457 72.457-72.457 72.456 72.457 72.457-72.457 72.456 36.229 36.229M18.113 54.343L0 36.229m54.342-18.115L36.229 0M18.113 18.114L36.228 0M126.8 18.114L108.686 0M90.571 18.114L108.686 0m90.571 18.114L181.143 0m0 0l-18.114 18.114m108.56 0L253.475 0M235.36 18.114L253.475 0m18.24 54.343l18.113-18.114m-271.715 90.57L0 108.685m271.715 18.114l18.113-18.114M18.113 199.256L0 181.142m271.715 18.114l18.113-18.114m-271.715 90.57L0 253.598m271.715 18.114l18.113-18.114M72.457 0v36.229L90.57 54.343m-36.029 0l17.916-18.114M144.914 0v36.229l18.113 18.114m-36.029 0l17.916-18.114M217.368 0v36.229l18.114 18.114M36.229 36.229v36.229l18.113 18.114m54.344-54.343v36.229L126.8 90.571m54.343-54.342v36.229l18.114 18.114M253.6 36.229v36.229l18.113 18.114m-72.262-36.229l17.917-18.114M72.457 72.457v36.229L90.57 126.8m-36.029-.001l17.916-18.114m72.457-36.228v36.229l18.113 18.114m-36.029-.001l17.916-18.114m72.447-36.228v36.229l18.114 18.114m-36.03-.001l17.916-18.114M72.457 144.913v36.229l18.113 18.114m-36.029 0l17.916-18.114m72.457-36.229v36.229l18.113 18.114m-36.029 0l17.916-18.114m72.447-36.229v36.229l18.114 18.114m-36.03 0l17.916-18.114M72.457 217.37v36.229l18.113 18.114m-36.029-.001l17.916-18.114m72.457-36.228v36.229l18.113 18.114m-36.029-.001l17.916-18.114m72.447-36.228v36.229l18.114 18.114m-36.03-.001l17.916-18.114M72.457 289.827v36.229L90.57 344.17m-36.029 0l17.916-18.114m72.457-36.229v36.229l18.113 18.114m-36.029 0l17.916-18.114m72.447-36.229v36.229l18.114 18.114m-36.03 0l17.916-18.114M72.457 362.282v36.229l18.113 18.114m-36.029 0l17.916-18.114m72.457-36.229v36.229l18.113 18.114m-36.029 0l17.916-18.114m72.447-36.229v36.229l18.114 18.114m-36.03 0l17.916-18.114M72.457 434.739v36.229l18.113 18.114m-36.029 0l17.916-18.114m72.457-36.229v36.229l18.113 18.114m-36.029 0l17.916-18.114m72.447-36.229v36.229l18.114 18.114m-36.03 0l17.916-18.114M18.313 90.571l17.916-18.114M90.77 90.571l17.916-18.114m54.541 18.114l17.916-18.114m54.541 18.114L253.6 72.457M36.229 108.685v36.229l18.113 18.114m54.344-54.343v36.229l18.114 18.114m54.343-54.343v36.229l18.114 18.114m54.343-54.343v36.229l18.113 18.114m-253.4 0l17.916-18.114m54.541 18.114l17.916-18.114m72.457 0l-17.916 18.114m72.457 0l17.916-18.114M36.229 181.142v36.229l18.113 18.114m54.344-54.343v36.229l18.114 18.114m54.343-54.343v36.229l18.114 18.114m54.343-54.343v36.229l18.113 18.114m-253.4-.001l17.916-18.114m54.541 18.114l17.916-18.114m72.457 0l-17.916 18.114m72.457 0L253.6 217.37M36.229 253.598v36.228l18.113 18.115m54.344-54.343v36.228l18.114 18.115m54.343-54.343v36.228l18.114 18.115m54.343-54.343v36.228l18.113 18.115m-253.4 0l17.916-18.115m54.541 18.115l17.916-18.115m54.541 18.115l17.916-18.115m54.541 18.115l17.916-18.115M18.113 344.159L0 326.046m271.715 18.113l18.113-18.113M18.113 416.625L0 398.512m271.715 18.113l18.113-18.113M18.113 489.081L0 470.968m271.715 18.113l18.113-18.113M36.229 326.046v36.228l18.113 18.115m54.344-54.343v36.228l18.114 18.115m54.343-54.343v36.228l18.114 18.115m54.343-54.343v36.228l18.113 18.115m-253.4 0l17.916-18.115m54.541 18.115l17.916-18.115m72.457-.001l-17.916 18.115m90.373-18.115l-17.916 18.115M36.229 398.511v36.228l18.113 18.115m54.344-54.343v36.228l18.114 18.115m54.343-54.343v36.228l18.114 18.115m54.343-54.343v36.228l18.113 18.115m-253.4 0l17.916-18.115m54.541 18.115l17.916-18.115m54.541 18.115l17.916-18.115m54.541 18.115l17.916-18.115M36.229 470.968v36.228l18.113 18.115m54.344-54.343v36.228l18.114 18.115m54.343-54.343v36.228l18.114 18.115m54.343-54.343v36.228l18.113 18.115m-253.4 0l17.916-18.115m54.541 18.115l17.916-18.115m54.541 18.115l17.916-18.115m72.457-.001l-17.916 18.115M72.457 507.195v36.229m72.457-36.229v36.229m72.457-36.229v36.229" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-<div class="vc_row wpb_row vc_row-fluid" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-elements-holder   eltdf-two-columns  eltdf-responsive-mode-768  fifty-fifty" ><div class="eltdf-eh-item    " style={{backgroundColor: "#0f1d22"}} data-item-class="eltdf-eh-custom-7101" data-1400-1600="23% 0% 23% 15%" data-1025-1399="23% 0% 23% 15%" data-769-1024="23% 0%" data-681-768="23% 0%" data-680="23% 0%">
-	<div class="eltdf-eh-item-inner">
-		<div class="eltdf-eh-item-content eltdf-eh-custom-7101" style={{padding: "23% 0 23% 4%"}}>
-			<div class="eltdf-testimonials-holder clearfix eltdf-testimonials-standard ">
-    <div class="eltdf-testimonials-mark"></div>
-    <div class="eltdf-testimonials eltdf-owl-slider" data-number-of-items="1" data-enable-loop="yes" data-enable-autoplay="yes" data-slider-speed="5000" data-slider-speed-animation="600" data-enable-navigation="no" data-enable-pagination="yes" >
+              {/* Right image */}
+              <div className="eltdf-eh-item" data-item-class="eltdf-eh-custom-3538"
+                data-1400-1600="170px 0 132px 0" data-1025-1399="150px 0 160px 0"
+                data-769-1024="0 0 50px 0" data-681-768="0 0" data-680="0 0">
+                <div className="eltdf-eh-item-inner">
+                  <div className="eltdf-eh-item-content eltdf-eh-custom-3538" style={{ padding: "195px 0 160px 10px" }}>
+                    <div className="eltdf-single-image-holder eltdf-image-appear-from-top">
+                      <div className="eltdf-si-inner">
+                        <img loading="lazy" decoding="async" width="800" height="1013"
+                          src="wp-content/uploads/2019/10/main-img-2.jpg"
+                          className="attachment-full size-full" alt="f"
+                          srcSet="https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-2.jpg 800w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-2-600x760.jpg 600w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-2-237x300.jpg 237w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-2-768x972.jpg 768w"
+                          sizes="(max-width: 800px) 100vw, 800px" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-    
-            <div class="eltdf-testimonial-content" id="eltdf-testimonials-160">
-                <div class="eltdf-testimonial-text-holder">
-                                                                <p class="eltdf-testimonial-text">Lorem ipsum dolor sit amet, consectetur adipisic sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad.</p>
-                                                                <h5 class="eltdf-testimonial-author">
-                            <span class="eltdf-testimonials-author-name">Robert Chang</span>
-                        </h5>
-                                                                <p class="eltdf-testimonials-author-job">Sommelier</p>
-                                    </div>
-                            </div>
-
-    
-            <div class="eltdf-testimonial-content" id="eltdf-testimonials-98">
-                <div class="eltdf-testimonial-text-holder">
-                                                                <p class="eltdf-testimonial-text">Ut enim ad minim venia orem ipsum dolor sit amet, consectetur adipisic sed do. Eiusmod tempor incididunt ut labore et dolore magna.</p>
-                                                                <h5 class="eltdf-testimonial-author">
-                            <span class="eltdf-testimonials-author-name">Jan Winsent</span>
-                        </h5>
-                                                                <p class="eltdf-testimonials-author-job">Cook</p>
-                                    </div>
-                            </div>
-
-    
-            <div class="eltdf-testimonial-content" id="eltdf-testimonials-36">
-                <div class="eltdf-testimonial-text-holder">
-                                                                <p class="eltdf-testimonial-text">Eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim venia orem ipsum dolor sit amet, consectetur.</p>
-                                                                <h5 class="eltdf-testimonial-author">
-                            <span class="eltdf-testimonials-author-name">Andrea Chung</span>
-                        </h5>
-                                                                <p class="eltdf-testimonials-author-job">Cook</p>
-                                    </div>
-                            </div>
-
-    
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>		</div>
-	</div>
-</div><div class="eltdf-eh-item    " style={{backgroundImage: "url(wp-content/uploads/2019/10/main-img-4.jpg)"}} data-item-class="eltdf-eh-custom-4257" data-681-768="40% 0" data-680="60% 0">
-	<div class="eltdf-eh-item-inner">
-		<div class="eltdf-eh-item-content eltdf-eh-custom-4257" >
-					</div>
-	</div>
-</div></div></div></div></div></div>
+  </div>
+</div>
 
 
+
+           <div className="vc_row wpb_row vc_row-fluid">
+                            <div className="wpb_column vc_column_container vc_col-sm-12">
+                              <div className="vc_column-inner">
+                                <div className="wpb_wrapper">
+                                  <div className="eltdf-elements-holder eltdf-two-columns eltdf-responsive-mode-768 fifty-fifty">
+
+                                    {/* Testimonial block */}
+                                    <div className="eltdf-eh-item"
+                                      style={{ backgroundColor: tokens.cardBgAlt, transition: "background 0.3s ease" }}>
+                                      <div className="eltdf-eh-item-inner">
+                                        <div className="eltdf-eh-item-content" style={{ padding: "23% 0 23% 4%" }}>
+                                          <div className="eltdf-testimonials-holder clearfix eltdf-testimonials-standard">
+                                            <div className="eltdf-testimonials-mark" />
+                                            <div className="eltdf-testimonials eltdf-owl-slider">
+                                              {[
+                                                { text: "Lorem ipsum dolor sit amet, consectetur adipisic sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad.", author: "Robert Chang", job: "Sommelier" },
+                                                { text: "Ut enim ad minim venia orem ipsum dolor sit amet, consectetur adipisic sed do. Eiusmod tempor incididunt ut labore et dolore magna.", author: "Jan Winsent", job: "Cook" },
+                                                { text: "Eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim venia orem ipsum dolor sit amet, consectetur.", author: "Andrea Chung", job: "Cook" },
+                                              ].map((t, i) => (
+                                                <div key={i} className="eltdf-testimonial-content">
+                                                  <div className="eltdf-testimonial-text-holder">
+                                                    <p className="eltdf-testimonial-text" style={{ color: tokens.body }}>{t.text}</p>
+                                                    <h5 className="eltdf-testimonial-author">
+                                                      <span className="eltdf-testimonials-author-name" style={{ color: tokens.text }}>{t.author}</span>
+                                                    </h5>
+                                                    <p className="eltdf-testimonials-author-job" style={{ color: tokens.textMuted }}>{t.job}</p>
+                                                  </div>
+                                                </div>
+                                              ))}
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    {/* Image side */}
+                                    <div className="eltdf-eh-item"
+                                      style={{ backgroundImage: "url(wp-content/uploads/2019/10/main-img-4.jpg)" }}>
+                                      <div className="eltdf-eh-item-inner">
+                                        <div className="eltdf-eh-item-content" />
+                                      </div>
+                                    </div>
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
 
 
 {/* <div class="eltdf-row-grid-section-wrapper eltdf-content-aligment-center"  ><div class="eltdf-row-grid-section"><div class="vc_row wpb_row vc_row-fluid vc_custom_1577721730223" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-elements-holder   eltdf-two-columns  eltdf-responsive-mode-1024  fifty-fifty" ><div class="eltdf-eh-item    "  data-item-class="eltdf-eh-custom-8914" data-1025-1399="0 6% 0 0" data-769-1024="0 0" data-681-768="0 0" data-680="0 0">
@@ -259,196 +317,7 @@ From Chester to every corner of the UK, we’re serving nostalgia, comfort, and 
 	</div>
 </div></div></div></div></div></div></div></div> */}
 
-
-
-
-<div class="eltdf-row-grid-section-wrapper "  style={{backgroundColor:"#0f1d22"}}><div class="eltdf-row-grid-section"><div class="vc_row wpb_row vc_row-fluid vc_custom_1577721733574" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-section-title-holder    eltdf-st-decor-animation" style={{padding: "0 3%", textAlign: "center"}}>
-	<div class="eltdf-st-inner">
-                    <span class="eltdf-st-tagline">
-                Special selection            </span>
-        		            <div class="eltdf-st-title-holder">
-                                    <div class="decor">
-                                      
-                                      
-                          
-                        
-                        
-                        
-                        </div>
-                                <h1 class="eltdf-st-title" >
-                    From our menu                </h1>
-                                    <div class="decor">
-                                      
-                   
-                        
-                        
-                        </div>
-                            </div>
-							</div>
-</div></div></div></div></div></div></div><div class="eltdf-row-grid-section-wrapper "  style={{backgroundColor:"#0f1d22"}}><div class="eltdf-row-grid-section"><div class="vc_row wpb_row vc_row-fluid" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-elements-holder   eltdf-two-columns  eltdf-responsive-mode-1024  fifty-fifty" ><div class="eltdf-eh-item    "  data-item-class="eltdf-eh-custom-4610" data-769-1024="0 0" data-681-768="0 0" data-680="0 0">
-	<div class="eltdf-eh-item-inner">
-		<div class="eltdf-eh-item-content eltdf-eh-custom-4610" style={{padding: "0 42px 0 0"}}>
-			<div class="eltdf-pricing-holder ">
-                        <div class="eltdf-pricing-item">
-                
-                <div class="eltdf-pricing-main" >
-                    <h6 class="eltdf-pricing-title">
-                        Beef burger meal                    </h6>
-                    <div class="eltdf-pricing-lines"></div>
-                                            <span class="eltdf-pricing-price" >$32</span>
-                                    </div>
-                            <p class="eltdf-pricing-desc">Classic greek salad, barrel aged feta cheese, bread</p>
-                        </div>
-                            <div class="eltdf-pricing-item">
-                
-                <div class="eltdf-pricing-main" >
-                    <h6 class="eltdf-pricing-title">
-                        Roasted lamb rump                    </h6>
-                    <div class="eltdf-pricing-lines"></div>
-                                            <span class="eltdf-pricing-price" >$25</span>
-                                    </div>
-                            <p class="eltdf-pricing-desc">Grilled lamb cutlets, pomegranate glaze, butternut squash</p>
-                        </div>
-                            <div class="eltdf-pricing-item">
-                
-                <div class="eltdf-pricing-main" >
-                    <h6 class="eltdf-pricing-title">
-                        Pan seared sea bass                    </h6>
-                    <div class="eltdf-pricing-lines"></div>
-                                            <span class="eltdf-pricing-price" >$38</span>
-                                    </div>
-                            <p class="eltdf-pricing-desc">Saffron and mussel’s broth, new potatoes, edamame beans</p>
-                        </div>
-                            <div class="eltdf-pricing-item">
-                
-                <div class="eltdf-pricing-main" >
-                    <h6 class="eltdf-pricing-title">
-                        King prawns and lobster                    </h6>
-                    <div class="eltdf-pricing-lines"></div>
-                                            <span class="eltdf-pricing-price" >$38</span>
-                                    </div>
-                            <p class="eltdf-pricing-desc">Creamy saffron, sauce Vierge</p>
-                        </div>
-                            <div class="eltdf-pricing-item">
-                
-                <div class="eltdf-pricing-main" >
-                    <h6 class="eltdf-pricing-title">
-                        Citrus cured salmon                    </h6>
-                    <div class="eltdf-pricing-lines"></div>
-                                            <span class="eltdf-pricing-price" >$41</span>
-                                    </div>
-                            <p class="eltdf-pricing-desc">Horseradish creme fraiche, beetroot mousse, oil</p>
-                        </div>
-        </div>		</div>
-	</div>
-</div><div class="eltdf-eh-item    "  data-item-class="eltdf-eh-custom-1151" data-769-1024="0 0" data-681-768="0 0" data-680="0 0">
-	<div class="eltdf-eh-item-inner">
-		<div class="eltdf-eh-item-content eltdf-eh-custom-1151" style={{padding: "0 0 0 42px"}}>
-			<div class="eltdf-pricing-holder ">
-                        <div class="eltdf-pricing-item">
-                
-                <div class="eltdf-pricing-main" >
-                    <h6 class="eltdf-pricing-title">
-                        Pan seared scallops                    </h6>
-                    <div class="eltdf-pricing-lines"></div>
-                                            <span class="eltdf-pricing-price" >$29</span>
-                                    </div>
-                            <p class="eltdf-pricing-desc">Saffron, celeriac puree, black pudding, olive oil</p>
-                        </div>
-                            <div class="eltdf-pricing-item">
-                
-                <div class="eltdf-pricing-main" >
-                    <h6 class="eltdf-pricing-title">
-                        Baked Camembert                    </h6>
-                    <div class="eltdf-pricing-lines"></div>
-                                            <span class="eltdf-pricing-price" >$25</span>
-                                    </div>
-                            <p class="eltdf-pricing-desc">Red onion marmelade, garlic Foccacia bread, grilled figs</p>
-                        </div>
-                            <div class="eltdf-pricing-item">
-                
-                <div class="eltdf-pricing-main" >
-                    <h6 class="eltdf-pricing-title">
-                        Braised ox cheek ravioli                    </h6>
-                    <div class="eltdf-pricing-lines"></div>
-                                            <span class="eltdf-pricing-price" >$23</span>
-                                    </div>
-                            <p class="eltdf-pricing-desc">Mediterranean olives casserole, celeriac puree, mushrooms</p>
-                        </div>
-                            <div class="eltdf-pricing-item">
-                
-                <div class="eltdf-pricing-main" >
-                    <h6 class="eltdf-pricing-title">
-                        Corn fed chicken                    </h6>
-                    <div class="eltdf-pricing-lines"></div>
-                                            <span class="eltdf-pricing-price" >$17</span>
-                                    </div>
-                            <p class="eltdf-pricing-desc">Wild mushrooms, truffle potatoes, braised leeks, carrots</p>
-                        </div>
-                            <div class="eltdf-pricing-item">
-                
-                <div class="eltdf-pricing-main" >
-                    <h6 class="eltdf-pricing-title">
-                        Nduja pork chicken terrine                    </h6>
-                    <div class="eltdf-pricing-lines"></div>
-                                            <span class="eltdf-pricing-price" >$41</span>
-                                    </div>
-                            <p class="eltdf-pricing-desc">Smoked duck breast, pistachio, smoked pancetta</p>
-                        </div>
-        </div>		</div>
-	</div>
-</div></div></div></div></div></div></div></div><div class="eltdf-svg-pattern-holder eltdf-pattern-position-left" style={{left: "-60px;",transform: "translateY(40px)"}}>
-  
-  
-
-  
-  </div><div class="vc_row wpb_row vc_row-fluid vc_custom_1577721767438 eltdf-content-aligment-center" style={{backgroundColor:"#0f1d22"}}><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><a itemprop="url" href="our-menu/index.html" target="_self"  class="eltdf-btn eltdf-btn-medium eltdf-btn-outline"  >
-        <span class="eltdf-btn-text">View All</span>
-        </a></div></div></div></div><div class="eltdf-row-grid-section-wrapper "  ><div class="eltdf-row-grid-section"><div class="vc_row wpb_row vc_row-fluid vc_custom_1577721744350" ><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-elements-holder   eltdf-two-columns  eltdf-responsive-mode-680  fifty-fifty" ><div class="eltdf-eh-item    "  data-item-class="eltdf-eh-custom-8728" data-1400-1600="0 23px 0 0" data-1025-1399="0 23px 0 0" data-680="0 0 50px 0">
-	<div class="eltdf-eh-item-inner">
-		<div class="eltdf-eh-item-content eltdf-eh-custom-8728" style={{padding: "0 27px 0 0"}}>
-			<div class="eltdf-single-image-holder     eltdf-image-appear-from-top">
-    <div class="eltdf-si-inner" >
-                                                        <img loading="lazy" decoding="async" width="800" height="1275" src="wp-content/uploads/2019/10/main-img-6.jpg" class="attachment-full size-full" alt="g" srcset="https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-6.jpg 800w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-6-600x956.jpg 600w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-6-188x300.jpg 188w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-6-768x1224.jpg 768w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-6-643x1024.jpg 643w" sizes="(max-width: 800px) 100vw, 800px" />                                                </div>
-</div>		</div>
-	</div>
-</div><div class="eltdf-eh-item    "  data-item-class="eltdf-eh-custom-6809" data-1400-1600="0 0 0 23px" data-1025-1399="0 0 0 23px" data-680="0 0">
-	<div class="eltdf-eh-item-inner">
-		<div class="eltdf-eh-item-content eltdf-eh-custom-6809" style={{padding: "0 0 0 27px"}}>
-			<div class="eltdf-single-image-holder eltdf-main-home-delayed-image    eltdf-image-appear-from-top">
-    <div class="eltdf-si-inner" >
-                                                        <img loading="lazy" decoding="async" width="800" height="1275" src="wp-content/uploads/2019/10/main-img-8.jpg" class="attachment-full size-full" alt="h" srcset="https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-8.jpg 800w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-8-600x956.jpg 600w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-8-188x300.jpg 188w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-8-768x1224.jpg 768w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-8-643x1024.jpg 643w" sizes="(max-width: 800px) 100vw, 800px" />                                                </div>
-</div>		</div>
-	</div>
-</div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-5 vc_col-md-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-elements-holder   eltdf-one-column  eltdf-responsive-mode-768  " ><div class="eltdf-eh-item    "  data-item-class="eltdf-eh-custom-8254" data-1400-1600="13% 0% 0 9%" data-1025-1399="9% 0% 0 5%" data-769-1024="80px 11% 0 11%" data-681-768="80px 0 0 0" data-680="80px 0 0 0">
-	<div class="eltdf-eh-item-inner">
-		<div class="eltdf-eh-item-content eltdf-eh-custom-8254" style={{padding: "20% 11% 0 11%"}}>
-			<div class="eltdf-section-title-holder    eltdf-st-decor-animation" style={{textAlign: "center"}}>
-	<div class="eltdf-st-inner">
-                    <span class="eltdf-st-tagline">
-                Our food philosophy            </span>
-        		            <div class="eltdf-st-title-holder">
-                                    <div class="decor">
-                                      
-                                      
-                                   
-                        
-                        </div>
-                                <h2 class="eltdf-st-title" >
-                    Our tips                </h2>
-                                    <div class="decor">
-                                      
-                           
-                        
-                        </div>
-                            </div>
-							<p class="eltdf-st-text" >
-				Lorem ipsum dolor sit amet, consectet nei ad icing eli sed do eiu sm od tempor se incidid sens ne utabor et dolore magiqua. Ut enim ad miains eniam quis nostrudas exercitation ullam de cm laborisnw si utali			</p>
-							<div class="eltdf-st-button"><a itemprop="url" href="our-kitchen/index.html" target="_self" style={{margin: "35px 0 0"}} class="eltdf-btn eltdf-btn-medium eltdf-btn-simple"  >        <span class="eltdf-btn-text">Read More</span>        </a></div>
-			</div>
-</div>		</div>
-	</div>
-</div></div></div></div></div></div></div></div>
+        
 
 
 
@@ -466,126 +335,294 @@ From Chester to every corner of the UK, we’re serving nostalgia, comfort, and 
 	 */}
 	
 
-			
-			<div class="eltdf-svg-pattern-holder eltdf-pattern-position-left" style={{transform: "translateY(130px)"}}>
-
-            
-            
-            </div><div class="eltdf-row-grid-section-wrapper eltdf-content-aligment-left"  style={{backgroundColor:"#111d22"}}><div class="eltdf-row-grid-section"><div class="vc_row wpb_row vc_row-fluid vc_custom_1577182567213 vc_row-has-fill" ><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><div class="eltdf-section-title-holder    eltdf-st-decor-animation" style={{textAlign: "center"}}>
-	<div class="eltdf-st-inner">
-                    <span class="eltdf-st-tagline">
-                Reservations            </span>
-        		            <div class="eltdf-st-title-holder">
-                                    <div class="decor">
-                                      
-                              
-                        </div>
-                                <h1 class="eltdf-st-title" >
-                    Book a table                </h1>
-                                    <div class="decor">
-                                      
-                                      
-                         
-                        
-                        
-                        </div>
+                          {/* ══ FROM OUR MENU ══ */}
+                          <div className="eltdf-row-grid-section-wrapper"
+                            style={{ backgroundColor: tokens.cardBg, transition: "background 0.3s ease" }}>
+                            <div className="eltdf-row-grid-section">
+                              <div className="vc_row wpb_row vc_row-fluid vc_custom_1577721733574">
+                                <div className="wpb_column vc_column_container vc_col-sm-12">
+                                  <div className="vc_column-inner">
+                                    <div className="wpb_wrapper">
+                                      <div className="eltdf-section-title-holder eltdf-st-decor-animation"
+                                        style={{ padding: "0 3%", textAlign: "center" }}>
+                                        <div className="eltdf-st-inner">
+                                          <span className="eltdf-st-tagline" style={{ color: tokens.tagline }}>
+                                            Special selection
+                                          </span>
+                                          <div className="eltdf-st-title-holder">
+                                            <div className="decor" />
+                                            <h1 className="eltdf-st-title" style={{ color: tokens.heading }}>
+                                              From our menu
+                                            </h1>
+                                            <div className="decor" />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
-							</div>
-</div><div class="vc_empty_space"   style={{height: "56px"}}><span class="vc_empty_space_inner"></span></div><div class="eltdf-elements-holder   eltdf-one-column  eltdf-responsive-mode-768  " ><div class="eltdf-eh-item    "  data-item-class="eltdf-eh-custom-5897" data-1400-1600="0 6.4%" data-1025-1399="0 3%" data-769-1024="0 0 0 8.4%" data-681-768="0 0 0 8.4%" data-680="0 0 0 8.4%">
-	<div class="eltdf-eh-item-inner">
-		<div class="eltdf-eh-item-content eltdf-eh-custom-5897" style={{padding: "0 8.4%"}}>
-			<div class="eltdf-rf-holder eltdf-rf-inline ">
-			<form class="eltdf-rf" target="_blank" action="https://www.opentable.com/restref/client/" name="eltdf-rf">
+                          </div>
 
-			<input type="hidden" name="rid" class="rid" value="161697" />
-			<input type="hidden" name="restref" class="restref" value="161697" />
-			<div class="eltdf-rf-row clearfix">
-				<div class="eltdf-rf-col-holder">
-					<div class="eltdf-rf-field-holder clearfix">
-						<select name="partysize" class="eltdf-ot-people">
-							<option value="1">1 Person</option>
-							<option value="2">2 People</option>
-							<option value="3">3 People</option>
-							<option value="4">4 People</option>
-							<option value="5">5 People</option>
-							<option value="6">6 People</option>
-							<option value="7">7 People</option>
-							<option value="8">8 People</option>
-							<option value="9">9 People</option>
-							<option value="10">10 People</option>
-						</select>
-					</div>
-				</div>
-				<div class="eltdf-rf-col-holder">
-					<div class="eltdf-rf-field-holder eltdf-rf-date-col clearfix">
-                        <input type="text" value="02/19/2026" class="eltdf-ot-date" name="date" />
-					</div>
-				</div>
-				<div class="eltdf-rf-col-holder eltdf-rf-time-col">
-					<div class="eltdf-rf-field-holder clearfix">
-						<select name="time" class="eltdf-ot-time">
-							<option value="00:30">00:30 am</option>
-							<option value="01:00">01:00 am</option>
-							<option value="01:30">01:30 am</option>
-							<option value="02:00">02:00 am</option>
-							<option value="02:30">02:30 am</option>
-							<option value="03:00">03:00 am</option>
-							<option value="03:30">03:30 am</option>
-							<option value="04:00">04:00 am</option>
-							<option value="04:30">04:30 am</option>
-							<option value="05:00">05:00 am</option>
-							<option value="05:30">05:30 am</option>
-							<option value="06:00">06:00 am</option>
-							<option value="06:30">06:30 am</option>
-							<option value="07:00">07:00 am</option>
-							<option value="07:30">07:30 am</option>
-							<option value="08:00">08:00 am</option>
-							<option value="08:30">08:30 am</option>
-							<option value="09:00">09:00 am</option>
-							<option value="09:30">09:30 am</option>
-							<option value="10:00">10:00 am</option>
-							<option value="10:30">10:30 am</option>
-							<option value="11:00" selected>11:00 am</option>
-							<option value="11:30">11:30 am</option>
-							<option value="12:00">12:00 pm</option>
-							<option value="12:30">12:30 pm</option>
-							<option value="13:00">01:00 pm</option>
-							<option value="13:30">01:30 pm</option>
-							<option value="14:00">02:00 pm</option>
-							<option value="14:30">02:30 pm</option>
-							<option value="15:00">03:00 pm</option>
-							<option value="15:30">03:30 pm</option>
-							<option value="16:00">04:00 pm</option>
-							<option value="16:30">04:30 pm</option>
-							<option value="17:00">05:00 pm</option>
-							<option value="17:30">05:30 pm</option>
-							<option value="18:00">06:00 pm</option>
-							<option value="18:30">06:30 pm</option>
-							<option value="19:00">07:00 pm</option>
-							<option value="19:30">07:30 pm</option>
-							<option value="20:00">08:00 pm</option>
-							<option value="20:30">08:30 pm</option>
-							<option value="21:00">09:00 pm</option>
-							<option value="21:30">09:30 pm</option>
-							<option value="22:00">10:00 pm</option>
-							<option value="22:30">10:30 pm</option>
-							<option value="23:00">11:00 pm</option>
-							<option value="23:30">11:30 pm</option>
-							<option value="24:00">12:00 pm</option>
-						</select>
-					</div>
-				</div>
-				<div class="eltdf-rf-col-holder eltdf-rf-btn-holder">
-						<button type="submit"  class="eltdf-btn eltdf-btn-huge eltdf-btn-outline"  >
-    <span class="eltdf-btn-text">Book Now</span>
-    </button>				</div>
-			</div>
-			<input type="hidden" name="datetime" class="datetime" value="" />
-		</form>
-		<p class="eltdf-rf-copyright">*Powered by OpenTable</p>
-	</div>		</div>
-	</div>
-</div></div></div></div></div></div></div></div>
+                          {/* ── Menu pricing columns ── */}
+                          <div className="eltdf-row-grid-section-wrapper"
+                            style={{ backgroundColor: tokens.cardBg, transition: "background 0.3s ease" }}>
+                            <div className="eltdf-row-grid-section">
+                              <div className="vc_row wpb_row vc_row-fluid">
+                                <div className="wpb_column vc_column_container vc_col-sm-12">
+                                  <div className="vc_column-inner">
+                                    <div className="wpb_wrapper">
+                                      <div className="eltdf-elements-holder eltdf-two-columns eltdf-responsive-mode-1024 fifty-fifty">
+
+                                        {/* Left menu column */}
+                                        <div className="eltdf-eh-item">
+                                          <div className="eltdf-eh-item-inner">
+                                            <div className="eltdf-eh-item-content" style={{ padding: "0 42px 0 0" }}>
+                                              <div className="eltdf-pricing-holder">
+                                                {[
+                                                  { name: "Beef burger meal", price: "$32", desc: "Classic greek salad, barrel aged feta cheese, bread" },
+                                                  { name: "Roasted lamb rump", price: "$25", desc: "Grilled lamb cutlets, pomegranate glaze, butternut squash" },
+                                                  { name: "Pan seared sea bass", price: "$38", desc: "Saffron and mussel's broth, new potatoes, edamame beans" },
+                                                  { name: "King prawns and lobster", price: "$38", desc: "Creamy saffron, sauce Vierge" },
+                                                  { name: "Citrus cured salmon", price: "$41", desc: "Horseradish creme fraiche, beetroot mousse, oil" },
+                                                ].map((item, i) => (
+                                                  <div key={i} className="eltdf-pricing-item">
+                                                    <div className="eltdf-pricing-main">
+                                                      <h6 className="eltdf-pricing-title" style={{ color: tokens.heading }}>{item.name}</h6>
+                                                      <div className="eltdf-pricing-lines" style={{ borderColor: tokens.divider }} />
+                                                      <span className="eltdf-pricing-price" style={{ color: tokens.text }}>{item.price}</span>
+                                                    </div>
+                                                    <p className="eltdf-pricing-desc" style={{ color: tokens.textMuted }}>{item.desc}</p>
+                                                  </div>
+                                                ))}
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        {/* Right menu column */}
+                                        <div className="eltdf-eh-item">
+                                          <div className="eltdf-eh-item-inner">
+                                            <div className="eltdf-eh-item-content" style={{ padding: "0 0 0 42px" }}>
+                                              <div className="eltdf-pricing-holder">
+                                                {[
+                                                  { name: "Pan seared scallops", price: "$29", desc: "Saffron, celeriac puree, black pudding, olive oil" },
+                                                  { name: "Baked Camembert", price: "$25", desc: "Red onion marmelade, garlic Foccacia bread, grilled figs" },
+                                                  { name: "Braised ox cheek ravioli", price: "$23", desc: "Mediterranean olives casserole, celeriac puree, mushrooms" },
+                                                  { name: "Corn fed chicken", price: "$17", desc: "Wild mushrooms, truffle potatoes, braised leeks, carrots" },
+                                                  { name: "Nduja pork chicken terrine", price: "$41", desc: "Smoked duck breast, pistachio, smoked pancetta" },
+                                                ].map((item, i) => (
+                                                  <div key={i} className="eltdf-pricing-item">
+                                                    <div className="eltdf-pricing-main">
+                                                      <h6 className="eltdf-pricing-title" style={{ color: tokens.heading }}>{item.name}</h6>
+                                                      <div className="eltdf-pricing-lines" style={{ borderColor: tokens.divider }} />
+                                                      <span className="eltdf-pricing-price" style={{ color: tokens.text }}>{item.price}</span>
+                                                    </div>
+                                                    <p className="eltdf-pricing-desc" style={{ color: tokens.textMuted }}>{item.desc}</p>
+                                                  </div>
+                                                ))}
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* View All button */}
+                          <div className="vc_row wpb_row vc_row-fluid eltdf-content-aligment-center"
+                            style={{ backgroundColor: tokens.cardBg, transition: "background 0.3s ease" }}>
+                            <div className="wpb_column vc_column_container vc_col-sm-12">
+                              <div className="vc_column-inner">
+                                <div className="wpb_wrapper">
+                                  <a href="our-menu/index.html"
+                                    className="eltdf-btn eltdf-btn-medium eltdf-btn-outline"
+                                    style={{ borderColor: tokens.btnOutlineBorder, color: tokens.btnOutlineText }}>
+                                    <span className="eltdf-btn-text">View All</span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* ══ OUR TIPS SECTION ══ */}
+                          <div className="eltdf-row-grid-section-wrapper"
+                            style={{ background: tokens.pageBg, transition: "background 0.3s ease" }}>
+                            <div className="eltdf-row-grid-section">
+                              <div className="vc_row wpb_row vc_row-fluid vc_custom_1577721744350">
+
+                                {/* Left: two images */}
+                                <div className="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-7 vc_col-md-12">
+                                  <div className="vc_column-inner">
+                                    <div className="wpb_wrapper">
+                                      <div className="eltdf-elements-holder eltdf-two-columns eltdf-responsive-mode-680 fifty-fifty">
+                                        <div className="eltdf-eh-item">
+                                          <div className="eltdf-eh-item-inner">
+                                            <div className="eltdf-eh-item-content" style={{ padding: "0 27px 0 0" }}>
+                                              <div className="eltdf-single-image-holder eltdf-image-appear-from-top">
+                                                <div className="eltdf-si-inner">
+                                                  <img loading="lazy" width="800" height="1275"
+                                                    src="wp-content/uploads/2019/10/main-img-6.jpg" alt="" />
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div className="eltdf-eh-item">
+                                          <div className="eltdf-eh-item-inner">
+                                            <div className="eltdf-eh-item-content" style={{ padding: "0 0 0 27px" }}>
+                                              <div className="eltdf-single-image-holder eltdf-main-home-delayed-image eltdf-image-appear-from-top">
+                                                <div className="eltdf-si-inner">
+                                                  <img loading="lazy" width="800" height="1275"
+                                                    src="wp-content/uploads/2019/10/main-img-8.jpg" alt="" />
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Right: text */}
+                                <div className="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-5 vc_col-md-12">
+                                  <div className="vc_column-inner">
+                                    <div className="wpb_wrapper">
+                                      <div className="eltdf-elements-holder eltdf-one-column eltdf-responsive-mode-768">
+                                        <div className="eltdf-eh-item">
+                                          <div className="eltdf-eh-item-inner">
+                                            <div className="eltdf-eh-item-content" style={{ padding: "20% 11% 0 11%" }}>
+                                              <div className="eltdf-section-title-holder eltdf-st-decor-animation" style={{ textAlign: "center" }}>
+                                                <div className="eltdf-st-inner">
+                                                  <span className="eltdf-st-tagline" style={{ color: tokens.tagline }}>
+                                                    Our food philosophy
+                                                  </span>
+                                                  <div className="eltdf-st-title-holder">
+                                                    <div className="decor" />
+                                                    <h2 className="eltdf-st-title" style={{ color: tokens.heading }}>Our tips</h2>
+                                                    <div className="decor" />
+                                                  </div>
+                                                  <p className="eltdf-st-text" style={{ color: tokens.body }}>
+                                                    Lorem ipsum dolor sit amet, consectet nei ad icing eli sed do eiu sm od tempor se incidid sens ne utabor et dolore magiqua.
+                                                  </p>
+                                                  <div className="eltdf-st-button">
+                                                    <a href="our-kitchen/index.html" style={{ margin: "35px 0 0", borderColor: tokens.btnOutlineBorder, color: tokens.btnOutlineText }}
+                                                      className="eltdf-btn eltdf-btn-medium eltdf-btn-simple">
+                                                      <span className="eltdf-btn-text">Read More</span>
+                                                    </a>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* ══ BOOK A TABLE ══ */}
+                          <div className="eltdf-row-grid-section-wrapper eltdf-content-aligment-left"
+                            style={{ backgroundColor: tokens.cardBgAlt, transition: "background 0.3s ease" }}>
+                            <div className="eltdf-row-grid-section">
+                              <div className="vc_row wpb_row vc_row-fluid vc_row-has-fill">
+                                <div className="wpb_column vc_column_container vc_col-sm-12">
+                                  <div className="vc_column-inner">
+                                    <div className="wpb_wrapper">
+
+                                      <div className="eltdf-section-title-holder eltdf-st-decor-animation" style={{ textAlign: "center" }}>
+                                        <div className="eltdf-st-inner">
+                                          <span className="eltdf-st-tagline" style={{ color: tokens.tagline }}>
+                                            Reservations
+                                          </span>
+                                          <div className="eltdf-st-title-holder">
+                                            <div className="decor" />
+                                            <h1 className="eltdf-st-title" style={{ color: tokens.heading }}>Book a table</h1>
+                                            <div className="decor" />
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <div className="vc_empty_space" style={{ height: "56px" }} />
+
+                                      <div className="eltdf-elements-holder eltdf-one-column eltdf-responsive-mode-768">
+                                        <div className="eltdf-eh-item">
+                                          <div className="eltdf-eh-item-inner">
+                                            <div className="eltdf-eh-item-content" style={{ padding: "0 8.4%" }}>
+                                              <div className="eltdf-rf-holder eltdf-rf-inline">
+                                                <form className="eltdf-rf" target="_blank"
+                                                  action="https://www.opentable.com/restref/client/" name="eltdf-rf">
+                                                  <input type="hidden" name="rid" value="161697" />
+                                                  <input type="hidden" name="restref" value="161697" />
+                                                  <div className="eltdf-rf-row clearfix">
+                                                    <div className="eltdf-rf-col-holder">
+                                                      <div className="eltdf-rf-field-holder clearfix">
+                                                        <select name="partysize" className="eltdf-ot-people"
+                                                          style={{ background: tokens.inputBg, color: tokens.inputText, borderColor: tokens.inputBorder }}>
+                                                          {[...Array(10)].map((_, i) => (
+                                                            <option key={i+1} value={i+1}>{i+1} {i === 0 ? "Person" : "People"}</option>
+                                                          ))}
+                                                        </select>
+                                                      </div>
+                                                    </div>
+                                                    <div className="eltdf-rf-col-holder">
+                                                      <div className="eltdf-rf-field-holder eltdf-rf-date-col clearfix">
+                                                        <input type="text" defaultValue="02/19/2026" className="eltdf-ot-date" name="date"
+                                                          style={{ background: tokens.inputBg, color: tokens.inputText, borderColor: tokens.inputBorder }} />
+                                                      </div>
+                                                    </div>
+                                                    <div className="eltdf-rf-col-holder eltdf-rf-time-col">
+                                                      <div className="eltdf-rf-field-holder clearfix">
+                                                        <select name="time" className="eltdf-ot-time"
+                                                          style={{ background: tokens.inputBg, color: tokens.inputText, borderColor: tokens.inputBorder }}>
+                                                          <option value="11:00">11:00 am</option>
+                                                          <option value="12:00">12:00 pm</option>
+                                                          <option value="13:00">01:00 pm</option>
+                                                          <option value="18:00">06:00 pm</option>
+                                                          <option value="19:00">07:00 pm</option>
+                                                          <option value="20:00">08:00 pm</option>
+                                                          <option value="21:00">09:00 pm</option>
+                                                        </select>
+                                                      </div>
+                                                    </div>
+                                                    <div className="eltdf-rf-col-holder eltdf-rf-btn-holder">
+                                                      <button type="submit"
+                                                        className="eltdf-btn eltdf-btn-huge eltdf-btn-outline"
+                                                        style={{ borderColor: tokens.btnOutlineBorder, color: tokens.btnOutlineText }}>
+                                                        <span className="eltdf-btn-text">Book Now</span>
+                                                      </button>
+                                                    </div>
+                                                  </div>
+                                                  <input type="hidden" name="datetime" value="" />
+                                                </form>
+                                                <p className="eltdf-rf-copyright" style={{ color: tokens.textMuted }}>
+                                                  *Powered by OpenTable
+                                                </p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          {/* ── end Book a Table ── */}
+
 </div>					</div>
 							</div>
 		        	</div>
