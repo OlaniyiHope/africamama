@@ -381,11 +381,11 @@ useEffect(() => {
                                             <div className="eltdf-eh-item-content" style={{ padding: "0 42px 0 0" }}>
                                               <div className="eltdf-pricing-holder">
                                                 {[
-                                                  { name: "Beef burger meal", price: "$32", desc: "Classic greek salad, barrel aged feta cheese, bread" },
-                                                  { name: "Roasted lamb rump", price: "$25", desc: "Grilled lamb cutlets, pomegranate glaze, butternut squash" },
-                                                  { name: "Pan seared sea bass", price: "$38", desc: "Saffron and mussel's broth, new potatoes, edamame beans" },
-                                                  { name: "King prawns and lobster", price: "$38", desc: "Creamy saffron, sauce Vierge" },
-                                                  { name: "Citrus cured salmon", price: "$41", desc: "Horseradish creme fraiche, beetroot mousse, oil" },
+                                                { name: "Jollof Rice & Chicken", price: "£12", desc: "Smoky party jollof, grilled chicken, fried plantain, coleslaw" },
+{ name: "Egusi Soup & Pounded Yam", price: "£14", desc: "Ground melon seed soup, assorted meat, crayfish, stockfish" },
+{ name: "Suya Platter", price: "£13", desc: "Spiced grilled beef skewers, sliced onions, tomatoes, yaji pepper" },
+{ name: "Pepper Soup", price: "£10", desc: "Goat meat or catfish, utazi leaves, African pepper blend, scotch bonnet" },
+{ name: "Fried Rice & Moin Moin", price: "£11", desc: "Nigerian fried rice, steamed bean pudding, grilled chicken or fish" },
                                                 ].map((item, i) => (
                                                   <div key={i} className="eltdf-pricing-item">
                                                     <div className="eltdf-pricing-main">
@@ -407,11 +407,11 @@ useEffect(() => {
                                             <div className="eltdf-eh-item-content" style={{ padding: "0 0 0 42px" }}>
                                               <div className="eltdf-pricing-holder">
                                                 {[
-                                                  { name: "Pan seared scallops", price: "$29", desc: "Saffron, celeriac puree, black pudding, olive oil" },
-                                                  { name: "Baked Camembert", price: "$25", desc: "Red onion marmelade, garlic Foccacia bread, grilled figs" },
-                                                  { name: "Braised ox cheek ravioli", price: "$23", desc: "Mediterranean olives casserole, celeriac puree, mushrooms" },
-                                                  { name: "Corn fed chicken", price: "$17", desc: "Wild mushrooms, truffle potatoes, braised leeks, carrots" },
-                                                  { name: "Nduja pork chicken terrine", price: "$41", desc: "Smoked duck breast, pistachio, smoked pancetta" },
+                                            { name: "Ofe Onugbu & Eba", price: "£13", desc: "Bitter leaf soup, assorted meat, stockfish, palm oil, eba or fufu" },
+{ name: "Afang Soup", price: "£15", desc: "Afang leaves, waterleaf, periwinkle, assorted meat, palm oil" },
+{ name: "Banga Soup & Starch", price: "£13", desc: "Palm nut soup, dried fish, oburunbebe stick, traditional starch" },
+{ name: "Asun (Peppered Goat)", price: "£14", desc: "Smoked roasted goat, scotch bonnet, onions, peppers, palm oil" },
+{ name: "Catfish Pepper Soup", price: "£12", desc: "Fresh catfish, uziza leaves, ehuru, cameroon pepper, crayfish" },
                                                 ].map((item, i) => (
                                                   <div key={i} className="eltdf-pricing-item">
                                                     <div className="eltdf-pricing-main">
