@@ -463,8 +463,10 @@ import { useCart } from "../context/CartContext";
 
 const Cart = () => {
   const { tokens } = useTheme();
-  const { cartItems, cartTotal, updateQuantity, removeFromCart } = useCart();
+  // const { cartItems, cartTotal, updateQuantity, removeFromCart } = useCart();
+const { cartItems, updateQuantity, removeFromCart } = useCart();
 
+const cartTotal = cartItems.reduce((sum, item) => sum + Number(item.price) * Number(item.quantity), 0);
   const [couponCode, setCouponCode] = useState("");
 
   return (
