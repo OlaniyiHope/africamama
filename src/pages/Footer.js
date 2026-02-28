@@ -74,7 +74,7 @@ const Footer = () => {
                 <div id="media_image-2" className="widget eltdf-footer-column-1 widget_media_image">
                   <a href="index.html">
                     <img
-                      width="46" height="66"
+                      width="106" height="129"
                       src={logo}
                       className="image wp-image-75 attachment-full size-full"
                       alt="African Mama Put"
