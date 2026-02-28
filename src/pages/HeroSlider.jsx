@@ -134,9 +134,9 @@ const taglines = [
             We use the category name's first word as intro, or a fixed welcome line */}
 <p style={{
   fontFamily: "'Miniver', cursive",
-  color: "#C9AB81",
+  color: "#fff",
   fontSize: "clamp(16px, 2.2vw, 25px)",
-  fontWeight: "normal",
+  fontWeight: "800",
   letterSpacing: "0.05em",
   margin: "0 0 18px 0",
   lineHeight: 1.4,
@@ -159,16 +159,16 @@ const taglines = [
           <img
             src="https://laurent.qodeinteractive.com/wp-content/uploads/2019/11/rev-img.png"
             alt=""
-            style={{ width: 56, height: 10, opacity: 0.85 }}
+            style={{ width: 56, height: 10, opacity: 0.85, }}
           />
 
           {/* Small word (e.g. "The") — Miniver */}
           {titleSmall && (
             <span style={{
               fontFamily: "'Miniver', cursive",
-              color: "#C9AB81",
+              color: "#fff",
               fontSize: "clamp(36px, 7vw, 120px)",
-              fontWeight: "normal",
+              fontWeight: "800",
               letterSpacing: "0.12em",
               lineHeight: 1,
             }}>
@@ -177,9 +177,9 @@ const taglines = [
           )}
 
           {/* Big words (e.g. "FOOD HEAVEN") — Metropolis */}
-          <span 	style={{fontFamily:"metropolis1920regular, sans-serif",    color: "#C9AB81",
+          <span 	style={{fontFamily:"metropolis1920regular, sans-serif",    color: "#fff",
             fontSize: "clamp(36px, 7vw, 120px)",
-            fontWeight: "normal",
+            fontWeight: "800",
             letterSpacing: "0.2em",
             lineHeight: 1,
             textTransform: "uppercase",}}>
@@ -200,9 +200,9 @@ const taglines = [
         {cat.description && (
           <p style={{
             fontFamily: "'Josefin Sans', sans-serif",
-            color: "rgba(255,255,255,0.9)",
+            color: "#fff",
             fontSize: "clamp(14px, 1.6vw, 23px)",
-            fontWeight: 300,
+            fontWeight: 500,
             letterSpacing: "0.03em",
             lineHeight: 1.6,
             maxWidth: "680px",
@@ -218,7 +218,7 @@ const taglines = [
           className="eltdf-btn eltdf-btn-large eltdf-btn-outline"
           style={{ textDecoration: "none" }}
         >
-          <span className="eltdf-btn-text">View Menu Dishes</span>
+          <span className="eltdf-btn-text" style={{color: "white", fontWeight: "800"}}>View Menu Dishes</span>
         </Link>
 
       </div>
