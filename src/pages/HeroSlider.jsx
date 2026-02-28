@@ -133,7 +133,7 @@ const taglines = [
             Original: "welcome to our delicious corner" / "take a sip..." 
             We use the category name's first word as intro, or a fixed welcome line */}
 <p style={{
-  fontFamily: "'Miniver', cursive",
+     fontSize: "clamp(36px, 7vw, 120px)",
   color: "#fff",
   fontSize: "clamp(16px, 2.2vw, 25px)",
   fontWeight: "800",
