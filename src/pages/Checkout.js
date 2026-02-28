@@ -62,8 +62,7 @@ const NG_STATES = [
 
 // ─── Inner form that uses Stripe hooks ───────────────────────────────────────
 const CheckoutForm = ({ tokens, cartItems, subtotal, total }) => {
-  const stripe = useStripe();
-  const elements = useElements();
+
   const { clearCart } = useCart();
   const navigate = useNavigate();
 
@@ -71,11 +70,7 @@ const CheckoutForm = ({ tokens, cartItems, subtotal, total }) => {
   const [processing, setProcessing] = useState(false);
   const [cardError, setCardError] = useState("");
   const [orderPlaced, setOrderPlaced] = useState(false);
-  const [stripeReady, setStripeReady] = useState({
-    number: false,
-    expiry: false,
-    cvc: false,
-  });
+
 
   const [billing, setBilling] = useState({
     firstName: "", lastName: "", company: "",
@@ -96,20 +91,6 @@ const CheckoutForm = ({ tokens, cartItems, subtotal, total }) => {
   const handleBilling = (e) => setBilling(p => ({ ...p, [e.target.name]: e.target.value }));
   const handleShipping = (e) => setShipping(p => ({ ...p, [e.target.name]: e.target.value }));
 
-  // Stripe element appearance
-  const stripeAppearance = {
-    style: {
-      base: {
-        color: tokens.text,
-        fontFamily: "'Cormorant Garamond', Georgia, serif",
-        fontSize: "15px",
-        fontWeight: "400",
-        "::placeholder": { color: tokens.textMuted },
-        iconColor: tokens.textMuted,
-      },
-      invalid: { color: "#e53935" },
-    },
-  };
 // const handleSubmit = async (e) => {
 //   e.preventDefault();
 //   if (!stripe || !elements) return;
@@ -193,14 +174,14 @@ const handleSubmit = async (e) => {
       quantity: item.quantity,
     }));
 
-    const res = await fetch("/api/payment/create-checkout-session", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        cartItems: formattedItems,
-        paymentMethod: "card",
-      }),
-    });
+ const res = await fetch(`${process.env.REACT_APP_API_URL}/api/payment/create-checkout-session`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    cartItems: formattedItems,
+    paymentMethod: "card",
+  }),
+});
 
     if (!res.ok) throw new Error("Failed to create checkout session.");
     const { url } = await res.json();
@@ -455,128 +436,112 @@ const handleSubmit = async (e) => {
             </div>
           )}
 
-          {/* ── STEP 2: Payment ── */}
-          {step === 2 && (
-            <div style={{ animation: "fadeIn 0.3s ease" }}>
-              <SectionTitle tokens={tokens}>Payment Details</SectionTitle>
+  {/* ── STEP 2: Payment ── */}
+{step === 2 && (
+  <div style={{ animation: "fadeIn 0.3s ease" }}>
+    <SectionTitle tokens={tokens}>Review & Pay</SectionTitle>
 
-              {/* Stripe badge */}
-              <div style={{
-                display: "flex", alignItems: "center", gap: 10, marginBottom: 28,
-                padding: "12px 16px",
-                background: tokens.cardBg,
-                border: `1px solid ${tokens.border}`,
-                borderRadius: 4,
-              }}>
-                <svg width="42" height="18" viewBox="0 0 42 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 11.5C5 10.12 5.9 9.3 7.14 9.3C8 9.3 8.7 9.72 9.1 10.42L10.7 9.5C10.08 8.38 8.78 7.6 7.14 7.6C4.8 7.6 3 9.28 3 11.5C3 13.72 4.8 15.4 7.14 15.4C8.78 15.4 10.08 14.62 10.7 13.5L9.1 12.58C8.7 13.28 8 13.7 7.14 13.7C5.9 13.7 5 12.88 5 11.5Z" fill="#6772E5"/>
-                  <path d="M16.5 7.6C15.34 7.6 14.36 8.1 13.7 8.96V7.8H11.8V15.2H13.7V11.1C13.7 9.9 14.48 9.2 15.52 9.2C16.56 9.2 17.2 9.88 17.2 11.1V15.2H19.1V10.7C19.1 8.9 18.02 7.6 16.5 7.6Z" fill="#6772E5"/>
-                  <path d="M23.5 7.6C21.12 7.6 19.5 9.3 19.5 11.5C19.5 13.7 21.12 15.4 23.5 15.4C25.88 15.4 27.5 13.7 27.5 11.5C27.5 9.3 25.88 7.6 23.5 7.6ZM23.5 13.7C22.26 13.7 21.4 12.76 21.4 11.5C21.4 10.24 22.26 9.3 23.5 9.3C24.74 9.3 25.6 10.24 25.6 11.5C25.6 12.76 24.74 13.7 23.5 13.7Z" fill="#6772E5"/>
-                  <path d="M32 7.6C29.62 7.6 28 9.3 28 11.5C28 13.7 29.62 15.4 32 15.4C33.38 15.4 34.52 14.82 35.2 13.86L33.64 12.94C33.28 13.42 32.7 13.7 32 13.7C30.88 13.7 30.06 12.96 29.94 11.9H35.6C35.64 11.62 35.66 11.36 35.66 11.08C35.66 9.18 34.24 7.6 32 7.6ZM29.96 10.6C30.12 9.6 30.9 9 32 9C33.04 9 33.76 9.56 33.88 10.6H29.96Z" fill="#6772E5"/>
-                </svg>
-                <span style={{ color: tokens.textMuted, fontSize: 12 }}>
-                  Secured by Stripe · SSL encrypted
-                </span>
-                <div style={{ marginLeft: "auto", display: "flex", gap: 6 }}>
-                  {["VISA", "MC", "AMEX"].map(brand => (
-                    <span key={brand} style={{
-                      fontSize: 9, fontWeight: 700,
-                      padding: "3px 6px",
-                      border: `1px solid ${tokens.border}`,
-                      borderRadius: 3,
-                      color: tokens.textMuted,
-                      letterSpacing: "0.05em",
-                    }}>{brand}</span>
-                  ))}
-                </div>
-              </div>
+    {/* Delivery address review */}
+    <div style={{
+      padding: "20px 24px", marginBottom: 24,
+      background: tokens.cardBg,
+      border: `1px solid ${tokens.border}`,
+    }}>
+      <p style={{ color: tokens.textMuted, fontSize: 11, letterSpacing: "0.1em", textTransform: "uppercase", margin: "0 0 10px" }}>
+        Delivering to
+      </p>
+      <p style={{ color: tokens.text, fontSize: 14, margin: 0, lineHeight: 1.8 }}>
+        <strong style={{ color: tokens.heading }}>{billing.firstName} {billing.lastName}</strong><br />
+        {billing.address1}{billing.address2 ? `, ${billing.address2}` : ""}<br />
+        {billing.city}, {billing.state}{billing.postcode ? ` ${billing.postcode}` : ""}<br />
+        <span style={{ color: tokens.textMuted }}>{billing.phone} · {billing.email}</span>
+      </p>
+      <button type="button" onClick={() => setStep(1)}
+        style={{ marginTop: 10, background: "none", border: "none", color: tokens.text, cursor: "pointer", fontSize: 12, textDecoration: "underline", padding: 0 }}>
+        Edit details
+      </button>
+    </div>
 
-              {/* Card Number */}
-              <Field label="Card Number">
-                <div style={stripeFieldWrapper(tokens, stripeReady.number)}>
-                  <CardNumberElement
-                    options={stripeAppearance}
-                    onChange={e => setStripeReady(p => ({ ...p, number: e.complete }))}
-                  />
-                </div>
-              </Field>
+    {/* Stripe redirect notice */}
+    <div style={{
+      display: "flex", alignItems: "center", gap: 12, marginBottom: 24,
+      padding: "14px 18px",
+      background: tokens.cardBg,
+      border: `1px solid ${tokens.border}`,
+      borderLeft: `3px solid #6772E5`,
+    }}>
+      <svg width="42" height="18" viewBox="0 0 42 18" fill="none">
+        <path d="M5 11.5C5 10.12 5.9 9.3 7.14 9.3C8 9.3 8.7 9.72 9.1 10.42L10.7 9.5C10.08 8.38 8.78 7.6 7.14 7.6C4.8 7.6 3 9.28 3 11.5C3 13.72 4.8 15.4 7.14 15.4C8.78 15.4 10.08 14.62 10.7 13.5L9.1 12.58C8.7 13.28 8 13.7 7.14 13.7C5.9 13.7 5 12.88 5 11.5Z" fill="#6772E5"/>
+        <path d="M16.5 7.6C15.34 7.6 14.36 8.1 13.7 8.96V7.8H11.8V15.2H13.7V11.1C13.7 9.9 14.48 9.2 15.52 9.2C16.56 9.2 17.2 9.88 17.2 11.1V15.2H19.1V10.7C19.1 8.9 18.02 7.6 16.5 7.6Z" fill="#6772E5"/>
+        <path d="M23.5 7.6C21.12 7.6 19.5 9.3 19.5 11.5C19.5 13.7 21.12 15.4 23.5 15.4C25.88 15.4 27.5 13.7 27.5 11.5C27.5 9.3 25.88 7.6 23.5 7.6ZM23.5 13.7C22.26 13.7 21.4 12.76 21.4 11.5C21.4 10.24 22.26 9.3 23.5 9.3C24.74 9.3 25.6 10.24 25.6 11.5C25.6 12.76 24.74 13.7 23.5 13.7Z" fill="#6772E5"/>
+        <path d="M32 7.6C29.62 7.6 28 9.3 28 11.5C28 13.7 29.62 15.4 32 15.4C33.38 15.4 34.52 14.82 35.2 13.86L33.64 12.94C33.28 13.42 32.7 13.7 32 13.7C30.88 13.7 30.06 12.96 29.94 11.9H35.6C35.64 11.62 35.66 11.36 35.66 11.08C35.66 9.18 34.24 7.6 32 7.6ZM29.96 10.6C30.12 9.6 30.9 9 32 9C33.04 9 33.76 9.56 33.88 10.6H29.96Z" fill="#6772E5"/>
+      </svg>
+      <div>
+        <p style={{ color: tokens.text, fontSize: 13, margin: "0 0 2px" }}>Secure payment via Stripe</p>
+        <p style={{ color: tokens.textMuted, fontSize: 11, margin: 0 }}>
+          You'll be redirected to Stripe's secure page to enter your card details
+        </p>
+      </div>
+      <div style={{ marginLeft: "auto", display: "flex", gap: 6, flexShrink: 0 }}>
+        {["VISA", "MC", "AMEX"].map(brand => (
+          <span key={brand} style={{
+            fontSize: 9, fontWeight: 700, padding: "3px 6px",
+            border: `1px solid ${tokens.border}`, borderRadius: 3,
+            color: tokens.textMuted, letterSpacing: "0.05em",
+          }}>{brand}</span>
+        ))}
+      </div>
+    </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 20px" }}>
-                <Field label="Expiry Date">
-                  <div style={stripeFieldWrapper(tokens, stripeReady.expiry)}>
-                    <CardExpiryElement
-                      options={stripeAppearance}
-                      onChange={e => setStripeReady(p => ({ ...p, expiry: e.complete }))}
-                    />
-                  </div>
-                </Field>
-                <Field label="CVC">
-                  <div style={stripeFieldWrapper(tokens, stripeReady.cvc)}>
-                    <CardCvcElement
-                      options={stripeAppearance}
-                      onChange={e => setStripeReady(p => ({ ...p, cvc: e.complete }))}
-                    />
-                  </div>
-                </Field>
-              </div>
+    {/* Terms */}
+    <label style={{
+      display: "flex", alignItems: "flex-start", gap: 10,
+      cursor: "pointer", color: tokens.textMuted, fontSize: 13, lineHeight: 1.6,
+    }}>
+      <input type="checkbox" checked={agreeTerms}
+        onChange={e => setAgreeTerms(e.target.checked)}
+        style={{ marginTop: 3, accentColor: tokens.text, flexShrink: 0 }} />
+      I have read and agree to the website terms and conditions and privacy policy.
+    </label>
 
-              {/* Terms */}
-              <label style={{
-                display: "flex", alignItems: "flex-start", gap: 10, marginTop: 20,
-                cursor: "pointer", color: tokens.textMuted, fontSize: 13, lineHeight: 1.5,
-              }}>
-                <input type="checkbox" checked={agreeTerms}
-                  onChange={e => setAgreeTerms(e.target.checked)}
-                  style={{ marginTop: 2, accentColor: tokens.text }} />
-                I have read and agree to the website terms and conditions and privacy policy.
-              </label>
+    {cardError && (
+      <div style={{
+        marginTop: 14, padding: "12px 16px",
+        background: "rgba(229,57,53,0.08)",
+        border: "1px solid rgba(229,57,53,0.3)",
+        color: "#e53935", fontSize: 13,
+      }}>
+        {cardError}
+      </div>
+    )}
 
-              {cardError && (
-                <div style={{
-                  marginTop: 14, padding: "12px 16px",
-                  background: "rgba(229,57,53,0.08)",
-                  border: "1px solid rgba(229,57,53,0.3)",
-                  color: "#e53935", fontSize: 13, borderRadius: 2,
-                }}>
-                  {cardError}
-                </div>
-              )}
-
-              <div style={{ display: "flex", gap: 12, marginTop: 24 }}>
-                <button type="button" onClick={() => setStep(1)}
-                  style={{ ...outlineBtnStyle(tokens), flex: "0 0 auto" }}>
-                  ← Back
-                </button>
-                <button
-                  type="submit"
-                  disabled={processing || !stripe}
-                  style={{
-                    ...solidBtnStyle(tokens),
-                    flex: 1,
-                    opacity: processing ? 0.7 : 1,
-                    cursor: processing ? "not-allowed" : "pointer",
-                  }}
-                >
-                  {processing ? (
-                    <span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10 }}>
-                      <span style={{
-                        width: 16, height: 16, borderRadius: "50%",
-                        border: `2px solid ${tokens.pageBg}`,
-                        borderTopColor: "transparent",
-                        display: "inline-block",
-                        animation: "spin 0.8s linear infinite",
-                      }} />
-                      Processing…
-                    </span>
-                  ) : `Place Order — £${Number(total).toLocaleString()}`}
-                </button>
-              </div>
-
-              <p style={{ color: tokens.textMuted, fontSize: 11, textAlign: "center", marginTop: 14, lineHeight: 1.5 }}>
-                Your personal data will be used to process your order and support your experience throughout this website.
-              </p>
-            </div>
-          )}
+    <div style={{ display: "flex", gap: 12, marginTop: 24 }}>
+      <button type="button" onClick={() => setStep(1)}
+        style={{ ...outlineBtnStyle(tokens), flexShrink: 0 }}>
+        ← Back
+      </button>
+      <button type="submit" disabled={processing}
+        style={{
+          ...solidBtnStyle(tokens), flex: 1,
+          opacity: processing ? 0.7 : 1,
+          cursor: processing ? "not-allowed" : "pointer",
+        }}>
+        {processing ? (
+          <span style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10 }}>
+            <span style={{
+              width: 16, height: 16, borderRadius: "50%",
+              border: `2px solid ${tokens.pageBg}`,
+              borderTopColor: "transparent",
+              display: "inline-block",
+              animation: "spin 0.8s linear infinite",
+            }} />
+            Redirecting to Stripe…
+          </span>
+        ) : `Proceed to Payment — £${Number(total).toLocaleString()}`}
+      </button>
+    </div>
+  </div>
+)}
         </div>
 
         {/* ── RIGHT COLUMN: Order Summary ── */}
