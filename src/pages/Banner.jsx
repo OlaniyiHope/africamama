@@ -7,7 +7,8 @@ import { useCart } from "../context/CartContext";
 import { HiMenu, HiX } from "react-icons/hi";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-
+import swallowImg from "../media/swallow.jpg";
+import fruitImg from "../media/fruit.png";
 import "./Banner.css"
 import Header3 from "./Header3";
 import Header from "./Header";
@@ -171,11 +172,12 @@ useEffect(() => {
                   <div className="eltdf-eh-item-content eltdf-eh-custom-3026" style={{ padding: "195px 10px 160px 0" }}>
                     <div className="eltdf-single-image-holder eltdf-image-appear-from-top">
                       <div className="eltdf-si-inner">
-                        <img loading="lazy" decoding="async" width="800" height="1013"
-                          src="wp-content/uploads/2019/10/main-img-1.jpg"
-                          className="attachment-full size-full" alt="d"
-                          srcSet="https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-1.jpg 800w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-1-600x760.jpg 600w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-1-237x300.jpg 237w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-1-768x972.jpg 768w"
-                          sizes="(max-width: 800px) 100vw, 800px" />
+                   {/* Left image */}
+<img loading="lazy" decoding="async" width="800" height="1013"
+  src={swallowImg}
+  className="attachment-full size-full" alt="Swallow and soup"
+  srcSet={`${swallowImg} 800w`}
+  sizes="(max-width: 800px) 100vw, 800px" />
                       </div>
                     </div>
                   </div>
@@ -208,11 +210,12 @@ useEffect(() => {
                   <div className="eltdf-eh-item-content eltdf-eh-custom-3538" style={{ padding: "195px 0 160px 10px" }}>
                     <div className="eltdf-single-image-holder eltdf-image-appear-from-top">
                       <div className="eltdf-si-inner">
-                        <img loading="lazy" decoding="async" width="800" height="1013"
-                          src="wp-content/uploads/2019/10/main-img-2.jpg"
-                          className="attachment-full size-full" alt="f"
-                          srcSet="https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-2.jpg 800w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-2-600x760.jpg 600w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-2-237x300.jpg 237w, https://laurent.qodeinteractive.com/wp-content/uploads/2019/10/main-img-2-768x972.jpg 768w"
-                          sizes="(max-width: 800px) 100vw, 800px" />
+                {/* Right image */}
+<img loading="lazy" decoding="async" width="800" height="1013"
+  src={fruitImg}
+  className="attachment-full size-full" alt="Fresh African fruits"
+  srcSet={`${fruitImg} 800w`}
+  sizes="(max-width: 800px) 100vw, 800px" />
                       </div>
                     </div>
                   </div>
