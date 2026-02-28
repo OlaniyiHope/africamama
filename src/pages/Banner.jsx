@@ -13,9 +13,11 @@ import "./Banner.css"
 import Header3 from "./Header3";
 import Header from "./Header";
 import HeroBanner from "./HeroBanner";
-
+import doneImg from "../media/done.jpg";
 import logo from "./logo.png";
 import Footer from "./Footer";
+import potImg from "../media/pot.png";
+import pot2Img from "../media/pot2.jpg";
 import HeroSlider from "./HeroSlider";
 import AudienceSection from "./AudienceSection";
 import { useTheme } from "../context/ThemeContext";
@@ -268,12 +270,13 @@ useEffect(() => {
                                     </div>
 
                                     {/* Image side */}
-                                    <div className="eltdf-eh-item"
-                                      style={{ backgroundImage: "url(wp-content/uploads/2019/10/main-img-4.jpg)" }}>
-                                      <div className="eltdf-eh-item-inner">
-                                        <div className="eltdf-eh-item-content" />
-                                      </div>
-                                    </div>
+                                 {/* Image side */}
+<div className="eltdf-eh-item"
+  style={{ backgroundImage: `url(${doneImg})` }}>
+  <div className="eltdf-eh-item-inner">
+    <div className="eltdf-eh-item-content" />
+  </div>
+</div>
 
                                   </div>
                                 </div>
@@ -470,8 +473,8 @@ useEffect(() => {
                                             <div className="eltdf-eh-item-content" style={{ padding: "0 27px 0 0" }}>
                                               <div className="eltdf-single-image-holder eltdf-image-appear-from-top">
                                                 <div className="eltdf-si-inner">
-                                                  <img loading="lazy" width="800" height="1275"
-                                                    src="wp-content/uploads/2019/10/main-img-6.jpg" alt="" />
+                                                <img loading="lazy" width="800" height="1275"
+  src={potImg} alt="African pot meal" />
                                                 </div>
                                               </div>
                                             </div>
@@ -482,8 +485,8 @@ useEffect(() => {
                                             <div className="eltdf-eh-item-content" style={{ padding: "0 0 0 27px" }}>
                                               <div className="eltdf-single-image-holder eltdf-main-home-delayed-image eltdf-image-appear-from-top">
                                                 <div className="eltdf-si-inner">
-                                                  <img loading="lazy" width="800" height="1275"
-                                                    src="wp-content/uploads/2019/10/main-img-8.jpg" alt="" />
+                                      <img loading="lazy" width="800" height="1275"
+  src={pot2Img} alt="African pot meal 2" />
                                                 </div>
                                               </div>
                                             </div>
