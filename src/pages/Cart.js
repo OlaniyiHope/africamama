@@ -489,7 +489,7 @@ const cartTotal = cartItems.reduce((sum, item) => sum + Number(item.price) * Num
           {/* ── Page Title / Breadcrumb ── */}
           <div
             className="eltdf-title-holder eltdf-standard-with-breadcrumbs-type eltdf-title-va-header-bottom"
-            style={{ height: "189px", backgroundColor: tokens.cardBgAlt, transition: "background 0.3s ease" }}
+            style={{ height: "189px", backgroundColor: tokens.pageBg, transition: "background 0.3s ease" }}
             data-height="189"
           >
             <div className="eltdf-grid-lines-holder eltdf-grid-columns-5">
