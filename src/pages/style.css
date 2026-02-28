@@ -66,3 +66,121 @@
 .summary a {
   background: transparent !important;
 }
+
+/* ── Cart Table Mobile Responsiveness ── */
+@media (max-width: 768px) {
+
+  /* Hide the table header on mobile */
+  .shop_table.cart thead {
+    display: none;
+  }
+
+  /* Make each row a block (card) */
+  .shop_table.cart tbody tr.cart_item {
+    display: block;
+    margin-bottom: 24px;
+    padding: 16px;
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-bottom: none;
+  }
+
+  /* Each cell becomes a block with a data-title label */
+  .shop_table.cart td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 4px !important;
+    border-bottom: 1px solid rgba(128,128,128,0.15);
+    text-align: right;
+  }
+
+  /* Add the column label before each cell using data-title */
+  .shop_table.cart td::before {
+    content: attr(data-title);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    font-weight: 600;
+    text-align: left;
+    flex-shrink: 0;
+  }
+
+  /* Remove button cell — center it, no label needed */
+  .shop_table.cart td.product-remove {
+    justify-content: flex-end;
+    border-bottom: none;
+    padding-bottom: 0 !important;
+  }
+  .shop_table.cart td.product-remove::before {
+    display: none;
+  }
+
+  /* Thumbnail cell */
+  .shop_table.cart td.product-thumbnail {
+    justify-content: center;
+    border-bottom: none;
+    padding-top: 0 !important;
+  }
+  .shop_table.cart td.product-thumbnail::before {
+    display: none;
+  }
+  .shop_table.cart td.product-thumbnail img {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  /* Product name — left aligned, full width */
+  .shop_table.cart td.product-name {
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(128,128,128,0.15);
+  }
+  .shop_table.cart td.product-name::before {
+    display: none;
+  }
+
+  /* Quantity input — make it not shrink weirdly */
+  .eltdf-quantity-buttons {
+    justify-content: flex-end;
+  }
+
+  /* Coupon row */
+  .shop_table.cart td.actions {
+    display: block !important;
+    text-align: left;
+  }
+  .coupon {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .coupon input {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  /* Cart totals section */
+  .cart_totals .shop_table {
+    max-width: 100% !important;
+  }
+
+  /* Checkout button full width */
+  .wc-proceed-to-checkout .checkout-button {
+    display: block !important;
+    text-align: center;
+    padding: 14px !important;
+    box-sizing: border-box;
+  }
+}
+
+/* ── Extra small screens ── */
+@media (max-width: 480px) {
+  .eltdf-container-inner {
+    padding: 0 16px;
+  }
+
+  .cart_totals h2 {
+    font-size: 20px;
+  }
+}

@@ -15,15 +15,49 @@ import {
 } from "@stripe/react-stripe-js";
 
 // ─── Replace with your real Stripe publishable key ───────────────────────────
-const stripePromise = loadStripe("pk_test_REPLACE_WITH_YOUR_STRIPE_PUBLISHABLE_KEY");
+const stripePromise = loadStripe("pk_live_51RdVckDFSvcjZkeELhDeAYs12eBYIxfPU29zU70Mm4JpANUjDjx8FClTlwXJl15ajEymf8nOTII4MrUM42j0F9XR000I5CUU5R");
 
-// ─── Nigerian states ──────────────────────────────────────────────────────────
+// ─── UK regions / counties ────────────────────────────────────────────────────
 const NG_STATES = [
-  "Abia","Adamawa","Akwa Ibom","Anambra","Bauchi","Bayelsa","Benue","Borno",
-  "Cross River","Delta","Ebonyi","Edo","Ekiti","Enugu","FCT","Gombe","Imo",
-  "Jigawa","Kaduna","Kano","Katsina","Kebbi","Kogi","Kwara","Lagos","Nasarawa",
-  "Niger","Ogun","Ondo","Osun","Oyo","Plateau","Rivers","Sokoto","Taraba",
-  "Yobe","Zamfara",
+  "Bath and North East Somerset","Bedford","Berkshire","Birmingham","Blackburn with Darwen",
+  "Blackpool","Bolton","Bournemouth","Brighton and Hove","Bristol","Buckinghamshire",
+  "Cambridgeshire","Cheshire East","Cheshire West and Chester","Cornwall","Coventry",
+  "Cumbria","Darlington","Derby","Derbyshire","Devon","Doncaster","Dorset","Durham",
+  "East Riding of Yorkshire","East Sussex","Essex","Gateshead","Gloucestershire",
+  "Greater London","Greater Manchester","Halton","Hampshire","Hartlepool","Herefordshire",
+  "Hertfordshire","Isle of Wight","Isles of Scilly","Kent","Kingston upon Hull",
+  "Lancashire","Leeds","Leicester","Leicestershire","Lincolnshire","Liverpool",
+  "Luton","Manchester","Medway","Middlesbrough","Milton Keynes","Newcastle upon Tyne",
+  "Norfolk","North East Lincolnshire","North Lincolnshire","North Somerset",
+  "North Tyneside","North Yorkshire","Northamptonshire","Northumberland",
+  "Nottingham","Nottinghamshire","Oldham","Oxford","Oxfordshire","Peterborough",
+  "Plymouth","Portsmouth","Reading","Redcar and Cleveland","Rotherham","Rutland",
+  "Salford","Sandwell","Sefton","Sheffield","Shropshire","Slough","Solihull",
+  "Somerset","South Gloucestershire","South Tyneside","Southampton","Southend-on-Sea",
+  "St Helens","Staffordshire","Stockport","Stockton-on-Tees","Stoke-on-Trent",
+  "Suffolk","Sunderland","Surrey","Swindon","Tameside","Telford and Wrekin",
+  "Thurrock","Torbay","Trafford","Wakefield","Walsall","Warrington","Warwickshire",
+  "West Berkshire","West Sussex","West Yorkshire","Wigan","Wiltshire",
+  "Windsor and Maidenhead","Wirral","Wokingham","Wolverhampton","Worcestershire",
+  "York",
+  // Scotland
+  "Aberdeen City","Aberdeenshire","Angus","Argyll and Bute","City of Edinburgh",
+  "Clackmannanshire","Dumfries and Galloway","Dundee City","East Ayrshire",
+  "East Dunbartonshire","East Lothian","East Renfrewshire","Falkirk","Fife",
+  "Glasgow City","Highland","Inverclyde","Midlothian","Moray","Na h-Eileanan Siar",
+  "North Ayrshire","North Lanarkshire","Orkney Islands","Perth and Kinross",
+  "Renfrewshire","Scottish Borders","Shetland Islands","South Ayrshire",
+  "South Lanarkshire","Stirling","West Dunbartonshire","West Lothian",
+  // Wales
+  "Blaenau Gwent","Bridgend","Caerphilly","Cardiff","Carmarthenshire","Ceredigion",
+  "Conwy","Denbighshire","Flintshire","Gwynedd","Isle of Anglesey","Merthyr Tydfil",
+  "Monmouthshire","Neath Port Talbot","Newport","Pembrokeshire","Powys",
+  "Rhondda Cynon Taf","Swansea","Torfaen","Vale of Glamorgan","Wrexham",
+  // Northern Ireland
+  "Antrim and Newtownabbey","Ards and North Down","Armagh City Banbridge and Craigavon",
+  "Belfast","Causeway Coast and Glens","Derry City and Strabane",
+  "Fermanagh and Omagh","Lisburn and Castlereagh","Mid and East Antrim",
+  "Mid Ulster","Newry Mourne and Down",
 ];
 
 // ─── Inner form that uses Stripe hooks ───────────────────────────────────────
@@ -76,54 +110,109 @@ const CheckoutForm = ({ tokens, cartItems, subtotal, total }) => {
       invalid: { color: "#e53935" },
     },
   };
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
+//   if (!stripe || !elements) return;
+//   if (!agreeTerms) { setCardError("Please agree to the terms and conditions."); return; }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!stripe || !elements) return;
-    if (!agreeTerms) { setCardError("Please agree to the terms and conditions."); return; }
+//   setProcessing(true);
+//   setCardError("");
 
-    setProcessing(true);
-    setCardError("");
+//   try {
+//     // Step 1: Create PaymentIntent on your backend
+//     const res = await fetch("/api/create-payment-intent", {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify({ amount: total }), // total is already in £
+//     });
 
-    try {
-      // In production: call your backend to create a PaymentIntent and get clientSecret
-      // const res = await fetch("/api/create-payment-intent", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify({ amount: Math.round(total * 100), currency: "ngn" }),
-      // });
-      // const { clientSecret } = await res.json();
-      //
-      // const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
-      //   payment_method: {
-      //     card: elements.getElement(CardNumberElement),
-      //     billing_details: {
-      //       name: `${billing.firstName} ${billing.lastName}`,
-      //       email: billing.email,
-      //       phone: billing.phone,
-      //       address: {
-      //         line1: billing.address1,
-      //         city: billing.city,
-      //         state: billing.state,
-      //         country: "NG",
-      //       },
-      //     },
-      //   },
-      // });
-      //
-      // if (error) { setCardError(error.message); setProcessing(false); return; }
-      // if (paymentIntent.status === "succeeded") { clearCart(); setOrderPlaced(true); }
+//     if (!res.ok) throw new Error("Failed to create payment intent.");
+//     const { clientSecret } = await res.json();
 
-      // ── Demo: simulate success after 2s ──
-      await new Promise(r => setTimeout(r, 2000));
-      clearCart();
-      setOrderPlaced(true);
-    } catch (err) {
-      setCardError("Payment failed. Please try again.");
-    }
+//     // Step 2: Confirm the card payment with Stripe
+//     const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+//       payment_method: {
+//         card: elements.getElement(CardNumberElement),
+//         billing_details: {
+//           name: `${billing.firstName} ${billing.lastName}`,
+//           email: billing.email,
+//           phone: billing.phone,
+//           address: {
+//             line1: billing.address1,
+//             line2: billing.address2,
+//             city: billing.city,
+//             state: billing.state,
+//             country: "GB",
+//           },
+//         },
+//       },
+//     });
+
+//     if (error) {
+//       // Stripe declined or card error — show the real error message
+//       setCardError(error.message);
+//       setProcessing(false);
+//       return;
+//     }
+
+//     if (paymentIntent.status === "succeeded") {
+//       clearCart();
+//       setOrderPlaced(true); // now shows the success screen
+//     } else {
+//       setCardError("Payment was not completed. Please try again.");
+//     }
+
+//   } catch (err) {
+//     setCardError("Something went wrong. Please try again.");
+//   }
+
+//   setProcessing(false);
+// };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (!agreeTerms) { setCardError("Please agree to the terms and conditions."); return; }
+
+  // Validate billing fields
+  if (!billing.firstName || !billing.lastName || !billing.address1 ||
+      !billing.city || !billing.state || !billing.phone || !billing.email) {
+    setCardError("Please fill in all required billing fields.");
+    return;
+  }
+
+  setProcessing(true);
+  setCardError("");
+
+  try {
+    // Format cartItems to match what your backend expects
+    const formattedItems = cartItems.map(item => ({
+      product: {
+        name: item.name,
+        price: Number(item.price),
+        image: item.image || "",
+      },
+      quantity: item.quantity,
+    }));
+
+    const res = await fetch("/api/payment/create-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        cartItems: formattedItems,
+        paymentMethod: "card",
+      }),
+    });
+
+    if (!res.ok) throw new Error("Failed to create checkout session.");
+    const { url } = await res.json();
+
+    // Redirect to Stripe's hosted checkout page
+    window.location.href = url;
+
+  } catch (err) {
+    setCardError("Something went wrong. Please try again.");
     setProcessing(false);
-  };
-
+  }
+};
   // ── Order Success Screen ──────────────────────────────────────────────────
   if (orderPlaced) {
     return (
@@ -274,10 +363,10 @@ const CheckoutForm = ({ tokens, cartItems, subtotal, total }) => {
                   <input name="city" value={billing.city} onChange={handleBilling}
                     required style={inputStyle(tokens)} />
                 </Field>
-                <Field label="State *" required>
+                <Field label="County / Region *" required>
                   <select name="state" value={billing.state} onChange={handleBilling}
                     required style={inputStyle(tokens)}>
-                    <option value="">Select a state…</option>
+                    <option value="">Select a county / region…</option>
                     {NG_STATES.map(s => <option key={s} value={s}>{s}</option>)}
                   </select>
                 </Field>
@@ -326,9 +415,9 @@ const CheckoutForm = ({ tokens, cartItems, subtotal, total }) => {
                   </Field>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 20px" }}>
                     <Field label="Town / City *"><input name="city" value={shipping.city} onChange={handleShipping} required style={inputStyle(tokens)} /></Field>
-                    <Field label="State *">
+                    <Field label="County / Region *">
                       <select name="state" value={shipping.state} onChange={handleShipping} required style={inputStyle(tokens)}>
-                        <option value="">Select a state…</option>
+                        <option value="">Select a county / region…</option>
                         {NG_STATES.map(s => <option key={s} value={s}>{s}</option>)}
                       </select>
                     </Field>
@@ -479,7 +568,7 @@ const CheckoutForm = ({ tokens, cartItems, subtotal, total }) => {
                       }} />
                       Processing…
                     </span>
-                  ) : `Place Order — ₦${Number(total).toLocaleString()}`}
+                  ) : `Place Order — £${Number(total).toLocaleString()}`}
                 </button>
               </div>
 
@@ -551,7 +640,7 @@ const CheckoutForm = ({ tokens, cartItems, subtotal, total }) => {
                   </div>
                 </div>
                 <div style={{ color: tokens.text, fontSize: 13, whiteSpace: "nowrap", flexShrink: 0 }}>
-                  ₦{Number(item.price * item.quantity).toLocaleString()}
+                  £{Number(item.price * item.quantity).toLocaleString()}
                 </div>
               </div>
             ))}
@@ -565,7 +654,7 @@ const CheckoutForm = ({ tokens, cartItems, subtotal, total }) => {
               borderBottom: `1px solid ${tokens.border}`,
             }}>
               <span style={{ color: tokens.textMuted, fontSize: 13 }}>Subtotal</span>
-              <span style={{ color: tokens.text, fontSize: 13 }}>₦{Number(subtotal).toLocaleString()}</span>
+              <span style={{ color: tokens.text, fontSize: 13 }}>£{Number(subtotal).toLocaleString()}</span>
             </div>
             <div style={{
               display: "flex", justifyContent: "space-between",
@@ -580,7 +669,7 @@ const CheckoutForm = ({ tokens, cartItems, subtotal, total }) => {
                 color: tokens.heading, fontSize: 18, fontWeight: 600,
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}>
-                ₦{Number(total).toLocaleString()}
+                £{Number(total).toLocaleString()}
               </span>
             </div>
           </div>
