@@ -36,6 +36,7 @@ import SingleBlog from "./pages/SingleBlog";
 
 import Header2 from "./pages/Header2";
 import Event from "./pages/Event";
+import Success from "./pages/Success";
 
 
 const routes = [
@@ -49,6 +50,10 @@ const routes = [
   {
     path: "/header", 
     element: <Header2 />,
+  },
+  {
+    path: "/order-success", 
+    element: <Success />,
   },
   {
     path: "/shop", 
