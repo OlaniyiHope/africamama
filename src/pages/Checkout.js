@@ -188,7 +188,7 @@ const handleSubmit = async (e) => {
     const { url } = await res.json();
 
     // Redirect to Stripe's hosted checkout page
-    window.location.href = url;
+  window.location.replace(url);
 
   } catch (err) {
     setCardError("Something went wrong. Please try again.");

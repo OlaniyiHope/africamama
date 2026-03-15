@@ -7,7 +7,151 @@ import { useTheme } from "../context/ThemeContext";
 import { useCart } from "../context/CartContext";
 
 
+import { useNavigate } from "react-router-dom";
 
+const CheckoutButton = ({ tokens }) => {
+  const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+
+  const user = (() => {
+    try { return JSON.parse(localStorage.getItem("user")); } catch { return null; }
+  })();
+
+  const handleClick = () => {
+    if (user) {
+      navigate("/checkout");
+    } else {
+      setShowModal(true);
+    }
+  };
+
+  return (
+    <>
+      <button
+        onClick={handleClick}
+        className="checkout-button button alt wc-forward eltdf-btn-outline"
+        style={{
+          color: tokens.btnOutlineText,
+          borderColor: tokens.btnOutlineBorder,
+          background: "transparent",
+          display: "inline-block",
+          textDecoration: "none",
+          cursor: "pointer",
+          padding: "12px 24px",
+          fontSize: 13,
+          letterSpacing: "0.1em",
+          fontFamily: "inherit",
+          border: `1px solid ${tokens.btnOutlineBorder}`,
+        }}
+      >
+        Proceed to checkout
+      </button>
+
+      {/* Modal */}
+      {showModal && (
+        <div style={{
+          position: "fixed", inset: 0, zIndex: 99999,
+          background: "rgba(0,0,0,0.5)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          padding: 24,
+        }}
+          onClick={() => setShowModal(false)}
+        >
+          <div
+            onClick={e => e.stopPropagation()}
+            style={{
+              background: tokens.pageBg,
+              border: `1px solid ${tokens.border}`,
+              maxWidth: 420, width: "100%",
+              padding: "40px 32px",
+              position: "relative",
+            }}
+          >
+            {/* Close */}
+            <button
+              onClick={() => setShowModal(false)}
+              style={{
+                position: "absolute", top: 16, right: 16,
+                background: "none", border: "none",
+                cursor: "pointer", color: tokens.textMuted,
+                fontSize: 20, lineHeight: 1,
+              }}
+            >
+              ×
+            </button>
+
+            {/* Icon */}
+            <div style={{ textAlign: "center", marginBottom: 20 }}>
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+                stroke={tokens.text} strokeWidth="1">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+              </svg>
+            </div>
+
+            <h3 style={{
+              color: tokens.heading, textAlign: "center",
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: 22, margin: "0 0 8px", fontWeight: 400,
+            }}>
+              Sign in to continue
+            </h3>
+            <p style={{
+              color: tokens.textMuted, textAlign: "center",
+              fontSize: 13, lineHeight: 1.6, margin: "0 0 28px",
+            }}>
+              Sign in or create an account to place your order and track it easily. Or continue as a guest — your order will still be processed.
+            </p>
+
+            {/* Sign in button */}
+            <button
+              onClick={() => {
+                setShowModal(false);
+                navigate("/my-account", { state: { from: "/checkout" } });
+              }}
+              style={{
+                width: "100%", padding: "13px",
+                background: tokens.text, color: tokens.pageBg,
+                border: "none", cursor: "pointer",
+                fontSize: 12, letterSpacing: "0.12em",
+                fontFamily: "Josefin Sans, sans-serif",
+                marginBottom: 10,
+              }}
+            >
+              SIGN IN / CREATE ACCOUNT
+            </button>
+
+            {/* Guest button */}
+            <button
+              onClick={() => {
+                setShowModal(false);
+                navigate("/checkout");
+              }}
+              style={{
+                width: "100%", padding: "13px",
+                background: "transparent",
+                border: `1px solid ${tokens.border}`,
+                color: tokens.text,
+                cursor: "pointer",
+                fontSize: 12, letterSpacing: "0.12em",
+                fontFamily: "Josefin Sans, sans-serif",
+              }}
+            >
+              CONTINUE AS GUEST
+            </button>
+
+            <p style={{
+              color: tokens.textMuted, textAlign: "center",
+              fontSize: 11, marginTop: 16, lineHeight: 1.5,
+            }}>
+              Guest orders won't appear in "My Orders" history
+            </p>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
 const Cart = () => {
   const { tokens } = useTheme();
   // const { cartItems, cartTotal, updateQuantity, removeFromCart } = useCart();
@@ -386,7 +530,7 @@ const cartTotal = cartItems.reduce((sum, item) => sum + Number(item.price) * Num
                                 </tr>
                               </tbody>
                             </table>
-
+{/* 
                             <div className="wc-proceed-to-checkout" style={{ marginTop: 24 }}>
                               <Link
                                 to="/checkout"
@@ -401,7 +545,10 @@ const cartTotal = cartItems.reduce((sum, item) => sum + Number(item.price) * Num
                               >
                                 Proceed to checkout
                               </Link>
-                            </div>
+                            </div> */}
+                              <div className="wc-proceed-to-checkout" style={{ marginTop: 24 }}>
+      <CheckoutButton tokens={tokens} />
+    </div>
                           </div>
                         </div>
 
