@@ -15,7 +15,7 @@ import {
 } from "@stripe/react-stripe-js";
 
 // ─── Replace with your real Stripe publishable key ───────────────────────────
-const stripePromise = loadStripe("pk_live_51RdVckDFSvcjZkeELhDeAYs12eBYIxfPU29zU70Mm4JpANUjDjx8FClTlwXJl15ajEymf8nOTII4MrUM42j0F9XR000I5CUU5R");
+const stripePromise = loadStripe("pk_test_51T93stD6e9KtMquYR89pXy7LJJ4v4IjYBUL5KujhE4wqpGWc4Ki3lgMO0yYHRv9dtGwcESun4edBmbpLFfWX1X6E00qxgesXhr");
 
 // ─── UK regions / counties ────────────────────────────────────────────────────
 const NG_STATES = [
@@ -180,6 +180,7 @@ const handleSubmit = async (e) => {
   body: JSON.stringify({
     cartItems: formattedItems,
     paymentMethod: "card",
+    billing: billing,
   }),
 });
 
