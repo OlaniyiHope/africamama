@@ -5,7 +5,7 @@ import "./style.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useTheme } from "../context/ThemeContext";
-
+import { useCart } from "../context/CartContext";
 const Single = () => {
   const { tokens } = useTheme();
   const { id } = useParams();
@@ -14,6 +14,9 @@ const Single = () => {
   const [activeTab, setActiveTab] = useState("description");
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [litres, setLitres] = useState(1);
+const [protein, setProtein] = useState("");
+const { addToCart } = useCart();
 
   useEffect(() => {
     setLoading(true);
@@ -272,7 +275,7 @@ const Single = () => {
                           </div>
 
                           {/* ── Add to Cart ── */}
-                          <div className="cart">
+                          {/* <div className="cart">
                             <div className="eltdf-quantity-buttons quantity">
                               <label className="screen-reader-text" htmlFor={`quantity_${product._id}`}>
                                 {product.name} quantity
@@ -325,17 +328,126 @@ const Single = () => {
                             >
                               Add to cart
                             </button>
-                          </div>
-
-                          {/* ── Product Meta ── */}
-                          <div className="product_meta" style={{ color: tokens.textMuted }}>
-                            {product.weight && (
+                          </div> */}
+{/* ── Add to Cart ── */}
+<div className="cart">
+            {product.weight && (
                               <span className="sku_wrapper" style={{ color: tokens.textMuted }}>
-                                Weight: <span className="sku" style={{ color: tokens.body, background: "transparent" }}>
-  {product.weight} {product.unit}
+                                Volume: <span className="sku" style={{ color: tokens.body, background: "transparent" }}>
+  {product.weight} {product.unit} available
 </span>
                               </span>
                             )}
+  {/* Litres selector */}
+  <div style={{ marginBottom: 16 }}>
+    <label style={{ color: tokens.body, fontSize: 13, display: "block", marginBottom: 6 }}>
+      How many litres would you like?
+    </label>
+    <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+      {[1, 2, 3, 4, 5].map((l) => (
+        <button
+          key={l}
+          type="button"
+          onClick={() => setLitres(l)}
+          style={{
+            width: 44, height: 44,
+            border: `1px solid ${litres === l ? tokens.text : tokens.border}`,
+            background: litres === l ? tokens.text : "transparent",
+            color: litres === l ? tokens.pageBg : tokens.text,
+            cursor: "pointer",
+            fontSize: 14,
+            fontFamily: "inherit",
+            transition: "all 0.2s ease",
+          }}
+        >
+          {l}L
+        </button>
+      ))}
+    </div>
+  </div>
+
+  {/* Protein selector — only for Rice Dishes */}
+  {categoryName?.toLowerCase().includes("rice") && (
+    <div style={{ marginBottom: 16 }}>
+      <label style={{ color: tokens.body, fontSize: 13, display: "block", marginBottom: 6 }}>
+        Choose your protein <span style={{ color: tokens.text }}>*</span>
+      </label>
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+        {["Turkey", "Goat Meat", "Chicken", "Fish", "Ponmo", "No Protein"].map((p) => (
+          <button
+            key={p}
+            type="button"
+            onClick={() => setProtein(p)}
+            style={{
+              padding: "8px 14px",
+              border: `1px solid ${protein === p ? tokens.text : tokens.border}`,
+              background: protein === p ? tokens.text : "transparent",
+              color: protein === p ? tokens.pageBg : tokens.text,
+              cursor: "pointer",
+              fontSize: 12,
+              fontFamily: "inherit",
+              letterSpacing: "0.05em",
+              transition: "all 0.2s ease",
+            }}
+          >
+            {p}
+          </button>
+        ))}
+      </div>
+      {categoryName?.toLowerCase().includes("rice") && !protein && (
+        <p style={{ color: "#e53935", fontSize: 12, marginTop: 6 }}>
+          Please select a protein to continue.
+        </p>
+      )}
+    </div>
+  )}
+
+  {/* Quantity buttons */}
+
+
+  <button
+    type="button"
+    className="single_add_to_cart_button button alt"
+    disabled={categoryName?.toLowerCase().includes("rice") && !protein}
+    style={{
+      background: (categoryName?.toLowerCase().includes("rice") && !protein)
+        ? tokens.border
+        : tokens.text,
+      color: tokens.pageBg,
+      border: "none",
+      cursor: (categoryName?.toLowerCase().includes("rice") && !protein)
+        ? "not-allowed"
+        : "pointer",
+      transition: "background 0.3s ease, color 0.3s ease",
+      opacity: (categoryName?.toLowerCase().includes("rice") && !protein) ? 0.5 : 1,
+    }}
+    // onClick={() => {
+    //   if (categoryName?.toLowerCase().includes("rice") && !protein) return;
+    //   const proteinNote = protein ? ` | Protein: ${protein}` : "";
+    //   alert(`Added ${quantity} × ${product.name} — ${litres}L${proteinNote} to cart`);
+    // }}
+    onClick={() => {
+  if (categoryName?.toLowerCase().includes("rice") && !protein) return;
+
+  addToCart({
+    _id: product._id,
+    name: product.name,
+    price: product.price,
+    image: product.images?.[0] || "",
+    // quantity: litres,
+     quantity: Number(litres), 
+    litres: litres,
+
+    protein: protein || null,
+  });
+}}
+  >
+    Add to cart
+  </button>
+</div>
+                          {/* ── Product Meta ── */}
+                          <div className="product_meta" style={{ color: tokens.textMuted }}>
+                
                             {categoryName && (
                               <span className="posted_in" style={{ color: tokens.textMuted }}>
                                 Category:{" "}

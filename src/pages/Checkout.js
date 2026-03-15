@@ -424,6 +424,7 @@ const handleSubmit = async (e) => {
                     return;
                   }
                   setStep(2);
+                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 style={{
                   ...solidBtnStyle(tokens),
@@ -516,10 +517,13 @@ const handleSubmit = async (e) => {
     )}
 
     <div style={{ display: "flex", gap: 12, marginTop: 24 }}>
-      <button type="button" onClick={() => setStep(1)}
-        style={{ ...outlineBtnStyle(tokens), flexShrink: 0 }}>
-        ← Back
-      </button>
+  <button type="button" onClick={() => {
+    setStep(1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }}
+    style={{ ...outlineBtnStyle(tokens), flexShrink: 0 }}>
+    ← Back
+  </button>
       <button type="submit" disabled={processing}
         style={{
           ...solidBtnStyle(tokens), flex: 1,
@@ -602,6 +606,16 @@ const handleSubmit = async (e) => {
                     <div style={{ color: tokens.textMuted, fontSize: 11 }}>
                       × {item.quantity}
                     </div>
+                       {item.litres && (
+            <div style={{ color: tokens.textMuted, fontSize: 11, marginTop: 2 }}>
+              Volume: <span style={{ color: tokens.text }}>{item.litres}L</span>
+            </div>
+          )}
+          {item.protein && (
+            <div style={{ color: tokens.textMuted, fontSize: 11, marginTop: 1 }}>
+              Protein: <span style={{ color: tokens.text }}>{item.protein}</span>
+            </div>
+          )}
                   </div>
                 </div>
                 <div style={{ color: tokens.text, fontSize: 13, whiteSpace: "nowrap", flexShrink: 0 }}>

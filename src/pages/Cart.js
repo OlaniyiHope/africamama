@@ -208,61 +208,92 @@ const cartTotal = cartItems.reduce((sum, item) => sum + Number(item.price) * Num
                                   >
                                     {item.name}
                                   </Link>
+                                    {item.litres && (
+    <div style={{ fontSize: 12, color: tokens.textMuted, marginTop: 4 }}>
+      Volume: <span style={{ color: tokens.body }}>{item.litres}L</span>
+    </div>
+  )}
+  {/* Protein */}
+  {item.protein && (
+    <div style={{ fontSize: 12, color: tokens.textMuted, marginTop: 2 }}>
+      Protein: <span style={{ color: tokens.body }}>{item.protein}</span>
+    </div>
+  )}
                                 </td>
 
                                 {/* Price */}
                                 <td className="product-price" data-title="Price">
                                   <span className="woocommerce-Price-amount amount" style={{ color: tokens.text }}>
                                     <bdi>
-                                      <span className="woocommerce-Price-currencySymbol">₦</span>
+                                      <span className="woocommerce-Price-currencySymbol">£</span>
                                       {Number(item.price).toLocaleString()}
                                     </bdi>
                                   </span>
                                 </td>
-
-                                {/* Quantity */}
-                                <td className="product-quantity" data-title="Quantity">
-                                  <div className="eltdf-quantity-buttons quantity"
-                                    style={{ display: "flex", alignItems: "center", gap: 4 }}>
-                                    <span
-                                      className="eltdf-quantity-minus arrow_carrot-down"
-                                      onClick={() => updateQuantity(item._id, item.quantity - 1)}
-                                      style={{ cursor: "pointer", color: tokens.text, userSelect: "none" }}
-                                    />
-                                    <input
-                                      type="text"
-                                      className="eltdf-quantity-input input-text qty text"
-                                      value={item.quantity}
-                                      aria-label="Qty"
-                                      size="3"
-                                      inputMode="numeric"
-                                      style={{
-                                        background: tokens.inputBg,
-                                        color: tokens.inputText,
-                                        border: `1px solid ${tokens.inputBorder}`,
-                                        textAlign: "center",
-                                        width: 48,
-                                        padding: "4px",
-                                        transition: "background 0.3s ease",
-                                      }}
-                                      onChange={(e) => {
-                                        const val = parseInt(e.target.value);
-                                        if (!isNaN(val)) updateQuantity(item._id, val);
-                                      }}
-                                    />
-                                    <span
-                                      className="eltdf-quantity-plus arrow_carrot-up"
-                                      onClick={() => updateQuantity(item._id, item.quantity + 1)}
-                                      style={{ cursor: "pointer", color: tokens.text, userSelect: "none" }}
-                                    />
-                                  </div>
-                                </td>
+{/* Quantity */}
+{/* Quantity */}
+<td className="product-quantity" data-title="Quantity">
+  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+    <button
+      type="button"
+      onClick={() => updateQuantity(item._id, Number(item.quantity) - 1)}
+      style={{
+        width: 28, height: 28,
+        background: "transparent",
+        border: `1px solid ${tokens.border}`,
+        color: tokens.text,
+        cursor: "pointer",
+        fontSize: 16,
+        display: "flex", alignItems: "center", justifyContent: "center",
+        lineHeight: 1,
+      }}
+    >
+      −
+    </button>
+    <input
+      type="number"
+      value={Number.isFinite(item.quantity) ? item.quantity : 1}
+      min="1"
+      aria-label="Qty"
+      style={{
+        background: tokens.inputBg,
+        color: tokens.inputText,
+        border: `1px solid ${tokens.inputBorder}`,
+        textAlign: "center",
+        width: 48,
+        padding: "4px",
+        fontSize: 14,
+        transition: "background 0.3s ease",
+      }}
+      onChange={(e) => {
+        const val = parseInt(e.target.value);
+        if (!isNaN(val) && val >= 1) updateQuantity(item._id, val);
+      }}
+    />
+    <button
+      type="button"
+      onClick={() => updateQuantity(item._id, Number(item.quantity) + 1)}
+      style={{
+        width: 28, height: 28,
+        background: "transparent",
+        border: `1px solid ${tokens.border}`,
+        color: tokens.text,
+        cursor: "pointer",
+        fontSize: 16,
+        display: "flex", alignItems: "center", justifyContent: "center",
+        lineHeight: 1,
+      }}
+    >
+      +
+    </button>
+  </div>
+</td>
 
                                 {/* Subtotal */}
                                 <td className="product-subtotal" data-title="Subtotal">
                                   <span className="woocommerce-Price-amount amount" style={{ color: tokens.text }}>
                                     <bdi>
-                                      <span className="woocommerce-Price-currencySymbol">₦</span>
+                                      <span className="woocommerce-Price-currencySymbol">£</span>
                                       {Number(item.price * item.quantity).toLocaleString()}
                                     </bdi>
                                   </span>
@@ -332,7 +363,7 @@ const cartTotal = cartItems.reduce((sum, item) => sum + Number(item.price) * Num
                                   <td style={{ padding: "14px 16px" }}>
                                     <span className="woocommerce-Price-amount amount" style={{ color: tokens.text }}>
                                       <bdi>
-                                        <span className="woocommerce-Price-currencySymbol">₦</span>
+                                        <span className="woocommerce-Price-currencySymbol">£</span>
                                         {Number(cartTotal).toLocaleString()}
                                       </bdi>
                                     </span>
@@ -346,7 +377,7 @@ const cartTotal = cartItems.reduce((sum, item) => sum + Number(item.price) * Num
                                     <strong>
                                       <span className="woocommerce-Price-amount amount" style={{ color: tokens.text }}>
                                         <bdi>
-                                          <span className="woocommerce-Price-currencySymbol">₦</span>
+                                          <span className="woocommerce-Price-currencySymbol">£</span>
                                           {Number(cartTotal).toLocaleString()}
                                         </bdi>
                                       </span>
