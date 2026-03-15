@@ -415,6 +415,7 @@ const { addToCart } = useCart();
         : tokens.text,
       color: tokens.pageBg,
       border: "none",
+      padding: "12px",
       cursor: (categoryName?.toLowerCase().includes("rice") && !protein)
         ? "not-allowed"
         : "pointer",

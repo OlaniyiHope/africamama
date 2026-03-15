@@ -164,6 +164,10 @@ const handleSubmit = async (e) => {
   setCardError("");
 
   try {
+       const user = (() => {
+      try { return JSON.parse(localStorage.getItem("user")); } catch { return null; }
+    })();
+
     // Format cartItems to match what your backend expects
     const formattedItems = cartItems.map(item => ({
       product: {
@@ -181,6 +185,7 @@ const handleSubmit = async (e) => {
     cartItems: formattedItems,
     paymentMethod: "card",
     billing: billing,
+        userId: user?._id || null, 
   }),
 });
 
