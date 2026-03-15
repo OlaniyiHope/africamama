@@ -37,6 +37,7 @@ import SingleBlog from "./pages/SingleBlog";
 import Header2 from "./pages/Header2";
 import Event from "./pages/Event";
 import Success from "./pages/Success";
+import MyOrders from "./pages/Orders";
 
 
 const routes = [
@@ -82,6 +83,10 @@ const routes = [
   {
     path: "/my-account", 
     element: <Login />,
+  },
+  {
+    path: "/my-orders", 
+    element: <MyOrders />,
   },
   {
     path: "/about-us", 

@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect, useRef, useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { AuthContext } from "../context/AuthContext";
 import { useTheme, themes } from "../context/ThemeContext"; // ← shared context
@@ -110,9 +111,154 @@ const navItems = [
   { label: "Order", href: "/shop" },
   { label: "About", href: "/about-us" },
   { label: "Blog", href: "/blog-post" },
-  { label: "Account", href: "/my-account" },
-];
 
+];
+const AccountDropdown = ({ tokens }) => {
+  const { dispatch } = useContext(AuthContext);
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  const user = (() => {
+    try { return JSON.parse(localStorage.getItem("user")); } catch { return null; }
+  })();
+
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    dispatch({ type: "LOGOUT" });
+    setOpen(false);
+    window.location.href = "/";
+  };
+
+  return (
+    <div ref={ref} style={{ position: "relative" }}>
+      <button
+        onClick={() => setOpen(o => !o)}
+        style={{
+          background: "none", border: "none", cursor: "pointer",
+          display: "flex", alignItems: "center", gap: 6,
+          color: tokens.text, fontSize: 11, letterSpacing: "0.18em",
+          fontFamily: "inherit", padding: "0 18px",
+        }}
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+          stroke={tokens.text} strokeWidth="1.5">
+          <circle cx="12" cy="8" r="4" />
+          <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+        </svg>
+        <span style={{ maxWidth: 90, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+          {user ? user.fullname?.split(" ")[0]?.toUpperCase() : "ACCOUNT"}
+        </span>
+        <svg width="8" height="8" viewBox="0 0 10 6" fill="none"
+          stroke={tokens.text} strokeWidth="1.5"
+          style={{ transition: "transform 0.2s", transform: open ? "rotate(180deg)" : "none" }}>
+          <polyline points="1 1 5 5 9 1" />
+        </svg>
+      </button>
+
+      {open && (
+        <div style={{
+          position: "absolute", top: "calc(100% + 16px)", right: 0,
+          background: tokens.dropdownBg || tokens.pageBg,
+          border: `1px solid ${tokens.border}`,
+          minWidth: 200, zIndex: 9999,
+          boxShadow: "0 4px 20px rgba(0,0,0,0.12)",
+        }}>
+          {user ? (
+            <>
+              <div style={{
+                padding: "14px 20px",
+                borderBottom: `1px solid ${tokens.border}`,
+              }}>
+                <div style={{ color: tokens.heading, fontSize: 13, fontWeight: 600 }}>
+                  {user.fullname}
+                </div>
+                <div style={{ color: tokens.textMuted, fontSize: 11, marginTop: 2 }}>
+                  {user.email}
+                </div>
+              </div>
+
+              {[
+                { label: "My Profile", href: "/my-account" },
+                { label: "My Orders", href: "/my-orders" },
+              ].map(item => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  style={{
+                    display: "block", padding: "11px 20px",
+                    color: tokens.text, textDecoration: "none",
+                    fontSize: 12, letterSpacing: "0.08em",
+                    borderBottom: `1px solid ${tokens.border}`,
+                    transition: "background 0.15s",
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.background = tokens.cardBg}
+                  onMouseLeave={e => e.currentTarget.style.background = "transparent"}
+                >
+                  {item.label}
+                </a>
+              ))}
+
+              <button
+                onClick={handleLogout}
+                style={{
+                  display: "block", width: "100%", padding: "11px 20px",
+                  background: "transparent", border: "none",
+                  color: "#e53935", textAlign: "left",
+                  fontSize: 12, letterSpacing: "0.08em",
+                  cursor: "pointer", transition: "background 0.15s",
+                }}
+                onMouseEnter={e => e.currentTarget.style.background = tokens.cardBg}
+                onMouseLeave={e => e.currentTarget.style.background = "transparent"}
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <a
+                href="/my-account"
+                onClick={() => setOpen(false)}
+                style={{
+                  display: "block", padding: "11px 20px",
+                  color: tokens.text, textDecoration: "none",
+                  fontSize: 12, letterSpacing: "0.08em",
+                  borderBottom: `1px solid ${tokens.border}`,
+                }}
+                onMouseEnter={e => e.currentTarget.style.background = tokens.cardBg}
+                onMouseLeave={e => e.currentTarget.style.background = "transparent"}
+              >
+                Sign In
+              </a>
+              <a
+                href="/my-account"
+                onClick={() => setOpen(false)}
+                style={{
+                  display: "block", padding: "11px 20px",
+                  color: tokens.text, textDecoration: "none",
+                  fontSize: 12, letterSpacing: "0.08em",
+                }}
+                onMouseEnter={e => e.currentTarget.style.background = tokens.cardBg}
+                onMouseLeave={e => e.currentTarget.style.background = "transparent"}
+              >
+                Create Account
+              </a>
+            </>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
 /* ─── Desktop Nav Item ─── */
 const DesktopNavItem = ({ item, isActive }) => {
   const { theme, tokens } = useTheme();
@@ -408,24 +554,26 @@ const Header = () => {
             </div>
 
             {/* RIGHT: Toggle + Cart + Side Menu */}
-            <div className="eltdf-position-right" style={{
-              flex: "0 0 auto", minWidth: 80,
-              display: "flex", alignItems: "center",
-              gap: 20, justifyContent: "flex-end",
-            }}>
-              <ThemeToggleButton theme={theme} onToggle={toggleTheme} tokens={tokens} />
-              <Link to="/cart" style={{ display: "inline-flex", alignItems: "center" }}>
-                <CartSVG count={totalItems} color={tokens.text} />
-              </Link>
-              <button
-                className="eltdf-side-menu-button-opener"
-                onClick={() => setSideMenuOpen(true)}
-                style={{ background: "none", border: "none", cursor: "pointer", padding: 0, display: "inline-flex", alignItems: "center" }}
-                aria-label="Open side menu"
-              >
-                <MenuOpenerSVG color={tokens.text} />
-              </button>
-            </div>
+     {/* RIGHT: Toggle + Account + Cart + Side Menu */}
+<div className="eltdf-position-right" style={{
+  flex: "0 0 auto", minWidth: 80,
+  display: "flex", alignItems: "center",
+  gap: 20, justifyContent: "flex-end",
+}}>
+  <ThemeToggleButton theme={theme} onToggle={toggleTheme} tokens={tokens} />
+  <AccountDropdown tokens={tokens} />
+  <Link to="/cart" style={{ display: "inline-flex", alignItems: "center" }}>
+    <CartSVG count={totalItems} color={tokens.text} />
+  </Link>
+  <button
+    className="eltdf-side-menu-button-opener"
+    onClick={() => setSideMenuOpen(true)}
+    style={{ background: "none", border: "none", cursor: "pointer", padding: 0, display: "inline-flex", alignItems: "center" }}
+    aria-label="Open side menu"
+  >
+    <MenuOpenerSVG color={tokens.text} />
+  </button>
+</div>
           </div>
         )}
 
@@ -440,6 +588,7 @@ const Header = () => {
             <Link to="/" style={{ display: "inline-block" }}><LogoSVG /></Link>
             <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
               <ThemeToggleButton theme={theme} onToggle={toggleTheme} tokens={tokens} />
+                <AccountDropdown tokens={tokens} />
               <Link to="/cart" style={{ display: "inline-flex", alignItems: "center" }}>
                 <CartSVG count={totalItems} color={tokens.text} />
               </Link>
