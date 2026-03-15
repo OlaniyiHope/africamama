@@ -114,14 +114,17 @@ const navItems = [
 
 ];
 const AccountDropdown = ({ tokens }) => {
-  const { dispatch } = useContext(AuthContext);
+  // const { dispatch } = useContext(AuthContext);
+   const { dispatch, user: contextUser } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
-  const user = (() => {
+  // const user = (() => {
+  //   try { return JSON.parse(localStorage.getItem("user")); } catch { return null; }
+  // })();
+         const user = contextUser || (() => {
     try { return JSON.parse(localStorage.getItem("user")); } catch { return null; }
-  })();
-
+  })();  
   useEffect(() => {
     const handleClick = (e) => {
       if (ref.current && !ref.current.contains(e.target)) setOpen(false);

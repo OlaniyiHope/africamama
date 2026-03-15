@@ -75,6 +75,7 @@ const updateQuantity = (productId, newQuantity) => {
   // Clear entire cart
   const clearCart = () => {
     setCartItems([]);
+      localStorage.removeItem('cart'); 
   };
 
   // Get cart totals

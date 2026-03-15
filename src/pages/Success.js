@@ -14,6 +14,7 @@ const Success = () => {
   useEffect(() => {
     // Clear the cart on successful payment
     if (clearCart) clearCart();
+      localStorage.removeItem('cart'); 
     const t1 = setTimeout(() => setVisible(true), 100);
     const t2 = setTimeout(() => setParticlesReady(true), 300);
     return () => { clearTimeout(t1); clearTimeout(t2); };
@@ -329,18 +330,25 @@ const Success = () => {
                 <div>Check your inbox — a receipt is on its way</div>
               </div>
             </div>
-            <div className="success-card-row">
-              <div className="success-card-icon">🍲</div>
-              <div>
-                <div className="success-card-label">Your Order</div>
-                <div>Our kitchen is getting it ready for you</div>
-              </div>
-            </div>
+        <div
+  className="success-card-row"
+  onClick={() => navigate("/my-orders")}
+  style={{ cursor: "pointer", transition: "background 0.2s" }}
+  onMouseEnter={e => e.currentTarget.style.background = "#faf7f2"}
+  onMouseLeave={e => e.currentTarget.style.background = "transparent"}
+>
+  <div className="success-card-icon">🍲</div>
+  <div style={{ flex: 1 }}>
+    <div className="success-card-label">Your Order</div>
+    <div>Our kitchen is getting it ready for you</div>
+  </div>
+  <div style={{ color: "#c8a97e", fontSize: 18 }}>→</div>
+</div>
             <div className="success-card-row">
               <div className="success-card-icon">📞</div>
               <div>
                 <div className="success-card-label">Need Help?</div>
-                <div>Contact us at hello@africamamaput.co.uk</div>
+                <div>Contact us at hello@africanmamaput.co.uk</div>
               </div>
             </div>
           </div>
