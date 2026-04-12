@@ -249,10 +249,9 @@ useEffect(() => {
                                             <div className="eltdf-testimonials-mark" />
                                             <div className="eltdf-testimonials eltdf-owl-slider">
                                               {[
-                                                { text: "Lorem ipsum dolor sit amet, consectetur adipisic sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad.", author: "Robert Chang", job: "Sommelier" },
-                                                { text: "Ut enim ad minim venia orem ipsum dolor sit amet, consectetur adipisic sed do. Eiusmod tempor incididunt ut labore et dolore magna.", author: "Jan Winsent", job: "Cook" },
-                                                { text: "Eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim venia orem ipsum dolor sit amet, consectetur.", author: "Andrea Chung", job: "Cook" },
-                                              ].map((t, i) => (
+{ text: "The flavors are exquisite and remind me of home, every bite feels carefully crafted and full of soul.", author: "Jesse", job: "" },
+{ text: "Each dish tells a story, from the vibrant spices to the thoughtful presentation. Dining here feels like a truly elevated experience.", author: "Anayah", job: "" },
+{ text: "African Mamaput brings richness, warmth, and authenticity to every plate. It's a dining experience I'll never forget.", author: "Femi", job: "" },                                              ].map((t, i) => (
                                                 <div key={i} className="eltdf-testimonial-content">
                                                   <div className="eltdf-testimonial-text-holder">
                                                     <p className="eltdf-testimonial-text" style={{ color: tokens.body }}>{t.text}</p>
@@ -341,122 +340,135 @@ useEffect(() => {
 	 */}
 	
 
-                          {/* ══ FROM OUR MENU ══ */}
-                          <div className="eltdf-row-grid-section-wrapper"
-                            style={{ backgroundColor: tokens.cardBg, transition: "background 0.3s ease" }}>
-                            <div className="eltdf-row-grid-section">
-                              <div className="vc_row wpb_row vc_row-fluid vc_custom_1577721733574">
-                                <div className="wpb_column vc_column_container vc_col-sm-12">
-                                  <div className="vc_column-inner">
-                                    <div className="wpb_wrapper">
-                                      <div className="eltdf-section-title-holder eltdf-st-decor-animation"
-                                        style={{ padding: "0 3%", textAlign: "center" }}>
-                                        <div className="eltdf-st-inner">
-                                          <span className="eltdf-st-tagline" style={{ color: tokens.tagline }}>
-                                            Special selection
-                                          </span>
-                                          <div className="eltdf-st-title-holder">
-                                            <div className="decor" />
-                                            <h1 className="eltdf-st-title" style={{ color: tokens.heading }}>
-                                              From our menu
-                                            </h1>
-                                            <div className="decor" />
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                    {/* ══ FROM OUR MENU ══ */}
+<div className="eltdf-row-grid-section-wrapper"
+  style={{ backgroundColor: tokens.cardBg, transition: "background 0.3s ease" }}>
+  <div className="eltdf-row-grid-section">
+    <div className="vc_row wpb_row vc_row-fluid vc_custom_1577721733574">
+      <div className="wpb_column vc_column_container vc_col-sm-12">
+        <div className="vc_column-inner">
+          <div className="wpb_wrapper">
+            <div className="eltdf-section-title-holder eltdf-st-decor-animation"
+              style={{ padding: "0 3%", textAlign: "center" }}>
+              <div className="eltdf-st-inner">
+                <span className="eltdf-st-tagline" style={{ color: tokens.tagline }}>
+                  Special selection
+                </span>
+                <div className="eltdf-st-title-holder">
+                  <div className="decor" />
+                  <h1 className="eltdf-st-title" style={{ color: tokens.heading }}>
+                    From our menu
+                  </h1>
+                  <div className="decor" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{/* ── Menu pricing columns ── */}
+<div className="eltdf-row-grid-section-wrapper"
+  style={{ backgroundColor: tokens.cardBg, transition: "background 0.3s ease" }}>
+  <div className="eltdf-row-grid-section">
+    <div className="vc_row wpb_row vc_row-fluid">
+      <div className="wpb_column vc_column_container vc_col-sm-12">
+        <div className="vc_column-inner">
+          <div className="wpb_wrapper">
+            <div className="eltdf-elements-holder eltdf-two-columns eltdf-responsive-mode-1024 fifty-fifty">
+
+              {/* Left menu column */}
+              <div className="eltdf-eh-item">
+                <div className="eltdf-eh-item-inner">
+                  <div className="eltdf-eh-item-content" style={{ padding: "0 42px 0 0" }}>
+                    <div className="eltdf-pricing-holder">
+                      {[
+                        { name: "Jollof Rice", price: "2L: ₦35 / 4L: ₦55", desc: "Smoky Nigerian party jollof rice" },
+                        { name: "Fried Rice", price: "2L: ₦35 / 4L: ₦55", desc: "Nigerian-style fried rice" },
+                        { name: "Coconut Rice", price: "2L: ₦40 / 4L: ₦60", desc: "Fragrant coconut-infused rice" },
+                        { name: "Banga Rice", price: "2L: ₦40 / 4L: ₦60", desc: "Palm nut rice, a Delta classic" },
+                        { name: "Beans & Plantain", price: "2L: ₦55 / 4L: ₦80", desc: "Nigerian honey beans with fried plantain" },
+                        { name: "Stir Fry Spaghetti", price: "2L: ₦35 / 4L: ₦58", desc: "Nigerian-style stir fried spaghetti" },
+                        { name: "Yam Porridge", price: "2L: ₦40 / 4L: ₦65", desc: "Asaro — soft yam cooked in palm oil and pepper" },
+                        { name: "Moin Moin", price: "Min 5 pcs", desc: "Steamed bean pudding, wrapped and seasoned" },
+                      ].map((item, i) => (
+                        <div key={i} className="eltdf-pricing-item">
+                          <div className="eltdf-pricing-main">
+                            <h6 className="eltdf-pricing-title" style={{ color: tokens.heading }}>{item.name}</h6>
+                            <div className="eltdf-pricing-lines" style={{ borderColor: tokens.divider }} />
+                            <span className="eltdf-pricing-price" style={{ color: tokens.text }}>{item.price}</span>
                           </div>
+                          <p className="eltdf-pricing-desc" style={{ color: tokens.textMuted }}>{item.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-                          {/* ── Menu pricing columns ── */}
-                          <div className="eltdf-row-grid-section-wrapper"
-                            style={{ backgroundColor: tokens.cardBg, transition: "background 0.3s ease" }}>
-                            <div className="eltdf-row-grid-section">
-                              <div className="vc_row wpb_row vc_row-fluid">
-                                <div className="wpb_column vc_column_container vc_col-sm-12">
-                                  <div className="vc_column-inner">
-                                    <div className="wpb_wrapper">
-                                      <div className="eltdf-elements-holder eltdf-two-columns eltdf-responsive-mode-1024 fifty-fifty">
-
-                                        {/* Left menu column */}
-                                        <div className="eltdf-eh-item">
-                                          <div className="eltdf-eh-item-inner">
-                                            <div className="eltdf-eh-item-content" style={{ padding: "0 42px 0 0" }}>
-                                              <div className="eltdf-pricing-holder">
-                                                {[
-                                                { name: "Jollof Rice & Chicken", price: "£12", desc: "Smoky party jollof, grilled chicken, fried plantain, coleslaw" },
-{ name: "Egusi Soup & Pounded Yam", price: "£14", desc: "Ground melon seed soup, assorted meat, crayfish, stockfish" },
-{ name: "Suya Platter", price: "£13", desc: "Spiced grilled beef skewers, sliced onions, tomatoes, yaji pepper" },
-{ name: "Pepper Soup", price: "£10", desc: "Goat meat or catfish, utazi leaves, African pepper blend, scotch bonnet" },
-{ name: "Fried Rice & Moin Moin", price: "£11", desc: "Nigerian fried rice, steamed bean pudding, grilled chicken or fish" },
-                                                ].map((item, i) => (
-                                                  <div key={i} className="eltdf-pricing-item">
-                                                    <div className="eltdf-pricing-main">
-                                                      <h6 className="eltdf-pricing-title" style={{ color: tokens.heading }}>{item.name}</h6>
-                                                      <div className="eltdf-pricing-lines" style={{ borderColor: tokens.divider }} />
-                                                      <span className="eltdf-pricing-price" style={{ color: tokens.text }}>{item.price}</span>
-                                                    </div>
-                                                    <p className="eltdf-pricing-desc" style={{ color: tokens.textMuted }}>{item.desc}</p>
-                                                  </div>
-                                                ))}
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-
-                                        {/* Right menu column */}
-                                        <div className="eltdf-eh-item">
-                                          <div className="eltdf-eh-item-inner">
-                                            <div className="eltdf-eh-item-content" style={{ padding: "0 0 0 42px" }}>
-                                              <div className="eltdf-pricing-holder">
-                                                {[
-                                            { name: "Ofe Onugbu & Eba", price: "£13", desc: "Bitter leaf soup, assorted meat, stockfish, palm oil, eba or fufu" },
-{ name: "Afang Soup", price: "£15", desc: "Afang leaves, waterleaf, periwinkle, assorted meat, palm oil" },
-{ name: "Banga Soup & Starch", price: "£13", desc: "Palm nut soup, dried fish, oburunbebe stick, traditional starch" },
-{ name: "Asun (Peppered Goat)", price: "£14", desc: "Smoked roasted goat, scotch bonnet, onions, peppers, palm oil" },
-{ name: "Catfish Pepper Soup", price: "£12", desc: "Fresh catfish, uziza leaves, ehuru, cameroon pepper, crayfish" },
-                                                ].map((item, i) => (
-                                                  <div key={i} className="eltdf-pricing-item">
-                                                    <div className="eltdf-pricing-main">
-                                                      <h6 className="eltdf-pricing-title" style={{ color: tokens.heading }}>{item.name}</h6>
-                                                      <div className="eltdf-pricing-lines" style={{ borderColor: tokens.divider }} />
-                                                      <span className="eltdf-pricing-price" style={{ color: tokens.text }}>{item.price}</span>
-                                                    </div>
-                                                    <p className="eltdf-pricing-desc" style={{ color: tokens.textMuted }}>{item.desc}</p>
-                                                  </div>
-                                                ))}
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+              {/* Right menu column */}
+              <div className="eltdf-eh-item">
+                <div className="eltdf-eh-item-inner">
+                  <div className="eltdf-eh-item-content" style={{ padding: "0 0 0 42px" }}>
+                    <div className="eltdf-pricing-holder">
+                      {[
+                        { name: "Banga Soup", price: "2L: ₦60 / 4L: ₦75", desc: "Palm nut soup with dried fish and oburunbebe stick" },
+                        { name: "Ogbono Soup", price: "2L: ₦60 / 4L: ₦75", desc: "Draw soup with assorted meat and crayfish" },
+                        { name: "Egusi Soup", price: "2L: ₦55 / 4L: ₦70", desc: "Ground melon seed soup, palm oil, assorted meat" },
+                        { name: "Vegetable Soup", price: "2L: ₦60 / 4L: ₦85", desc: "Fresh leafy vegetable soup with assorted protein" },
+                        { name: "Oha Soup", price: "2L: ₦60 / 4L: ₦85", desc: "Oha leaves, cocoyam, palm oil, assorted meat" },
+                        { name: "Stew (Chicken/Beef)", price: "2L: ₦60 / 4L: ₦85", desc: "Rich tomato-based Nigerian stew" },
+                        { name: "Palm Oil Stew", price: "2L: ₦65 / 4L: ₦90", desc: "Native palm oil stew with assorted protein" },
+                        { name: "Okra", price: "2L: ₦57 / 4L: ₦80", desc: "Okra soup with assorted meat and seafood" },
+                        { name: "Ewedu & Stew", price: "2L: ₦60 / 4L: ₦85", desc: "Jute leaf soup served with gbegiri stew" },
+                        { name: "Pepper Soup", price: "2L: ₦60 / 4L: ₦85", desc: "Spiced broth with goat meat or catfish" },
+                        { name: "Ofada Sauce", price: "2L: ₦65 / 4L: ₦90", desc: "Ayamase green pepper stew, assorted offals" },
+                        { name: "Asun", price: "— ", desc: "Smoked peppered goat meat" },
+                        { name: "Gizdodo", price: "—", desc: "Peppered gizzard and fried plantain" },
+                        { name: "Beef Suya", price: "—", desc: "Spiced grilled beef with yaji pepper" },
+                        { name: "Peppered Kpomo", price: "—", desc: "Slow-cooked cow skin in pepper sauce" },
+                        { name: "Barbecue Fish", price: "—", desc: "Grilled whole fish with Nigerian spice blend" },
+                      ].map((item, i) => (
+                        <div key={i} className="eltdf-pricing-item">
+                          <div className="eltdf-pricing-main">
+                            <h6 className="eltdf-pricing-title" style={{ color: tokens.heading }}>{item.name}</h6>
+                            <div className="eltdf-pricing-lines" style={{ borderColor: tokens.divider }} />
+                            <span className="eltdf-pricing-price" style={{ color: tokens.text }}>{item.price}</span>
                           </div>
+                          <p className="eltdf-pricing-desc" style={{ color: tokens.textMuted }}>{item.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-                          {/* View All button */}
-                          <div className="vc_row wpb_row vc_row-fluid eltdf-content-aligment-center"
-                            style={{ backgroundColor: tokens.cardBg, transition: "background 0.3s ease" }}>
-                            <div className="wpb_column vc_column_container vc_col-sm-12">
-                              <div className="vc_column-inner">
-                                <div className="wpb_wrapper">
-                                  <a href="our-menu/index.html"
-                                    className="eltdf-btn eltdf-btn-medium eltdf-btn-outline"
-                                    style={{ borderColor: tokens.btnOutlineBorder, color: tokens.btnOutlineText }}>
-                                    <span className="eltdf-btn-text">View All</span>
-                                  </a>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+{/* View All button */}
+<div className="vc_row wpb_row vc_row-fluid eltdf-content-aligment-center"
+  style={{ backgroundColor: tokens.cardBg, transition: "background 0.3s ease" }}>
+  <div className="wpb_column vc_column_container vc_col-sm-12">
+    <div className="vc_column-inner">
+      <div className="wpb_wrapper">
+        <a href="our-menu/index.html"
+          className="eltdf-btn eltdf-btn-medium eltdf-btn-outline"
+          style={{ borderColor: tokens.btnOutlineBorder, color: tokens.btnOutlineText }}>
+          <span className="eltdf-btn-text">View All</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
                           {/* ══ OUR TIPS SECTION ══ */}
                           <div className="eltdf-row-grid-section-wrapper"
                             style={{ background: tokens.pageBg, transition: "background 0.3s ease" }}>
@@ -516,7 +528,7 @@ useEffect(() => {
                                                     <div className="decor" />
                                                   </div>
                                                   <p className="eltdf-st-text" style={{ color: tokens.body }}>
-                                                    Lorem ipsum dolor sit amet, consectet nei ad icing eli sed do eiu sm od tempor se incidid sens ne utabor et dolore magiqua.
+African Mamaput delivers refined African cuisine rooted in tradition, crafted with intention, and elevated for a modern, premium dining experience.
                                                   </p>
                                                   <div className="eltdf-st-button">
                                                     <a href="our-kitchen/index.html" style={{ margin: "35px 0 0", borderColor: tokens.btnOutlineBorder, color: tokens.btnOutlineText }}
