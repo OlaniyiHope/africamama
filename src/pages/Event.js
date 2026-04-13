@@ -164,7 +164,30 @@ const PortfolioCard = ({ item, tokens }) => (
 
 const Event = () => {
   const { tokens } = useTheme();
+const [showBooking, setShowBooking] = React.useState(false);
+const [formData, setFormData] = React.useState({
+  name: "", email: "", phone: "",
+  eventType: "", guests: "", date: "", location: "", notes: ""
+});
+const [status, setStatus] = React.useState("idle"); // idle | loading | success | error
 
+const handleChange = (e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setStatus("loading");
+  try {
+  const res = await fetch(`${process.env.REACT_APP_API_URL}/api/bookings`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(formData),
+});
+    if (!res.ok) throw new Error();
+    setStatus("success");
+  } catch {
+    setStatus("error");
+  }
+};
   return (
     <>
       <Header />
@@ -237,7 +260,7 @@ const Event = () => {
             </div>
           </div>
 
-          {/* ── Description strip ── */}
+       {/* ── Description strip ── */}
           <div style={{
             backgroundColor: tokens.pageBg,
             padding: "40px 60px",
@@ -260,7 +283,241 @@ const Event = () => {
               information, please contact us at{" "}
               <strong style={{ color: tokens.text }}>0208 3100 844</strong> or fill in our form.
             </p>
+
+            {/* ── Book a Catering Event button ── */}
+            <button
+              onClick={() => setShowBooking(true)}
+              style={{
+                marginTop: "28px",
+                padding: "14px 40px",
+                background: "transparent",
+                border: `1px solid ${tokens.text}`,
+                color: tokens.text,
+                fontSize: "12px",
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                cursor: "pointer",
+                transition: "background 0.25s ease, color 0.25s ease",
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = tokens.text;
+                e.currentTarget.style.color = tokens.pageBg;
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.color = tokens.text;
+              }}
+            >
+              Book a Catering Event
+            </button>
           </div>
+
+          {/* ── Booking Modal ── */}
+          {showBooking && (
+            <div
+              onClick={() => setShowBooking(false)}
+              style={{
+                position: "fixed", inset: 0, zIndex: 9999,
+                background: "rgba(0,0,0,0.65)",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                padding: "20px",
+              }}
+            >
+              <div
+                onClick={e => e.stopPropagation()}
+                style={{
+                  background: tokens.cardBgAlt || "#fff",
+                  width: "100%", maxWidth: "580px",
+                  maxHeight: "90vh", overflowY: "auto",
+                  padding: "48px 40px",
+                  position: "relative",
+                }}
+              >
+                {/* Close */}
+                <button
+                  onClick={() => setShowBooking(false)}
+                  style={{
+                    position: "absolute", top: "16px", right: "20px",
+                    background: "none", border: "none",
+                    fontSize: "22px", cursor: "pointer", color: tokens.text,
+                  }}
+                >✕</button>
+
+                <p style={{ color: tokens.tagline, fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "6px" }}>
+                  Catering Enquiry
+                </p>
+                <h2 style={{ color: tokens.heading, fontSize: "26px", fontWeight: 400, marginBottom: "32px" }}>
+                  Book Your Event
+                </h2>
+
+                {status === "success" ? (
+                  <div style={{ textAlign: "center", padding: "40px 0" }}>
+                    <p style={{ fontSize: "20px", color: tokens.heading, marginBottom: "10px" }}>Thank you!</p>
+                    <p style={{ color: tokens.body, lineHeight: 1.7 }}>
+                      Your booking request has been received. We'll be in touch shortly to confirm your event details.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit}>
+                    {[
+                      { label: "Full Name *", name: "name", type: "text", required: true },
+                      { label: "Email Address *", name: "email", type: "email", required: true },
+                      { label: "Phone Number *", name: "phone", type: "tel", required: true },
+                    ].map(f => (
+                      <div key={f.name} style={{ marginBottom: "20px" }}>
+                        <label style={{ display: "block", fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: tokens.textMuted, marginBottom: "6px" }}>
+                          {f.label}
+                        </label>
+                        <input
+                          type={f.type}
+                          name={f.name}
+                          required={f.required}
+                          value={formData[f.name]}
+                          onChange={handleChange}
+                          style={{
+                            width: "100%", padding: "10px 0",
+                            background: "transparent",
+                            border: "none", borderBottom: `1px solid ${tokens.inputBorder}`,
+                            color: tokens.inputText, fontSize: "14px", outline: "none",
+                            boxSizing: "border-box",
+                          }}
+                        />
+                      </div>
+                    ))}
+
+                    <div style={{ marginBottom: "20px" }}>
+                      <label style={{ display: "block", fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: tokens.textMuted, marginBottom: "6px" }}>
+                        Event Type *
+                      </label>
+                      <select
+                        name="eventType"
+                        required
+                        value={formData.eventType}
+                        onChange={handleChange}
+                        style={{
+                          width: "100%", padding: "10px 0",
+                          background: "transparent",
+                          border: "none", borderBottom: `1px solid ${tokens.inputBorder}`,
+                          color: tokens.inputText, fontSize: "14px", outline: "none",
+                          appearance: "none",
+                        }}
+                      >
+                        <option value="">Select event type</option>
+                        {["Wedding", "Corporate Function", "Birthday Party", "Private Dinner", "Funeral Reception", "Other"].map(t => (
+                          <option key={t} value={t}>{t}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "20px" }}>
+                      <div>
+                        <label style={{ display: "block", fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: tokens.textMuted, marginBottom: "6px" }}>
+                          Number of Guests *
+                        </label>
+                        <input
+                          type="number"
+                          name="guests"
+                          required
+                          min="1"
+                          placeholder="e.g. 1000"
+                          value={formData.guests}
+                          onChange={handleChange}
+                          style={{
+                            width: "100%", padding: "10px 0",
+                            background: "transparent",
+                            border: "none", borderBottom: `1px solid ${tokens.inputBorder}`,
+                            color: tokens.inputText, fontSize: "14px", outline: "none",
+                            boxSizing: "border-box",
+                          }}
+                        />
+                      </div>
+                      <div>
+                        <label style={{ display: "block", fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: tokens.textMuted, marginBottom: "6px" }}>
+                          Event Date *
+                        </label>
+                        <input
+                          type="date"
+                          name="date"
+                          required
+                          value={formData.date}
+                          onChange={handleChange}
+                          style={{
+                            width: "100%", padding: "10px 0",
+                            background: "transparent",
+                            border: "none", borderBottom: `1px solid ${tokens.inputBorder}`,
+                            color: tokens.inputText, fontSize: "14px", outline: "none",
+                            boxSizing: "border-box",
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                    <div style={{ marginBottom: "20px" }}>
+                      <label style={{ display: "block", fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: tokens.textMuted, marginBottom: "6px" }}>
+                        Event Location / Venue
+                      </label>
+                      <input
+                        type="text"
+                        name="location"
+                        value={formData.location}
+                        onChange={handleChange}
+                        placeholder="Address or venue name"
+                        style={{
+                          width: "100%", padding: "10px 0",
+                          background: "transparent",
+                          border: "none", borderBottom: `1px solid ${tokens.inputBorder}`,
+                          color: tokens.inputText, fontSize: "14px", outline: "none",
+                          boxSizing: "border-box",
+                        }}
+                      />
+                    </div>
+
+                    <div style={{ marginBottom: "32px" }}>
+                      <label style={{ display: "block", fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: tokens.textMuted, marginBottom: "6px" }}>
+                        Additional Notes
+                      </label>
+                      <textarea
+                        name="notes"
+                        rows={3}
+                        value={formData.notes}
+                        onChange={handleChange}
+                        placeholder="Dietary requirements, special requests..."
+                        style={{
+                          width: "100%", padding: "10px 0",
+                          background: "transparent",
+                          border: "none", borderBottom: `1px solid ${tokens.inputBorder}`,
+                          color: tokens.inputText, fontSize: "14px", outline: "none",
+                          resize: "none", boxSizing: "border-box",
+                        }}
+                      />
+                    </div>
+
+                    {status === "error" && (
+                      <p style={{ color: "crimson", fontSize: "13px", marginBottom: "16px" }}>
+                        Something went wrong. Please try again or call us directly.
+                      </p>
+                    )}
+
+                    <button
+                      type="submit"
+                      disabled={status === "loading"}
+                      style={{
+                        width: "100%", padding: "14px",
+                        background: "transparent",
+                        border: `1px solid ${tokens.text}`,
+                        color: tokens.text,
+                        fontSize: "12px", letterSpacing: "0.15em",
+                        textTransform: "uppercase", cursor: "pointer",
+                        opacity: status === "loading" ? 0.6 : 1,
+                      }}
+                    >
+                      {status === "loading" ? "Sending..." : "Submit Booking Request"}
+                    </button>
+                  </form>
+                )}
+              </div>
+            </div>
+          )}
 
           {/* ── Gallery Grid ── */}
           <div
