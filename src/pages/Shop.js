@@ -298,7 +298,7 @@
 //                                 <span className="price">
 //                                   <span className="woocommerce-Price-amount amount" style={{ color: tokens.text }}>
 //                                     <bdi>
-//                                       <span className="woocommerce-Price-currencySymbol">₦</span>
+//                                       <span className="woocommerce-Price-currencySymbol">£</span>
 //                                       {Number(product.price).toLocaleString()}
 //                                     </bdi>
 //                                   </span>
@@ -770,7 +770,7 @@ const Shop = () => {
                                   <span className="price">
                                     <span className="woocommerce-Price-amount amount" style={{ color: tokens.text }}>
                                       <bdi>
-                                        <span className="woocommerce-Price-currencySymbol">₦</span>
+                                        <span className="woocommerce-Price-currencySymbol">£</span>
                                         {Number(product.price).toLocaleString()}
                                       </bdi>
                                     </span>
