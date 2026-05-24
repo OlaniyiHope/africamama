@@ -16,6 +16,7 @@ import {
 
 // ─── Replace with your real Stripe publishable key ───────────────────────────
 const stripePromise = loadStripe("pk_test_51T93stD6e9KtMquYR89pXy7LJJ4v4IjYBUL5KujhE4wqpGWc4Ki3lgMO0yYHRv9dtGwcESun4edBmbpLFfWX1X6E00qxgesXhr");
+// const stripePromise = loadStripe("pk_test_51TaXs6FtJ0xDTkKclKUcR0UcQfa4wWddoWZp1a1LQa6IpJD61IQNjg2GTTSURN7etrceNborhyvv4nKmWTh51Lwj00uPQ0ReiS");
 
 // ─── UK regions / counties ────────────────────────────────────────────────────
 const NG_STATES = [
@@ -91,64 +92,6 @@ const CheckoutForm = ({ tokens, cartItems, subtotal, total }) => {
   const handleBilling = (e) => setBilling(p => ({ ...p, [e.target.name]: e.target.value }));
   const handleShipping = (e) => setShipping(p => ({ ...p, [e.target.name]: e.target.value }));
 
-// const handleSubmit = async (e) => {
-//   e.preventDefault();
-//   if (!stripe || !elements) return;
-//   if (!agreeTerms) { setCardError("Please agree to the terms and conditions."); return; }
-
-//   setProcessing(true);
-//   setCardError("");
-
-//   try {
-//     // Step 1: Create PaymentIntent on your backend
-//     const res = await fetch("/api/create-payment-intent", {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify({ amount: total }), // total is already in £
-//     });
-
-//     if (!res.ok) throw new Error("Failed to create payment intent.");
-//     const { clientSecret } = await res.json();
-
-//     // Step 2: Confirm the card payment with Stripe
-//     const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
-//       payment_method: {
-//         card: elements.getElement(CardNumberElement),
-//         billing_details: {
-//           name: `${billing.firstName} ${billing.lastName}`,
-//           email: billing.email,
-//           phone: billing.phone,
-//           address: {
-//             line1: billing.address1,
-//             line2: billing.address2,
-//             city: billing.city,
-//             state: billing.state,
-//             country: "GB",
-//           },
-//         },
-//       },
-//     });
-
-//     if (error) {
-//       // Stripe declined or card error — show the real error message
-//       setCardError(error.message);
-//       setProcessing(false);
-//       return;
-//     }
-
-//     if (paymentIntent.status === "succeeded") {
-//       clearCart();
-//       setOrderPlaced(true); // now shows the success screen
-//     } else {
-//       setCardError("Payment was not completed. Please try again.");
-//     }
-
-//   } catch (err) {
-//     setCardError("Something went wrong. Please try again.");
-//   }
-
-//   setProcessing(false);
-// };
 const handleSubmit = async (e) => {
   e.preventDefault();
   if (!agreeTerms) { setCardError("Please agree to the terms and conditions."); return; }
