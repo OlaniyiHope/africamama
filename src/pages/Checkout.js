@@ -15,7 +15,7 @@ import {
 } from "@stripe/react-stripe-js";
 
 // ─── Replace with your real Stripe publishable key ───────────────────────────
-const stripePromise = loadStripe("pk_test_51TaXs6FtJ0xDTkKclKUcR0UcQfa4wWddoWZp1a1LQa6IpJD61IQNjg2GTTSURN7etrceNborhyvv4nKmWTh51Lwj00uPQ0ReiS");
+const stripePromise = loadStripe("pk_test_51T93stD6e9KtMquYR89pXy7LJJ4v4IjYBUL5KujhE4wqpGWc4Ki3lgMO0yYHRv9dtGwcESun4edBmbpLFfWX1X6E00qxgesXhr");
 // const stripePromise = loadStripe("pk_test_51TaXs6FtJ0xDTkKclKUcR0UcQfa4wWddoWZp1a1LQa6IpJD61IQNjg2GTTSURN7etrceNborhyvv4nKmWTh51Lwj00uPQ0ReiS");
 
 // ─── UK regions / counties ────────────────────────────────────────────────────
