@@ -348,7 +348,7 @@ const Success = () => {
               <div className="success-card-icon">📞</div>
               <div>
                 <div className="success-card-label">Need Help?</div>
-                <div>Contact us at hello@africanmamaput.co.uk</div>
+                <div>Contact us at info@africanmamaput.co.uk</div>
               </div>
             </div>
           </div>
