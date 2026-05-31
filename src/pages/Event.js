@@ -281,7 +281,7 @@ const handleSubmit = async (e) => {
               gatherings for over 20 years. To give you a glimpse of what we do, we have picked
               out a selection of images that showcase some of our most recent events! For more
               information, please contact us at{" "}
-              <strong style={{ color: tokens.text }}>0208 3100 844</strong> or fill in our form.
+              <strong style={{ color: tokens.text }}>+44 7876 896986</strong> or fill in our form.
             </p>
 
             {/* ── Book a Catering Event button ── */}
