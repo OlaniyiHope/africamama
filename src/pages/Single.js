@@ -546,6 +546,18 @@ onClick={() => {
                                 </Link>
                               </span>
                             )}
+                            {product.allergens?.length > 0 && !product.allergens.every(a => a.toLowerCase() === "none") && (
+  <span style={{ display: "block", marginTop: 6, color: tokens.textMuted }}>
+    Allergens:{" "}
+    {product.allergens
+      .filter(a => a.toLowerCase() !== "none")
+      .map((a, i, arr) => (
+        <span key={i} style={{ color: tokens.body }}>
+          {a}{i < arr.length - 1 ? ", " : ""}
+        </span>
+      ))}
+  </span>
+)}
                             {product.tag?.length > 0 && (
                               <span className="tagged_as" style={{ color: tokens.textMuted }}>
                                 Tags:{" "}
