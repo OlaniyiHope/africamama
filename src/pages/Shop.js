@@ -467,11 +467,35 @@ const Shop = () => {
       : `${base}/api/db/products`;
 
     axios.get(url)
-      .then((res) => {
-        setProducts(Array.isArray(res.data) ? res.data : res.data.products || []);
-        setLoading(false);
-      })
-      .catch((err) => {
+      // .then((res) => {
+      //   setProducts(Array.isArray(res.data) ? res.data : res.data.products || []);
+      //   setLoading(false);
+      // })
+      axios.get(url)
+  .then((res) => {
+    const all = Array.isArray(res.data) ? res.data : res.data.products || [];
+
+    // For litre products, only show the smallest size in the shop grid
+    const seen = new Map();
+    all.forEach((p) => {
+      if (p.unit === "litre") {
+        const key = p.name.toLowerCase().trim();
+        const existing = seen.get(key);
+        if (!existing || Number(p.weight) < Number(existing.weight)) {
+          seen.set(key, p);
+        }
+      }
+    });
+
+    const filtered = all.filter((p) => {
+      if (p.unit !== "litre") return true;
+      const key = p.name.toLowerCase().trim();
+      return seen.get(key)?._id === p._id;
+    });
+
+    setProducts(filtered);
+    setLoading(false);
+  }).catch((err) => {
         console.error("Failed to fetch products:", err);
         setLoading(false);
       });

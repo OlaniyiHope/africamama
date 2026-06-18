@@ -6,6 +6,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useTheme } from "../context/ThemeContext";
 import { useCart } from "../context/CartContext";
+
 const Single = () => {
   const { tokens } = useTheme();
   const { id } = useParams();
@@ -16,6 +17,9 @@ const Single = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [litres, setLitres] = useState(1);
 const [protein, setProtein] = useState("");
+const [siblings, setSiblings] = useState([]);
+const [selectedProduct, setSelectedProduct] = useState(null);
+
 const { addToCart } = useCart();
 
   useEffect(() => {
@@ -32,6 +36,34 @@ const { addToCart } = useCart();
       });
   }, [id]);
 
+
+
+// Add this effect after your existing product fetch useEffect:
+useEffect(() => {
+  if (!product) return;
+
+  if (product.unit === "litre") {
+    // Fetch all products in the same category to find size variants
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/api/db/products/category/${product.category?._id || product.category}`)
+      .then((res) => {
+        const all = Array.isArray(res.data) ? res.data : res.data.products || [];
+        const variants = all
+          .filter(
+            (p) =>
+              p.name.toLowerCase().trim() === product.name.toLowerCase().trim() &&
+              p.unit === "litre"
+          )
+          .sort((a, b) => Number(a.weight) - Number(b.weight));
+        setSiblings(variants);
+        setSelectedProduct(product); // default = current product
+      })
+      .catch(console.error);
+  } else {
+    setSiblings([]);
+    setSelectedProduct(product);
+  }
+}, [product]);
   if (loading) {
     return (
       <>
