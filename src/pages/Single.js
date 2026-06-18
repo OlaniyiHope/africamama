@@ -558,6 +558,19 @@ onClick={() => {
       ))}
   </span>
 )}
+
+{product.ingredients?.length > 0 && !product.ingredients.every(i => i.toLowerCase() === "none") && (
+  <span style={{ display: "block", marginTop: 6, color: tokens.textMuted }}>
+    Ingredients:{" "}
+    {product.ingredients
+      .filter(i => i.toLowerCase() !== "none")
+      .map((ing, i, arr) => (
+        <span key={i} style={{ color: tokens.body }}>
+          {ing}{i < arr.length - 1 ? ", " : ""}
+        </span>
+      ))}
+  </span>
+)}
                             {product.tag?.length > 0 && (
                               <span className="tagged_as" style={{ color: tokens.textMuted }}>
                                 Tags:{" "}
