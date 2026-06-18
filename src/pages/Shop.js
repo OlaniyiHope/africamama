@@ -793,13 +793,11 @@ const Shop = () => {
                                 }}>
                                   <span className="price">
                                     <span className="woocommerce-Price-amount amount" style={{ color: tokens.text }}>
-                                      <bdi>
-                                        <span className="woocommerce-Price-currencySymbol">£</span>
-
-                                        {Number(product.price).toLocaleString()}
-                                        
-                                         - {product.weight}L
-                                      </bdi>
+                                 <bdi>
+  <span className="woocommerce-Price-currencySymbol">£</span>
+  {Number(selectedProduct?.price ?? product.price).toLocaleString()}
+  <span style={{ marginLeft: 8 }}>— {(selectedProduct?.weight ?? product.weight)}L</span>
+</bdi>
                                     </span>
                                   </span>
 
