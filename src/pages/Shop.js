@@ -740,7 +740,7 @@ const Shop = () => {
                                             color: tokens.btnOutlineText,
                                             background: "transparent",
                                             padding: "8px 18px",
-                                            fontSize: 11,
+                                            fontSize: 16,
                                             letterSpacing: "0.12em",
                                             textDecoration: "none",
                                             display: "inline-block",
