@@ -287,7 +287,7 @@ useEffect(() => {
                           </h3>
 
                           {/* Price */}
-                          <p className="price">
+                          {/* <p className="price">
                             <span
                               className="woocommerce-Price-amount amount"
                               style={{ color: tokens.text }}
@@ -297,8 +297,19 @@ useEffect(() => {
                                 {Number(product.price).toLocaleString()}
                               </bdi>
                             </span>
-                          </p>
-
+                          </p> */}
+{/* Price */}
+<p className="price">
+  <span
+    className="woocommerce-Price-amount amount"
+    style={{ color: tokens.text }}
+  >
+    <bdi>
+      <span className="woocommerce-Price-currencySymbol">£</span>
+      {Number(selectedProduct?.price ?? product.price).toLocaleString()}
+    </bdi>
+  </span>
+</p>
                           {/* Short description */}
                           <div className="woocommerce-product-details__short-description">
                             <p style={{ textAlign: "left", color: tokens.body }}>
@@ -371,7 +382,7 @@ useEffect(() => {
                               </span>
                             )}
   {/* Litres selector */}
-  <div style={{ marginBottom: 16 }}>
+  {/* <div style={{ marginBottom: 16 }}>
     <label style={{ color: tokens.body, fontSize: 13, display: "block", marginBottom: 6 }}>
       How many litres would you like?
     </label>
@@ -396,8 +407,36 @@ useEffect(() => {
         </button>
       ))}
     </div>
+  </div> */}
+{/* Litres selector — dynamic from DB siblings */}
+{product.unit === "litre" && siblings.length > 0 && (
+  <div style={{ marginBottom: 16 }}>
+    <label style={{ color: tokens.body, fontSize: 13, display: "block", marginBottom: 6 }}>
+      Choose your size:
+    </label>
+    <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+      {siblings.map((s) => (
+        <button
+          key={s._id}
+          type="button"
+          onClick={() => setSelectedProduct(s)}
+          style={{
+            width: 64, height: 44,
+            border: `1px solid ${selectedProduct?._id === s._id ? tokens.text : tokens.border}`,
+            background: selectedProduct?._id === s._id ? tokens.text : "transparent",
+            color: selectedProduct?._id === s._id ? tokens.pageBg : tokens.text,
+            cursor: "pointer",
+            fontSize: 13,
+            fontFamily: "inherit",
+            transition: "all 0.2s ease",
+          }}
+        >
+          {s.weight}L
+        </button>
+      ))}
+    </div>
   </div>
-
+)}
   {/* Protein selector — only for Rice Dishes */}
   {categoryName?.toLowerCase().includes("rice") && (
     <div style={{ marginBottom: 16 }}>
@@ -459,18 +498,32 @@ useEffect(() => {
     //   const proteinNote = protein ? ` | Protein: ${protein}` : "";
     //   alert(`Added ${quantity} × ${product.name} — ${litres}L${proteinNote} to cart`);
     // }}
-    onClick={() => {
+//     onClick={() => {
+//   if (categoryName?.toLowerCase().includes("rice") && !protein) return;
+
+//   addToCart({
+//     _id: product._id,
+//     name: product.name,
+//     price: product.price,
+//     image: product.images?.[0] || "",
+//     // quantity: litres,
+//      quantity: Number(litres), 
+//     litres: litres,
+
+//     protein: protein || null,
+//   });
+// }}
+onClick={() => {
   if (categoryName?.toLowerCase().includes("rice") && !protein) return;
 
+  const activeProduct = selectedProduct || product;
   addToCart({
-    _id: product._id,
-    name: product.name,
-    price: product.price,
-    image: product.images?.[0] || "",
-    // quantity: litres,
-     quantity: Number(litres), 
-    litres: litres,
-
+    _id: activeProduct._id,
+    name: activeProduct.name,
+    price: activeProduct.price,
+    image: activeProduct.images?.[0] || product.images?.[0] || "",
+    quantity: 1,
+    litres: Number(activeProduct.weight),
     protein: protein || null,
   });
 }}
