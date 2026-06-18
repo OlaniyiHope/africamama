@@ -798,7 +798,7 @@ const Shop = () => {
 
                                         {Number(product.price).toLocaleString()}
                                         
-                                        {product.weight}L
+                                         - {product.weight}L
                                       </bdi>
                                     </span>
                                   </span>
