@@ -795,7 +795,10 @@ const Shop = () => {
                                     <span className="woocommerce-Price-amount amount" style={{ color: tokens.text }}>
                                       <bdi>
                                         <span className="woocommerce-Price-currencySymbol">£</span>
+
                                         {Number(product.price).toLocaleString()}
+                                        
+                                        {product.weight}L
                                       </bdi>
                                     </span>
                                   </span>
