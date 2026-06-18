@@ -386,13 +386,13 @@ useEffect(() => {
                   <div className="eltdf-eh-item-content" style={{ padding: "0 42px 0 0" }}>
                     <div className="eltdf-pricing-holder">
                       {[
-                        { name: "Jollof Rice", price: "2L: ₦35 / 4L: ₦55", desc: "Smoky Nigerian party jollof rice" },
-                        { name: "Fried Rice", price: "2L: ₦35 / 4L: ₦55", desc: "Nigerian-style fried rice" },
-                        { name: "Coconut Rice", price: "2L: ₦40 / 4L: ₦60", desc: "Fragrant coconut-infused rice" },
-                        { name: "Banga Rice", price: "2L: ₦40 / 4L: ₦60", desc: "Palm nut rice, a Delta classic" },
-                        { name: "Beans & Plantain", price: "2L: ₦55 / 4L: ₦80", desc: "Nigerian honey beans with fried plantain" },
-                        { name: "Stir Fry Spaghetti", price: "2L: ₦35 / 4L: ₦58", desc: "Nigerian-style stir fried spaghetti" },
-                        { name: "Yam Porridge", price: "2L: ₦40 / 4L: ₦65", desc: "Asaro — soft yam cooked in palm oil and pepper" },
+                        { name: "Jollof Rice", price: "2L: £35 / 4L: £55", desc: "Smoky Nigerian party jollof rice" },
+                        { name: "Fried Rice", price: "2L: £35 / 4L: £55", desc: "Nigerian-style fried rice" },
+                        { name: "Coconut Rice", price: "2L: £40 / 4L: £60", desc: "Fragrant coconut-infused rice" },
+                        { name: "Banga Rice", price: "2L: £40 / 4L: £60", desc: "Palm nut rice, a Delta classic" },
+                        { name: "Beans & Plantain", price: "2L: £55 / 4L: £80", desc: "Nigerian honey beans with fried plantain" },
+                        { name: "Stir Fry Spaghetti", price: "2L: £35 / 4L: £58", desc: "Nigerian-style stir fried spaghetti" },
+                        { name: "Yam Porridge", price: "2L: £40 / 4L: £65", desc: "Asaro — soft yam cooked in palm oil and pepper" },
                         { name: "Moin Moin", price: "Min 5 pcs", desc: "Steamed bean pudding, wrapped and seasoned" },
                       ].map((item, i) => (
                         <div key={i} className="eltdf-pricing-item">
@@ -415,17 +415,17 @@ useEffect(() => {
                   <div className="eltdf-eh-item-content" style={{ padding: "0 0 0 42px" }}>
                     <div className="eltdf-pricing-holder">
                       {[
-                        { name: "Banga Soup", price: "2L: ₦60 / 4L: ₦75", desc: "Palm nut soup with dried fish and oburunbebe stick" },
-                        { name: "Ogbono Soup", price: "2L: ₦60 / 4L: ₦75", desc: "Draw soup with assorted meat and crayfish" },
-                        { name: "Egusi Soup", price: "2L: ₦55 / 4L: ₦70", desc: "Ground melon seed soup, palm oil, assorted meat" },
-                        { name: "Vegetable Soup", price: "2L: ₦60 / 4L: ₦85", desc: "Fresh leafy vegetable soup with assorted protein" },
-                        { name: "Oha Soup", price: "2L: ₦60 / 4L: ₦85", desc: "Oha leaves, cocoyam, palm oil, assorted meat" },
-                        { name: "Stew (Chicken/Beef)", price: "2L: ₦60 / 4L: ₦85", desc: "Rich tomato-based Nigerian stew" },
-                        { name: "Palm Oil Stew", price: "2L: ₦65 / 4L: ₦90", desc: "Native palm oil stew with assorted protein" },
-                        { name: "Okra", price: "2L: ₦57 / 4L: ₦80", desc: "Okra soup with assorted meat and seafood" },
-                        { name: "Ewedu & Stew", price: "2L: ₦60 / 4L: ₦85", desc: "Jute leaf soup served with gbegiri stew" },
-                        { name: "Pepper Soup", price: "2L: ₦60 / 4L: ₦85", desc: "Spiced broth with goat meat or catfish" },
-                        { name: "Ofada Sauce", price: "2L: ₦65 / 4L: ₦90", desc: "Ayamase green pepper stew, assorted offals" },
+                        { name: "Banga Soup", price: "2L: £60 / 4L: £75", desc: "Palm nut soup with dried fish and oburunbebe stick" },
+                        { name: "Ogbono Soup", price: "2L: £60 / 4L: £75", desc: "Draw soup with assorted meat and crayfish" },
+                        { name: "Egusi Soup", price: "2L: £55 / 4L: £70", desc: "Ground melon seed soup, palm oil, assorted meat" },
+                        { name: "Vegetable Soup", price: "2L: £60 / 4L: £85", desc: "Fresh leafy vegetable soup with assorted protein" },
+                        { name: "Oha Soup", price: "2L: £60 / 4L: £85", desc: "Oha leaves, cocoyam, palm oil, assorted meat" },
+                        { name: "Stew (Chicken/Beef)", price: "2L: £60 / 4L: £85", desc: "Rich tomato-based Nigerian stew" },
+                        { name: "Palm Oil Stew", price: "2L: £65 / 4L: £90", desc: "Native palm oil stew with assorted protein" },
+                        { name: "Okra", price: "2L: £57 / 4L: £80", desc: "Okra soup with assorted meat and seafood" },
+                        { name: "Ewedu & Stew", price: "2L: £60 / 4L: £85", desc: "Jute leaf soup served with gbegiri stew" },
+                        { name: "Pepper Soup", price: "2L: £60 / 4L: £85", desc: "Spiced broth with goat meat or catfish" },
+                        { name: "Ofada Sauce", price: "2L: £65 / 4L: £90", desc: "Ayamase green pepper stew, assorted offals" },
                         { name: "Asun", price: "— ", desc: "Smoked peppered goat meat" },
                         { name: "Gizdodo", price: "—", desc: "Peppered gizzard and fried plantain" },
                         { name: "Beef Suya", price: "—", desc: "Spiced grilled beef with yaji pepper" },
